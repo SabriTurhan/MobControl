@@ -55,6 +55,10 @@ namespace Watermelon.Dustwater
                 Save(renderer.Render(supplies, new Vector3(-0.6f, -0.55f, -1f), 0.8f, true), SUPPLIES_ICON);
                 Object.DestroyImmediate(supplies);
 
+                GameObject chest = renderer.Spawn(AssetDatabase.LoadAssetAtPath<GameObject>(PREFABS + "Gameplay/Chest/Chest.prefab"));
+                Save(renderer.Render(chest, new Vector3(-0.55f, -0.45f, 1f), 0.75f, true), ICONS + "/chest.png");
+                Object.DestroyImmediate(chest);
+
                 GameObject sandbags = renderer.Spawn(AssetDatabase.LoadAssetAtPath<GameObject>(DustwaterUnitsBuilder.SANDBAGS));
                 Save(renderer.Render(sandbags, new Vector3(-0.35f, -0.5f, -1f), 0.8f, true), ICONS + "/threat_barricades.png");
                 Object.DestroyImmediate(sandbags);

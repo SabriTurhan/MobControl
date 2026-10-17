@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630b4fdeef09b4e60816057d141ce6c3, type: 3}
+  m_Name: Dustwater UI Style
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.DustwaterUIStyle
+  font: {fileID: 11400000, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
+  fontOutline: {fileID: 11400000, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
+  panelWhite: {fileID: 21300000, guid: a080fdd4446f73749b5e4bcf94e488dd, type: 3}
+  panelBlue: {fileID: 21300000, guid: f4f13b0726a06724986bbd862bed2a04, type: 3}
+  panelDark: {fileID: 21300000, guid: eae63556ab6179046a458da3bdc70694, type: 3}
+  panelRed: {fileID: 21300000, guid: b91d70028c46b9147bd9a5c2a6223e56, type: 3}
+  panelOutlinedDark: {fileID: 21300000, guid: 5d657f787c0c45048957d78a386a332e, type: 3}
+  itemBackground: {fileID: 21300000, guid: a080fdd4446f73749b5e4bcf94e488dd, type: 3}
+  itemFrame: {fileID: 21300000, guid: 22b59f6f63c66e140ace199dac3fcbc6, type: 3}
+  cardCommon: {fileID: 21300000, guid: 3249f9e2f5b69e1478a31b9d203a411b, type: 3}
+  cardRare: {fileID: 21300000, guid: afcb18a24c52f8f40806fdf76c55c929, type: 3}
+  cardEpic: {fileID: 21300000, guid: 265296c2ef0fb0148a7f06f5dd271ba4, type: 3}
+  headerOrange: {fileID: 21300000, guid: 9d5494aa6d724994cb89b4e7ea28e6ba, type: 3}
+  roundedBack: {fileID: 21300000, guid: bd0bb2ebf32d8c142802818c66c4592e, type: 3}
+  square: {fileID: 21300000, guid: b2cd59f01127dbe46b6ef55574585e4b, type: 3}
+  circle: {fileID: 21300000, guid: bd0bb2ebf32d8c142802818c66c4592e, type: 3}
+  shine: {fileID: 21300000, guid: 4986cfa6c195b334a9907c5a540efcfc, type: 3}
+  buttonGreen: {fileID: 21300000, guid: 707f4a8cd16084649b85184ef96d4c21, type: 3}
+  buttonOrange: {fileID: 21300000, guid: 914a360ea92b94a47864ace71719243d, type: 3}
+  buttonRed: {fileID: 21300000, guid: 3ff9817fc25262747a17ff426acd069c, type: 3}
+  buttonGray: {fileID: 21300000, guid: 5c3f758ad7d676449bf987931f506c76, type: 3}
+  buttonPurple: {fileID: 21300000, guid: 2ed0f924f4b5cd943b85a87245462d49, type: 3}
+  buttonClose: {fileID: 21300000, guid: 8eb84762d00580348ad4e5586eef66f2, type: 3}
+  money: {fileID: 21300000, guid: 73f72b305cd332a4895687f49e7b1afb, type: 3}
+  supplies: {fileID: 21300000, guid: b1b649ab8ac4c4a66a64642b3ff864de, type: 3}
+  star: {fileID: 21300000, guid: ba48b895cde381941acbe44bb1938df6, type: 3}
+  checkmark: {fileID: 21300000, guid: ceb8f24bf3b5e7d4caaf7c2c3fd0199f, type: 3}
+  questionMark: {fileID: 21300000, guid: 6013a65f6409adb4dadd6fff6601d03e, type: 3}
+  plus: {fileID: 21300000, guid: 0147d9ec7c18d7048b49fe0c92bf0206, type: 3}
+  store: {fileID: 21300000, guid: 5509d351514b11a4bb9b48d1e9a671b6, type: 3}
+  skins: {fileID: 0}
+  town: {fileID: 21300000, guid: 5509d351514b11a4bb9b48d1e9a671b6, type: 3}
+  squad: {fileID: 21300000, guid: 0c9cad92815e448478b8a90a68c61222, type: 3}
+  battle: {fileID: 21300000, guid: 326c3e37fb0e8fe4da390b31399c255a, type: 3}
+  chest: {fileID: 21300000, guid: 9ccfc59ec236049479e8536b16b27eab, type: 3}
+  heart: {fileID: 21300000, guid: c30e696c126969e4a9d020b50ee8fc24, type: 3}
+  commanderPortrait: {fileID: 21300000, guid: 0c9cad92815e448478b8a90a68c61222, type: 3}
+  commanderName: SGT. MASON
+  dark: {r: 0.18039216, g: 0.17254902, b: 0.24313726, a: 1}
+  textDark: {r: 0.23529412, g: 0.22745098, b: 0.30588236, a: 1}
+  green: {r: 0.24313726, g: 0.78431374, b: 0.3529412, a: 1}
+  gold: {r: 1, g: 0.76862746, b: 0.18039216, a: 1}
+  red: {r: 0.9098039, g: 0.27450982, b: 0.27450982, a: 1}
+  blue: {r: 0.30588236, g: 0.5176471, b: 0.99215686, a: 1}
+  dim: {r: 0, g: 0, b: 0, a: 0.62}

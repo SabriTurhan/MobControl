@@ -256,6 +256,8 @@ MonoBehaviour:
     firstLevel: 1
     lastLevel: 10
     bossName: Lieutenant Rattler
+    bossPortrait: {fileID: 21300000, guid: f19d6d9679eb84ca8b60d7ace9271b8c, type: 3}
+    bossTaunt: Rangers in MY town? The boys will fill you with holes!
     introLines:
     - The Red Scorpions hold the road into Dustwater.
     - Clear the outskirts, Commander!
@@ -267,6 +269,8 @@ MonoBehaviour:
     firstLevel: 11
     lastLevel: 20
     bossName: Big Jaws
+    bossPortrait: {fileID: 21300000, guid: 9b2ec47a0778147279a6caeabacf5eea, type: 3}
+    bossTaunt: Main Street is mine. Nobody walks past Big Jaws!
     introLines:
     - Main Street is the heart of Dustwater.
     - Big Jaws guards it with an iron grip.
@@ -278,6 +282,8 @@ MonoBehaviour:
     firstLevel: 21
     lastLevel: 30
     bossName: Boss Vex
+    bossPortrait: {fileID: 21300000, guid: 1f6b737ea4a944bba87ccb4d8e98eb01, type: 3}
+    bossTaunt: You took my town, Commander. You will not take my fort!
     introLines:
     - Vex hides in his fort at the edge of town.
     - This is the final push, Commander!

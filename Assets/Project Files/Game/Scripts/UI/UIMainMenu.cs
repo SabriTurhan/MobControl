@@ -29,6 +29,11 @@ namespace Watermelon
         [SerializeField] UIUpgradesPanel upgradesPanel;
         
         private TweenCase tapToPlayPingPong;
+
+        // Dustwater: the campaign hub (tabs, briefing) replaces the Play button and the upgrades panel
+        public static event SimpleCallback Shown;
+        public static event SimpleCallback Hidden;
+        public static bool IsCampaignHubActive { get; set; }
         private TweenCase showHideStoreAdButtonDelayTweenCase;
 
         private void OnEnable()
@@ -57,6 +62,12 @@ namespace Watermelon
             noAdsPopUp.Initialise();
 
             NotchSaveArea.RegisterRectTransform(safeAreaRectTransform);
+
+            if (IsCampaignHubActive)
+            {
+                playButton.gameObject.SetActive(false);
+                upgradesPanel.gameObject.SetActive(false);
+            }
         }
 
         // Letting UpgradesController get initialised
@@ -86,6 +97,8 @@ namespace Watermelon
             });
 
             UIController.OnPageOpened(this);
+
+            Shown?.Invoke();
         }
 
         public override void PlayHideAnimation()
@@ -100,6 +113,8 @@ namespace Watermelon
             HideAdButton(immediately: true);
 
             UIController.OnPageClosed(this);
+
+            Hidden?.Invoke();
         }
 
         #endregion

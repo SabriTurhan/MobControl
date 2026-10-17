@@ -1251,6 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Watermelon.CampaignController
   database: {fileID: 11400000, guid: e3b68857d66a4475c8391c0becfd70b2, type: 2}
+  uiStyle: {fileID: 11400000, guid: 0c2d0f6190800467e88839ccc284940c, type: 2}
 --- !u!1 &1949273328
 GameObject:
   m_ObjectHideFlags: 0

@@ -105,6 +105,8 @@ namespace Watermelon
         public int firstLevel;
         public int lastLevel;
         public string bossName;
+        public Sprite bossPortrait;
+        [TextArea] public string bossTaunt;
         [TextArea] public List<string> introLines = new List<string>();
         [TextArea] public List<string> outroLines = new List<string>();
     }

@@ -22,6 +22,7 @@ namespace Watermelon.Dustwater
             RegisterLevelsDatabase();
             RegisterCurrency();
             BuildCampaignDatabase();
+            BuildUIStyle();
             SetupGameScene();
 
             AssetDatabase.SaveAssets();
@@ -167,6 +168,7 @@ namespace Watermelon.Dustwater
 
             SerializedObject campaignSo = new SerializedObject(campaign);
             campaignSo.FindProperty("database").objectReferenceValue = AssetDatabase.LoadAssetAtPath<CampaignDatabase>(CAMPAIGN_DATABASE);
+            campaignSo.FindProperty("uiStyle").objectReferenceValue = AssetDatabase.LoadAssetAtPath<DustwaterUIStyle>(UI_STYLE);
             campaignSo.ApplyModifiedPropertiesWithoutUndo();
 
             ParticlesController particles = Object.FindFirstObjectByType<ParticlesController>();
@@ -189,6 +191,72 @@ namespace Watermelon.Dustwater
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
         }
+
+        #endregion
+
+        #region UI style
+
+        public const string UI_STYLE = "Assets/Project Files/Data/Campaign/Dustwater UI Style.asset";
+
+        private static void BuildUIStyle()
+        {
+            DustwaterUIStyle style = AssetDatabase.LoadAssetAtPath<DustwaterUIStyle>(UI_STYLE);
+            if (style == null)
+            {
+                style = ScriptableObject.CreateInstance<DustwaterUIStyle>();
+                AssetDatabase.CreateAsset(style, UI_STYLE);
+            }
+
+            const string GU = "Assets/Project Files/Game/Images/Base/General UI/";
+            const string ST = "Assets/Project Files/Game/Images/Base/Store/";
+            const string CO = "Assets/Watermelon Core/Core Resources/Images/";
+            const string FONTS = "Assets/Project Files/Game/Fonts/FredokaOne/FredokaOne 50/";
+
+            style.font = AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>(FONTS + "FredokaOne 50.asset");
+            style.fontOutline = AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>(FONTS + "FredokaOne 50 Outline.asset");
+
+            style.panelWhite = S(ST + "item_background.png");
+            style.panelBlue = S(GU + "panel_blue.png");
+            style.panelDark = S(GU + "panel_dark.png");
+            style.panelRed = S(GU + "panel_red.png");
+            style.panelOutlinedDark = S(GU + "panel_outlined_dark.png");
+            style.itemBackground = S(ST + "item_background.png");
+            style.itemFrame = S(ST + "item_frame.png");
+            style.cardCommon = S(ST + "panel_blue_store.png");
+            style.cardRare = S(ST + "panel_purple_store.png");
+            style.cardEpic = S(ST + "panel_yellow_white.png");
+            style.headerOrange = S(ST + "header_orange.png");
+            style.roundedBack = S(CO + "core_universal_back.png");
+            style.square = S(CO + "core_square.png");
+            style.circle = S(CO + "core_universal_back.png");
+            style.shine = S(GU + "grad_shine_round.png");
+
+            style.buttonGreen = S(GU + "btn_green.png");
+            style.buttonOrange = S(GU + "btn_orange.png");
+            style.buttonRed = S(GU + "btn_red.png");
+            style.buttonGray = S(GU + "btn_gray.png");
+            style.buttonPurple = S(GU + "btn_purple.png");
+            style.buttonClose = S(GU + "btn_close.png");
+
+            style.money = S("Assets/Project Files/Game/Images/Base/Currency/money.png");
+            style.supplies = S(DustwaterIcons.SUPPLIES_ICON);
+            style.star = S(GU + "ic_star_small.png");
+            style.checkmark = S(GU + "checkmark.png");
+            style.questionMark = S(ST + "questionmark.png");
+            style.plus = S(GU + "ic_plus.png");
+            style.store = S(GU + "ic_store.png");
+            style.heart = S(GU + "heart.png");
+            style.town = DustwaterIcons.Icon("town") ?? S(GU + "ic_store.png");
+            style.squad = DustwaterIcons.Portrait("ranger");
+            style.battle = S("Assets/Project Files/Game/Images/Base/Gates/booster_rifle.png");
+            style.chest = DustwaterIcons.Icon("chest");
+            style.commanderPortrait = DustwaterIcons.Portrait("ranger");
+            style.commanderName = "SGT. MASON";
+
+            EditorUtility.SetDirty(style);
+        }
+
+        private static Sprite S(string path) => AssetDatabase.LoadAssetAtPath<Sprite>(path);
 
         #endregion
 
@@ -235,13 +303,13 @@ namespace Watermelon.Dustwater
                 L(900, 80, 10), L(1600, 130, 20), L(2600, 200, 30)));
 
             database.Chapters.Clear();
-            database.Chapters.Add(Chapter("OUTSKIRTS", "Gas station and water tower", 1, 10, "Lieutenant Rattler",
+            database.Chapters.Add(Chapter("OUTSKIRTS", "Gas station and water tower", 1, 10, "Lieutenant Rattler", "boss_rattler", "Rangers in MY town? The boys will fill you with holes!",
                 new[] { "The Red Scorpions hold the road into Dustwater.", "Clear the outskirts, Commander!" },
                 new[] { "Rattler is down! The outskirts are free.", "Townsfolk are coming back. Time to rebuild!" }));
-            database.Chapters.Add(Chapter("MAIN STREET", "Saloon and market", 11, 20, "Big Jaws",
+            database.Chapters.Add(Chapter("MAIN STREET", "Saloon and market", 11, 20, "Big Jaws", "boss_jaws", "Main Street is mine. Nobody walks past Big Jaws!",
                 new[] { "Main Street is the heart of Dustwater.", "Big Jaws guards it with an iron grip." },
                 new[] { "Big Jaws is finished!", "Only the Scorpion Fort remains." }));
-            database.Chapters.Add(Chapter("SCORPION FORT", "Vex's stronghold", 21, 30, "Boss Vex",
+            database.Chapters.Add(Chapter("SCORPION FORT", "Vex's stronghold", 21, 30, "Boss Vex", "boss_vex", "You took my town, Commander. You will not take my fort!",
                 new[] { "Vex hides in his fort at the edge of town.", "This is the final push, Commander!" },
                 new[] { "Vex runs off into the desert. Dustwater is free!", "Keep patrolling the roads, Commander." }));
 
@@ -279,9 +347,13 @@ namespace Watermelon.Dustwater
             return new BuildingData() { type = type, displayName = name, description = description, valueFormat = format, unlockAfterLevel = unlock, levels = new List<BuildingLevelData>(levels) };
         }
 
-        private static ChapterData Chapter(string title, string subtitle, int first, int last, string boss, string[] intro, string[] outro)
+        private static ChapterData Chapter(string title, string subtitle, int first, int last, string boss, string bossPortrait, string taunt, string[] intro, string[] outro)
         {
-            return new ChapterData() { title = title, subtitle = subtitle, firstLevel = first, lastLevel = last, bossName = boss, introLines = new List<string>(intro), outroLines = new List<string>(outro) };
+            return new ChapterData()
+            {
+                title = title, subtitle = subtitle, firstLevel = first, lastLevel = last, bossName = boss, bossPortrait = DustwaterIcons.Portrait(bossPortrait), bossTaunt = taunt,
+                introLines = new List<string>(intro), outroLines = new List<string>(outro),
+            };
         }
 
         private static ThreatInfo Threat(ThreatType type, string name, string description, Color color)

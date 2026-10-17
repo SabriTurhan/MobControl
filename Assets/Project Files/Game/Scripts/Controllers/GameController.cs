@@ -90,6 +90,9 @@ namespace Watermelon
 
             levelController.StartLevel();
 
+            if (Campaign.IsInitialised)
+                Campaign.OnRunStarted();
+
             UIController.HidePage<UIMainMenu>(UIController.ShowPage<UIGame>);
 
             SavePresets.CreateSave("Level " + (save.LevelNumber + 1).ToString("000"), "Levels");
@@ -126,6 +129,9 @@ namespace Watermelon
 
             UIController.HidePage<UIGame>();
             UIController.ShowPage<UIComplete>();
+
+            if (Campaign.IsInitialised)
+                Campaign.OnLevelCompleted(save.LevelNumber + 1, LevelController.LevelData != null && LevelController.LevelData.IsBossLevel);
 
             save.IncrementLevelNumber();
             OnLevelChangedEvent?.Invoke();

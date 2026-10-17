@@ -374,17 +374,75 @@ namespace Watermelon
 
         #endregion
 
+        #region Run
+
+        public class LevelResult
+        {
+            public int levelNumber;
+            public bool isBoss;
+            public int supplies;
+            public CardReward card;
+            /// <summary>Chapter index finished by this level, -1 if none.</summary>
+            public int chapterCompleted = -1;
+        }
+
+        /// <summary>Result of the last finished level, shown by the hub when the player is back in the menu.</summary>
+        public static LevelResult PendingResult { get; set; }
+
+        public static int RevivesUsed { get; private set; }
+        public static int FreeRevivesLeft => Mathf.Max(0, FreeRevives - RevivesUsed);
+
+        private static int suppliesAtStart;
+
+        public static void OnRunStarted()
+        {
+            RevivesUsed = 0;
+            suppliesAtStart = CurrencyController.Get(CurrencyType.Supplies);
+        }
+
+        public static bool TryUseFreeRevive()
+        {
+            if (FreeRevivesLeft <= 0) return false;
+
+            RevivesUsed++;
+            return true;
+        }
+
+        /// <param name="levelNumber">1-based number of the level that was just finished</param>
+        public static void OnLevelCompleted(int levelNumber, bool isBossLevel)
+        {
+            LevelResult result = new LevelResult()
+            {
+                levelNumber = levelNumber,
+                isBoss = isBossLevel,
+                supplies = Mathf.Max(0, CurrencyController.Get(CurrencyType.Supplies) - suppliesAtStart),
+            };
+
+            int chapter = Database.GetChapterIndex(levelNumber);
+            if (chapter >= 0 && Database.Chapters[chapter].lastLevel == levelNumber)
+                result.chapterCompleted = chapter;
+
+            // the level counter is incremented right after this call: unlocks use the finished level number
+            result.card = RollChestCard(levelNumber, isBossLevel);
+
+            PendingResult = result;
+            MarkChanged();
+        }
+
+        #endregion
+
         #region Rewards
 
         /// <summary>Rolls the chest card for a finished level and adds it to the collection.</summary>
         public static CardReward RollChestCard(int levelNumber, bool isBossLevel)
         {
             // A card whose unlock level was just reached is introduced first
-            CardReward reward = GetIntroducedCard();
+            // levelNumber levels are completed once this one is finished
+            CardReward reward = GetIntroducedCard(levelNumber);
             if (reward == null)
             {
                 CardRarity rarity = RollRarity(isBossLevel);
-                reward = RollCardOfRarity(rarity);
+                reward = RollCardOfRarity(rarity, levelNumber);
             }
 
             if (reward == null) return null;
@@ -396,19 +454,19 @@ namespace Watermelon
             return reward;
         }
 
-        private static CardReward GetIntroducedCard()
+        private static CardReward GetIntroducedCard(int completed)
         {
             for (int i = 0; i < Database.Units.Count; i++)
             {
                 UnitCardData unit = Database.Units[i];
-                if (GetUnitSave(unit.id) == null && IsCardAvailable(unit.unlockAfterLevel))
+                if (GetUnitSave(unit.id) == null && completed >= unit.unlockAfterLevel)
                     return new CardReward() { isUnit = true, id = unit.id, copies = 1, rarity = unit.rarity };
             }
 
             for (int i = 0; i < Database.Weapons.Count; i++)
             {
                 WeaponCardData weapon = Database.Weapons[i];
-                if (GetWeaponSave(weapon.id) == null && IsCardAvailable(weapon.unlockAfterLevel))
+                if (GetWeaponSave(weapon.id) == null && completed >= weapon.unlockAfterLevel)
                     return new CardReward() { isUnit = false, id = weapon.id, copies = 1, rarity = weapon.rarity };
             }
 
@@ -432,7 +490,7 @@ namespace Watermelon
             return CardRarity.Common;
         }
 
-        private static CardReward RollCardOfRarity(CardRarity rarity)
+        private static CardReward RollCardOfRarity(CardRarity rarity, int completed)
         {
             List<CardReward> pool = new List<CardReward>();
 
@@ -442,14 +500,14 @@ namespace Watermelon
                 for (int i = 0; i < Database.Units.Count; i++)
                 {
                     UnitCardData unit = Database.Units[i];
-                    if ((int)unit.rarity == r && IsCardAvailable(unit.unlockAfterLevel))
+                    if ((int)unit.rarity == r && completed >= unit.unlockAfterLevel)
                         pool.Add(new CardReward() { isUnit = true, id = unit.id, copies = r == 0 ? 2 : 1, rarity = unit.rarity });
                 }
 
                 for (int i = 0; i < Database.Weapons.Count; i++)
                 {
                     WeaponCardData weapon = Database.Weapons[i];
-                    if ((int)weapon.rarity == r && IsCardAvailable(weapon.unlockAfterLevel))
+                    if ((int)weapon.rarity == r && completed >= weapon.unlockAfterLevel)
                         pool.Add(new CardReward() { isUnit = false, id = weapon.id, copies = r == 0 ? 2 : 1, rarity = weapon.rarity });
                 }
             }

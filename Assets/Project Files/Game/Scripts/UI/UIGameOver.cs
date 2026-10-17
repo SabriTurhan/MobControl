@@ -23,6 +23,9 @@ namespace Watermelon
 
         private TweenCase continuePingPongCase;
 
+        private TextMeshProUGUI continueLabel;
+        private string continueDefaultText;
+
         public override void Init()
         {
             continueButton.onClick.AddListener(ContinueButton);
@@ -34,6 +37,14 @@ namespace Watermelon
         public override void PlayShowAnimation()
         {
             levelFailed.Hide(immediately: true);
+
+            if (continueLabel == null) continueLabel = continueButton.GetComponentInChildren<TextMeshProUGUI>(true);
+            if (continueLabel != null)
+            {
+                if (continueDefaultText == null) continueDefaultText = continueLabel.text;
+                bool free = Campaign.IsInitialised && Campaign.FreeRevivesLeft > 0;
+                continueLabel.text = free ? "FREE REVIVE" : continueDefaultText;
+            }
             continueButtonScalable.Hide(immediately: true);
             HideNoThanksButton();
 
@@ -102,6 +113,13 @@ namespace Watermelon
         public void ContinueButton()
         {
             AudioController.PlaySound(AudioController.AudioClips.buttonSound);
+
+            // Field Hospital: free revives before the rewarded video
+            if (Campaign.IsInitialised && Campaign.TryUseFreeRevive())
+            {
+                GameController.OnRevive();
+                return;
+            }
 
             AdsManager.ShowRewardBasedVideo((watched) =>
             {
