@@ -1309,7 +1309,7 @@ namespace Watermelon.LevelEditor
             }
         }
 
-        [SerializeField]
+        
         private enum ItemType
         {
             Gates = 0,
