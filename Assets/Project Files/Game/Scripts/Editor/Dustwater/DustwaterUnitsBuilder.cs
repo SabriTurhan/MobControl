@@ -184,6 +184,7 @@ namespace Watermelon.Dustwater
                 AttachToBone(root, "Head", "Hat", banditHat);
                 AttachToBone(root, "Head", "Bandana", redBandana);
                 CopyWeaponPlacement(root.GetComponent<EnemyBehavior>(), "rifle", "sniper");
+                CopyWeaponPlacement(root.GetComponent<EnemyBehavior>(), "rifle", "bandit_sniper");
                 AddSight(root, 34f);
             });
 
@@ -222,6 +223,7 @@ namespace Watermelon.Dustwater
             root.transform.localScale = Vector3.one * scale;
 
             EnemyBehavior enemy = root.GetComponent<EnemyBehavior>();
+            CopyWeaponPlacement(enemy, "minigun", "boss_minigun");
             BossBehavior boss = root.AddComponent<BossBehavior>();
             boss.SetData(bossName, enemy);
 

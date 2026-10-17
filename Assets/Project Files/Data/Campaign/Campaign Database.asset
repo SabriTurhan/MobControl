@@ -121,7 +121,7 @@ MonoBehaviour:
     displayName: Command Post
     description: Your headquarters. Every level adds a squad slot.
     valueFormat: '{0} squad slots'
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: cae40991819714c1bb4155608e9f9f51, type: 3}
     unlockAfterLevel: 0
     levels:
     - money: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
     displayName: Barracks
     description: Bunks and training. Tougher soldiers.
     valueFormat: +{0}% squad health
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 8c3bbacea2c47410a9747dd04e86b14a, type: 3}
     unlockAfterLevel: 2
     levels:
     - money: 60
@@ -162,7 +162,7 @@ MonoBehaviour:
     displayName: Armory
     description: Better ammo for every gun.
     valueFormat: +{0}% damage
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: bb6cea049c9d647b6ba43fac60e3f406, type: 3}
     unlockAfterLevel: 4
     levels:
     - money: 80
@@ -184,7 +184,7 @@ MonoBehaviour:
     displayName: Workshop
     description: Oiled and tuned weapons shoot faster.
     valueFormat: +{0}% fire rate
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: e4212fba644a94d0394f7fc1f0813aca, type: 3}
     unlockAfterLevel: 7
     levels:
     - money: 120
@@ -206,7 +206,7 @@ MonoBehaviour:
     displayName: Field Hospital
     description: Patches up the squad once it falls.
     valueFormat: '{0} free revive per mission'
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 00f741763c326487fafd91d3aa6c8cb7, type: 3}
     unlockAfterLevel: 10
     levels:
     - money: 300
@@ -219,7 +219,7 @@ MonoBehaviour:
     displayName: Saloon
     description: Grateful townsfolk pay for protection.
     valueFormat: +{0} cash per hour
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 3b6d72dbec6f54e619459034f4148938, type: 3}
     unlockAfterLevel: 13
     levels:
     - money: 400
@@ -238,7 +238,7 @@ MonoBehaviour:
     displayName: Watchtower
     description: Spot bandits early and shoot further.
     valueFormat: +{0}% range
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 8a01e638d41a945f89dc40d3940e8d2d, type: 3}
     unlockAfterLevel: 20
     levels:
     - money: 900

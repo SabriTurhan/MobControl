@@ -43,7 +43,7 @@ MonoBehaviour:
   plus: {fileID: 21300000, guid: 0147d9ec7c18d7048b49fe0c92bf0206, type: 3}
   store: {fileID: 21300000, guid: 5509d351514b11a4bb9b48d1e9a671b6, type: 3}
   skins: {fileID: 0}
-  town: {fileID: 21300000, guid: 5509d351514b11a4bb9b48d1e9a671b6, type: 3}
+  town: {fileID: 21300000, guid: 3b6d72dbec6f54e619459034f4148938, type: 3}
   squad: {fileID: 21300000, guid: 0c9cad92815e448478b8a90a68c61222, type: 3}
   battle: {fileID: 21300000, guid: 326c3e37fb0e8fe4da390b31399c255a, type: 3}
   chest: {fileID: 21300000, guid: 9ccfc59ec236049479e8536b16b27eab, type: 3}

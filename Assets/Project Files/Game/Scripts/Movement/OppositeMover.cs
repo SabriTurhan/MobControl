@@ -34,6 +34,7 @@ namespace Watermelon
             {
                 float speed = moveSpeed;
                 if (speedMultiplier.Enabled) speed *= speedMultiplier.Value;
+                speed *= MovementManager.AdvanceMultiplier;
 
                 transform.position += Vector3.back * speed * Time.fixedDeltaTime;
             }

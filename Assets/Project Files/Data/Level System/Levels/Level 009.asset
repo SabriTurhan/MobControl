@@ -12,165 +12,253 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c615044c00c70fd4487244b98279f25e, type: 3}
   m_Name: Level 009
   m_EditorClassIdentifier: 
-  note: Level 9
+  note: 'Mission 9: Rusty Rails'
   movementMode: 1
   cameraDataId: desert_camera
   rewardCurrency: 0
-  rewardAmount: 20
+  rewardAmount: 52
   playerSpawnPositionZ: 5
   characterType: 0
+  overrideBonusStage: {fileID: 0}
+  threats: 0200000001000000
+  isBossLevel: 0
+  operationName: Rusty Rails
   gatesData:
-  - id: gate_money
-    position: {x: 1.9829025, y: 0, z: 64.4204}
-    gateType: 6
+  - id: gate_weapon
+    position: {x: -1.5, y: 0, z: 30.6}
+    gateType: 1
     operationType: 0
-    numericalValue: 8
+    numericalValue: 1
+    updateOnHit: 0
+    step: 0.05
+    explicitId: minigun
+    charactersAmount: 1
+  - id: gate_health
+    position: {x: 1.5, y: 0, z: 30.6}
+    gateType: 2
+    operationType: 0
+    numericalValue: 4
     updateOnHit: 1
-    step: 0.5
+    step: 0.05
     explicitId: default_character
     charactersAmount: 1
-  - id: gate_money
-    position: {x: 1.7797642, y: 0, z: 30.59969}
-    gateType: 6
+  - id: gate_weapon
+    position: {x: -1.5, y: 0, z: 64.41}
+    gateType: 1
     operationType: 0
-    numericalValue: 7
+    numericalValue: 1
+    updateOnHit: 0
+    step: 0.05
+    explicitId: minigun
+    charactersAmount: 1
+  - id: gate_health
+    position: {x: 1.5, y: 0, z: 64.41}
+    gateType: 2
+    operationType: 0
+    numericalValue: 4
     updateOnHit: 1
-    step: 0.25
+    step: 0.05
     explicitId: default_character
     charactersAmount: 1
-  boostersData:
-  - id: booster_character
-    position: {x: -1.5, y: 0, z: 120.788246}
-    boosterType: 0
+  - id: gate_weapon
+    position: {x: -1.5, y: 0, z: 98.22}
+    gateType: 1
     operationType: 0
-    numericalValue: 0
+    numericalValue: 1
+    updateOnHit: 0
+    step: 0.05
+    explicitId: minigun
+    charactersAmount: 1
+  - id: gate_health
+    position: {x: 1.5, y: 0, z: 98.22}
+    gateType: 2
+    operationType: 0
+    numericalValue: 4
+    updateOnHit: 1
+    step: 0.05
     explicitId: default_character
     charactersAmount: 1
-  - id: booster_health
-    position: {x: 1.5, y: 0, z: 120.788246}
-    boosterType: 2
-    operationType: 1
-    numericalValue: 3
-    explicitId: 
-    charactersAmount: 0
-  - id: booster_character
-    position: {x: 1.4212675, y: 0, z: 41.873264}
-    boosterType: 0
+  - id: gate_weapon
+    position: {x: 1.5, y: 0, z: 132.03}
+    gateType: 1
     operationType: 0
-    numericalValue: 0
+    numericalValue: 1
+    updateOnHit: 0
+    step: 0.05
+    explicitId: minigun
+    charactersAmount: 1
+  - id: gate_health
+    position: {x: -1.5, y: 0, z: 132.03}
+    gateType: 2
+    operationType: 0
+    numericalValue: 4
+    updateOnHit: 1
+    step: 0.05
     explicitId: default_character
     charactersAmount: 1
-  - id: booster_weapon
-    position: {x: 1.5, y: 0, z: 19.326118}
-    boosterType: 1
-    operationType: 0
-    numericalValue: 0
-    explicitId: rifle
-    charactersAmount: 1
+  boostersData: []
   obstaclesData:
   - id: small_obstacle
-    position: {x: -1.5, y: 0, z: 109.514694}
-    dropType: -1
-    dropCurrencyType: 0
-    dropItemsCount: 0
-    dropItemValue: 0
-    health: 4
-    boosterHeight: 1
-  - id: small_obstacle
-    position: {x: 1.5, y: 0, z: 109.514694}
-    dropType: 1
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 1
-    health: 12
-    boosterHeight: 1
-  - id: small_obstacle
-    position: {x: 1.5, y: 0, z: 87.7728}
-    dropType: 1
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 5
-    health: 12
-    boosterHeight: 1
-  - id: small_obstacle
-    position: {x: 1.5, y: 0, z: 76.096596}
-    dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 2
-    dropItemValue: 2
-    health: 12
-    boosterHeight: 1
-  - id: small_obstacle
-    position: {x: 0.1472364, y: 0, z: 53.14683}
+    position: {x: -1.5, y: 0, z: 19.33}
     dropType: 0
     dropCurrencyType: 0
     dropItemsCount: 2
     dropItemValue: 1
-    health: 8
+    health: 16
     boosterHeight: 1
   - id: small_obstacle
-    position: {x: 0.1472364, y: 0, z: 50.731068}
-    dropType: -1
+    position: {x: 1.5, y: 0, z: 19.33}
+    dropType: 0
     dropCurrencyType: 0
-    dropItemsCount: 0
-    dropItemValue: 0
-    health: 10
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 13
+    boosterHeight: 1
+  - id: sandbags
+    position: {x: -1.5, y: 0, z: 41.870003}
+    dropType: 0
+    dropCurrencyType: 1
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 30
+    boosterHeight: 1
+  - id: supply_crate
+    position: {x: -1.5, y: 0, z: 53.14}
+    dropType: 0
+    dropCurrencyType: 1
+    dropItemsCount: 3
+    dropItemValue: 1
+    health: 24
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: 1.5, y: 0, z: 53.14}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 28
+    boosterHeight: 1
+  - id: sandbags
+    position: {x: 1.5, y: 0, z: 86.950005}
+    dropType: 0
+    dropCurrencyType: 1
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 30
+    boosterHeight: 1
+  - id: supply_crate
+    position: {x: -1.5, y: 0, z: 109.490005}
+    dropType: 0
+    dropCurrencyType: 1
+    dropItemsCount: 3
+    dropItemValue: 1
+    health: 24
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: 1.5, y: 0, z: 109.490005}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 25
+    boosterHeight: 1
+  - id: sandbags
+    position: {x: 1.5, y: 0, z: 120.76}
+    dropType: 0
+    dropCurrencyType: 1
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 30
     boosterHeight: 1
   enemiesData:
-  - id: enemy
-    position: {x: -1.5, y: 0, z: 98.241104}
+  - id: bandit_sniper
+    position: {x: -1.5, y: 0, z: 45.370003}
     dropType: 0
     dropCurrencyType: 0
-    dropItemsCount: 1
+    dropItemsCount: 2
     dropItemValue: 2
-    health: 6
-    damage: 1
-    fireRate: 0.38130865
-    gunId: default_gun
+    health: 20
+    damage: 3
+    fireRate: 0.55
+    gunId: bandit_sniper
   - id: enemy
-    position: {x: 1.5, y: 0, z: 98.241104}
-    dropType: 1
+    position: {x: -2, y: 0, z: 75.68}
+    dropType: 0
     dropCurrencyType: 0
     dropItemsCount: 1
     dropItemValue: 1
-    health: 8
-    damage: 1
-    fireRate: 0.47388968
+    health: 10
+    damage: 1.5
+    fireRate: 0.45
     gunId: none
-  - id: enemy_heavy
-    position: {x: -1.8529267, y: 0, z: 86.96755}
-    dropType: -1
-    dropCurrencyType: 0
-    dropItemsCount: 0
-    dropItemValue: 0
-    health: 12
-    damage: 1
-    fireRate: 0.67829967
-    gunId: none
-  - id: enemy_heavy
-    position: {x: -1.9779369, y: 0, z: 75.69398}
-    dropType: -1
-    dropCurrencyType: 0
-    dropItemsCount: 0
-    dropItemValue: 0
-    health: 20
-    damage: 1
-    fireRate: 0.6844149
-    gunId: minigun
-  - id: enemy_heavy
-    position: {x: -1.5, y: 0, z: 19.326118}
+  - id: enemy
+    position: {x: -1, y: 0, z: 77.28}
     dropType: 0
     dropCurrencyType: 0
     dropItemsCount: 1
+    dropItemValue: 1
+    health: 10
+    damage: 1.5
+    fireRate: 0.45
+    gunId: default_gun
+  - id: enemy
+    position: {x: 0, y: 0, z: 75.68}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 10
+    damage: 1.5
+    fireRate: 0.45
+    gunId: none
+  - id: enemy
+    position: {x: 1, y: 0, z: 77.28}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 10
+    damage: 1.5
+    fireRate: 0.45
+    gunId: default_gun
+  - id: enemy
+    position: {x: 2, y: 0, z: 75.68}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 10
+    damage: 1.5
+    fireRate: 0.45
+    gunId: none
+  - id: bandit_sniper
+    position: {x: 1.5, y: 0, z: 90.450005}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
     dropItemValue: 2
     health: 20
-    damage: 1
-    fireRate: 0.63376325
-    gunId: minigun
+    damage: 3
+    fireRate: 0.55
+    gunId: bandit_sniper
+  - id: bandit_sniper
+    position: {x: 1.5, y: 0, z: 124.26}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
+    dropItemValue: 2
+    health: 20
+    damage: 3
+    fireRate: 0.55
+    gunId: bandit_sniper
   finishLevelData:
   - id: finish
-    position: {x: 0, y: 0, z: 132.06181}
+    position: {x: 0, y: 0, z: 145.3}
   roadsData:
+  - id: road_desert
+    position: {x: 0, y: 0, z: 210}
+  - id: road_desert
+    position: {x: 0, y: 0, z: 200}
   - id: road_desert
     position: {x: 0, y: 0, z: 190}
   - id: road_desert
@@ -212,13 +300,15 @@ MonoBehaviour:
   - id: road_desert
     position: {x: 0, y: 0, z: 0}
   environmentLevelData:
-  - id: environment_desert
+  - id: environment_outskirts
+    position: {x: 0, y: 0, z: 200}
+  - id: environment_outskirts
     position: {x: 0, y: 0, z: 160}
-  - id: environment_desert
+  - id: environment_outskirts
     position: {x: 0, y: 0, z: 120}
-  - id: environment_desert
+  - id: environment_outskirts
     position: {x: 0, y: 0, z: 80}
-  - id: environment_desert
+  - id: environment_outskirts
     position: {x: 0, y: 0, z: 40}
-  - id: environment_desert
+  - id: environment_outskirts
     position: {x: 0, y: 0, z: 0}

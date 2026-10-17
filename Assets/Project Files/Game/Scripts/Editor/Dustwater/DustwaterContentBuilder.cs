@@ -41,6 +41,8 @@ namespace Watermelon.Dustwater
 
             SetGun(guns, "sniper", "Sniper Rifle", DustwaterUnitsBuilder.SNIPER_GUN, riflePose, fireRate: 0.4f, damage: 4.5f, range: 14f, speed: 45f, count: 1, spread: 0f, pierce: 2, splash: 0f);
             SetGun(guns, "grenade_launcher", "Grenade Launcher", DustwaterUnitsBuilder.LAUNCHER_GUN, riflePose, fireRate: 0.45f, damage: 2.6f, range: 3f, speed: 15f, count: 1, spread: 0f, pierce: 0, splash: 2.2f);
+            AnimationClip minigunPose = FindGun(guns, "minigun").FindPropertyRelative("poseAnimation").objectReferenceValue as AnimationClip;
+            SetGun(guns, "boss_minigun", "Boss Minigun", "Assets/Project Files/Game/Prefabs/Guns/Minigun.prefab", minigunPose, fireRate: 1f, damage: 1f, range: 17f, speed: 16f, count: 1, spread: 8f, pierce: 0, splash: 0f);
             SetGun(guns, "bandit_sniper", "Bandit Sniper Rifle", DustwaterUnitsBuilder.SNIPER_GUN, riflePose, fireRate: 1f, damage: 1f, range: 26f, speed: 32f, count: 1, spread: 0f, pierce: 0, splash: 0f);
 
             SerializedProperty characters = so.FindProperty("charactersData");
@@ -246,7 +248,7 @@ namespace Watermelon.Dustwater
             style.plus = S(GU + "ic_plus.png");
             style.store = S(GU + "ic_store.png");
             style.heart = S(GU + "heart.png");
-            style.town = DustwaterIcons.Icon("town") ?? S(GU + "ic_store.png");
+            style.town = DustwaterIcons.Icon("building_Saloon") ?? S(GU + "ic_store.png");
             style.squad = DustwaterIcons.Portrait("ranger");
             style.battle = S("Assets/Project Files/Game/Images/Base/Gates/booster_rifle.png");
             style.chest = DustwaterIcons.Icon("chest");

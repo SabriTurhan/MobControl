@@ -35,7 +35,7 @@ namespace Watermelon
 
         public override void Update()
         {
-            Position += Vector3.forward * ModeData.ForwardSpeed * Time.deltaTime;
+            Position += Vector3.forward * ModeData.ForwardSpeed * MovementManager.AdvanceMultiplier * Time.deltaTime;
         }
     }
 }

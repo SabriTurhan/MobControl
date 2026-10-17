@@ -36,6 +36,51 @@ namespace Watermelon
                 Active = null;
                 OnBossChanged?.Invoke();
             }
+
+            if (controllingMovement)
+            {
+                controllingMovement = false;
+                engaged = false;
+                MovementManager.AdvanceMultiplier = 1f;
+            }
+        }
+
+        [Tooltip("The squad stops this far in front of the boss and the fight plays out at a standoff")]
+        [SerializeField] float engageDistance = 12f;
+
+        private bool engaged;
+        private bool controllingMovement;
+
+        private void Update()
+        {
+            if (enemy == null || enemy.Health == null || !GameController.IsGameplayActive) return;
+
+            PlayerBehavior player = PlayerBehavior.Instance;
+            if (player == null) return;
+
+            bool alive = !enemy.Health.IsDepleted;
+            float distance = transform.position.z - player.transform.position.z;
+
+            if (!engaged && alive && distance > 0f && distance < engageDistance)
+            {
+                engaged = true;
+                controllingMovement = true;
+                player.SetIsMovingForward(false);
+                enemy.StartShooting();
+            }
+            else if (engaged && !alive)
+            {
+                engaged = false;
+                if (LevelController.LevelData != null && LevelController.LevelData.MovementMode == MovementModeType.Classic)
+                    player.SetIsMovingForward(true);
+            }
+
+            if (controllingMovement)
+            {
+                float target = engaged ? 0f : 1f;
+                MovementManager.AdvanceMultiplier = Mathf.MoveTowards(MovementManager.AdvanceMultiplier, target, Time.deltaTime * 2.5f);
+                if (!engaged && MovementManager.AdvanceMultiplier >= 1f) controllingMovement = false;
+            }
         }
 
         public float HealthFraction

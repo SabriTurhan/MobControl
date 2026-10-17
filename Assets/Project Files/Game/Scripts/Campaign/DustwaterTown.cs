@@ -14,6 +14,9 @@ namespace Watermelon
             Instance = this;
         }
 
+        /// <summary>What the Town tab displays (the town camera renders into it).</summary>
+        public virtual Texture Texture => null;
+
         public virtual void Show() { }
         public virtual void Hide() { }
         public virtual void Refresh() { }

@@ -12,109 +12,197 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c615044c00c70fd4487244b98279f25e, type: 3}
   m_Name: Level 001
   m_EditorClassIdentifier: 
-  note: Level 1
+  note: 'Mission 1: Dusty Crossroads'
   movementMode: 1
   cameraDataId: desert_camera
   rewardCurrency: 0
   rewardAmount: 20
-  playerSpawnPositionZ: 2
+  playerSpawnPositionZ: 5
   characterType: 0
+  overrideBonusStage: {fileID: 0}
+  threats: 
+  isBossLevel: 0
+  operationName: Dusty Crossroads
   gatesData:
   - id: gate_fire_rate
-    position: {x: 1.5827694, y: 0, z: 75.69398}
+    position: {x: -1.5, y: 0, z: 30.6}
     gateType: 4
+    operationType: 2
+    numericalValue: 1.2
+    updateOnHit: 1
+    step: 0.05
+    explicitId: default_character
+    charactersAmount: 1
+  - id: gate_range
+    position: {x: 1.5, y: 0, z: 30.6}
+    gateType: 5
     operationType: 0
-    numericalValue: 0.9
+    numericalValue: 1.6
+    updateOnHit: 1
+    step: 0.05
+    explicitId: default_character
+    charactersAmount: 1
+  - id: gate_fire_rate
+    position: {x: -1.5, y: 0, z: 64.41}
+    gateType: 4
+    operationType: 2
+    numericalValue: 1.2
+    updateOnHit: 1
+    step: 0.05
+    explicitId: default_character
+    charactersAmount: 1
+  - id: gate_range
+    position: {x: 1.5, y: 0, z: 64.41}
+    gateType: 5
+    operationType: 0
+    numericalValue: 1.6
+    updateOnHit: 1
+    step: 0.05
+    explicitId: default_character
+    charactersAmount: 1
+  - id: gate_weapon
+    position: {x: 1.5, y: 0, z: 98.22}
+    gateType: 1
+    operationType: 0
+    numericalValue: 1
+    updateOnHit: 0
+    step: 0.05
+    explicitId: minigun
+    charactersAmount: 1
+  - id: gate_health
+    position: {x: -1.5, y: 0, z: 98.22}
+    gateType: 2
+    operationType: 0
+    numericalValue: 3
     updateOnHit: 1
     step: 0.05
     explicitId: default_character
     charactersAmount: 1
   boostersData:
-  - id: booster_health
-    position: {x: -0.14173394, y: 0, z: 53.14683}
-    boosterType: 2
+  - id: booster_fire_rate
+    position: {x: 1.5, y: 1, z: 75.68}
+    boosterType: 4
     operationType: 0
-    numericalValue: 4
+    numericalValue: 0.3
     explicitId: 
     charactersAmount: 0
+  - id: booster_character
+    position: {x: 1.5, y: 1, z: 109.490005}
+    boosterType: 0
+    operationType: 0
+    numericalValue: 1
+    explicitId: default_character
+    charactersAmount: 1
   obstaclesData:
   - id: small_obstacle
-    position: {x: -1.5, y: 0, z: 64.4204}
-    dropType: 1
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 1
-    health: 2
-    boosterHeight: 1
-  - id: small_obstacle
-    position: {x: 1.5, y: 0, z: 64.4204}
-    dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 2
-    health: 2
-    boosterHeight: 1
-  - id: small_obstacle
-    position: {x: 1.5, y: 0, z: 41.873264}
-    dropType: 1
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 2
-    health: 4
-    boosterHeight: 1
-  - id: small_obstacle
-    position: {x: -0.34182835, y: 0, z: 19.326118}
+    position: {x: -1.5, y: 0, z: 19.33}
     dropType: 0
     dropCurrencyType: 0
     dropItemsCount: 2
-    dropItemValue: 2
+    dropItemValue: 1
     health: 2
     boosterHeight: 1
-  enemiesData:
-  - id: enemy
-    position: {x: -1.5, y: 0, z: 86.96755}
-    dropType: 1
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 1
-    health: 4
-    damage: 1
-    fireRate: 0.5
-    gunId: default_gun
-  - id: enemy
-    position: {x: 1.5, y: 0, z: 86.96755}
+  - id: small_obstacle
+    position: {x: 1.5, y: 0, z: 19.33}
     dropType: 0
     dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 1
-    health: 4
-    damage: 1
-    fireRate: 0.5
-    gunId: default_gun
-  - id: enemy_heavy
-    position: {x: -1.5, y: 0, z: 41.873264}
-    dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 3
-    dropItemValue: 1
-    health: 20
-    damage: 2
-    fireRate: 0.6
-    gunId: none
-  - id: enemy
-    position: {x: 0.59095883, y: 0, z: 30.59969}
-    dropType: 1
-    dropCurrencyType: 0
-    dropItemsCount: 1
+    dropItemsCount: 2
     dropItemValue: 1
     health: 2
-    damage: 1
-    fireRate: 0.5
-    gunId: none
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: 1.5, y: 0, z: 41.870003}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 5
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: -1.5, y: 0, z: 41.870003}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 2
+    health: 5
+    boosterHeight: 1
+  - id: supply_crate
+    position: {x: -1.5, y: 0, z: 53.14}
+    dropType: 0
+    dropCurrencyType: 1
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 6
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: 1.5, y: 0, z: 53.14}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 4
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: 1.5, y: 0, z: 75.68}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 4
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: -1.5, y: 0, z: 75.68}
+    dropType: 1
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 2
+    health: 4
+    boosterHeight: 1
+  - id: supply_crate
+    position: {x: 1.5, y: 0, z: 86.950005}
+    dropType: 0
+    dropCurrencyType: 1
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 6
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: -1.5, y: 0, z: 86.950005}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 4
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: 1.5, y: 0, z: 109.490005}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 4
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: -1.5, y: 0, z: 109.490005}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 2
+    health: 4
+    boosterHeight: 1
+  enemiesData: []
   finishLevelData:
   - id: finish
-    position: {x: 0, y: 0, z: 98.241104}
+    position: {x: 0, y: 0, z: 122.76}
   roadsData:
+  - id: road_desert
+    position: {x: 0, y: 0, z: 190}
+  - id: road_desert
+    position: {x: 0, y: 0, z: 180}
+  - id: road_desert
+    position: {x: 0, y: 0, z: 170}
+  - id: road_desert
+    position: {x: 0, y: 0, z: 160}
   - id: road_desert
     position: {x: 0, y: 0, z: 150}
   - id: road_desert
@@ -148,11 +236,15 @@ MonoBehaviour:
   - id: road_desert
     position: {x: 0, y: 0, z: 0}
   environmentLevelData:
-  - id: environment_desert
+  - id: environment_outskirts
+    position: {x: 0, y: 0, z: 200}
+  - id: environment_outskirts
+    position: {x: 0, y: 0, z: 160}
+  - id: environment_outskirts
     position: {x: 0, y: 0, z: 120}
-  - id: environment_desert
+  - id: environment_outskirts
     position: {x: 0, y: 0, z: 80}
-  - id: environment_desert
+  - id: environment_outskirts
     position: {x: 0, y: 0, z: 40}
-  - id: environment_desert
+  - id: environment_outskirts
     position: {x: 0, y: 0, z: 0}

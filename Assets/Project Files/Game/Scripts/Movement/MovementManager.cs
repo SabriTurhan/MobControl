@@ -18,6 +18,9 @@ namespace Watermelon
 
         private bool IsInitialised { get; set; }
 
+        /// <summary>Scales forward progress of the run (0 = the squad holds position, e.g. during a boss fight).</summary>
+        public static float AdvanceMultiplier { get; set; } = 1f;
+
         private void Awake()
         {
             if (!IsInitialised) Initialise();
@@ -78,6 +81,7 @@ namespace Watermelon
 
         public void ResetMovement()
         {
+            AdvanceMultiplier = 1f;
             currentMovementMode?.Reset();
         }
 

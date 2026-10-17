@@ -55,6 +55,16 @@ namespace Watermelon.Dustwater
                 Save(renderer.Render(supplies, new Vector3(-0.6f, -0.55f, -1f), 0.8f, true), SUPPLIES_ICON);
                 Object.DestroyImmediate(supplies);
 
+                // buildings (built by DustwaterTownBuilder), 3/4 view from the front-left
+                foreach (BuildingType type in System.Enum.GetValues(typeof(BuildingType)))
+                {
+                    GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(DustwaterUnitsBuilder.PREFABS + "/Town/" + BuildingPiece(type) + ".prefab");
+                    if (prefab == null) continue;
+                    GameObject building = renderer.Spawn(prefab);
+                    Save(renderer.Render(building, new Vector3(0.55f, -0.5f, 1f), 0.72f, true), ICONS + "/building_" + type + ".png");
+                    Object.DestroyImmediate(building);
+                }
+
                 GameObject chest = renderer.Spawn(AssetDatabase.LoadAssetAtPath<GameObject>(PREFABS + "Gameplay/Chest/Chest.prefab"));
                 Save(renderer.Render(chest, new Vector3(-0.55f, -0.45f, 1f), 0.75f, true), ICONS + "/chest.png");
                 Object.DestroyImmediate(chest);
@@ -120,6 +130,16 @@ namespace Watermelon.Dustwater
             Object.DestroyImmediate(outlined);
         }
 
+        public static string BuildingPiece(BuildingType type)
+        {
+            switch (type)
+            {
+                case BuildingType.CommandPost: return "Command Post";
+                case BuildingType.FieldHospital: return "Field Hospital";
+                default: return type.ToString();
+            }
+        }
+
         public static Sprite Portrait(string id) => AssetDatabase.LoadAssetAtPath<Sprite>(PORTRAITS + "/" + id + ".png");
         public static Sprite Icon(string name) => AssetDatabase.LoadAssetAtPath<Sprite>(ICONS + "/" + name + ".png");
 
@@ -137,6 +157,9 @@ namespace Watermelon.Dustwater
                 if (weaponArt.TryGetValue(weapon.id, out string file))
                     weapon.portrait = AssetDatabase.LoadAssetAtPath<Sprite>(GATES + file + ".png");
             }
+
+            foreach (BuildingData building in database.Buildings)
+                building.icon = Icon("building_" + building.type);
 
             foreach (ThreatInfo threat in database.Threats)
             {

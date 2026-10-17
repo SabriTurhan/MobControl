@@ -335,6 +335,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Rattler
       objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].weaponId
+      value: boss_minigun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].localScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].localScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].localScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].localOffset.x
+      value: -0.287
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].localOffset.y
+      value: 0.224
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].localOffset.z
+      value: -0.333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].localEulerAngles.x
+      value: 298.7271
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].localEulerAngles.y
+      value: 278.29514
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[4].localEulerAngles.z
+      value: 53.642426
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -400,3 +455,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Watermelon.BossBehavior
   bossName: LIEUTENANT RATTLER
   enemy: {fileID: 4805779244710959030}
+  engageDistance: 12

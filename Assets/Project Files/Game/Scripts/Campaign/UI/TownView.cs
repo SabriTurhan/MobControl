@@ -10,6 +10,7 @@ namespace Watermelon
         private readonly RectTransform root;
         private readonly RectTransform content;
         private readonly TextMeshProUGUI subtitle;
+        private readonly RawImage townImage;
 
         public bool IsVisible => root.gameObject.activeSelf;
 
@@ -19,8 +20,24 @@ namespace Watermelon
 
             root = DWUI.Rect(parent, "Town View").Stretch(0, 0, 0, 180);
 
+            // the 3D town, between the top bar and the building list
+            Image frame = DWUI.Image(root, "Town Frame", style.panelDark);
+            frame.rectTransform.anchorMin = new Vector2(0f, 0.52f);
+            frame.rectTransform.anchorMax = new Vector2(1f, 1f);
+            frame.rectTransform.offsetMin = new Vector2(24f, 10f);
+            frame.rectTransform.offsetMax = new Vector2(-24f, -270f);
+            frame.pixelsPerUnitMultiplier = 2f;
+            RectTransform window = DWUI.Rect(frame.rectTransform, "Window").Stretch(14, 14, 14, 14);
+            window.gameObject.AddComponent<RectMask2D>();
+            townImage = DWUI.Rect(window, "Town Image").gameObject.AddComponent<RawImage>();
+            townImage.rectTransform.Stretch();
+            townImage.raycastTarget = false;
+            AspectRatioFitter fitter = townImage.gameObject.AddComponent<AspectRatioFitter>();
+            fitter.aspectMode = AspectRatioFitter.AspectMode.EnvelopeParent;
+            fitter.aspectRatio = DustwaterTownView.TEXTURE_WIDTH / (float)DustwaterTownView.TEXTURE_HEIGHT;
+
             Image header = DWUI.Image(root, "Header", style.roundedBack, new Color(0f, 0f, 0f, 0.4f));
-            header.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -330f), new Vector2(760f, 150f));
+            header.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -340f), new Vector2(700f, 140f));
             TextMeshProUGUI title = DWUI.Text(header.rectTransform, "Title", "DUSTWATER", 72f);
             title.rectTransform.Stretch(10, 10, 6, 60);
             subtitle = DWUI.Text(header.rectTransform, "Subtitle", "", 36f, new Color(1f, 0.92f, 0.7f, 1f));
@@ -41,7 +58,12 @@ namespace Watermelon
         public void Show()
         {
             root.gameObject.SetActive(true);
-            if (DustwaterTown.Instance != null) DustwaterTown.Instance.Show();
+            if (DustwaterTown.Instance != null)
+            {
+                DustwaterTown.Instance.Show();
+                townImage.texture = DustwaterTown.Instance.Texture;
+            }
+            townImage.transform.parent.parent.gameObject.SetActive(townImage.texture != null);
             Refresh();
         }
 
