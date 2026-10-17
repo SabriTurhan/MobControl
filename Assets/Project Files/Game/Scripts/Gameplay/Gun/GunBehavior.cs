@@ -67,6 +67,13 @@ namespace Watermelon
 
                 Vector3 direction = isPlayerShooting ? Vector3.forward : Vector3.back;
 
+                if (!isPlayerShooting && GunData.AimAtSquad && PlayerBehavior.Instance != null)
+                {
+                    Vector3 toSquad = SquadCenter() - shootPointTransform.position;
+                    toSquad.y = 0f;
+                    if (toSquad.z < -0.5f) direction = toSquad.normalized;
+                }
+
                 float spread = GunData.Spread;
                 float halfSpread = GunData.Spread / 2f;
 
@@ -95,6 +102,17 @@ namespace Watermelon
 
                 if (muzzleParticle != null) muzzleParticle.Play();
             }
+        }
+
+        private static Vector3 SquadCenter()
+        {
+            PlayerBehavior player = PlayerBehavior.Instance;
+            var characters = player.Characters;
+            if (characters.Count == 0) return player.transform.position;
+
+            Vector3 sum = Vector3.zero;
+            for (int i = 0; i < characters.Count; i++) sum += characters[i].transform.position;
+            return sum / characters.Count;
         }
 
         public void SetData(GunData data)

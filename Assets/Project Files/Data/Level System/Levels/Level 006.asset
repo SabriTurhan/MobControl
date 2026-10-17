@@ -102,13 +102,13 @@ MonoBehaviour:
     dropCurrencyType: 1
     dropItemsCount: 1
     dropItemValue: 1
-    health: 21
+    health: 14
     boosterHeight: 1
   - id: supply_crate
     position: {x: 1.5, y: 0, z: 53.14}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 2
+    dropItemsCount: 4
     dropItemValue: 1
     health: 17
     boosterHeight: 1
@@ -134,13 +134,13 @@ MonoBehaviour:
     dropCurrencyType: 1
     dropItemsCount: 1
     dropItemValue: 1
-    health: 21
+    health: 14
     boosterHeight: 1
   - id: supply_crate
     position: {x: 1.5, y: 0, z: 109.490005}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 2
+    dropItemsCount: 4
     dropItemValue: 1
     health: 17
     boosterHeight: 1
@@ -158,7 +158,7 @@ MonoBehaviour:
     dropCurrencyType: 1
     dropItemsCount: 1
     dropItemValue: 1
-    health: 21
+    health: 14
     boosterHeight: 1
   enemiesData:
   - id: bandit_sniper
@@ -168,8 +168,8 @@ MonoBehaviour:
     dropItemsCount: 2
     dropItemValue: 2
     health: 14
-    damage: 2
-    fireRate: 0.55
+    damage: 1.6
+    fireRate: 0.45
     gunId: bandit_sniper
   - id: enemy
     position: {x: 1.5, y: 0, z: 77.68}
@@ -188,8 +188,8 @@ MonoBehaviour:
     dropItemsCount: 2
     dropItemValue: 2
     health: 14
-    damage: 2
-    fireRate: 0.55
+    damage: 1.6
+    fireRate: 0.45
     gunId: bandit_sniper
   - id: bandit_sniper
     position: {x: 1.5, y: 0, z: 124.26}
@@ -198,8 +198,8 @@ MonoBehaviour:
     dropItemsCount: 2
     dropItemValue: 2
     health: 14
-    damage: 2
-    fireRate: 0.55
+    damage: 1.6
+    fireRate: 0.45
     gunId: bandit_sniper
   finishLevelData:
   - id: finish

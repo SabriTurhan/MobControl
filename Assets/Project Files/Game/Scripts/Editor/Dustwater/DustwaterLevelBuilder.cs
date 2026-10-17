@@ -65,9 +65,9 @@ namespace Watermelon.Dustwater
 
         private static readonly Dictionary<int, (string id, float health, float damage, float fireRate)> BOSSES = new Dictionary<int, (string, float, float, float)>()
         {
-            { 10, ("boss_rattler", 320f, 1.5f, 2.2f) },
-            { 20, ("boss_jaws", 800f, 2.5f, 2.4f) },
-            { 30, ("boss_vex", 1500f, 3.5f, 2.6f) },
+            { 10, ("boss_rattler", 380f, 1.5f, 2.2f) },
+            { 20, ("boss_jaws", 520f, 1.5f, 2.0f) },
+            { 30, ("boss_vex", 6000f, 3f, 2.6f) },
         };
 
         #region Item lists
@@ -177,12 +177,12 @@ namespace Watermelon.Dustwater
         private static float Power(int n) => 4f + 2.6f * (n - 1);
 
         private static float Bandit(int n) => Mathf.Max(2f, Power(n) * 0.65f);
-        private static float Heavy(int n) => Power(n) * 1.6f + 6f;
+        private static float Heavy(int n) => Power(n) * 1.25f + 5f;
         private static float Sniper(int n) => Power(n) * 0.8f;
         private static int Barrel(int n, System.Random r) => Mathf.Max(2, Mathf.RoundToInt(Power(n) * (0.8f + (float)r.NextDouble() * 0.5f)));
         private static int Sandbags(int n) => Mathf.RoundToInt(Power(n) * 2.2f + 6f);
         private static int Crate(int n) => Mathf.RoundToInt(Power(n) * 0.9f + 2f);
-        private static float EnemyDamage(int n) => 1f + Mathf.Floor((n - 1) / 6f) * 0.5f;
+        private static float EnemyDamage(int n) => 1f + Mathf.Floor((n - 1) / 8f) * 0.5f;
 
         #endregion
 
@@ -346,7 +346,7 @@ namespace Watermelon.Dustwater
         {
             float damage = EnemyDamage(n);
             bool attrition = System.Array.IndexOf(mission.threats, ThreatType.Attrition) >= 0;
-            float shooterRate = attrition ? 0.75f : 0.5f;
+            float shooterRate = attrition ? 0.65f : 0.5f;
 
             switch (kind)
             {
@@ -376,7 +376,7 @@ namespace Watermelon.Dustwater
                 case "crate":
                 {
                     float x = r.NextDouble() < 0.5 ? -1.5f : 1.5f;
-                    Obstacle(c, "supply_crate", new Vector3(x, 0f, z), Crate(n), DropableItemType.Money, CurrencyType.Supplies, 2 + n / 8, 1);
+                    Obstacle(c, "supply_crate", new Vector3(x, 0f, z), Crate(n), DropableItemType.Money, CurrencyType.Supplies, 3 + n / 5, 1);
                     Obstacle(c, "small_obstacle", new Vector3(-x, 0f, z), Barrel(n, r), DropableItemType.Money, CurrencyType.Money, 2, 1);
                     break;
                 }
@@ -386,9 +386,13 @@ namespace Watermelon.Dustwater
                     break;
 
                 case "armored":
-                    Enemy(c, "enemy_heavy", new Vector3(-1.5f, 0f, z), Heavy(n), damage * 1.5f, 0.7f, r.NextDouble() < 0.5 ? "minigun" : "none", DropableItemType.Money, 3, 1 + n / 10);
-                    Enemy(c, "enemy_heavy", new Vector3(1.5f, 0f, z), Heavy(n), damage * 1.5f, 0.7f, r.NextDouble() < 0.5 ? "minigun" : "none", DropableItemType.Money, 3, 1 + n / 10);
+                {
+                    // a full heavy and a lighter one: shred one of them in time
+                    bool strongLeft = r.NextDouble() < 0.5;
+                    Enemy(c, "enemy_heavy", new Vector3(-1.5f, 0f, z), Heavy(n) * (strongLeft ? 1f : 0.6f), damage * 1.2f, 0.6f, strongLeft ? "minigun" : "none", DropableItemType.Money, 3, 1 + n / 10);
+                    Enemy(c, "enemy_heavy", new Vector3(1.5f, 0f, z), Heavy(n) * (strongLeft ? 0.6f : 1f), damage * 1.2f, 0.6f, strongLeft ? "none" : "minigun", DropableItemType.Money, 3, 1 + n / 10);
                     break;
+                }
 
                 case "swarm":
                     for (int i = 0; i < 5; i++)
@@ -405,9 +409,9 @@ namespace Watermelon.Dustwater
                 {
                     // nest: sandbags in front, the sniper behind them; the other lane stays open
                     float x = r.NextDouble() < 0.5 ? -1.5f : 1.5f;
-                    Obstacle(c, "sandbags", new Vector3(x, 0f, z), Sandbags(n) / 2, DropableItemType.Money, CurrencyType.Supplies, 1, 1);
-                    Enemy(c, "bandit_sniper", new Vector3(x, 0f, z + 3.5f), Sniper(n), damage * 2f, 0.55f, "bandit_sniper", DropableItemType.Money, 2, 2);
-                    if (n >= 13) Enemy(c, "bandit_sniper", new Vector3(-x, 0f, z + 6f), Sniper(n), damage * 2f, 0.55f, "bandit_sniper", DropableItemType.Money, 2, 2);
+                    Obstacle(c, "sandbags", new Vector3(x, 0f, z), Sandbags(n) / 3, DropableItemType.Money, CurrencyType.Supplies, 1, 1);
+                    Enemy(c, "bandit_sniper", new Vector3(x, 0f, z + 3.5f), Sniper(n), damage * 1.6f, 0.45f, "bandit_sniper", DropableItemType.Money, 2, 2);
+                    if (n >= 18) Enemy(c, "bandit_sniper", new Vector3(-x, 0f, z + 6f), Sniper(n), damage * 1.6f, 0.45f, "bandit_sniper", DropableItemType.Money, 2, 2);
                     break;
                 }
 
@@ -415,16 +419,18 @@ namespace Watermelon.Dustwater
                 {
                     // one side is a full wall, the other a lower stack: blast through or pick the weak side
                     bool strongLeft = r.NextDouble() < 0.5;
-                    Obstacle(c, "sandbags", new Vector3(-1.5f, 0f, z), strongLeft ? Sandbags(n) : Sandbags(n) / 2, DropableItemType.Money, CurrencyType.Supplies, strongLeft ? 3 : 1, 1);
-                    Obstacle(c, "sandbags", new Vector3(1.5f, 0f, z), strongLeft ? Sandbags(n) / 2 : Sandbags(n), DropableItemType.Money, CurrencyType.Supplies, strongLeft ? 1 : 3, 1);
+                    Obstacle(c, "sandbags", new Vector3(-1.5f, 0f, z), strongLeft ? Sandbags(n) : Sandbags(n) / 2, DropableItemType.Money, CurrencyType.Supplies, strongLeft ? 4 : 2, 1);
+                    Obstacle(c, "sandbags", new Vector3(1.5f, 0f, z), strongLeft ? Sandbags(n) / 2 : Sandbags(n), DropableItemType.Money, CurrencyType.Supplies, strongLeft ? 2 : 4, 1);
                 }
                     if (n >= 7) Enemy(c, "enemy", new Vector3(0f, 0f, z + 3f), Bandit(n), damage, shooterRate, "default_gun");
                     break;
 
                 case "ambush":
-                    Enemy(c, "enemy", new Vector3(-2f, 0f, z), Bandit(n), damage, 0.8f, "default_gun");
-                    Enemy(c, "enemy", new Vector3(0f, 0f, z + 2.5f), Bandit(n), damage, 0.8f, "default_gun");
-                    Enemy(c, "enemy", new Vector3(2f, 0f, z), Bandit(n), damage, 0.8f, n >= 14 ? "rifle" : "default_gun");
+                    // shooters on the flanks, one more further back from mission 15
+                    // aimed rifles: they hit the squad wherever it runs
+                    Enemy(c, "enemy", new Vector3(-2f, 0f, z), Bandit(n), damage, 0.6f, "bandit_rifle");
+                    Enemy(c, "enemy", new Vector3(2f, 0f, z), Bandit(n), damage, 0.6f, "bandit_rifle");
+                    if (n >= 15) Enemy(c, "enemy", new Vector3(0f, 0f, z + 5f), Bandit(n) * 0.7f, damage, 0.6f, "bandit_rifle");
                     break;
 
                 case "boss":

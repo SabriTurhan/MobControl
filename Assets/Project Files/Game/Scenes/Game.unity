@@ -6160,6 +6160,64 @@ Transform:
   - {fileID: 354036376}
   m_Father: {fileID: 990591214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1598399782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1598399784}
+  - component: {fileID: 1598399783}
+  m_Layer: 0
+  m_Name: Dustwater Intro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1598399783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598399782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9fd7b75fa68f45ffb3b5891cc63796b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.DustwaterIntroPlayer
+  town: {fileID: 990591213}
+  banditActor: {fileID: 5778954552914761454, guid: b11c9be28745945f2984084a25d18d37,
+    type: 3}
+  vexActor: {fileID: 2880008028267710414, guid: dbbb8086859e64311b42af4830cc04da,
+    type: 3}
+  truckPrefab: {fileID: 4291100607281517817, guid: ecdfba94fa8e24fb481fe5d41894f96f,
+    type: 3}
+  rangerActors:
+  - {fileID: 4650622940884128507, guid: e2ad367e581ed4194abefe4d74296abf, type: 3}
+  - {fileID: 2889448393467269210, guid: 34ce00cd59640480a9b9d233afbfbe54, type: 3}
+  - {fileID: 4001149358400963315, guid: 6f478e67903c841cd91afff39ffc7773, type: 3}
+  - {fileID: 5476274402908058402, guid: bf0b26a87cf01409ba5fe4580db146a4, type: 3}
+  vexPortrait: {fileID: 21300000, guid: 1f6b737ea4a944bba87ccb4d8e98eb01, type: 3}
+  sergeantPortrait: {fileID: 21300000, guid: 0c9cad92815e448478b8a90a68c61222, type: 3}
+--- !u!4 &1598399784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598399782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1617019462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8553,3 +8611,4 @@ SceneRoots:
   - {fileID: 2856271656939422926}
   - {fileID: 303557384}
   - {fileID: 990591214}
+  - {fileID: 1598399784}

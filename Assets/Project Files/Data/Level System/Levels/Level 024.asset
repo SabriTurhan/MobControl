@@ -118,7 +118,7 @@ MonoBehaviour:
     position: {x: -1.5, y: 0, z: 41.870003}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 1
+    dropItemsCount: 2
     dropItemValue: 1
     health: 73
     boosterHeight: 1
@@ -126,7 +126,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 41.870003}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 4
     dropItemValue: 1
     health: 146
     boosterHeight: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 75.68}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 5
+    dropItemsCount: 7
     dropItemValue: 1
     health: 59
     boosterHeight: 1
@@ -150,7 +150,7 @@ MonoBehaviour:
     position: {x: -1.5, y: 0, z: 86.950005}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 4
     dropItemValue: 1
     health: 146
     boosterHeight: 1
@@ -158,7 +158,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 86.950005}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 1
+    dropItemsCount: 2
     dropItemValue: 1
     health: 73
     boosterHeight: 1
@@ -166,7 +166,7 @@ MonoBehaviour:
     position: {x: -1.5, y: 0, z: 120.76}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 1
+    dropItemsCount: 2
     dropItemValue: 1
     health: 73
     boosterHeight: 1
@@ -174,7 +174,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 120.76}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 4
     dropItemValue: 1
     health: 146
     boosterHeight: 1
@@ -182,7 +182,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 143.3}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 5
+    dropItemsCount: 7
     dropItemValue: 1
     health: 59
     boosterHeight: 1
@@ -202,8 +202,8 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 41
-    damage: 2.5
-    fireRate: 0.75
+    damage: 2
+    fireRate: 0.65
     gunId: default_gun
   - id: enemy
     position: {x: -2, y: 0, z: 53.14}
@@ -212,19 +212,9 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 41
-    damage: 2.5
-    fireRate: 0.8
-    gunId: default_gun
-  - id: enemy
-    position: {x: 0, y: 0, z: 55.64}
-    dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 1
-    health: 41
-    damage: 2.5
-    fireRate: 0.8
-    gunId: default_gun
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
   - id: enemy
     position: {x: 2, y: 0, z: 53.14}
     dropType: 0
@@ -232,9 +222,19 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 41
-    damage: 2.5
-    fireRate: 0.8
-    gunId: rifle
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
+  - id: enemy
+    position: {x: 0, y: 0, z: 58.14}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 29
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
   - id: enemy
     position: {x: 0, y: 0, z: 89.950005}
     dropType: 0
@@ -242,8 +242,8 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 41
-    damage: 2.5
-    fireRate: 0.75
+    damage: 2
+    fireRate: 0.65
     gunId: default_gun
   - id: enemy
     position: {x: -2, y: 0, z: 109.490005}
@@ -252,19 +252,9 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 41
-    damage: 2.5
-    fireRate: 0.8
-    gunId: default_gun
-  - id: enemy
-    position: {x: 0, y: 0, z: 111.990005}
-    dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 1
-    health: 41
-    damage: 2.5
-    fireRate: 0.8
-    gunId: default_gun
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
   - id: enemy
     position: {x: 2, y: 0, z: 109.490005}
     dropType: 0
@@ -272,9 +262,19 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 41
-    damage: 2.5
-    fireRate: 0.8
-    gunId: rifle
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
+  - id: enemy
+    position: {x: 0, y: 0, z: 114.490005}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 29
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
   - id: enemy
     position: {x: 0, y: 0, z: 123.76}
     dropType: 0
@@ -282,8 +282,8 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 41
-    damage: 2.5
-    fireRate: 0.75
+    damage: 2
+    fireRate: 0.65
     gunId: default_gun
   - id: enemy
     position: {x: -2, y: 0, z: 154.57}
@@ -292,19 +292,9 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 41
-    damage: 2.5
-    fireRate: 0.8
-    gunId: default_gun
-  - id: enemy
-    position: {x: 0, y: 0, z: 157.07}
-    dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 1
-    health: 41
-    damage: 2.5
-    fireRate: 0.8
-    gunId: default_gun
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
   - id: enemy
     position: {x: 2, y: 0, z: 154.57}
     dropType: 0
@@ -312,9 +302,19 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 41
-    damage: 2.5
-    fireRate: 0.8
-    gunId: rifle
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
+  - id: enemy
+    position: {x: 0, y: 0, z: 159.57}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 29
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
   finishLevelData:
   - id: finish
     position: {x: 0, y: 0, z: 167.84001}

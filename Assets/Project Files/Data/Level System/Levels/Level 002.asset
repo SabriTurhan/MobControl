@@ -123,7 +123,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 53.14}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 2
+    dropItemsCount: 3
     dropItemValue: 1
     health: 8
     boosterHeight: 1
@@ -171,7 +171,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 109.490005}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 2
+    dropItemsCount: 3
     dropItemValue: 1
     health: 8
     boosterHeight: 1

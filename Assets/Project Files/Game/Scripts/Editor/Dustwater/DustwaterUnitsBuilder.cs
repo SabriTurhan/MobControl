@@ -185,14 +185,14 @@ namespace Watermelon.Dustwater
                 AttachToBone(root, "Head", "Bandana", redBandana);
                 CopyWeaponPlacement(root.GetComponent<EnemyBehavior>(), "rifle", "sniper");
                 CopyWeaponPlacement(root.GetComponent<EnemyBehavior>(), "rifle", "bandit_sniper");
-                AddSight(root, 34f);
+                AddSight(root, 30f);
             });
 
             Variant(ENEMY_HEAVY_PREFAB, BOSS_RATTLER, root =>
             {
                 root.name = "Boss Rattler";
                 SetBody(root, rattlerBody);
-                AttachToBone(root, "Head", "Hat", rattlerHat);
+                AttachToBone(root, "Head", "Hat", rattlerHat, HEAVY_HAT_OFFSET);
                 AttachToBone(root, "Head", "Bandana", redBandana);
                 MakeBoss(root, "LIEUTENANT RATTLER", 1.7f, 24f);
             });
@@ -210,13 +210,16 @@ namespace Watermelon.Dustwater
             {
                 root.name = "Boss Vex";
                 SetBody(root, blackBody);
-                AttachToBone(root, "Head", "Hat", vexHat);
+                AttachToBone(root, "Head", "Hat", vexHat, HEAVY_HAT_OFFSET);
                 AttachToBone(root, "Head", "Bandana", redBandana);
                 AttachToBone(root, "Spine2", "Badge", badge);
                 AttachToBone(root, "Spine2", "Spikes", spikes);
                 MakeBoss(root, "BOSS VEX", 2.1f, 26f);
             });
         }
+
+        // the heavy model's helmet sits lower inside the head ball than the soldier's
+        private static readonly Vector3 HEAVY_HAT_OFFSET = new Vector3(0f, -0.07f, 0f);
 
         private static void MakeBoss(GameObject root, string bossName, float scale, float sightLength)
         {
@@ -381,7 +384,7 @@ namespace Watermelon.Dustwater
             prop.transform.rotation = root.transform.rotation;
         }
 
-        private static void CopyWeaponPlacement(Component receiver, string fromWeapon, string toWeapon)
+        public static void CopyWeaponPlacement(Component receiver, string fromWeapon, string toWeapon)
         {
             SerializedObject serialized = new SerializedObject(receiver);
             SerializedProperty list = serialized.FindProperty("weaponPlacementData");

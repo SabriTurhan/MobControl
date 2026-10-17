@@ -278,8 +278,13 @@ namespace Watermelon
             IsImmortal = false;
         }
 
+        /// <summary>QA hook: every hit a squad member takes (character, damage, hit point).</summary>
+        public static event System.Action<CharacterBehavior, float, Vector3> Damaged;
+
         public void TakeDamage(float damage, Vector3 hitPoint)
         {
+            Damaged?.Invoke(this, damage, hitPoint);
+
             if (IsImmortal)
                 return;
 

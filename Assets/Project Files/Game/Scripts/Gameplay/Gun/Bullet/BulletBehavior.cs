@@ -136,7 +136,9 @@ namespace Watermelon
             {
                 BulletBehavior otherBullet = other.GetComponent<BulletBehavior>();
 
-                if (otherBullet != null && otherBullet.isPlayerShooting != isPlayerShooting)
+                // aimed sniper/boss shots go through the squad's fire
+                bool unblockable = (Gun != null && Gun.GunData != null && Gun.GunData.Unblockable) || (otherBullet != null && otherBullet.Gun != null && otherBullet.Gun.GunData != null && otherBullet.Gun.GunData.Unblockable);
+                if (otherBullet != null && otherBullet.isPlayerShooting != isPlayerShooting && !unblockable)
                 {
                     ParticleCase particleCase = ParticlesController.PlayParticle(HIT_PARTICLE_NAME);
 

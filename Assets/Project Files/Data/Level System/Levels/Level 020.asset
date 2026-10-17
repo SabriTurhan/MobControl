@@ -60,56 +60,56 @@ MonoBehaviour:
     step: 0.05
     explicitId: default_character
     charactersAmount: 1
-  - id: gate_damage
+  - id: gate_weapon
     position: {x: 1.5, y: 0, z: 98.22}
-    gateType: 3
-    operationType: 2
-    numericalValue: 1.4
-    updateOnHit: 1
-    step: 0.05
-    explicitId: default_character
-    charactersAmount: 1
-  - id: gate_money
-    position: {x: -1.5, y: 0, z: 98.22}
-    gateType: 6
-    operationType: 0
-    numericalValue: 14
-    updateOnHit: 1
-    step: 1
-    explicitId: default_character
-    charactersAmount: 1
-  - id: gate_damage
-    position: {x: -1.5, y: 0, z: 132.03}
-    gateType: 3
-    operationType: 2
-    numericalValue: 1.4
-    updateOnHit: 1
-    step: 0.05
-    explicitId: default_character
-    charactersAmount: 1
-  - id: gate_money
-    position: {x: 1.5, y: 0, z: 132.03}
-    gateType: 6
-    operationType: 0
-    numericalValue: 14
-    updateOnHit: 1
-    step: 1
-    explicitId: default_character
-    charactersAmount: 1
-  - id: gate_character
-    position: {x: -1.5, y: 0, z: 143.3}
-    gateType: 0
+    gateType: 1
     operationType: 0
     numericalValue: 1
     updateOnHit: 0
     step: 0.05
-    explicitId: default_character
-    charactersAmount: 2
-  - id: gate_damage
-    position: {x: 1.5, y: 0, z: 143.3}
-    gateType: 3
+    explicitId: rifle
+    charactersAmount: 1
+  - id: gate_health
+    position: {x: -1.5, y: 0, z: 98.22}
+    gateType: 2
     operationType: 0
-    numericalValue: 0.5
+    numericalValue: 5
+    updateOnHit: 1
+    step: 0.05
+    explicitId: default_character
+    charactersAmount: 1
+  - id: gate_weapon
+    position: {x: -1.5, y: 0, z: 132.03}
+    gateType: 1
+    operationType: 0
+    numericalValue: 1
+    updateOnHit: 0
+    step: 0.05
+    explicitId: rifle
+    charactersAmount: 1
+  - id: gate_health
+    position: {x: 1.5, y: 0, z: 132.03}
+    gateType: 2
+    operationType: 0
+    numericalValue: 5
+    updateOnHit: 1
+    step: 0.05
+    explicitId: default_character
+    charactersAmount: 1
+  - id: gate_weapon
+    position: {x: -1.5, y: 0, z: 143.3}
+    gateType: 1
+    operationType: 0
+    numericalValue: 1
+    updateOnHit: 0
+    step: 0.05
+    explicitId: rifle
+    charactersAmount: 1
+  - id: gate_health
+    position: {x: 1.5, y: 0, z: 143.3}
+    gateType: 2
+    operationType: 0
+    numericalValue: 5
     updateOnHit: 1
     step: 0.05
     explicitId: default_character
@@ -133,36 +133,36 @@ MonoBehaviour:
     health: 31
     boosterHeight: 1
   - id: supply_crate
-    position: {x: 1.5, y: 0, z: 53.14}
-    dropType: 0
-    dropCurrencyType: 1
-    dropItemsCount: 4
-    dropItemValue: 1
-    health: 50
-    boosterHeight: 1
-  - id: small_obstacle
     position: {x: -1.5, y: 0, z: 53.14}
     dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 2
-    dropItemValue: 1
-    health: 52
-    boosterHeight: 1
-  - id: supply_crate
-    position: {x: -1.5, y: 0, z: 109.490005}
-    dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 4
+    dropItemsCount: 7
     dropItemValue: 1
     health: 50
     boosterHeight: 1
   - id: small_obstacle
-    position: {x: 1.5, y: 0, z: 109.490005}
+    position: {x: 1.5, y: 0, z: 53.14}
     dropType: 0
     dropCurrencyType: 0
     dropItemsCount: 2
     dropItemValue: 1
-    health: 55
+    health: 65
+    boosterHeight: 1
+  - id: supply_crate
+    position: {x: 1.5, y: 0, z: 109.490005}
+    dropType: 0
+    dropCurrencyType: 1
+    dropItemsCount: 7
+    dropItemValue: 1
+    health: 50
+    boosterHeight: 1
+  - id: small_obstacle
+    position: {x: -1.5, y: 0, z: 109.490005}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 2
+    dropItemValue: 1
+    health: 54
     boosterHeight: 1
   enemiesData:
   - id: enemy_heavy
@@ -171,9 +171,9 @@ MonoBehaviour:
     dropCurrencyType: 0
     dropItemsCount: 3
     dropItemValue: 3
-    health: 91
-    damage: 3.75
-    fireRate: 0.7
+    health: 72
+    damage: 2.4
+    fireRate: 0.6
     gunId: minigun
   - id: enemy_heavy
     position: {x: 1.5, y: 0, z: 41.870003}
@@ -181,10 +181,10 @@ MonoBehaviour:
     dropCurrencyType: 0
     dropItemsCount: 3
     dropItemValue: 3
-    health: 91
-    damage: 3.75
-    fireRate: 0.7
-    gunId: minigun
+    health: 43
+    damage: 2.4
+    fireRate: 0.6
+    gunId: none
   - id: enemy
     position: {x: -2, y: 0, z: 75.68}
     dropType: 0
@@ -192,19 +192,9 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 35
-    damage: 2.5
-    fireRate: 0.8
-    gunId: default_gun
-  - id: enemy
-    position: {x: 0, y: 0, z: 78.18}
-    dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 1
-    dropItemValue: 1
-    health: 35
-    damage: 2.5
-    fireRate: 0.8
-    gunId: default_gun
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
   - id: enemy
     position: {x: 2, y: 0, z: 75.68}
     dropType: 0
@@ -212,18 +202,28 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 35
-    damage: 2.5
-    fireRate: 0.8
-    gunId: rifle
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
+  - id: enemy
+    position: {x: 0, y: 0, z: 80.68}
+    dropType: 0
+    dropCurrencyType: 0
+    dropItemsCount: 1
+    dropItemValue: 1
+    health: 24
+    damage: 2
+    fireRate: 0.6
+    gunId: bandit_rifle
   - id: enemy_heavy
     position: {x: -1.5, y: 0, z: 86.950005}
     dropType: 0
     dropCurrencyType: 0
     dropItemsCount: 3
     dropItemValue: 3
-    health: 91
-    damage: 3.75
-    fireRate: 0.7
+    health: 72
+    damage: 2.4
+    fireRate: 0.6
     gunId: minigun
   - id: enemy_heavy
     position: {x: 1.5, y: 0, z: 86.950005}
@@ -231,39 +231,39 @@ MonoBehaviour:
     dropCurrencyType: 0
     dropItemsCount: 3
     dropItemValue: 3
-    health: 91
-    damage: 3.75
-    fireRate: 0.7
-    gunId: minigun
+    health: 43
+    damage: 2.4
+    fireRate: 0.6
+    gunId: none
   - id: enemy_heavy
     position: {x: -1.5, y: 0, z: 120.76}
     dropType: 0
     dropCurrencyType: 0
     dropItemsCount: 3
     dropItemValue: 3
-    health: 91
-    damage: 3.75
-    fireRate: 0.7
-    gunId: none
+    health: 72
+    damage: 2.4
+    fireRate: 0.6
+    gunId: minigun
   - id: enemy_heavy
     position: {x: 1.5, y: 0, z: 120.76}
     dropType: 0
     dropCurrencyType: 0
     dropItemsCount: 3
     dropItemValue: 3
-    health: 91
-    damage: 3.75
-    fireRate: 0.7
-    gunId: minigun
+    health: 43
+    damage: 2.4
+    fireRate: 0.6
+    gunId: none
   - id: boss_jaws
     position: {x: 0, y: 0, z: 158.57}
     dropType: 0
     dropCurrencyType: 0
     dropItemsCount: 10
     dropItemValue: 3
-    health: 800
-    damage: 2.5
-    fireRate: 2.4
+    health: 520
+    damage: 1.5
+    fireRate: 2
     gunId: boss_minigun
   - id: enemy_heavy
     position: {x: -2, y: 0, z: 154.57}
@@ -271,8 +271,8 @@ MonoBehaviour:
     dropCurrencyType: 0
     dropItemsCount: 2
     dropItemValue: 2
-    health: 73
-    damage: 2.5
+    health: 57
+    damage: 2
     fireRate: 0.6
     gunId: none
   - id: enemy_heavy
@@ -281,8 +281,8 @@ MonoBehaviour:
     dropCurrencyType: 0
     dropItemsCount: 2
     dropItemValue: 2
-    health: 73
-    damage: 2.5
+    health: 57
+    damage: 2
     fireRate: 0.6
     gunId: none
   finishLevelData:

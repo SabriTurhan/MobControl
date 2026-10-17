@@ -42,8 +42,9 @@ namespace Watermelon.Dustwater
             SetGun(guns, "sniper", "Sniper Rifle", DustwaterUnitsBuilder.SNIPER_GUN, riflePose, fireRate: 0.4f, damage: 4.5f, range: 14f, speed: 45f, count: 1, spread: 0f, pierce: 2, splash: 0f);
             SetGun(guns, "grenade_launcher", "Grenade Launcher", DustwaterUnitsBuilder.LAUNCHER_GUN, riflePose, fireRate: 0.45f, damage: 2.6f, range: 3f, speed: 15f, count: 1, spread: 0f, pierce: 0, splash: 2.2f);
             AnimationClip minigunPose = FindGun(guns, "minigun").FindPropertyRelative("poseAnimation").objectReferenceValue as AnimationClip;
-            SetGun(guns, "boss_minigun", "Boss Minigun", "Assets/Project Files/Game/Prefabs/Guns/Minigun.prefab", minigunPose, fireRate: 1f, damage: 1f, range: 17f, speed: 16f, count: 1, spread: 8f, pierce: 0, splash: 0f);
-            SetGun(guns, "bandit_sniper", "Bandit Sniper Rifle", DustwaterUnitsBuilder.SNIPER_GUN, riflePose, fireRate: 1f, damage: 1f, range: 26f, speed: 32f, count: 1, spread: 0f, pierce: 0, splash: 0f);
+            SetGun(guns, "boss_minigun", "Boss Minigun", "Assets/Project Files/Game/Prefabs/Guns/Minigun.prefab", minigunPose, fireRate: 1f, damage: 1f, range: 17f, speed: 16f, count: 1, spread: 8f, pierce: 0, splash: 0f, aim: true, unblockable: true);
+            SetGun(guns, "bandit_sniper", "Bandit Sniper Rifle", DustwaterUnitsBuilder.SNIPER_GUN, riflePose, fireRate: 1f, damage: 1f, range: 26f, speed: 32f, count: 1, spread: 0f, pierce: 0, splash: 0f, aim: true, unblockable: true);
+            SetGun(guns, "bandit_rifle", "Bandit Rifle", "Assets/Project Files/Game/Prefabs/Guns/Rifle.prefab", riflePose, fireRate: 1f, damage: 1f, range: 14f, speed: 20f, count: 1, spread: 0f, pierce: 0, splash: 0f, aim: true, unblockable: false);
 
             SerializedProperty characters = so.FindProperty("charactersData");
             SetCharacter(characters, "sharpshooter_character", "Sharpshooter", DustwaterUnitsBuilder.SHARPSHOOTER, "sniper");
@@ -63,9 +64,14 @@ namespace Watermelon.Dustwater
             so.ApplyModifiedPropertiesWithoutUndo();
             EditorUtility.SetDirty(database);
 
-            // the new guns need the same pose/placement on the enemy prefabs that hold them
-            foreach (string enemy in new[] { DustwaterUnitsBuilder.BANDIT_SNIPER })
-                AssetDatabase.ImportAsset(enemy);
+            // template bandits carry the aimed bandit rifle in ambush rows: same hand placement as the rifle
+            foreach (string enemy in new[] { "Assets/Project Files/Game/Prefabs/Enemy/Enemy Human Behavior.prefab", "Assets/Project Files/Game/Prefabs/Enemy/Enemy Heavy Human Behavior.prefab" })
+            {
+                GameObject contents = PrefabUtility.LoadPrefabContents(enemy);
+                DustwaterUnitsBuilder.CopyWeaponPlacement(contents.GetComponent<EnemyBehavior>(), "rifle", "bandit_rifle");
+                PrefabUtility.SaveAsPrefabAsset(contents, enemy);
+                PrefabUtility.UnloadPrefabContents(contents);
+            }
         }
 
         private static SerializedProperty FindById(SerializedProperty list, string id, bool create)
@@ -86,7 +92,7 @@ namespace Watermelon.Dustwater
 
         private static SerializedProperty FindGun(SerializedProperty guns, string id) => FindById(guns, id, false);
 
-        private static void SetGun(SerializedProperty guns, string id, string displayName, string prefabPath, AnimationClip pose, float fireRate, float damage, float range, float speed, int count, float spread, int pierce, float splash)
+        private static void SetGun(SerializedProperty guns, string id, string displayName, string prefabPath, AnimationClip pose, float fireRate, float damage, float range, float speed, int count, float spread, int pierce, float splash, bool aim = false, bool unblockable = false)
         {
             SerializedProperty gun = FindById(guns, id, true);
             gun.FindPropertyRelative("prefab").objectReferenceValue = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
@@ -99,6 +105,8 @@ namespace Watermelon.Dustwater
             gun.FindPropertyRelative("spread").floatValue = spread;
             gun.FindPropertyRelative("pierce").intValue = pierce;
             gun.FindPropertyRelative("splashRadius").floatValue = splash;
+            gun.FindPropertyRelative("aimAtSquad").boolValue = aim;
+            gun.FindPropertyRelative("unblockable").boolValue = unblockable;
             gun.FindPropertyRelative("poseAnimation").objectReferenceValue = pose;
             gun.FindPropertyRelative("displayName").stringValue = displayName;
         }
@@ -279,7 +287,7 @@ namespace Watermelon.Dustwater
             database.Units.Add(Unit("ranger", "Ranger", CardRarity.Common, "default_character", 0, true, "Reliable rifleman. Fights with your squad weapon.", 1f, 1f, 1f, 1f, 0f));
             database.Units.Add(Unit("heavy", "Heavy Gunner", CardRarity.Rare, "heavy_character", 3, false, "Double health. Shreds crowds with his minigun.", 2f, 1f, 1f, 1f, 0f, ThreatType.Swarm, ThreatType.Attrition));
             database.Units.Add(Unit("sharpshooter", "Sharpshooter", CardRarity.Rare, "sharpshooter_character", 5, false, "Long range shots that pierce through 3 bandits.", 0.9f, 1f, 1f, 1f, 0f, ThreatType.Armored, ThreatType.Snipers));
-            database.Units.Add(Unit("medic", "Medic", CardRarity.Rare, "medic_character", 11, false, "Heals the whole squad over time.", 1f, 0.6f, 1f, 1f, 0.5f, ThreatType.Attrition));
+            database.Units.Add(Unit("medic", "Medic", CardRarity.Rare, "medic_character", 7, false, "Heals the whole squad over time.", 1f, 0.6f, 1f, 1f, 0.5f, ThreatType.Attrition));
             database.Units.Add(Unit("grenadier", "Grenadier", CardRarity.Epic, "grenadier_character", 15, false, "Lobs grenades that blast everything nearby.", 1.1f, 1f, 1f, 1f, 0f, ThreatType.Barricades, ThreatType.Swarm));
 
             database.Weapons.Clear();

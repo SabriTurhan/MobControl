@@ -431,6 +431,28 @@ namespace Watermelon
 
         #endregion
 
+        #region Dev
+
+        /// <summary>QA / balance bot: rebuild the campaign state for an expected progression.</summary>
+        public static void DevSetProgress(int levelsCompleted, int[] buildingLevels, Dictionary<string, int> unitLevels, Dictionary<string, int> weaponLevels)
+        {
+            levelSave.SetLevelNumber(levelsCompleted);
+
+            for (int i = 0; i < save.buildings.Length && i < buildingLevels.Length; i++)
+                save.buildings[i] = buildingLevels[i];
+
+            save.units.Clear();
+            foreach (var pair in unitLevels) save.units.Add(new CardSave() { id = pair.Key, level = pair.Value });
+            save.weapons.Clear();
+            foreach (var pair in weaponLevels) save.weapons.Add(new CardSave() { id = pair.Key, level = pair.Value });
+
+            PendingResult = null;
+            ValidateSquad();
+            MarkChanged();
+        }
+
+        #endregion
+
         #region Rewards
 
         /// <summary>Rolls the chest card for a finished level and adds it to the collection.</summary>

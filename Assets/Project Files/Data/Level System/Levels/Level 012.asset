@@ -118,7 +118,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 53.14}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 5
     dropItemValue: 1
     health: 31
     boosterHeight: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
     position: {x: -1.5, y: 0, z: 75.68}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 1
+    dropItemsCount: 2
     dropItemValue: 1
     health: 39
     boosterHeight: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 75.68}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 4
     dropItemValue: 1
     health: 78
     boosterHeight: 1
@@ -150,7 +150,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 120.76}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 5
     dropItemValue: 1
     health: 31
     boosterHeight: 1

@@ -278,6 +278,8 @@ MonoBehaviour:
     spread: 1
     pierce: 0
     splashRadius: 0
+    aimAtSquad: 0
+    unblockable: 0
     previewSprite: {fileID: 0}
     poseAnimation: {fileID: 0}
     shootingImpactDistance: 0
@@ -328,6 +330,8 @@ MonoBehaviour:
     spread: 0
     pierce: 0
     splashRadius: 0
+    aimAtSquad: 0
+    unblockable: 0
     previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
     poseAnimation: {fileID: 7141564764606606549, guid: b8f55f1b16324544d8265a07be511f58,
       type: 3}
@@ -379,6 +383,8 @@ MonoBehaviour:
     spread: 0
     pierce: 0
     splashRadius: 0
+    aimAtSquad: 0
+    unblockable: 0
     previewSprite: {fileID: 21300000, guid: 326c3e37fb0e8fe4da390b31399c255a, type: 3}
     poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
       type: 3}
@@ -430,6 +436,8 @@ MonoBehaviour:
     spread: 10
     pierce: 0
     splashRadius: 0
+    aimAtSquad: 0
+    unblockable: 0
     previewSprite: {fileID: 21300000, guid: 45b55da4549e58e44bcf448b384885ed, type: 3}
     poseAnimation: {fileID: 6054108731721544028, guid: 11dadf25fe2f6674a8e9af8eabcdcb02,
       type: 3}
@@ -481,6 +489,8 @@ MonoBehaviour:
     spread: 1
     pierce: 0
     splashRadius: 0
+    aimAtSquad: 0
+    unblockable: 0
     previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
     poseAnimation: {fileID: 6461450792151128023, guid: dc367e2901da9a54daf185fbe0f3bb61,
       type: 3}
@@ -532,6 +542,8 @@ MonoBehaviour:
     spread: 0
     pierce: 2
     splashRadius: 0
+    aimAtSquad: 0
+    unblockable: 0
     previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
     poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
       type: 3}
@@ -583,6 +595,8 @@ MonoBehaviour:
     spread: 0
     pierce: 0
     splashRadius: 2.2
+    aimAtSquad: 0
+    unblockable: 0
     previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
     poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
       type: 3}
@@ -634,6 +648,8 @@ MonoBehaviour:
     spread: 0
     pierce: 0
     splashRadius: 0
+    aimAtSquad: 1
+    unblockable: 1
     previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
     poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
       type: 3}
@@ -685,6 +701,8 @@ MonoBehaviour:
     spread: 8
     pierce: 0
     splashRadius: 0
+    aimAtSquad: 1
+    unblockable: 1
     previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
     poseAnimation: {fileID: 6461450792151128023, guid: dc367e2901da9a54daf185fbe0f3bb61,
       type: 3}
@@ -724,6 +742,59 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     displayName: Boss Minigun
+  - id: bandit_rifle
+    prefab: {fileID: 1127116773536995631, guid: be634e8f71c08fa4eb4a4f4ca1658702,
+      type: 3}
+    isDefault: 0
+    fireRateMultiplier: 1
+    damageMultiplier: 1
+    bulletRangeMultiplier: 14
+    bulletSpeed: 20
+    bulletsCount: 1
+    spread: 0
+    pierce: 0
+    splashRadius: 0
+    aimAtSquad: 1
+    unblockable: 0
+    previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
+    poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
+      type: 3}
+    shootingImpactDistance: 0.1
+    shootingImpactDuration: 0.1
+    shootingImpactCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 3.3387942
+        outSlope: 3.3387942
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.030174445
+      - serializedVersion: 3
+        time: 0.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1.1376632
+        outSlope: -1.1376632
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.037718058
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    displayName: Bandit Rifle
   bonusStages:
   - id: first bonus stage
     prefab: {fileID: 8558497136857710916, guid: 415e9f3e84e4b294892b78669f4ac1ec,

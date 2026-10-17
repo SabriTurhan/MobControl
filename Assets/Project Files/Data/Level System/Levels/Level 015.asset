@@ -120,13 +120,13 @@ MonoBehaviour:
     dropCurrencyType: 1
     dropItemsCount: 1
     dropItemValue: 1
-    health: 47
+    health: 31
     boosterHeight: 1
   - id: sandbags
     position: {x: -1.5, y: 0, z: 53.14}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 4
     dropItemValue: 1
     health: 95
     boosterHeight: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 53.14}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 1
+    dropItemsCount: 2
     dropItemValue: 1
     health: 47
     boosterHeight: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
     position: {x: -1.5, y: 0, z: 75.68}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 6
     dropItemValue: 1
     health: 38
     boosterHeight: 1
@@ -158,7 +158,7 @@ MonoBehaviour:
     position: {x: -1.5, y: 0, z: 86.950005}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 4
     dropItemValue: 1
     health: 95
     boosterHeight: 1
@@ -166,7 +166,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 86.950005}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 1
+    dropItemsCount: 2
     dropItemValue: 1
     health: 47
     boosterHeight: 1
@@ -176,13 +176,13 @@ MonoBehaviour:
     dropCurrencyType: 1
     dropItemsCount: 1
     dropItemValue: 1
-    health: 47
+    health: 31
     boosterHeight: 1
   - id: supply_crate
     position: {x: -1.5, y: 0, z: 120.76}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 6
     dropItemValue: 1
     health: 38
     boosterHeight: 1
@@ -198,7 +198,7 @@ MonoBehaviour:
     position: {x: -1.5, y: 0, z: 143.3}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 1
+    dropItemsCount: 2
     dropItemValue: 1
     health: 47
     boosterHeight: 1
@@ -206,7 +206,7 @@ MonoBehaviour:
     position: {x: 1.5, y: 0, z: 143.3}
     dropType: 0
     dropCurrencyType: 1
-    dropItemsCount: 3
+    dropItemsCount: 4
     dropItemValue: 1
     health: 95
     boosterHeight: 1
@@ -218,18 +218,8 @@ MonoBehaviour:
     dropItemsCount: 2
     dropItemValue: 2
     health: 32
-    damage: 4
-    fireRate: 0.55
-    gunId: bandit_sniper
-  - id: bandit_sniper
-    position: {x: -1.5, y: 0, z: 47.870003}
-    dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 2
-    dropItemValue: 2
-    health: 32
-    damage: 4
-    fireRate: 0.55
+    damage: 2.4
+    fireRate: 0.45
     gunId: bandit_sniper
   - id: enemy
     position: {x: 0, y: 0, z: 56.14}
@@ -238,7 +228,7 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 26
-    damage: 2
+    damage: 1.5
     fireRate: 0.5
     gunId: default_gun
   - id: enemy
@@ -248,7 +238,7 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 26
-    damage: 2
+    damage: 1.5
     fireRate: 0.5
     gunId: default_gun
   - id: bandit_sniper
@@ -258,18 +248,8 @@ MonoBehaviour:
     dropItemsCount: 2
     dropItemValue: 2
     health: 32
-    damage: 4
-    fireRate: 0.55
-    gunId: bandit_sniper
-  - id: bandit_sniper
-    position: {x: 1.5, y: 0, z: 115.490005}
-    dropType: 0
-    dropCurrencyType: 0
-    dropItemsCount: 2
-    dropItemValue: 2
-    health: 32
-    damage: 4
-    fireRate: 0.55
+    damage: 2.4
+    fireRate: 0.45
     gunId: bandit_sniper
   - id: enemy
     position: {x: 0, y: 0, z: 146.3}
@@ -278,7 +258,7 @@ MonoBehaviour:
     dropItemsCount: 1
     dropItemValue: 1
     health: 26
-    damage: 2
+    damage: 1.5
     fireRate: 0.5
     gunId: default_gun
   finishLevelData:

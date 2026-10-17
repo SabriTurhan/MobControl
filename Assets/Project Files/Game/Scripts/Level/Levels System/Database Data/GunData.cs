@@ -34,6 +34,14 @@ namespace Watermelon
         [SerializeField] float splashRadius = 0f;
         public float SplashRadius => splashRadius;
 
+        [Tooltip("Enemy guns: shots fly towards the squad instead of straight back")]
+        [SerializeField] bool aimAtSquad = false;
+        public bool AimAtSquad => aimAtSquad;
+
+        [Tooltip("Enemy guns: shots are not cancelled by the squad's bullets")]
+        [SerializeField] bool unblockable = false;
+        public bool Unblockable => unblockable;
+
         [SerializeField] Sprite previewSprite;
         public Sprite PreviewSprite => previewSprite;
 

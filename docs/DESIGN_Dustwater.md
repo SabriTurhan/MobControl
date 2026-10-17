@@ -78,6 +78,22 @@ Liberated districts swap scorpion flags for blue flags and ruined props for repa
   bandit truck. Two states: ruined/occupied and rebuilt.
 - Card portraits and building icons rendered from the 3D models into sprites (same as template icons).
 
+## Built (2026-10-18)
+- Code: `Assets/Project Files/Game/Scripts/Campaign/` (Campaign state, cards, squad, buildings, rewards, town view,
+  intro, boss, sniper sight, medic, runtime UI in `UI/`), dev bot in `Campaign/Dev/DustwaterPlayBot.cs`.
+- Builders (menu **Tools/Dustwater**, all re-runnable, run in this order after art changes):
+  1. Art/Build Units, Weapons, Props (also paints soldier dyes + palette)
+  2. Art/Build Town (pieces, road environments, diorama in Game scene)
+  3. Art/Render Portraits + Icons
+  4. Content/Register Content + Campaign Database (guns, characters, enemies, obstacles, Supplies, UI style)
+  5. Content/Build 30 Missions
+  6. Content/Build Intro Cinematic
+- Template changes: gun pierce/splash/aim/unblockable, AdvanceMultiplier (boss standoff), stats from buildings,
+  squad spawn from cards, Supplies currency, free revive, "MISSION N" label, upgrades panel/Play hidden by the hub.
+- Balance (bot, expected progression): 30/30 missions won by the bot after tuning; bosses: Rattler 380 hp,
+  Jaws 520 hp, Vex 6000 hp. Enemy shots: snipers, bosses and ambush rifles aim at the squad; sniper and boss
+  shots are not cancelled by the squad's bullets.
+
 ## Phases
 1. Card + squad data, save, squad spawn, new unit behaviours (pierce, heal, splash), Supplies currency.
 2. New art: units, weapons, bandit sniper, bosses, sandbags, supply crate, town buildings.

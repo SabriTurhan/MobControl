@@ -11,7 +11,7 @@ namespace Watermelon
     {
         private static readonly string LEVEL_NUMBER_SAVE_NAME = "Level Number Save";
 
-        private const string LEVEL_LABEL = "LEVEL {0}";
+        private const string LEVEL_LABEL = "MISSION {0}";
         private static UILevelNumberText instance;
 
         [SerializeField] UIScaleAnimation uIScalableObject;
