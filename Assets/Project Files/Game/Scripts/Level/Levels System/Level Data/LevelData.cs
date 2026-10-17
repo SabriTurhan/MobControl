@@ -31,6 +31,14 @@ namespace Watermelon
         public CharacterType CharacterType => characterType;
 
         [SerializeField] GameObject overrideBonusStage;
+
+        [Header("Dustwater intel")]
+        [SerializeField] List<ThreatType> threats = new List<ThreatType>();
+        public List<ThreatType> Threats => threats;
+        [SerializeField] bool isBossLevel;
+        public bool IsBossLevel => isBossLevel;
+        [SerializeField] string operationName;
+        public string OperationName => operationName;
         public GameObject OverrideBonusStage => overrideBonusStage;
 
         [Header("Content")]

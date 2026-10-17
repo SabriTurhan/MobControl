@@ -80,8 +80,38 @@ namespace Watermelon
             fireRateModifiers.Add(StatModifier.Plus(PlayerStats.FireRate));
             rangeModifiers.Add(StatModifier.Plus(PlayerStats.BulletRange));
 
-            AddCharacter(LevelController.SkinsManager.GetDefaultCharacter(characterType));
+            if (Campaign.IsInitialised)
+            {
+                SpawnSquad();
+            }
+            else
+            {
+                AddCharacter(LevelController.SkinsManager.GetDefaultCharacter(characterType));
+            }
         }
+
+        private void SpawnSquad()
+        {
+            string squadGunId = Campaign.SquadGunId;
+            if (!string.IsNullOrEmpty(squadGunId))
+                GunId = squadGunId;
+
+            IReadOnlyList<string> squad = Campaign.Squad;
+            for (int i = 0; i < squad.Count; i++)
+            {
+                UnitCardData unit = Campaign.Database.GetUnit(squad[i]);
+                if (unit == null) continue;
+
+                CharacterBehavior character = LevelController.SkinsManager.GetCharacter(unit.characterId);
+                if (character != null)
+                    AddCharacter(character);
+            }
+
+            if (characters.Count == 0)
+                AddCharacter(LevelController.SkinsManager.GetDefaultCharacter(CharacterType));
+        }
+
+        public IReadOnlyList<CharacterBehavior> Characters => characters;
 
         public void SetInitialPosition(float z)
         {
@@ -100,6 +130,8 @@ namespace Watermelon
 
         public void AddCharacter(CharacterBehavior character)
         {
+            character.SetUnitStats(Campaign.GetStatsForCharacter(character.Data.Id));
+
             if (characterPositions.Count <= characters.Count)
             {
                 Transform newPosition = new GameObject().transform;

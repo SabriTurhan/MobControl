@@ -57,6 +57,10 @@ namespace Watermelon
             floatingTextController.Init();
             levelController.Init();
 
+            CampaignController campaignController = GetComponent<CampaignController>();
+            if (campaignController != null)
+                campaignController.Init();
+
             Drop.Initialise(dropSetting);
 
             // Initialise currency cloud and pages

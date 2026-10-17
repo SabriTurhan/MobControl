@@ -4,5 +4,6 @@
     public enum CurrencyType
     {
         Money = 0,
+        Supplies = 1,
     }
 }

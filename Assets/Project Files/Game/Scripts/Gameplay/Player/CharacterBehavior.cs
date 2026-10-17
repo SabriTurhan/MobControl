@@ -25,6 +25,7 @@ namespace Watermelon
         public HealthBehavior Health => healthBehavior;
 
         public CharacterData Data { get; private set; }
+        public UnitStats UnitStats { get; private set; } = UnitStats.Default;
 
         public PlayerBehavior Player { get; private set; }
         protected GunBehavior GunBehavior { get; private set; }
@@ -58,12 +59,28 @@ namespace Watermelon
             this.formationPosition = formationPosition;
             transform.position = formationPosition.position;
 
-            Health.Initialise(maxHealth);
+            Health.Initialise(maxHealth * UnitStats.healthMult);
             Health.Restore();
 
             IsDead = false;
 
             EnableCollider();
+        }
+
+        public void SetUnitStats(UnitStats unitStats)
+        {
+            UnitStats = unitStats ?? UnitStats.Default;
+
+            MedicAbility medic = GetComponent<MedicAbility>();
+            if (UnitStats.healPerSecond > 0)
+            {
+                if (medic == null) medic = gameObject.AddComponent<MedicAbility>();
+                medic.Init(this, UnitStats.healPerSecond);
+            }
+            else if (medic != null)
+            {
+                Destroy(medic);
+            }
         }
 
         public void SetData(CharacterData data)
@@ -142,7 +159,10 @@ namespace Watermelon
         public void RecalculateBulletRange(List<StatModifier> modifiers, float minRange)
         {
             if (GunBehavior != null)
+            {
+                GunBehavior.RangeMultiplier = UnitStats.rangeMult;
                 GunBehavior.RecalculateBulletRange(modifiers, minRange);
+            }
         }
 
         #endregion
@@ -351,7 +371,7 @@ namespace Watermelon
                 FireRate = modifier.ApplyValue(FireRate);
             }
 
-            FireRate *= GunBehavior.GunData.FireRateMultiplier;
+            FireRate *= GunBehavior.GunData.FireRateMultiplier * UnitStats.fireRateMult;
 
             if (FireRate < minFireRate)
                 FireRate = minFireRate;
@@ -374,7 +394,7 @@ namespace Watermelon
                 Damage = modifier.ApplyValue(Damage);
             }
 
-            Damage *= GunBehavior.GunData.DamageMultiplier;
+            Damage *= GunBehavior.GunData.DamageMultiplier * UnitStats.damageMult * Campaign.GetWeaponDamageFactor(GunBehavior.GunData.Id);
 
             if (Damage < minDamage)
                 Damage = minDamage;

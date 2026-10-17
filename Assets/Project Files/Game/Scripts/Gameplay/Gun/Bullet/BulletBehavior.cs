@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Watermelon
@@ -5,6 +6,14 @@ namespace Watermelon
     public class BulletBehavior : MonoBehaviour
     {
         private const string HIT_PARTICLE_NAME = "Hit";
+        private const string EXPLOSION_PARTICLE_NAME = "Grenade Explosion";
+
+        [Tooltip("Optional child that flies in an arc (grenades)")]
+        [SerializeField] Transform arcVisual;
+        [SerializeField] float arcHeight = 0f;
+
+        private int pierceLeft;
+        private ITargetable lastPiercedTarget;
 
         [SerializeField] TrailRenderer trailRenderer;
 
@@ -44,6 +53,9 @@ namespace Watermelon
 
             distanceTraveled = 0;
 
+            pierceLeft = isPlayerShooting && gun != null && gun.GunData != null ? gun.GunData.Pierce : 0;
+            lastPiercedTarget = null;
+
             trailRenderer.gameObject.SetActive(true);
         }
 
@@ -64,8 +76,16 @@ namespace Watermelon
                     transform.position = transform.position.SetX(currentPosX);
                 }
 
+                if (arcVisual != null)
+                {
+                    float t = Mathf.Clamp01(distanceTraveled / selfDestroyDistance);
+                    arcVisual.localPosition = Vector3.up * (arcHeight * 4f * t * (1f - t));
+                }
+
                 if (distanceTraveled >= selfDestroyDistance)
                 {
+                    if (IsSplash) Explode(null);
+
                     SelfDestroy();
                 }
             }
@@ -77,9 +97,23 @@ namespace Watermelon
 
             if (target != null)
             {
+                if (lastPiercedTarget != null && ReferenceEquals(target, lastPiercedTarget))
+                    return;
+
                 if (isPlayerShooting)
                 {
                     target.GetHit(damage, transform.position, Gun.GunData.DamageMultiplier);
+
+                    if (IsSplash)
+                    {
+                        Explode(target);
+                    }
+                    else if (pierceLeft > 0 && target is EnemyBehavior)
+                    {
+                        pierceLeft--;
+                        lastPiercedTarget = target;
+                        return;
+                    }
                 }
 
                 SelfDestroy();
@@ -116,6 +150,33 @@ namespace Watermelon
                     SelfDestroy();
                 }
             }
+        }
+
+        private bool IsSplash => isPlayerShooting && Gun != null && Gun.GunData != null && Gun.GunData.SplashRadius > 0;
+
+        private static readonly Collider[] splashHits = new Collider[32];
+
+        private void Explode(ITargetable directTarget)
+        {
+            float radius = Gun.GunData.SplashRadius;
+            Vector3 center = transform.position;
+
+            int count = Physics.OverlapSphereNonAlloc(center, radius, splashHits, ~0, QueryTriggerInteraction.Collide);
+            List<ITargetable> damaged = new List<ITargetable>();
+            for (int i = 0; i < count; i++)
+            {
+                ITargetable splashTarget = splashHits[i].GetComponent<ITargetable>();
+                if (splashTarget == null || ReferenceEquals(splashTarget, directTarget) || damaged.Contains(splashTarget)) continue;
+
+                // Gates are only changed by direct hits
+                if (!(splashTarget is EnemyBehavior) && !(splashTarget is ObstacleBehavior)) continue;
+
+                damaged.Add(splashTarget);
+                splashTarget.GetHit(damage * 0.6f, splashHits[i].transform.position, Gun.GunData.DamageMultiplier);
+            }
+
+            if (ParticlesController.HasParticle(EXPLOSION_PARTICLE_NAME))
+                ParticlesController.PlayParticle(EXPLOSION_PARTICLE_NAME).SetPosition(center);
         }
 
         public void SelfDestroy()

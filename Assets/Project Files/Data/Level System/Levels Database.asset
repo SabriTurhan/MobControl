@@ -36,13 +36,11 @@ MonoBehaviour:
   cameraData:
   - id: desert_camera
     followOffset: {x: 0, y: 20, z: -12}
-    objectOffset: {x: 0, y: 0, z: 7}
     rotation: {x: 46.5, y: 0, z: 0}
     fov: 40
     isMovingSideways: 0
   - id: city_camera
     followOffset: {x: 1, y: 4, z: -10}
-    objectOffset: {x: 0, y: -2, z: 10}
     rotation: {x: 46.5, y: 0, z: 0}
     fov: 50
     isMovingSideways: 1
@@ -89,6 +87,18 @@ MonoBehaviour:
     defaultHealth: 5
     defaultBoosterHeight: 1
     obstacleLengthAlongZ: 1.5
+  - id: sandbags
+    prefab: {fileID: 6044250041916545658, guid: ac99dd31ced844088987b467b34b690c,
+      type: 3}
+    defaultHealth: 5
+    defaultBoosterHeight: 1
+    obstacleLengthAlongZ: 1.5
+  - id: supply_crate
+    prefab: {fileID: 8287189697891821786, guid: 0fc7baa8451544bb88c144650511fe7f,
+      type: 3}
+    defaultHealth: 5
+    defaultBoosterHeight: 1
+    obstacleLengthAlongZ: 1.5
   enemiesData:
   - id: enemy
     prefab: {fileID: 6343580571744271787, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
@@ -96,6 +106,17 @@ MonoBehaviour:
   - id: enemy_heavy
     prefab: {fileID: 6343580571744271787, guid: c7427ec862f6081418824ed7942aab09,
       type: 3}
+  - id: bandit_sniper
+    prefab: {fileID: 1886935163996486381, guid: ab981625666354108bdb6ac8d4957de9,
+      type: 3}
+  - id: boss_rattler
+    prefab: {fileID: 5089885312894029312, guid: d5ba526774dfe4c09829d45ea68c2aac,
+      type: 3}
+  - id: boss_jaws
+    prefab: {fileID: 3325417475778694973, guid: 45c5884df17ee43dc91f887f47d2cd66,
+      type: 3}
+  - id: boss_vex
+    prefab: {fileID: 550840437071400852, guid: b6c6a659bbb274e3b872649305917f12, type: 3}
   finishData:
   - id: finish
     prefab: {fileID: 2390828919641220376, guid: 09077e6ed2eb19542b72e312eb67330c,
@@ -194,6 +215,36 @@ MonoBehaviour:
     previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
     shootingImpactType: 2
     displayName: 
+  - id: sharpshooter_character
+    prefab: {fileID: 6717833559349775400, guid: 73712eeae8da44d5e9d1bc9ea9d6f35c,
+      type: 3}
+    characterType: 0
+    isDefault: 0
+    isGunLocked: 1
+    lockedGunId: sniper
+    previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
+    shootingImpactType: 2
+    displayName: Sharpshooter
+  - id: medic_character
+    prefab: {fileID: 1879444564939578580, guid: afc6ed057ad42483b9fb2a5f8f2a1653,
+      type: 3}
+    characterType: 0
+    isDefault: 0
+    isGunLocked: 1
+    lockedGunId: default_gun
+    previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
+    shootingImpactType: 2
+    displayName: Medic
+  - id: grenadier_character
+    prefab: {fileID: 2779350311084349398, guid: 2bfa6cbb547054c76b627ef176544a97,
+      type: 3}
+    characterType: 0
+    isDefault: 0
+    isGunLocked: 1
+    lockedGunId: grenade_launcher
+    previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
+    shootingImpactType: 2
+    displayName: Grenadier
   gunsData:
   - id: none
     prefab: {fileID: 0}
@@ -204,6 +255,8 @@ MonoBehaviour:
     bulletSpeed: 25
     bulletsCount: 1
     spread: 1
+    pierce: 0
+    splashRadius: 0
     previewSprite: {fileID: 0}
     poseAnimation: {fileID: 0}
     shootingImpactDistance: 0
@@ -252,6 +305,8 @@ MonoBehaviour:
     bulletSpeed: 23
     bulletsCount: 1
     spread: 0
+    pierce: 0
+    splashRadius: 0
     previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
     poseAnimation: {fileID: 7141564764606606549, guid: b8f55f1b16324544d8265a07be511f58,
       type: 3}
@@ -301,6 +356,8 @@ MonoBehaviour:
     bulletSpeed: 23
     bulletsCount: 1
     spread: 0
+    pierce: 0
+    splashRadius: 0
     previewSprite: {fileID: 21300000, guid: 326c3e37fb0e8fe4da390b31399c255a, type: 3}
     poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
       type: 3}
@@ -350,6 +407,8 @@ MonoBehaviour:
     bulletSpeed: 23
     bulletsCount: 3
     spread: 10
+    pierce: 0
+    splashRadius: 0
     previewSprite: {fileID: 21300000, guid: 45b55da4549e58e44bcf448b384885ed, type: 3}
     poseAnimation: {fileID: 6054108731721544028, guid: 11dadf25fe2f6674a8e9af8eabcdcb02,
       type: 3}
@@ -399,6 +458,8 @@ MonoBehaviour:
     bulletSpeed: 25
     bulletsCount: 1
     spread: 1
+    pierce: 0
+    splashRadius: 0
     previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
     poseAnimation: {fileID: 6461450792151128023, guid: dc367e2901da9a54daf185fbe0f3bb61,
       type: 3}
@@ -438,6 +499,159 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     displayName: Minigun
+  - id: sniper
+    prefab: {fileID: 3630893047055849153, guid: 5747f20a9e21c498f8c5aaea5558b901,
+      type: 3}
+    isDefault: 0
+    fireRateMultiplier: 0.4
+    damageMultiplier: 4.5
+    bulletRangeMultiplier: 14
+    bulletSpeed: 45
+    bulletsCount: 1
+    spread: 0
+    pierce: 2
+    splashRadius: 0
+    previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
+    poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
+      type: 3}
+    shootingImpactDistance: 0.1
+    shootingImpactDuration: 0.1
+    shootingImpactCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 3.3387942
+        outSlope: 3.3387942
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.030174445
+      - serializedVersion: 3
+        time: 0.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1.1376632
+        outSlope: -1.1376632
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.037718058
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    displayName: Sniper Rifle
+  - id: grenade_launcher
+    prefab: {fileID: 4999886627732941849, guid: 3dc3dfe31eaa6401680f6b0013ff8f3f,
+      type: 3}
+    isDefault: 0
+    fireRateMultiplier: 0.45
+    damageMultiplier: 2.6
+    bulletRangeMultiplier: 3
+    bulletSpeed: 15
+    bulletsCount: 1
+    spread: 0
+    pierce: 0
+    splashRadius: 2.2
+    previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
+    poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
+      type: 3}
+    shootingImpactDistance: 0.1
+    shootingImpactDuration: 0.1
+    shootingImpactCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 3.3387942
+        outSlope: 3.3387942
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.030174445
+      - serializedVersion: 3
+        time: 0.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1.1376632
+        outSlope: -1.1376632
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.037718058
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    displayName: Grenade Launcher
+  - id: bandit_sniper
+    prefab: {fileID: 3630893047055849153, guid: 5747f20a9e21c498f8c5aaea5558b901,
+      type: 3}
+    isDefault: 0
+    fireRateMultiplier: 1
+    damageMultiplier: 1
+    bulletRangeMultiplier: 26
+    bulletSpeed: 32
+    bulletsCount: 1
+    spread: 0
+    pierce: 0
+    splashRadius: 0
+    previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
+    poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
+      type: 3}
+    shootingImpactDistance: 0.1
+    shootingImpactDuration: 0.1
+    shootingImpactCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 3.3387942
+        outSlope: 3.3387942
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.030174445
+      - serializedVersion: 3
+        time: 0.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1.1376632
+        outSlope: -1.1376632
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.037718058
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    displayName: Bandit Sniper Rifle
   bonusStages:
   - id: first bonus stage
     prefab: {fileID: 8558497136857710916, guid: 415e9f3e84e4b294892b78669f4ac1ec,

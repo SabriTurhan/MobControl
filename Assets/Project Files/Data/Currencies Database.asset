@@ -28,3 +28,18 @@ MonoBehaviour:
       appearAudioClip: {fileID: 8300000, guid: 7ed02add2c2a9df4baaa5a74a78e355a, type: 3}
       collectAudioClip: {fileID: 8300000, guid: 0e8dcfe6f3ce7f54dad0fd76c63f1235,
         type: 3}
+  - currencyType: 1
+    defaultAmount: 0
+    icon: {fileID: 21300000, guid: b1b649ab8ac4c4a66a64642b3ff864de, type: 3}
+    data:
+      displayAlways: 0
+      dropPrefab: {fileID: 5765649825418370686, guid: 619185cd71a96455ead3f890d5c9305f,
+        type: 3}
+      pickUpSound: {fileID: 8300000, guid: 1b3a9aa133dd17e4a80144d16ef86d0b, type: 3}
+    floatingCloud:
+      addToCloud: 1
+      radius: 200
+      specialPrefab: {fileID: 0}
+      appearAudioClip: {fileID: 8300000, guid: 7ed02add2c2a9df4baaa5a74a78e355a, type: 3}
+      collectAudioClip: {fileID: 8300000, guid: 0e8dcfe6f3ce7f54dad0fd76c63f1235,
+        type: 3}

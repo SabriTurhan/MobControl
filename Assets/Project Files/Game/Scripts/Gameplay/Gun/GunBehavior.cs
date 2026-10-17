@@ -17,6 +17,7 @@ namespace Watermelon
 
         private PoolGeneric<BulletBehavior> bulletPool;
         private float BulletRange { get; set; }
+        public float RangeMultiplier { get; set; } = 1f;
 
         private void Awake()
         {
@@ -46,6 +47,8 @@ namespace Watermelon
 
                 BulletRange = statModifier.ApplyValue(BulletRange);
             }
+
+            BulletRange *= RangeMultiplier;
 
             if (BulletRange < minRange) BulletRange = minRange;
         }

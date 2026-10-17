@@ -21,11 +21,13 @@ namespace Watermelon
         [SerializeField, Min(0f)] float minFireRate = 0.1f;
         [SerializeField, Min(0f)] float minRange = 0.1f;
 
-        public float Damage => damageOverride.Handle(damageUpgrade.GetCurrentStage().Value);
-        public float FireRate => fireRateOverride.Handle(fireRateUpgrade.GetCurrentStage().Value);
-        public float Health => healthOverride.Handle(healthUpgrade.GetCurrentStage().Value);
+        // Dustwater: the upgrade panel is replaced by town buildings (Armory, Workshop, Barracks, Watchtower),
+        // so the first upgrade stage is the base value and buildings multiply it
+        public float Damage => damageOverride.Handle(damageUpgrade.GetStage(0).Value) * Campaign.DamageMultiplier;
+        public float FireRate => fireRateOverride.Handle(fireRateUpgrade.GetStage(0).Value) * Campaign.FireRateMultiplier;
+        public float Health => healthOverride.Handle(healthUpgrade.GetStage(0).Value) * Campaign.HealthMultiplier;
 
-        public float BulletRange => bullerRange;
+        public float BulletRange => bullerRange * Campaign.RangeMultiplier;
 
         public float MinDamage => minDamage;
         public float MinFireRate => minFireRate;

@@ -26,6 +26,14 @@ namespace Watermelon
         [SerializeField] float spread = 0f;
         public float Spread => spread;
 
+        [Tooltip("Player bullets go through this many enemies before stopping")]
+        [SerializeField] int pierce = 0;
+        public int Pierce => pierce;
+
+        [Tooltip("Player bullets explode on impact or at max range, hitting everything in the radius")]
+        [SerializeField] float splashRadius = 0f;
+        public float SplashRadius => splashRadius;
+
         [SerializeField] Sprite previewSprite;
         public Sprite PreviewSprite => previewSprite;
 

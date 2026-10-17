@@ -1,0 +1,322 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904d5373e2f2b4dc4b5677925d777ed1, type: 3}
+  m_Name: Campaign Database
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.CampaignDatabase
+  units:
+  - id: ranger
+    displayName: Ranger
+    description: Reliable rifleman. Fights with your squad weapon.
+    rarity: 0
+    characterId: default_character
+    portrait: {fileID: 21300000, guid: 0c9cad92815e448478b8a90a68c61222, type: 3}
+    unlockAfterLevel: 0
+    isFiller: 1
+    healthMult: 1
+    damageMult: 1
+    fireRateMult: 1
+    rangeMult: 1
+    healPerSecond: 0
+    counters: 
+  - id: heavy
+    displayName: Heavy Gunner
+    description: Double health. Shreds crowds with his minigun.
+    rarity: 1
+    characterId: heavy_character
+    portrait: {fileID: 21300000, guid: f980ab66ba4924ee2a5c563566ba2ded, type: 3}
+    unlockAfterLevel: 3
+    isFiller: 0
+    healthMult: 2
+    damageMult: 1
+    fireRateMult: 1
+    rangeMult: 1
+    healPerSecond: 0
+    counters: 0100000004000000
+  - id: sharpshooter
+    displayName: Sharpshooter
+    description: Long range shots that pierce through 3 bandits.
+    rarity: 1
+    characterId: sharpshooter_character
+    portrait: {fileID: 21300000, guid: 3b0db3c47c1fa4cffb874d77c35b863c, type: 3}
+    unlockAfterLevel: 5
+    isFiller: 0
+    healthMult: 0.9
+    damageMult: 1
+    fireRateMult: 1
+    rangeMult: 1
+    healPerSecond: 0
+    counters: 0000000002000000
+  - id: medic
+    displayName: Medic
+    description: Heals the whole squad over time.
+    rarity: 1
+    characterId: medic_character
+    portrait: {fileID: 21300000, guid: 8fb78da6e674d4201b167c44fd4a261f, type: 3}
+    unlockAfterLevel: 11
+    isFiller: 0
+    healthMult: 1
+    damageMult: 0.6
+    fireRateMult: 1
+    rangeMult: 1
+    healPerSecond: 0.5
+    counters: 04000000
+  - id: grenadier
+    displayName: Grenadier
+    description: Lobs grenades that blast everything nearby.
+    rarity: 2
+    characterId: grenadier_character
+    portrait: {fileID: 21300000, guid: 793be34fd30bd4a85ae421e2b6bb113f, type: 3}
+    unlockAfterLevel: 15
+    isFiller: 0
+    healthMult: 1.1
+    damageMult: 1
+    fireRateMult: 1
+    rangeMult: 1
+    healPerSecond: 0
+    counters: 0300000001000000
+  weapons:
+  - id: pistol
+    displayName: Pistol
+    description: Basic sidearm. Better than nothing.
+    rarity: 0
+    gunId: default_gun
+    portrait: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
+    unlockAfterLevel: 0
+    counters: 
+  - id: shotgun
+    displayName: Shotgun
+    description: Three pellets per shot. Wrecks barricades.
+    rarity: 0
+    gunId: shotgun
+    portrait: {fileID: 21300000, guid: 45b55da4549e58e44bcf448b384885ed, type: 3}
+    unlockAfterLevel: 2
+    counters: 03000000
+  - id: rifle
+    displayName: Rifle
+    description: Double damage per bullet. Cuts through armor.
+    rarity: 1
+    gunId: rifle
+    portrait: {fileID: 21300000, guid: 326c3e37fb0e8fe4da390b31399c255a, type: 3}
+    unlockAfterLevel: 7
+    counters: 00000000
+  - id: minigun
+    displayName: Minigun
+    description: Triple fire rate. Mows down crowds.
+    rarity: 2
+    gunId: minigun
+    portrait: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
+    unlockAfterLevel: 12
+    counters: 01000000
+  buildings:
+  - type: 0
+    displayName: Command Post
+    description: Your headquarters. Every level adds a squad slot.
+    valueFormat: '{0} squad slots'
+    icon: {fileID: 0}
+    unlockAfterLevel: 0
+    levels:
+    - money: 0
+      supplies: 0
+      value: 2
+    - money: 150
+      supplies: 10
+      value: 3
+    - money: 500
+      supplies: 35
+      value: 4
+    - money: 1200
+      supplies: 80
+      value: 5
+  - type: 1
+    displayName: Barracks
+    description: Bunks and training. Tougher soldiers.
+    valueFormat: +{0}% squad health
+    icon: {fileID: 0}
+    unlockAfterLevel: 2
+    levels:
+    - money: 60
+      supplies: 5
+      value: 10
+    - money: 150
+      supplies: 15
+      value: 20
+    - money: 320
+      supplies: 30
+      value: 35
+    - money: 600
+      supplies: 55
+      value: 50
+    - money: 1000
+      supplies: 90
+      value: 70
+  - type: 2
+    displayName: Armory
+    description: Better ammo for every gun.
+    valueFormat: +{0}% damage
+    icon: {fileID: 0}
+    unlockAfterLevel: 4
+    levels:
+    - money: 80
+      supplies: 6
+      value: 10
+    - money: 180
+      supplies: 18
+      value: 20
+    - money: 360
+      supplies: 34
+      value: 35
+    - money: 650
+      supplies: 60
+      value: 50
+    - money: 1100
+      supplies: 95
+      value: 70
+  - type: 3
+    displayName: Workshop
+    description: Oiled and tuned weapons shoot faster.
+    valueFormat: +{0}% fire rate
+    icon: {fileID: 0}
+    unlockAfterLevel: 7
+    levels:
+    - money: 120
+      supplies: 10
+      value: 8
+    - money: 260
+      supplies: 24
+      value: 16
+    - money: 480
+      supplies: 42
+      value: 25
+    - money: 800
+      supplies: 70
+      value: 35
+    - money: 1300
+      supplies: 110
+      value: 45
+  - type: 4
+    displayName: Field Hospital
+    description: Patches up the squad once it falls.
+    valueFormat: '{0} free revive per mission'
+    icon: {fileID: 0}
+    unlockAfterLevel: 10
+    levels:
+    - money: 300
+      supplies: 25
+      value: 1
+    - money: 900
+      supplies: 70
+      value: 2
+  - type: 5
+    displayName: Saloon
+    description: Grateful townsfolk pay for protection.
+    valueFormat: +{0} cash per hour
+    icon: {fileID: 0}
+    unlockAfterLevel: 13
+    levels:
+    - money: 400
+      supplies: 30
+      value: 30
+    - money: 800
+      supplies: 60
+      value: 60
+    - money: 1400
+      supplies: 100
+      value: 100
+    - money: 2200
+      supplies: 150
+      value: 150
+  - type: 6
+    displayName: Watchtower
+    description: Spot bandits early and shoot further.
+    valueFormat: +{0}% range
+    icon: {fileID: 0}
+    unlockAfterLevel: 20
+    levels:
+    - money: 900
+      supplies: 80
+      value: 10
+    - money: 1600
+      supplies: 130
+      value: 20
+    - money: 2600
+      supplies: 200
+      value: 30
+  chapters:
+  - title: OUTSKIRTS
+    subtitle: Gas station and water tower
+    firstLevel: 1
+    lastLevel: 10
+    bossName: Lieutenant Rattler
+    introLines:
+    - The Red Scorpions hold the road into Dustwater.
+    - Clear the outskirts, Commander!
+    outroLines:
+    - Rattler is down! The outskirts are free.
+    - Townsfolk are coming back. Time to rebuild!
+  - title: MAIN STREET
+    subtitle: Saloon and market
+    firstLevel: 11
+    lastLevel: 20
+    bossName: Big Jaws
+    introLines:
+    - Main Street is the heart of Dustwater.
+    - Big Jaws guards it with an iron grip.
+    outroLines:
+    - Big Jaws is finished!
+    - Only the Scorpion Fort remains.
+  - title: SCORPION FORT
+    subtitle: Vex's stronghold
+    firstLevel: 21
+    lastLevel: 30
+    bossName: Boss Vex
+    introLines:
+    - Vex hides in his fort at the edge of town.
+    - This is the final push, Commander!
+    outroLines:
+    - Vex runs off into the desert. Dustwater is free!
+    - Keep patrolling the roads, Commander.
+  threats:
+  - type: 0
+    displayName: ARMORED
+    description: Heavy bandits with thick vests.
+    icon: {fileID: 21300000, guid: f9c9e424755ec41e198f2fae100c0f62, type: 3}
+    color: {r: 0.47058824, g: 0.5019608, b: 0.5882353, a: 1}
+  - type: 1
+    displayName: SWARM
+    description: Lots of bandits at once.
+    icon: {fileID: 21300000, guid: a0e9b032398d047a1b895a8887a558e8, type: 3}
+    color: {r: 1, g: 0.54901963, b: 0.19607843, a: 1}
+  - type: 2
+    displayName: SNIPERS
+    description: Bandit snipers fire from far away.
+    icon: {fileID: 21300000, guid: c28034a332bff4abe82b3f3e6c5a42f4, type: 3}
+    color: {r: 0.627451, g: 0.27450982, b: 0.54901963, a: 1}
+  - type: 3
+    displayName: BARRICADES
+    description: Sandbag walls block the road.
+    icon: {fileID: 21300000, guid: 0079db5c6f14540be91fb2595233e916, type: 3}
+    color: {r: 0.78431374, g: 0.627451, b: 0.3529412, a: 1}
+  - type: 4
+    displayName: AMBUSH
+    description: A long road under constant fire.
+    icon: {fileID: 21300000, guid: 2a23ecea512b84d5b862fbbe4073e95a, type: 3}
+    color: {r: 0.9019608, g: 0.27450982, b: 0.27450982, a: 1}
+  copiesPerLevel: 02000000030000000400000006000000080000000a0000000e0000001200000018000000
+  moneyPerLevel: 1e0000003c0000006400000096000000dc0000002c010000900100000802000094020000
+  statPerLevel: 0.12
+  chestRarityWeights:
+  - 70
+  - 25
+  - 5
+  starterUnitId: ranger
+  starterWeaponId: pistol
+  patrolHealthGrowth: 0.08
