@@ -25,6 +25,7 @@ namespace Watermelon
             Image panelImage = DWUI.Image(root, "Panel", style.panelWhite);
             panel = panelImage.rectTransform;
             panel.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, -10f), new Vector2(1000f, 1700f));
+            panel.Fit(1700f, 1000f, 40f);
             panelImage.raycastTarget = true;
 
             body = DWUI.Rect(panel, "Body").Stretch();
@@ -32,7 +33,7 @@ namespace Watermelon
             Button close = DWUI.Button(panel, "Close", style.buttonClose, null, 0f, Hide);
             close.GetComponent<RectTransform>().Place(new Vector2(1f, 1f), new Vector2(-20f, -20f), new Vector2(120f, 120f));
 
-            Button deploy = DWUI.Button(panel, "Deploy", style.buttonGreen, "DEPLOY", 84f, () => DustwaterUI.Instance.Deploy());
+            Button deploy = DWUI.Button(panel, "Deploy", style.buttonGreen, Loc.Get("brief.deploy"), 84f, () => DustwaterUI.Instance.Deploy());
             deploy.GetComponent<RectTransform>().Place(new Vector2(0.5f, 0f), new Vector2(0f, 110f), new Vector2(620f, 180f));
 
             picker = DWUI.Rect(root, "Picker").Stretch();
@@ -70,29 +71,29 @@ namespace Watermelon
             header.rectTransform.pivot = new Vector2(0.5f, 1f);
             header.rectTransform.sizeDelta = new Vector2(-180f, 100f);
             header.rectTransform.anchoredPosition = new Vector2(-40f, -26f);
-            TextMeshProUGUI chapterText = DWUI.Text(header.rectTransform, "Chapter", chapter != null ? "CHAPTER " + (chapterIndex + 1) + ": " + chapter.title : "PATROL DUTY", 44f);
+            TextMeshProUGUI chapterText = DWUI.Text(header.rectTransform, "Chapter", chapter != null ? Loc.Format("hub.chapter", chapterIndex + 1, Loc.ChapterTitle(chapterIndex, chapter)) : Loc.Get("hub.patrol"), 44f);
             chapterText.rectTransform.Stretch(10, 10, 0, 6);
 
-            TextMeshProUGUI mission = DWUI.Text(body, "Mission", "MISSION " + Campaign.CurrentLevelNumber, 76f, style.textDark, false);
+            TextMeshProUGUI mission = DWUI.Text(body, "Mission", Loc.Format("ui.mission_n", Campaign.CurrentLevelNumber), 76f, style.textDark, false);
             mission.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -185f), new Vector2(900f, 90f));
-            string operation = level != null && !string.IsNullOrEmpty(level.OperationName) ? "Operation " + level.OperationName : "Clear the road";
+            string operation = level != null && !string.IsNullOrEmpty(level.OperationName) ? Loc.Format("hub.operation", Loc.OperationName(Campaign.CurrentLevelNumber, level.OperationName)) : Loc.Get("brief.clear_road");
             TextMeshProUGUI operationText = DWUI.Text(body, "Operation", operation, 40f, new Color32(120, 116, 140, 255), false);
             operationText.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -250f), new Vector2(900f, 56f));
 
             // INTEL
             float y = -320f;
-            SectionLabel("INTEL", y);
+            SectionLabel(Loc.Get("brief.intel"), y);
             y -= 70f;
 
             if (level != null && level.IsBossLevel && chapter != null)
             {
-                IntelRow(chapter.bossPortrait, "BOSS: " + chapter.bossName.ToUpper(), "Take him down before he reaches your squad!", style.red, null, y);
+                IntelRow(chapter.bossPortrait, Loc.Format("brief.boss", Loc.Upper(Loc.ChapterBoss(chapterIndex, chapter))), Loc.Get("brief.boss_desc"), style.red, null, y);
                 y -= 150f;
             }
 
             if (threats.Count == 0)
             {
-                IntelRow(Campaign.Database.Units[0].portrait, "LIGHT RESISTANCE", "A few bandits. Any squad will do.", style.green, null, y);
+                IntelRow(Campaign.Database.Units[0].portrait, Loc.Get("brief.light"), Loc.Get("brief.light_desc"), style.green, null, y);
                 y -= 150f;
             }
 
@@ -100,14 +101,14 @@ namespace Watermelon
             {
                 ThreatInfo info = Campaign.Database.GetThreat(type);
                 if (info == null) continue;
-                IntelRow(info.icon, info.displayName, info.description, info.color, type, y);
+                IntelRow(info.icon, Loc.ThreatName(info), Loc.ThreatDescription(info), info.color, type, y);
                 y -= 150f;
             }
 
             // SQUAD
             y -= 10f;
             IReadOnlyList<string> squad = Campaign.Squad;
-            SectionLabel("YOUR SQUAD  <size=70%><color=#8A86A0>" + squad.Count + " SLOTS</color></size>", y);
+            SectionLabel(Loc.Get("brief.squad") + "  <size=70%><color=#8A86A0>" + Loc.Format("brief.slots", squad.Count) + "</color></size>", y);
             y -= 60f;
 
             float slotWidth = Mathf.Min(176f, 880f / Mathf.Max(1, squad.Count) - 12f);
@@ -125,7 +126,7 @@ namespace Watermelon
             y -= slotSize.y + 30f;
 
             // WEAPON
-            SectionLabel("RANGER WEAPON", y);
+            SectionLabel(Loc.Get("brief.weapon"), y);
             y -= 60f;
             CardWidget.Info weapon = CardWidget.Get(false, Campaign.SelectedWeaponId);
             Vector2 weaponSize = new Vector2(150f, 210f);
@@ -135,7 +136,7 @@ namespace Watermelon
             if (Counters(weapon, threats)) CounterRibbon(weaponCard);
 
             WeaponCardData weaponData = Campaign.Database.GetWeapon(Campaign.SelectedWeaponId);
-            TextMeshProUGUI weaponText = DWUI.Text(body, "Weapon Info", weaponData != null ? "<b>" + weaponData.displayName.ToUpper() + "</b>\n<size=80%>" + weaponData.description + "</size>" : "", 40f, style.textDark, false, TextAlignmentOptions.Left);
+            TextMeshProUGUI weaponText = DWUI.Text(body, "Weapon Info", weaponData != null ? "<b>" + Loc.Upper(Loc.WeaponName(weaponData)) + "</b>\n<size=80%>" + Loc.WeaponDescription(weaponData) + "</size>" : "", 40f, style.textDark, false, TextAlignmentOptions.Left);
             weaponText.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(120f, y - weaponSize.y * 0.5f), new Vector2(620f, weaponSize.y));
 
             TextMeshProUGUI hint = DWUI.Text(body, "Hint", Hint(threats), 34f, style.blue, false);
@@ -215,16 +216,16 @@ namespace Watermelon
                 if (covered) continue;
 
                 foreach (UnitCardData unit in Campaign.Database.Units)
-                    if (suggestion == null && unit.counters.Contains(threat) && Campaign.GetUnitSave(unit.id) != null) suggestion = unit.displayName;
+                    if (suggestion == null && unit.counters.Contains(threat) && Campaign.GetUnitSave(unit.id) != null) suggestion = Loc.UnitName(unit);
                 foreach (WeaponCardData candidate in Campaign.Database.Weapons)
-                    if (suggestion == null && candidate.counters.Contains(threat) && Campaign.GetWeaponSave(candidate.id) != null) suggestion = candidate.displayName;
+                    if (suggestion == null && candidate.counters.Contains(threat) && Campaign.GetWeaponSave(candidate.id) != null) suggestion = Loc.WeaponName(candidate);
 
                 ThreatInfo info = Campaign.Database.GetThreat(threat);
                 if (suggestion != null && info != null)
-                    return "Tip: bring the " + suggestion + " against " + info.displayName;
+                    return Loc.Format("brief.tip", suggestion, Loc.ThreatName(info));
             }
 
-            return threats.Count > 0 ? "Your squad is ready for this mission!" : "Tap a card to change your squad";
+            return threats.Count > 0 ? Loc.Get("brief.ready") : Loc.Get("brief.tap");
         }
 
         private static void MakeTappable(RectTransform card, UnityEngine.Events.UnityAction action)
@@ -246,7 +247,7 @@ namespace Watermelon
             ribbon.rectTransform.anchorMin = ribbon.rectTransform.anchorMax = new Vector2(0.5f, 1f);
             ribbon.rectTransform.sizeDelta = new Vector2(card.sizeDelta.x * 0.9f, 40f);
             ribbon.rectTransform.anchoredPosition = new Vector2(0f, 4f);
-            TextMeshProUGUI label = DWUI.Text(ribbon.rectTransform, "Label", "COUNTER", 26f);
+            TextMeshProUGUI label = DWUI.Text(ribbon.rectTransform, "Label", Loc.Get("brief.counter"), 26f);
             label.rectTransform.Stretch(0, 0, 0, 3);
         }
 
@@ -265,9 +266,10 @@ namespace Watermelon
 
             Image box = DWUI.Image(picker, "Panel", style.panelBlue);
             box.rectTransform.Place(new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(960f, 1240f));
+            box.rectTransform.Fit(1240f, 960f);
             box.raycastTarget = true;
 
-            TextMeshProUGUI title = DWUI.Text(box.rectTransform, "Title", units ? "CHOOSE A UNIT" : "CHOOSE A WEAPON", 60f);
+            TextMeshProUGUI title = DWUI.Text(box.rectTransform, "Title", units ? Loc.Get("brief.choose_unit") : Loc.Get("brief.choose_weapon"), 60f);
             title.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -70f), new Vector2(880f, 80f));
 
             RectTransform grid = DWUI.Grid(box.rectTransform, "Grid", new Vector2(270f, 378f), new Vector2(24f, 30f), 3);
@@ -287,7 +289,7 @@ namespace Watermelon
 
                     RectTransform card = CardWidget.Build(grid, info, new Vector2(270f, 378f), false);
                     if (Counters(info, threats)) CounterRibbon(card);
-                    if (!unit.isFiller && squad.Contains(unit.id) && squad[slot] != unit.id) Tag(card, "IN SQUAD");
+                    if (!unit.isFiller && squad.Contains(unit.id) && squad[slot] != unit.id) Tag(card, Loc.Get("brief.in_squad"));
 
                     MakeTappable(card, () =>
                     {
@@ -309,7 +311,7 @@ namespace Watermelon
 
                     RectTransform card = CardWidget.Build(grid, info, new Vector2(270f, 378f), false);
                     if (Counters(info, threats)) CounterRibbon(card);
-                    if (weapon.id == Campaign.SelectedWeaponId) Tag(card, "EQUIPPED");
+                    if (weapon.id == Campaign.SelectedWeaponId) Tag(card, Loc.Get("brief.equipped"));
 
                     MakeTappable(card, () =>
                     {

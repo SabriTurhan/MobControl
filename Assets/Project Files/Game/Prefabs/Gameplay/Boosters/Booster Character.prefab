@@ -67,9 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Heavy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
-  m_sharedMaterial: {fileID: -3707072339102680950, guid: c2ee9bf6e65695d48ba9d4b5a346538f,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -96,28 +95,31 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 36
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -153,6 +155,18 @@ PrefabInstance:
       propertyPath: m_text
       value: x10
       objectReference: {fileID: 0}
+    - target: {fileID: 2029327304305104583, guid: c8b02cca1f8747346815225ecdf70c9b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 2029327304305104583, guid: c8b02cca1f8747346815225ecdf70c9b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7647790089311069945, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
     - target: {fileID: 2342797133441403821, guid: c8b02cca1f8747346815225ecdf70c9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -307,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier:
     enabled: 0
-    newValue: 0
+    value: 0
   boosterCollider: {fileID: 8935060826572500302}
   applyOnObstacleDestroyed: 1
   pickUpParticle: {fileID: 91835480573683604}

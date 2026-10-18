@@ -77,7 +77,7 @@ namespace Watermelon.IAPStore
             {
                 button.enabled = true;
 
-                timerText.text = DEFAULT_BUTTON_TEXT;
+                timerText.text = Loc.Get("ui.free", DEFAULT_BUTTON_TEXT);
             }
             else
             {

@@ -38,7 +38,7 @@ namespace Watermelon
 
             Image header = DWUI.Image(root, "Header", style.roundedBack, new Color(0f, 0f, 0f, 0.4f));
             header.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -340f), new Vector2(700f, 140f));
-            TextMeshProUGUI title = DWUI.Text(header.rectTransform, "Title", "DUSTWATER", 72f);
+            TextMeshProUGUI title = DWUI.Text(header.rectTransform, "Title", Loc.Get("town.title"), 72f);
             title.rectTransform.Stretch(10, 10, 6, 60);
             subtitle = DWUI.Text(header.rectTransform, "Subtitle", "", 36f, new Color(1f, 0.92f, 0.7f, 1f));
             subtitle.rectTransform.Stretch(10, 10, 86, 6);
@@ -80,7 +80,7 @@ namespace Watermelon
             int liberated = 0;
             foreach (ChapterData chapter in Campaign.Database.Chapters)
                 if (Campaign.LevelsCompleted >= chapter.lastLevel) liberated++;
-            subtitle.text = liberated == 0 ? "Occupied by the Red Scorpions" : liberated >= Campaign.Database.Chapters.Count ? "Free at last!" : liberated + " of " + Campaign.Database.Chapters.Count + " districts liberated";
+            subtitle.text = liberated == 0 ? Loc.Get("town.occupied") : liberated >= Campaign.Database.Chapters.Count ? Loc.Get("town.free") : Loc.Format("town.districts", liberated, Campaign.Database.Chapters.Count);
 
             DWUI.Clear(content);
             foreach (BuildingData building in Campaign.Database.Buildings)
@@ -97,7 +97,7 @@ namespace Watermelon
             bool unlocked = Campaign.IsBuildingUnlocked(building.type);
             BuildingLevelData next = Campaign.GetNextBuildingLevel(building.type);
 
-            Image row = DWUI.Image(content, building.displayName, style.panelWhite, unlocked ? Color.white : new Color(0.75f, 0.75f, 0.8f, 1f));
+            Image row = DWUI.Image(content, building.type.ToString(), style.panelWhite, unlocked ? Color.white : new Color(0.75f, 0.75f, 0.8f, 1f));
             row.Height(250f);
 
             Image iconBack = DWUI.Image(row.rectTransform, "Icon Back", style.itemBackground, new Color32(255, 236, 200, 255));
@@ -106,7 +106,7 @@ namespace Watermelon
             icon.rectTransform.Stretch(10, 10, 10, 10);
             if (!unlocked) icon.color = new Color(0.1f, 0.1f, 0.15f, 0.85f);
 
-            TextMeshProUGUI name = DWUI.Text(row.rectTransform, "Name", building.displayName.ToUpper(), 46f, style.textDark, false, TextAlignmentOptions.Left);
+            TextMeshProUGUI name = DWUI.Text(row.rectTransform, "Name", Loc.Upper(Loc.BuildingName(building)), 46f, style.textDark, false, TextAlignmentOptions.Left);
             name.rectTransform.Place(new Vector2(0f, 1f), new Vector2(470f, -50f), new Vector2(440f, 60f));
 
             // level pips
@@ -119,12 +119,12 @@ namespace Watermelon
             }
 
             string effect;
-            if (!unlocked) effect = "Unlocks after mission " + building.unlockAfterLevel;
-            else if (level == 0) effect = building.description;
+            if (!unlocked) effect = Loc.Format("cards.unlocks", building.unlockAfterLevel);
+            else if (level == 0) effect = Loc.BuildingDescription(building);
             else
             {
-                string now = string.Format(building.valueFormat, building.levels[level - 1].value);
-                effect = next != null ? now + "  <color=#3EC85A>> " + string.Format(building.valueFormat, next.value) + "</color>" : now;
+                string now = Loc.BuildingValue(building, building.levels[level - 1].value);
+                effect = next != null ? now + "  <color=#3EC85A>> " + Loc.BuildingValue(building, next.value) + "</color>" : now;
             }
 
             TextMeshProUGUI effectText = DWUI.Text(row.rectTransform, "Effect", effect, 32f, new Color32(110, 106, 130, 255), false, TextAlignmentOptions.TopLeft);
@@ -134,7 +134,7 @@ namespace Watermelon
 
             if (next == null)
             {
-                TextMeshProUGUI maxed = DWUI.Text(row.rectTransform, "Max", "MAX", 52f, style.gold);
+                TextMeshProUGUI maxed = DWUI.Text(row.rectTransform, "Max", Loc.Get("cards.max"), 52f, style.gold);
                 maxed.rectTransform.Place(new Vector2(1f, 0.5f), new Vector2(-130f, 0f), new Vector2(220f, 100f));
                 return;
             }
@@ -152,7 +152,7 @@ namespace Watermelon
             RectTransform rect = button.GetComponent<RectTransform>();
             rect.Place(new Vector2(1f, 0.5f), new Vector2(-140f, 0f), new Vector2(240f, 190f));
 
-            TextMeshProUGUI label = DWUI.Text(rect, "Label", level == 0 ? "BUILD" : "UPGRADE", 40f);
+            TextMeshProUGUI label = DWUI.Text(rect, "Label", level == 0 ? Loc.Get("town.build") : Loc.Get("town.upgrade"), 40f);
             label.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -46f), new Vector2(230f, 56f));
             RectTransform cost = DWUI.CostRow(rect, "Cost", next.money, next.supplies, 30f);
             cost.Place(new Vector2(0.5f, 0f), new Vector2(0f, 62f), new Vector2(230f, 60f));

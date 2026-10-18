@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5935372080538405952}
   - component: {fileID: 3314526270867949500}
   - component: {fileID: 3052022681591844402}
+  - component: {fileID: 5964675995363103973}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -67,9 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
-  m_sharedMaterial: {fileID: -3707072339102680950, guid: c2ee9bf6e65695d48ba9d4b5a346538f,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -137,6 +138,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5964675995363103973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22343299519864147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  key: ui.play
 --- !u!1 &459776878650303815
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +162,7 @@ GameObject:
   - component: {fileID: 6673078117793462570}
   - component: {fileID: 6650501482691431567}
   - component: {fileID: 6222502980396461366}
+  - component: {fileID: 7501156812727624570}
   m_Layer: 5
   m_Name: Price Text
   m_TagString: Untagged
@@ -204,9 +219,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: REMOVE ADS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
-  m_sharedMaterial: {fileID: -3707072339102680950, guid: c2ee9bf6e65695d48ba9d4b5a346538f,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -241,6 +255,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -274,6 +289,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7501156812727624570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459776878650303815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  key: ui.remove_ads
 --- !u!1 &990423401190340410
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +350,7 @@ GameObject:
   - component: {fileID: 3555505089869872467}
   - component: {fileID: 745838923229141480}
   - component: {fileID: 173589608906776623}
+  - component: {fileID: 4802449117887398730}
   m_Layer: 5
   m_Name: Description Text
   m_TagString: Untagged
@@ -380,9 +409,8 @@ MonoBehaviour:
 
     Keep optional ads for rewards.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
-  m_sharedMaterial: {fileID: 7543850439555462583, guid: 499cf83f07b1eca49b41b4b547540c38,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: f53ad44e6d80d4eaa86b7135bd52c7e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -417,6 +445,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -450,6 +479,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4802449117887398730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175874519342429713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  key: ui.no_ads_desc
 --- !u!1 &1622502388747096952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1883,7 @@ GameObject:
   - component: {fileID: 4772385250946630720}
   - component: {fileID: 2809393286300001156}
   - component: {fileID: 3868634647033621124}
+  - component: {fileID: 3759267600749445256}
   m_Layer: 5
   m_Name: No More Ads Text
   m_TagString: Untagged
@@ -1897,9 +1940,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NO MORE ADS!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
-  m_sharedMaterial: {fileID: -3707072339102680950, guid: c2ee9bf6e65695d48ba9d4b5a346538f,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1934,6 +1976,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1967,6 +2010,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3759267600749445256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051824922719719990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  key: ui.no_more_ads
 --- !u!1 &5898079151484247766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2418,7 @@ GameObject:
   - component: {fileID: 3010875647128909926}
   - component: {fileID: 3701309277252398857}
   - component: {fileID: 999807239559394225}
+  - component: {fileID: 5989156307536675077}
   m_Layer: 5
   m_Name: Not Now Text
   m_TagString: Untagged
@@ -2418,9 +2475,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Not now
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
-  m_sharedMaterial: {fileID: 7543850439555462583, guid: 499cf83f07b1eca49b41b4b547540c38,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: f53ad44e6d80d4eaa86b7135bd52c7e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2455,6 +2511,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -2488,6 +2545,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5989156307536675077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743004824937779239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  key: ui.not_now
 --- !u!1001 &866116417607752827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2496,6 +2566,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 356437061666547924}
     m_Modifications:
+    - target: {fileID: 2321499706710939989, guid: 8bd707ccc762a5c40b83682643736deb,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 2321499706710939989, guid: 8bd707ccc762a5c40b83682643736deb,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f53ad44e6d80d4eaa86b7135bd52c7e9, type: 2}
     - target: {fileID: 2321499706710939989, guid: 8bd707ccc762a5c40b83682643736deb,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'

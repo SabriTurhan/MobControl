@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 4128226016422064541}
   - component: {fileID: 9078966963818446832}
   - component: {fileID: 1951508101084799756}
+  - component: {fileID: 389104603786611324}
   m_Layer: 5
   m_Name: No Thanks Text
   m_TagString: Untagged
@@ -290,9 +291,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NO, THANKS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
-  m_sharedMaterial: {fileID: 7543850439555462583, guid: 499cf83f07b1eca49b41b4b547540c38,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: f53ad44e6d80d4eaa86b7135bd52c7e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -327,6 +327,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -372,6 +373,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &389104603786611324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363143055439316796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  key: ui.no_thanks
 --- !u!1 &3755890054171580157
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +397,7 @@ GameObject:
   - component: {fileID: 1351255055916837505}
   - component: {fileID: 8466392172845176608}
   - component: {fileID: 3569946350103590373}
+  - component: {fileID: 7949624039448929481}
   m_Layer: 5
   m_Name: GetText
   m_TagString: Untagged
@@ -406,8 +421,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 80, y: 8.400002}
-  m_SizeDelta: {x: -120, y: 0}
+  m_AnchoredPosition: {x: 87, y: 0}
+  m_SizeDelta: {x: -222, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8466392172845176608
 CanvasRenderer:
@@ -439,9 +454,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GET X3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
-  m_sharedMaterial: {fileID: -3707072339102680950, guid: c2ee9bf6e65695d48ba9d4b5a346538f,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -473,9 +487,10 @@ MonoBehaviour:
   m_fontSizeMax: 90
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -509,6 +524,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7949624039448929481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755890054171580157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  key: ui.get_x3
 --- !u!1 &3896966790417259653
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +625,7 @@ GameObject:
   - component: {fileID: 3896966790422910465}
   - component: {fileID: 3896966790422910467}
   - component: {fileID: 8009012917169653532}
+  - component: {fileID: 8242754162749002272}
   m_Layer: 5
   m_Name: LevelText
   m_TagString: Untagged
@@ -653,9 +682,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LEVEL
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 365114ea63910134eb86691b0abd4d3b, type: 2}
-  m_sharedMaterial: {fileID: -1283563334402853003, guid: 365114ea63910134eb86691b0abd4d3b,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -690,6 +718,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -723,6 +752,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8242754162749002272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3896966790422910470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  key: ui.complete_top
 --- !u!1 &3896966790664334456
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,9 +907,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 90
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43bda4895b7e2d940ab8ecb8da000216, type: 2}
-  m_sharedMaterial: {fileID: -9000908787416703487, guid: 43bda4895b7e2d940ab8ecb8da000216,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: f53ad44e6d80d4eaa86b7135bd52c7e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -902,6 +943,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1344,6 +1386,7 @@ GameObject:
   - component: {fileID: 4987974081234747605}
   - component: {fileID: 4987974081234747607}
   - component: {fileID: 2129568769363592856}
+  - component: {fileID: 4793459081359408056}
   m_Layer: 5
   m_Name: Completed Text
   m_TagString: Untagged
@@ -1400,9 +1443,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: COMPLETED
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 365114ea63910134eb86691b0abd4d3b, type: 2}
-  m_sharedMaterial: {fileID: -1283563334402853003, guid: 365114ea63910134eb86691b0abd4d3b,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1437,6 +1479,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1470,6 +1513,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4793459081359408056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987974081234747602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  key: ui.complete_bottom
 --- !u!1001 &2404065116754490644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1478,6 +1534,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9178737927269418414}
     m_Modifications:
+    - target: {fileID: 2321499706710939989, guid: 8bd707ccc762a5c40b83682643736deb,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 2321499706710939989, guid: 8bd707ccc762a5c40b83682643736deb,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f53ad44e6d80d4eaa86b7135bd52c7e9, type: 2}
     - target: {fileID: 2321499706710939989, guid: 8bd707ccc762a5c40b83682643736deb,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'

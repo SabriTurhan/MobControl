@@ -66,7 +66,7 @@ namespace Watermelon
             noThanksButton.interactable = false;
             coinsPanelScalable.Hide(immediately: true);
 
-            noThanksButtonText.text = NO_THANKS_TEXT;
+            noThanksButtonText.text = Loc.Get("ui.no_thanks", NO_THANKS_TEXT);
 
             backgroundFade.Show(duration: 0.3f);
             levelCompleteLabel.Show();
@@ -175,7 +175,7 @@ namespace Watermelon
                         {
                             CurrencyController.Add(CurrencyType.Money, currentReward * rewardMult);
 
-                            noThanksButtonText.text = CONTINUE_TEXT;
+                            noThanksButtonText.text = Loc.Get("ui.continue", CONTINUE_TEXT);
 
                             noThanksButton.interactable = true;
                             noThanksButton.gameObject.SetActive(true);

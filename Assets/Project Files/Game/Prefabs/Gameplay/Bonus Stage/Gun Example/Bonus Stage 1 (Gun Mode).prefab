@@ -34,6 +34,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &3583335117998778492
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -52,6 +53,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,9 +76,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
   m_Color: {r: 0.39215687, g: 0.76862746, b: 0.52156866, a: 1}
@@ -86,7 +91,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3019114087006996052
 GameObject:
@@ -122,6 +126,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &4681704295772464045
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,6 +145,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -161,9 +168,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
   m_Color: {r: 0.48235294, g: 0.18431373, b: 0.91764706, a: 1}
@@ -174,7 +183,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3520107873716481827
 GameObject:
@@ -259,6 +267,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &5353344145144437406
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -277,6 +286,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -298,9 +309,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
   m_Color: {r: 0.23921569, g: 0.42745098, b: 0.88235295, a: 1}
@@ -311,7 +324,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4597379999198145567
 GameObject:
@@ -347,6 +359,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &4200186526397160486
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -365,6 +378,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -386,9 +401,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
   m_Color: {r: 0.68235296, g: 0.08627451, b: 0.9254902, a: 1}
@@ -399,7 +416,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6896587501406739999
 GameObject:
@@ -472,6 +488,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &4761009320448425995
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -490,6 +507,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -511,9 +530,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
   m_Color: {r: 0.03529412, g: 0.6784314, b: 0.54509807, a: 1}
@@ -524,7 +545,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8558497136857710916
 GameObject:
@@ -630,6 +650,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &4880861690812381650
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -648,6 +669,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -669,9 +692,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
   m_Color: {r: 0.047058824, g: 0.7529412, b: 0.8901961, a: 1}
@@ -682,7 +707,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &445077485457002905
 PrefabInstance:
@@ -757,6 +781,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Obstacle (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -848,6 +883,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -935,6 +981,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Obstacle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -1026,6 +1083,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -1113,6 +1181,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Obstacle (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -1204,6 +1283,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -1291,6 +1381,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Obstacle (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -1468,6 +1569,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -1643,6 +1755,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -1730,6 +1853,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Obstacle (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -1821,6 +1955,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -1908,6 +2053,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -1999,6 +2155,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -2086,6 +2253,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Obstacle (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -2177,6 +2355,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -2264,6 +2453,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Obstacle (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -2355,6 +2555,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -2442,6 +2653,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Obstacle (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
     - target: {fileID: 4226990052575883410, guid: 4c9c3b0bf432d6b49bc76c28a5a53491,
         type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'

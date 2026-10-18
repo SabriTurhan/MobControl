@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b4fdeef09b4e60816057d141ce6c3, type: 3}
   m_Name: Dustwater UI Style
   m_EditorClassIdentifier: Assembly-CSharp::Watermelon.DustwaterUIStyle
-  font: {fileID: 11400000, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
-  fontOutline: {fileID: 11400000, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
+  font: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  fontOutline: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
+  fontMaterial: {fileID: 2100000, guid: f53ad44e6d80d4eaa86b7135bd52c7e9, type: 2}
+  fontOutlineMaterial: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
   panelWhite: {fileID: 21300000, guid: a080fdd4446f73749b5e4bcf94e488dd, type: 3}
   panelBlue: {fileID: 21300000, guid: f4f13b0726a06724986bbd862bed2a04, type: 3}
   panelDark: {fileID: 21300000, guid: eae63556ab6179046a458da3bdc70694, type: 3}

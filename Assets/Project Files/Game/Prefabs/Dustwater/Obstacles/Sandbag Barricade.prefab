@@ -95,6 +95,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226990052575883410, guid: 00f343d4adb19e641a74512dcb4b5210,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 4226990052575883410, guid: 00f343d4adb19e641a74512dcb4b5210,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5ee30c4405d4ec3b57dafe6bd9bdc2, type: 2}
+    - target: {fileID: 4226990052575883410, guid: 00f343d4adb19e641a74512dcb4b5210,
+        type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}

@@ -23,7 +23,7 @@ namespace Watermelon
 
                     iconImage.sprite = characterData.PreviewSprite;
                     amountText.text = "x" + Data.CharactersAmount.ToString();
-                    displayNameText.text = characterData.DisplayName;
+                    displayNameText.text = Loc.CharacterName(characterData.Id, characterData.DisplayName);
 
                     break;
 
@@ -32,7 +32,7 @@ namespace Watermelon
                     GunData gunData = LevelController.Database.GetGunData(Data.ExplicitId);
 
                     iconImage.sprite = gunData.PreviewSprite;
-                    displayNameText.text = gunData.DisplayName;
+                    displayNameText.text = Loc.GunName(gunData.Id, gunData.DisplayName);
                     amountText.text = "";
 
                     break;

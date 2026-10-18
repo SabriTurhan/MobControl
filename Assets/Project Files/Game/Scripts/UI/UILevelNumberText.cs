@@ -38,11 +38,13 @@ namespace Watermelon
         private void OnEnable()
         {
             GameController.OnLevelChangedEvent += UpdateLevelNumber;
+            Loc.OnLanguageChanged += UpdateLevelNumber;
         }
 
         private void OnDisable()
         {
             GameController.OnLevelChangedEvent -= UpdateLevelNumber;
+            Loc.OnLanguageChanged -= UpdateLevelNumber;
         }
 
         public static void Show(bool immediately = false)
@@ -73,7 +75,7 @@ namespace Watermelon
 
         private void UpdateLevelNumber()
         {
-            levelNumberText.text = string.Format(LEVEL_LABEL, save.LevelNumber + 1);
+            levelNumberText.text = Loc.Format("ui.mission_n", save.LevelNumber + 1);
         }
 
     }

@@ -73,6 +73,8 @@ namespace Watermelon
             RectTransform rect = Rect(parent, name);
             TextMeshProUGUI label = rect.gameObject.AddComponent<TextMeshProUGUI>();
             label.font = outline ? Style.fontOutline : Style.font;
+            Material preset = outline ? Style.fontOutlineMaterial : Style.fontMaterial;
+            if (preset != null) label.fontSharedMaterial = preset;
             label.text = text;
             label.fontSize = size;
             label.color = color ?? Color.white;
@@ -80,7 +82,10 @@ namespace Watermelon
             label.textWrappingMode = TextWrappingModes.Normal;
             label.overflowMode = TextOverflowModes.Overflow;
             label.raycastTarget = false;
-            label.enableAutoSizing = false;
+            // translations differ in length: shrink to fit instead of overflowing
+            label.enableAutoSizing = true;
+            label.fontSizeMax = size;
+            label.fontSizeMin = size * 0.55f;
             return label;
         }
 
@@ -216,8 +221,27 @@ namespace Watermelon
 
         public static void Pop(Transform transform, float delay = 0f)
         {
+            // fitted panels pop into their fitted size
+            ScaleToFit fit = transform.GetComponent<ScaleToFit>();
+            if (fit != null)
+            {
+                fit.enabled = false;
+                transform.localScale = Vector3.one * 0.6f;
+                transform.DOScale(1f, 0.25f, delay, true).SetEasing(Ease.Type.BackOut).OnComplete(() => { if (fit != null) fit.enabled = true; });
+                return;
+            }
+
             transform.localScale = Vector3.one * 0.6f;
             transform.DOScale(1f, 0.25f, delay, true).SetEasing(Ease.Type.BackOut);
+        }
+
+        /// <summary>Panel keeps its design size on phones and shrinks uniformly on shorter screens.</summary>
+        public static T Fit<T>(this T component, float height, float width = 1000f, float margin = 60f) where T : Component
+        {
+            ScaleToFit fit = component.GetComponent<ScaleToFit>();
+            if (fit == null) fit = component.gameObject.AddComponent<ScaleToFit>();
+            fit.Setup(height, width, margin);
+            return component;
         }
 
         // "[money] 120  [supplies] 15" built from icons and labels; colours the numbers red when not affordable
@@ -228,7 +252,7 @@ namespace Watermelon
             if (supplies > 0) CostItem(row, Style.supplies, supplies, CurrencyController.HasAmount(CurrencyType.Supplies, supplies), size, outline);
             if (money <= 0 && supplies <= 0)
             {
-                TextMeshProUGUI free = Text(row, "Free", "FREE", size, Color.white, outline);
+                TextMeshProUGUI free = Text(row, "Free", Loc.Get("ui.free"), size, Color.white, outline);
                 free.rectTransform.sizeDelta = new Vector2(size * 3f, size * 1.2f);
             }
 

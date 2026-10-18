@@ -32,7 +32,7 @@ namespace Watermelon
 
                 CharacterData characterData = LevelController.Database.GetCharacterData(BoosterData.ExplicitId);
                 amountText.text = "x" + BoosterData.CharactersAmount.ToString();
-                displayNameText.text = characterData.DisplayName;
+                displayNameText.text = Loc.CharacterName(characterData.Id, characterData.DisplayName);
             }
             else
             {
@@ -42,7 +42,7 @@ namespace Watermelon
 
                 GunData gunData = LevelController.Database.GetGunData(BoosterData.ExplicitId);
 
-                displayNameText.text = gunData.DisplayName;
+                displayNameText.text = Loc.GunName(gunData.Id, gunData.DisplayName);
                 if (amountText != null) amountText.text = "";
             }
         }

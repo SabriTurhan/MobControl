@@ -62,10 +62,10 @@ namespace Watermelon
             header.rectTransform.pivot = new Vector2(0.5f, 1f);
             header.rectTransform.sizeDelta = new Vector2(-30f, 96f);
             header.rectTransform.anchoredPosition = new Vector2(0f, -15f);
-            chapterText = DWUI.Text(header.rectTransform, "Chapter", "CHAPTER 1: OUTSKIRTS", 44f);
+            chapterText = DWUI.Text(header.rectTransform, "Chapter", "", 44f);
             chapterText.rectTransform.Stretch(10, 10, 0, 6);
 
-            missionText = DWUI.Text(card.rectTransform, "Mission", "MISSION 1", 70f, style.textDark, false);
+            missionText = DWUI.Text(card.rectTransform, "Mission", "", 70f, style.textDark, false);
             missionText.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -160f), new Vector2(900f, 80f));
             operationText = DWUI.Text(card.rectTransform, "Operation", "", 40f, new Color32(120, 116, 140, 255), false);
             operationText.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -222f), new Vector2(900f, 56f));
@@ -73,7 +73,7 @@ namespace Watermelon
             threatsRow = DWUI.Row(card.rectTransform, "Threats", 18f);
             threatsRow.Place(new Vector2(0.5f, 1f), new Vector2(0f, -300f), new Vector2(900f, 96f));
 
-            Button battle = DWUI.Button(card.rectTransform, "Battle Button", style.buttonGreen, "BATTLE", 78f, () => ui.OpenBriefing());
+            Button battle = DWUI.Button(card.rectTransform, "Battle Button", style.buttonGreen, Loc.Get("hub.battle"), 78f, () => ui.OpenBriefing());
             battle.GetComponent<RectTransform>().Place(new Vector2(0.5f, 0f), new Vector2(0f, 105f), new Vector2(560f, 170f));
 
             incomeButton = DWUI.Button(root, "Income Button", style.buttonOrange, null, 0f, CollectIncome);
@@ -92,7 +92,7 @@ namespace Watermelon
             bar.rectTransform.anchoredPosition = new Vector2(0f, -40f);
             bar.raycastTarget = true;
 
-            string[] labels = { "TOWN", "SQUAD", "BATTLE" };
+            string[] labels = { Loc.Get("hub.tab_town"), Loc.Get("hub.tab_squad"), Loc.Get("hub.tab_battle") };
             Sprite[] icons = { style.town, style.squad, style.battle };
             for (int i = 0; i < 3; i++)
             {
@@ -149,6 +149,7 @@ namespace Watermelon
                 tabBacks[i].sprite = i == (int)tab ? DWUI.Style.buttonOrange : DWUI.Style.panelOutlinedDark;
 
             battlePanel.gameObject.SetActive(tab == Tab.Battle);
+            UIMainMenu.SetSideButtonsVisible(tab == Tab.Battle);
             if (tab == Tab.Squad) ui.Cards.Show(); else ui.Cards.Hide();
             if (tab == Tab.Town) ui.Town.Show(); else ui.Town.Hide();
 
@@ -163,22 +164,22 @@ namespace Watermelon
 
             int chapterIndex = Campaign.CurrentChapterIndex;
             ChapterData chapter = Campaign.CurrentChapter;
-            chapterText.text = chapter != null ? "CHAPTER " + (chapterIndex + 1) + ": " + chapter.title : "PATROL DUTY";
-            missionText.text = "MISSION " + Campaign.CurrentLevelNumber;
+            chapterText.text = chapter != null ? Loc.Format("hub.chapter", chapterIndex + 1, Loc.ChapterTitle(chapterIndex, chapter)) : Loc.Get("hub.patrol");
+            missionText.text = Loc.Format("ui.mission_n", Campaign.CurrentLevelNumber);
 
             LevelData level = LevelController.LevelData;
-            operationText.text = level != null && !string.IsNullOrEmpty(level.OperationName) ? "Operation " + level.OperationName : "";
+            operationText.text = level != null && !string.IsNullOrEmpty(level.OperationName) ? Loc.Format("hub.operation", Loc.OperationName(Campaign.CurrentLevelNumber, level.OperationName)) : "";
 
             DWUI.Clear(threatsRow);
             if (level != null)
             {
                 if (level.IsBossLevel && chapter != null && chapter.bossPortrait != null)
-                    ThreatChip(threatsRow, chapter.bossPortrait, "BOSS", DWUI.Style.red);
+                    ThreatChip(threatsRow, chapter.bossPortrait, Loc.Get("hub.boss"), DWUI.Style.red);
 
                 foreach (ThreatType type in level.Threats)
                 {
                     ThreatInfo info = Campaign.Database.GetThreat(type);
-                    if (info != null) ThreatChip(threatsRow, info.icon, info.displayName, info.color);
+                    if (info != null) ThreatChip(threatsRow, info.icon, Loc.ThreatName(info), info.color);
                 }
             }
 

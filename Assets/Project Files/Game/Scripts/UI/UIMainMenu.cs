@@ -34,6 +34,25 @@ namespace Watermelon
         public static event SimpleCallback Shown;
         public static event SimpleCallback Hidden;
         public static bool IsCampaignHubActive { get; set; }
+
+        private static UIMainMenu instance;
+
+        /// <summary>Store / no-ads buttons are hidden while a full campaign panel (Squad, Town) is open.</summary>
+        public static void SetSideButtonsVisible(bool visible)
+        {
+            if (instance == null) return;
+
+            if (visible)
+            {
+                instance.iapStoreButton.Show();
+                if (AdsManager.IsForcedAdEnabled()) instance.noAdsButton.Show();
+            }
+            else
+            {
+                instance.iapStoreButton.Hide(immediately: true);
+                instance.noAdsButton.Hide(immediately: true);
+            }
+        }
         private TweenCase showHideStoreAdButtonDelayTweenCase;
 
         private void OnEnable()
@@ -48,6 +67,7 @@ namespace Watermelon
 
         public override void Init()
         {
+            instance = this;
             coinsPanel.Init();
 
             iapStoreButton.Init(STORE_AD_RIGHT_OFFSET_X);

@@ -1,0 +1,215 @@
+key	en	tr	de	fr	es	pt	ru	it
+ui.play	PLAY	OYNA	SPIELEN	JOUER	JUGAR	JOGAR	ИГРАТЬ	GIOCA
+ui.no_more_ads	NO MORE ADS!	REKLAMSIZ!	KEINE WERBUNG!	FINI LES PUBS !	¡SIN ANUNCIOS!	SEM ANÚNCIOS!	БЕЗ РЕКЛАМЫ!	NIENTE PUBBLICITÀ!
+ui.no_ads_desc	Remove all pop-up ads.\nKeep optional ads for rewards.	Tüm araya giren reklamları kaldır.\nÖdül reklamları isteğe bağlı kalır.	Entfernt alle Pop-up-Werbungen.\nBelohnungsvideos bleiben optional.	Supprime toutes les pubs.\nLes pubs à récompense restent optionnelles.	Elimina todos los anuncios emergentes.\nLos anuncios con premio son opcionales.	Remove todos os anúncios pop-up.\nAnúncios com recompensa continuam opcionais.	Убирает всю всплывающую рекламу.\nРеклама за награду остаётся по желанию.	Rimuove tutti gli annunci pop-up.\nGli annunci con premio restano facoltativi.
+ui.not_now	Not now	Şimdi değil	Nicht jetzt	Plus tard	Ahora no	Agora não	Не сейчас	Non ora
+ui.remove_ads	REMOVE ADS	REKLAMLARI KALDIR	WERBUNG ENTFERNEN	SUPPRIMER LES PUBS	QUITAR ANUNCIOS	REMOVER ANÚNCIOS	УБРАТЬ РЕКЛАМУ	RIMUOVI PUBBLICITÀ
+ui.complete_top	MISSION	GÖREV	MISSION	MISSION	MISIÓN	MISSÃO	МИССИЯ	MISSIONE
+ui.complete_bottom	COMPLETE	TAMAMLANDI	ERFÜLLT	ACCOMPLIE	CUMPLIDA	CONCLUÍDA	ВЫПОЛНЕНА	COMPIUTA
+ui.get_x3	GET X3	X3 AL	X3 HOLEN	OBTENIR X3	OBTENER X3	PEGAR X3	ПОЛУЧИТЬ X3	OTTIENI X3
+ui.no_thanks	NO, THANKS	HAYIR, TEŞEKKÜRLER	NEIN, DANKE	NON, MERCI	NO, GRACIAS	NÃO, OBRIGADO	НЕТ, СПАСИБО	NO, GRAZIE
+ui.continue	CONTINUE	DEVAM	WEITER	CONTINUER	CONTINUAR	CONTINUAR	ПРОДОЛЖИТЬ	CONTINUA
+ui.level_failed	MISSION FAILED	GÖREV BAŞARISIZ	MISSION GESCHEITERT	MISSION ÉCHOUÉE	MISIÓN FALLIDA	MISSÃO FALHOU	МИССИЯ ПРОВАЛЕНА	MISSIONE FALLITA
+ui.mission_n	MISSION {0}	GÖREV {0}	MISSION {0}	MISSION {0}	MISIÓN {0}	MISSÃO {0}	МИССИЯ {0}	MISSIONE {0}
+ui.free_revive	FREE REVIVE	ÜCRETSİZ CANLAN	GRATIS WIEDERBELEBEN	RÉANIMATION GRATUITE	REVIVIR GRATIS	REVIVER GRÁTIS	ВОСКРЕСИТЬ БЕСПЛАТНО	RIANIMA GRATIS
+ui.settings	Settings	Ayarlar	Einstellungen	Paramètres	Ajustes	Configurações	Настройки	Impostazioni
+ui.sound	Sound	Ses	Sound	Son	Sonido	Som	Звук	Suoni
+ui.music	Music	Müzik	Musik	Musique	Música	Música	Музыка	Musica
+ui.vibration	Vibration	Titreşim	Vibration	Vibration	Vibración	Vibração	Вибрация	Vibrazione
+ui.restore	Restore Purchases	Satın Alımları Geri Yükle	Käufe wiederherstellen	Restaurer les achats	Restaurar compras	Restaurar compras	Восстановить покупки	Ripristina acquisti
+ui.privacy	Privacy	Gizlilik	Datenschutz	Confidentialité	Privacidad	Privacidade	Конфиденциальность	Privacy
+ui.terms	Terms Of Use	Kullanım Koşulları	Nutzungsbedingungen	Conditions d'utilisation	Términos de uso	Termos de uso	Условия использования	Termini d'uso
+ui.language	Language	Dil	Sprache	Langue	Idioma	Idioma	Язык	Lingua
+ui.store	STORE	MAĞAZA	SHOP	BOUTIQUE	TIENDA	LOJA	МАГАЗИН	NEGOZIO
+ui.starter_pack	STARTER PACK	BAŞLANGIÇ PAKETİ	STARTERPAKET	PACK DE DÉPART	PACK INICIAL	PACOTE INICIAL	НАБОР НОВИЧКА	PACCHETTO INIZIALE
+ui.no_ads	NO ADS	REKLAMSIZ	KEINE WERBUNG	SANS PUBS	SIN ANUNCIOS	SEM ANÚNCIOS	БЕЗ РЕКЛАМЫ	SENZA PUBBLICITÀ
+ui.free	FREE	ÜCRETSİZ	GRATIS	GRATUIT	GRATIS	GRÁTIS	БЕСПЛАТНО	GRATIS
+ui.loading	Loading..	Yükleniyor..	Lädt..	Chargement..	Cargando..	Carregando..	Загрузка..	Caricamento..
+ui.choose_language	CHOOSE LANGUAGE	DİL SEÇ	SPRACHE WÄHLEN	CHOISIR LA LANGUE	ELIGE IDIOMA	ESCOLHA O IDIOMA	ВЫБЕРИТЕ ЯЗЫК	SCEGLI LA LINGUA
+gate.damage	Damage	Hasar	Schaden	Dégâts	Daño	Dano	Урон	Danno
+gate.fire_rate	Fire Rate	Atış Hızı	Feuerrate	Cadence	Cadencia	Cadência	Скорострельность	Cadenza
+gate.range	Range	Menzil	Reichweite	Portée	Alcance	Alcance	Дальность	Gittata
+gate.health	Health	Can	Leben	Santé	Salud	Vida	Здоровье	Salute
+gate.money	Money	Para	Geld	Argent	Dinero	Dinheiro	Деньги	Soldi
+char.default_character	Ranger	Korucu	Ranger	Ranger	Ranger	Ranger	Рейнджер	Ranger
+char.heavy_character	Heavy	Ağır Silahlı	Schwerer	Lourd	Pesado	Pesado	Тяжёлый	Pesante
+char.sharpshooter_character	Sharpshooter	Keskin Nişancı	Scharfschütze	Tireur d'élite	Francotirador	Atirador	Снайпер	Tiratore scelto
+char.medic_character	Medic	Sıhhiyeci	Sanitäter	Médecin	Médico	Médico	Медик	Medico
+char.grenadier_character	Grenadier	Bombacı	Grenadier	Grenadier	Granadero	Granadeiro	Гренадёр	Granatiere
+gun.default_gun	Pistol	Tabanca	Pistole	Pistolet	Pistola	Pistola	Пистолет	Pistola
+gun.rifle	Rifle	Tüfek	Gewehr	Fusil	Rifle	Rifle	Винтовка	Fucile
+gun.shotgun	Shotgun	Pompalı	Schrotflinte	Fusil à pompe	Escopeta	Espingarda	Дробовик	Fucile a pompa
+gun.minigun	Minigun	Minigun	Minigun	Minigun	Minigun	Minigun	Миниган	Minigun
+gun.sniper	Sniper Rifle	Keskin Nişancı Tüfeği	Scharfschützengewehr	Fusil de précision	Rifle de francotirador	Rifle de precisão	Снайперская винтовка	Fucile di precisione
+gun.grenade_launcher	Grenade Launcher	Bombaatar	Granatwerfer	Lance-grenades	Lanzagranadas	Lança-granadas	Гранатомёт	Lanciagranate
+hub.chapter	CHAPTER {0}: {1}	BÖLÜM {0}: {1}	KAPITEL {0}: {1}	CHAPITRE {0} : {1}	CAPÍTULO {0}: {1}	CAPÍTULO {0}: {1}	ГЛАВА {0}: {1}	CAPITOLO {0}: {1}
+hub.patrol	PATROL DUTY	DEVRİYE GÖREVİ	PATROUILLE	PATROUILLE	PATRULLA	PATRULHA	ПАТРУЛЬ	PATTUGLIA
+hub.operation	Operation {0}	{0} Operasyonu	Operation {0}	Opération {0}	Operación {0}	Operação {0}	Операция «{0}»	Operazione {0}
+hub.boss	BOSS	BOSS	BOSS	BOSS	JEFE	CHEFÃO	БОСС	BOSS
+hub.battle	BATTLE	SAVAŞ	KAMPF	COMBAT	COMBATIR	BATALHA	В БОЙ	BATTAGLIA
+hub.tab_town	TOWN	KASABA	STADT	VILLE	PUEBLO	CIDADE	ГОРОД	CITTÀ
+hub.tab_squad	SQUAD	EKİP	TRUPP	ESCOUADE	ESCUADRA	ESQUADRÃO	ОТРЯД	SQUADRA
+hub.tab_battle	BATTLE	SAVAŞ	KAMPF	COMBAT	COMBATE	BATALHA	БОЙ	BATTAGLIA
+cards.title	COMMANDER CARDS	KOMUTAN KARTLARI	KOMMANDEURKARTEN	CARTES DU COMMANDANT	CARTAS DEL COMANDANTE	CARTAS DO COMANDANTE	КАРТЫ КОМАНДИРА	CARTE DEL COMANDANTE
+cards.units	UNITS	ASKERLER	EINHEITEN	UNITÉS	UNIDADES	UNIDADES	БОЙЦЫ	UNITÀ
+cards.units_sub	Pick them for your squad before every mission	Her görevden önce ekibine seç	Wähle sie vor jeder Mission für deinen Trupp	Choisis-les avant chaque mission	Elígelos para tu escuadra antes de cada misión	Escolha-os para o esquadrão antes de cada missão	Выбирай их в отряд перед каждой миссией	Sceglili per la squadra prima di ogni missione
+cards.weapons	WEAPONS	SİLAHLAR	WAFFEN	ARMES	ARMAS	ARMAS	ОРУЖИЕ	ARMI
+cards.weapons_sub	Your Rangers carry the selected weapon	Korucuların seçili silahı taşır	Deine Ranger tragen die gewählte Waffe	Tes Rangers portent l'arme choisie	Tus Rangers llevan el arma elegida	Seus Rangers usam a arma escolhida	Рейнджеры берут выбранное оружие	I tuoi Ranger usano l'arma scelta
+cards.level	LEVEL {0}	SEVİYE {0}	STUFE {0}	NIVEAU {0}	NIVEL {0}	NÍVEL {0}	УРОВЕНЬ {0}	LIVELLO {0}
+cards.max	MAX	MAKS	MAX	MAX	MÁX	MÁX	МАКС	MAX
+cards.locked	MISSION {0}	GÖREV {0}	MISSION {0}	MISSION {0}	MISIÓN {0}	MISSÃO {0}	МИССИЯ {0}	MISSIONE {0}
+cards.stats_unit	Health x{0}   Damage x{1}	Can x{0}   Hasar x{1}	Leben x{0}   Schaden x{1}	Santé x{0}   Dégâts x{1}	Salud x{0}   Daño x{1}	Vida x{0}   Dano x{1}	Здоровье x{0}   Урон x{1}	Salute x{0}   Danno x{1}
+cards.stats_heal	Heals {0} hp/sec	Saniyede {0} can iyileştirir	Heilt {0} LP/Sek.	Soigne {0} PV/s	Cura {0} PS/s	Cura {0} PV/s	Лечит {0} ОЗ/сек	Cura {0} PS/s
+cards.stats_weapon	Damage x{0}	Hasar x{0}	Schaden x{0}	Dégâts x{0}	Daño x{0}	Dano x{0}	Урон x{0}	Danno x{0}
+cards.per_level	+{0}% per level	Seviye başına +%{0}	+{0} % pro Stufe	+{0} % par niveau	+{0} % por nivel	+{0}% por nível	+{0}% за уровень	+{0}% per livello
+cards.unlocks	Unlocks after mission {0}	{0}. görevden sonra açılır	Nach Mission {0} verfügbar	Débloqué après la mission {0}	Se desbloquea tras la misión {0}	Desbloqueia após a missão {0}	Откроется после миссии {0}	Si sblocca dopo la missione {0}
+cards.strong_vs	STRONG VS	ŞUNA KARŞI GÜÇLÜ	STARK GEGEN	FORT CONTRE	FUERTE CONTRA	FORTE CONTRA	СИЛЁН ПРОТИВ	FORTE CONTRO
+town.title	DUSTWATER	DUSTWATER	DUSTWATER	DUSTWATER	DUSTWATER	DUSTWATER	ДАСТУОТЕР	DUSTWATER
+town.occupied	Occupied by the Red Scorpions	Kızıl Akrepler'in işgali altında	Von den Roten Skorpionen besetzt	Occupée par les Scorpions Rouges	Ocupado por los Escorpiones Rojos	Ocupada pelos Escorpiões Vermelhos	Захвачен Красными Скорпионами	Occupata dagli Scorpioni Rossi
+town.free	Free at last!	Sonunda özgür!	Endlich frei!	Enfin libre !	¡Libre por fin!	Livre, enfim!	Наконец свободен!	Finalmente libera!
+town.districts	{0} of {1} districts liberated	{1} bölgeden {0} tanesi kurtarıldı	{0} von {1} Vierteln befreit	{0} quartier(s) sur {1} libéré(s)	{0} de {1} distritos liberados	{0} de {1} distritos libertados	Освобождено районов: {0} из {1}	{0} quartieri su {1} liberati
+town.build	BUILD	İNŞA ET	BAUEN	CONSTRUIRE	CONSTRUIR	CONSTRUIR	ПОСТРОИТЬ	COSTRUISCI
+town.upgrade	UPGRADE	YÜKSELT	AUSBAUEN	AMÉLIORER	MEJORAR	MELHORAR	УЛУЧШИТЬ	MIGLIORA
+brief.clear_road	Clear the road	Yolu temizle	Räum die Straße	Dégage la route	Despeja el camino	Limpe a estrada	Расчисти дорогу	Libera la strada
+brief.intel	INTEL	İSTİHBARAT	AUFKLÄRUNG	RENSEIGNEMENTS	INFORMES	INTELIGÊNCIA	РАЗВЕДКА	INFORMAZIONI
+brief.boss	BOSS: {0}	BOSS: {0}	BOSS: {0}	BOSS : {0}	JEFE: {0}	CHEFÃO: {0}	БОСС: {0}	BOSS: {0}
+brief.boss_desc	Take him down before he reaches your squad!	Ekibine ulaşmadan onu indir!	Erledige ihn, bevor er deinen Trupp erreicht!	Abats-le avant qu'il n'atteigne ton escouade !	¡Derríbalo antes de que llegue a tu escuadra!	Derrube-o antes que alcance seu esquadrão!	Уничтожь его, пока он не добрался до отряда!	Abbattilo prima che raggiunga la squadra!
+brief.light	LIGHT RESISTANCE	ZAYIF DİRENİŞ	LEICHTER WIDERSTAND	FAIBLE RÉSISTANCE	RESISTENCIA LEVE	RESISTÊNCIA LEVE	СЛАБОЕ СОПРОТИВЛЕНИЕ	RESISTENZA LEGGERA
+brief.light_desc	A few bandits. Any squad will do.	Birkaç haydut. Her ekip iş görür.	Ein paar Banditen. Jeder Trupp reicht.	Quelques bandits. N'importe quelle escouade suffit.	Pocos bandidos. Cualquier escuadra sirve.	Poucos bandidos. Qualquer esquadrão serve.	Пара бандитов. Подойдёт любой отряд.	Pochi banditi. Basta qualsiasi squadra.
+brief.squad	YOUR SQUAD	EKİBİN	DEIN TRUPP	TON ESCOUADE	TU ESCUADRA	SEU ESQUADRÃO	ТВОЙ ОТРЯД	LA TUA SQUADRA
+brief.slots	{0} SLOTS	{0} YUVA	{0} PLÄTZE	{0} PLACES	{0} PUESTOS	{0} VAGAS	МЕСТ: {0}	{0} POSTI
+brief.weapon	RANGER WEAPON	KORUCU SİLAHI	RANGER-WAFFE	ARME DES RANGERS	ARMA DE RANGER	ARMA DOS RANGERS	ОРУЖИЕ РЕЙНДЖЕРОВ	ARMA DEI RANGER
+brief.tip	Tip: bring the {0} against {1}	İpucu: {1} için {0} getir	Tipp: Nimm {0} gegen {1} mit	Astuce : prends {0} contre {1}	Consejo: lleva {0} contra {1}	Dica: leve {0} contra {1}	Совет: возьми «{0}» против угрозы «{1}»	Consiglio: porta {0} contro {1}
+brief.ready	Your squad is ready for this mission!	Ekibin bu göreve hazır!	Dein Trupp ist bereit!	Ton escouade est prête !	¡Tu escuadra está lista!	Seu esquadrão está pronto!	Отряд готов к миссии!	La squadra è pronta!
+brief.tap	Tap a card to change your squad	Ekibini değiştirmek için karta dokun	Tippe auf eine Karte, um den Trupp zu ändern	Touche une carte pour changer l'escouade	Toca una carta para cambiar la escuadra	Toque numa carta para mudar o esquadrão	Нажми на карту, чтобы сменить отряд	Tocca una carta per cambiare squadra
+brief.counter	COUNTER	ETKİLİ	KONTER	CONTRE	COUNTER	COUNTER	КОНТРА	COUNTER
+brief.deploy	DEPLOY	SAHAYA SÜR	LOS!	DÉPLOYER	DESPLEGAR	MOBILIZAR	ВПЕРЁД!	SCHIERA
+brief.choose_unit	CHOOSE A UNIT	ASKER SEÇ	EINHEIT WÄHLEN	CHOISIS UNE UNITÉ	ELIGE UNA UNIDAD	ESCOLHA UMA UNIDADE	ВЫБЕРИ БОЙЦА	SCEGLI UN'UNITÀ
+brief.choose_weapon	CHOOSE A WEAPON	SİLAH SEÇ	WAFFE WÄHLEN	CHOISIS UNE ARME	ELIGE UN ARMA	ESCOLHA UMA ARMA	ВЫБЕРИ ОРУЖИЕ	SCEGLI UN'ARMA
+brief.in_squad	IN SQUAD	EKİPTE	IM TRUPP	DANS L'ESCOUADE	EN ESCUADRA	NO ESQUADRÃO	В ОТРЯДЕ	IN SQUADRA
+brief.equipped	EQUIPPED	KUŞANILDI	AUSGERÜSTET	ÉQUIPÉE	EQUIPADA	EQUIPADA	ВЫБРАНО	EQUIPAGGIATA
+reward.boss	BOSS DEFEATED!	BOSS YENİLDİ!	BOSS BESIEGT!	BOSS VAINCU !	¡JEFE DERROTADO!	CHEFÃO DERROTADO!	БОСС ПОВЕРЖЕН!	BOSS SCONFITTO!
+reward.clear	MISSION {0} CLEAR!	GÖREV {0} TAMAM!	MISSION {0} ERFÜLLT!	MISSION {0} RÉUSSIE !	¡MISIÓN {0} SUPERADA!	MISSÃO {0} CONCLUÍDA!	МИССИЯ {0} ПРОЙДЕНА!	MISSIONE {0} SUPERATA!
+reward.new	NEW!	YENİ!	NEU!	NOUVEAU !	¡NUEVO!	NOVO!	НОВОЕ!	NUOVO!
+reward.supplies	+{0} SUPPLIES	+{0} MALZEME	+{0} VORRÄTE	+{0} PROVISIONS	+{0} SUMINISTROS	+{0} SUPRIMENTOS	+{0} ПРИПАСОВ	+{0} PROVVISTE
+reward.collect	COLLECT	TOPLA	EINSAMMELN	RÉCUPÉRER	RECOGER	COLETAR	ЗАБРАТЬ	RACCOGLI
+reward.common_unit	COMMON UNIT	SIRADAN ASKER	GEWÖHNLICHE EINHEIT	UNITÉ COMMUNE	UNIDAD COMÚN	UNIDADE COMUM	ОБЫЧНЫЙ БОЕЦ	UNITÀ COMUNE
+reward.rare_unit	RARE UNIT	NADİR ASKER	SELTENE EINHEIT	UNITÉ RARE	UNIDAD RARA	UNIDADE RARA	РЕДКИЙ БОЕЦ	UNITÀ RARA
+reward.epic_unit	EPIC UNIT	EPİK ASKER	EPISCHE EINHEIT	UNITÉ ÉPIQUE	UNIDAD ÉPICA	UNIDADE ÉPICA	ЭПИЧЕСКИЙ БОЕЦ	UNITÀ EPICA
+reward.common_weapon	COMMON WEAPON	SIRADAN SİLAH	GEWÖHNLICHE WAFFE	ARME COMMUNE	ARMA COMÚN	ARMA COMUM	ОБЫЧНОЕ ОРУЖИЕ	ARMA COMUNE
+reward.rare_weapon	RARE WEAPON	NADİR SİLAH	SELTENE WAFFE	ARME RARE	ARMA RARA	ARMA RARA	РЕДКОЕ ОРУЖИЕ	ARMA RARA
+reward.epic_weapon	EPIC WEAPON	EPİK SİLAH	EPISCHE WAFFE	ARME ÉPIQUE	ARMA ÉPICA	ARMA ÉPICA	ЭПИЧЕСКОЕ ОРУЖИЕ	ARMA EPICA
+story.tap	TAP TO CONTINUE	DEVAM ETMEK İÇİN DOKUN	TIPPEN ZUM FORTFAHREN	TOUCHE POUR CONTINUER	TOCA PARA CONTINUAR	TOQUE PARA CONTINUAR	НАЖМИ, ЧТОБЫ ПРОДОЛЖИТЬ	TOCCA PER CONTINUARE
+story.sergeant	SGT. MASON	ÇVŞ. MASON	SGT. MASON	SGT MASON	SGTO. MASON	SGT. MASON	СЕРЖ. МЕЙСОН	SERG. MASON
+story.vex	BOSS VEX	BOSS VEX	BOSS VEX	BOSS VEX	JEFE VEX	CHEFÃO VEX	БОСС ВЕКС	BOSS VEX
+intro.1	Dustwater. A quiet little town at the edge of the desert.	Dustwater. Çölün kıyısında sakin, küçük bir kasaba.	Dustwater. Ein ruhiges Städtchen am Rand der Wüste.	Dustwater. Une petite ville paisible au bord du désert.	Dustwater. Un pueblito tranquilo al borde del desierto.	Dustwater. Uma cidadezinha tranquila à beira do deserto.	Дастуотер. Тихий городок на краю пустыни.	Dustwater. Una cittadina tranquilla ai margini del deserto.
+intro.2	Until the Red Scorpions rolled in...	Ta ki Kızıl Akrepler gelene kadar...	Bis die Roten Skorpione anrückten...	Jusqu'à l'arrivée des Scorpions Rouges...	Hasta que llegaron los Escorpiones Rojos...	Até os Escorpiões Vermelhos chegarem...	Пока не нагрянули Красные Скорпионы...	Finché non arrivarono gli Scorpioni Rossi...
+intro.3	They took the town, the water and the saloon.	Kasabayı, suyu ve salonu ele geçirdiler.	Sie nahmen die Stadt, das Wasser und den Saloon.	Ils ont pris la ville, l'eau et le saloon.	Se quedaron con el pueblo, el agua y el salón.	Tomaram a cidade, a água e o saloon.	Они захватили город, воду и салун.	Presero la città, l'acqua e il saloon.
+intro.4	Dustwater belongs to the Scorpions now! Ha-ha-ha!	Dustwater artık Akreplerin! Ha-ha-ha!	Dustwater gehört jetzt den Skorpionen! Ha-ha-ha!	Dustwater appartient aux Scorpions ! Ha-ha-ha !	¡Dustwater es de los Escorpiones! ¡Ja-ja-ja!	Dustwater agora é dos Escorpiões! Ha-ha-ha!	Теперь Дастуотер принадлежит Скорпионам! Ха-ха-ха!	Dustwater ora appartiene agli Scorpioni! Ah-ah-ah!
+intro.5	Commander, the Blue Rangers are ready. Let's take Dustwater back!	Komutan, Mavi Korucular hazır. Dustwater'ı geri alalım!	Kommandant, die Blauen Ranger sind bereit. Holen wir uns Dustwater zurück!	Commandant, les Rangers Bleus sont prêts. Reprenons Dustwater !	Comandante, los Rangers Azules están listos. ¡Recuperemos Dustwater!	Comandante, os Rangers Azuis estão prontos. Vamos retomar Dustwater!	Командир, Синие Рейнджеры готовы. Вернём Дастуотер!	Comandante, i Ranger Blu sono pronti. Riprendiamoci Dustwater!
+intro.title	DUSTWATER	DUSTWATER	DUSTWATER	DUSTWATER	DUSTWATER	DUSTWATER	ДАСТУОТЕР	DUSTWATER
+intro.subtitle	SQUAD COMMAND	EKİP KOMUTASI	TRUPPKOMMANDO	COMMANDO D'ESCOUADE	MANDO DE ESCUADRA	COMANDO DE ESQUADRÃO	КОМАНДИР ОТРЯДА	COMANDO SQUADRA
+intro.skip	SKIP	GEÇ	ÜBERSPRINGEN	PASSER	SALTAR	PULAR	ПРОПУСТИТЬ	SALTA
+unit.ranger.name	Ranger	Korucu	Ranger	Ranger	Ranger	Ranger	Рейнджер	Ranger
+unit.ranger.desc	Reliable rifleman. Fights with your squad weapon.	Güvenilir tüfekçi. Ekibin silahıyla savaşır.	Zuverlässiger Schütze. Kämpft mit der Truppwaffe.	Tireur fiable. Combat avec l'arme de l'escouade.	Tirador fiable. Lucha con el arma de la escuadra.	Atirador confiável. Luta com a arma do esquadrão.	Надёжный стрелок. Воюет оружием отряда.	Tiratore affidabile. Combatte con l'arma della squadra.
+unit.heavy.name	Heavy Gunner	Ağır Makineli	MG-Schütze	Mitrailleur lourd	Artillero pesado	Metralhador pesado	Пулемётчик	Mitragliere
+unit.heavy.desc	Double health. Shreds crowds with his minigun.	İki kat can. Minigun'ıyla kalabalıkları biçer.	Doppeltes Leben. Zerlegt Horden mit der Minigun.	Santé doublée. Fauche les foules à la minigun.	Doble salud. Arrasa multitudes con su minigun.	Vida dobrada. Arrasa multidões com a minigun.	Двойное здоровье. Косит толпы миниганом.	Salute doppia. Falcia le folle con la minigun.
+unit.sharpshooter.name	Sharpshooter	Keskin Nişancı	Scharfschütze	Tireur d'élite	Francotirador	Atirador de elite	Снайпер	Tiratore scelto
+unit.sharpshooter.desc	Long range shots that pierce through 3 bandits.	3 haydudu delip geçen uzun menzilli atışlar.	Weite Schüsse, die 3 Banditen durchschlagen.	Tirs longue portée qui traversent 3 bandits.	Disparos lejanos que atraviesan a 3 bandidos.	Tiros de longo alcance que atravessam 3 bandidos.	Дальние выстрелы пробивают 3 бандитов.	Colpi a lunga gittata che trapassano 3 banditi.
+unit.medic.name	Medic	Sıhhiyeci	Sanitäter	Médecin	Médico	Médico	Медик	Medico
+unit.medic.desc	Heals the whole squad over time.	Zamanla tüm ekibi iyileştirir.	Heilt den ganzen Trupp mit der Zeit.	Soigne toute l'escouade au fil du temps.	Cura a toda la escuadra con el tiempo.	Cura todo o esquadrão com o tempo.	Постепенно лечит весь отряд.	Cura tutta la squadra nel tempo.
+unit.grenadier.name	Grenadier	Bombacı	Grenadier	Grenadier	Granadero	Granadeiro	Гренадёр	Granatiere
+unit.grenadier.desc	Lobs grenades that blast everything nearby.	Çevresindeki her şeyi patlatan bombalar atar.	Wirft Granaten, die alles in der Nähe sprengen.	Lance des grenades qui soufflent tout autour.	Lanza granadas que revientan todo alrededor.	Lança granadas que explodem tudo ao redor.	Кидает гранаты, взрывающие всё вокруг.	Lancia granate che fanno esplodere tutto intorno.
+weapon.pistol.name	Pistol	Tabanca	Pistole	Pistolet	Pistola	Pistola	Пистолет	Pistola
+weapon.pistol.desc	Basic sidearm. Better than nothing.	Temel tabanca. Hiç yoktan iyidir.	Einfache Seitenwaffe. Besser als nichts.	Arme de poing basique. Mieux que rien.	Arma básica. Mejor que nada.	Arma básica. Melhor que nada.	Простой пистолет. Лучше, чем ничего.	Arma di base. Meglio di niente.
+weapon.shotgun.name	Shotgun	Pompalı	Schrotflinte	Fusil à pompe	Escopeta	Espingarda	Дробовик	Fucile a pompa
+weapon.shotgun.desc	Three pellets per shot. Wrecks barricades.	Atış başına üç saçma. Barikatları dağıtır.	Drei Kugeln pro Schuss. Zerlegt Barrikaden.	Trois plombs par tir. Détruit les barricades.	Tres perdigones por disparo. Destroza barricadas.	Três chumbos por tiro. Destrói barricadas.	Три дробины за выстрел. Ломает баррикады.	Tre pallini a colpo. Distrugge le barricate.
+weapon.rifle.name	Rifle	Tüfek	Gewehr	Fusil	Rifle	Rifle	Винтовка	Fucile
+weapon.rifle.desc	Double damage per bullet. Cuts through armor.	Mermi başına iki kat hasar. Zırhı deler.	Doppelter Schaden pro Kugel. Durchschlägt Panzer.	Dégâts doublés par balle. Perce les armures.	Doble daño por bala. Atraviesa armaduras.	Dano dobrado por bala. Perfura armaduras.	Двойной урон пулей. Пробивает броню.	Danno doppio a proiettile. Perfora le corazze.
+weapon.minigun.name	Minigun	Minigun	Minigun	Minigun	Minigun	Minigun	Миниган	Minigun
+weapon.minigun.desc	Triple fire rate. Mows down crowds.	Üç kat atış hızı. Kalabalıkları biçer.	Dreifache Feuerrate. Mäht Horden nieder.	Cadence triplée. Fauche les foules.	Triple cadencia. Arrasa multitudes.	Cadência tripla. Arrasa multidões.	Тройная скорострельность. Косит толпы.	Cadenza tripla. Falcia le folle.
+building.CommandPost.name	Command Post	Komuta Merkezi	Kommandoposten	Poste de commandement	Puesto de mando	Posto de comando	Командный пункт	Posto di comando
+building.CommandPost.desc	Your headquarters. Every level adds a squad slot.	Karargâhın. Her seviye bir ekip yuvası ekler.	Dein Hauptquartier. Jede Stufe bringt einen Truppplatz.	Ton QG. Chaque niveau ajoute une place.	Tu cuartel. Cada nivel añade un puesto.	Seu QG. Cada nível adiciona uma vaga.	Твой штаб. Каждый уровень даёт место в отряде.	Il tuo quartier generale. Ogni livello aggiunge un posto.
+building.CommandPost.format	{0} squad slots	{0} ekip yuvası	{0} Truppplätze	{0} places d'escouade	{0} puestos de escuadra	{0} vagas no esquadrão	Мест в отряде: {0}	{0} posti in squadra
+building.Barracks.name	Barracks	Kışla	Kaserne	Caserne	Cuartel	Quartel	Казармы	Caserma
+building.Barracks.desc	Bunks and training. Tougher soldiers.	Ranzalar ve eğitim. Daha dayanıklı askerler.	Betten und Drill. Zähere Soldaten.	Dortoirs et entraînement. Soldats plus coriaces.	Literas y entrenamiento. Soldados más duros.	Beliches e treino. Soldados mais resistentes.	Койки и тренировки. Бойцы крепче.	Brande e addestramento. Soldati più tosti.
+building.Barracks.format	+{0}% squad health	Ekip canı +%{0}	+{0} % Truppleben	+{0} % de santé	+{0} % de salud	+{0}% de vida	+{0}% здоровья отряда	+{0}% salute squadra
+building.Armory.name	Armory	Cephanelik	Waffenkammer	Armurerie	Armería	Arsenal	Оружейная	Armeria
+building.Armory.desc	Better ammo for every gun.	Tüm silahlar için daha iyi mermi.	Bessere Munition für jede Waffe.	De meilleures munitions pour toutes les armes.	Mejor munición para cada arma.	Munição melhor para cada arma.	Лучшие патроны для любого оружия.	Munizioni migliori per ogni arma.
+building.Armory.format	+{0}% damage	Hasar +%{0}	+{0} % Schaden	+{0} % de dégâts	+{0} % de daño	+{0}% de dano	+{0}% урона	+{0}% danno
+building.Workshop.name	Workshop	Atölye	Werkstatt	Atelier	Taller	Oficina	Мастерская	Officina
+building.Workshop.desc	Oiled and tuned weapons shoot faster.	Yağlanmış ve ayarlı silahlar daha hızlı ateş eder.	Geölte Waffen feuern schneller.	Les armes huilées tirent plus vite.	Las armas engrasadas disparan más rápido.	Armas lubrificadas atiram mais rápido.	Смазанное оружие стреляет быстрее.	Le armi oliate sparano più veloci.
+building.Workshop.format	+{0}% fire rate	Atış hızı +%{0}	+{0} % Feuerrate	+{0} % de cadence	+{0} % de cadencia	+{0}% de cadência	+{0}% скорострельности	+{0}% cadenza
+building.FieldHospital.name	Field Hospital	Sahra Hastanesi	Feldlazarett	Hôpital de campagne	Hospital de campaña	Hospital de campanha	Полевой госпиталь	Ospedale da campo
+building.FieldHospital.desc	Patches up the squad once it falls.	Ekip düşünce onu toparlar.	Flickt den Trupp wieder zusammen.	Remet l'escouade sur pied après une défaite.	Recompone a la escuadra cuando cae.	Recupera o esquadrão quando ele cai.	Поднимает павший отряд.	Rimette in piedi la squadra caduta.
+building.FieldHospital.format	{0} free revive per mission	Görev başına {0} ücretsiz canlanma	{0} Gratis-Wiederbelebung pro Mission	{0} réanimation gratuite par mission	{0} revivir gratis por misión	{0} reviver grátis por missão	Бесплатных воскрешений за миссию: {0}	{0} rianimazione gratis per missione
+building.Saloon.name	Saloon	Salon	Saloon	Saloon	Salón	Saloon	Салун	Saloon
+building.Saloon.desc	Grateful townsfolk pay for protection.	Minnettar kasabalılar koruma için ödeme yapar.	Dankbare Bürger zahlen für Schutz.	Les habitants reconnaissants paient pour leur protection.	Los vecinos agradecidos pagan por protección.	Moradores gratos pagam por proteção.	Благодарные горожане платят за защиту.	I cittadini grati pagano per la protezione.
+building.Saloon.format	+{0} cash per hour	Saatte +{0} para	+{0} Geld pro Stunde	+{0} argent par heure	+{0} dinero por hora	+{0} dinheiro por hora	+{0} денег в час	+{0} soldi all'ora
+building.Watchtower.name	Watchtower	Gözetleme Kulesi	Wachturm	Tour de guet	Atalaya	Torre de vigia	Сторожевая башня	Torre di guardia
+building.Watchtower.desc	Spot bandits early and shoot further.	Haydutları erken gör, daha uzağa ateş et.	Banditen früh sehen und weiter schießen.	Repère les bandits tôt et tire plus loin.	Detecta bandidos antes y dispara más lejos.	Aviste bandidos cedo e atire mais longe.	Замечай бандитов раньше и стреляй дальше.	Avvista i banditi prima e spara più lontano.
+building.Watchtower.format	+{0}% range	Menzil +%{0}	+{0} % Reichweite	+{0} % de portée	+{0} % de alcance	+{0}% de alcance	+{0}% дальности	+{0}% gittata
+threat.Armored.name	ARMORED	ZIRHLI	GEPANZERT	BLINDÉS	BLINDADOS	BLINDADOS	БРОНЯ	CORAZZATI
+threat.Armored.desc	Heavy bandits with thick vests.	Kalın yelekli iri haydutlar.	Schwere Banditen mit dicken Westen.	Bandits costauds aux gilets épais.	Bandidos pesados con chalecos gruesos.	Bandidos pesados com coletes grossos.	Тяжёлые бандиты в толстых жилетах.	Banditi grossi con giubbotti spessi.
+threat.Swarm.name	SWARM	SÜRÜ	HORDE	NUÉE	ENJAMBRE	ENXAME	ТОЛПА	ORDA
+threat.Swarm.desc	Lots of bandits at once.	Aynı anda bir sürü haydut.	Viele Banditen auf einmal.	Plein de bandits d'un coup.	Muchos bandidos a la vez.	Muitos bandidos de uma vez.	Толпа бандитов разом.	Tanti banditi tutti insieme.
+threat.Snipers.name	SNIPERS	KESKİN NİŞANCILAR	SCHARFSCHÜTZEN	TIREURS	FRANCOTIRADORES	ATIRADORES	СНАЙПЕРЫ	CECCHINI
+threat.Snipers.desc	Bandit snipers fire from far away.	Haydut nişancılar uzaktan ateş eder.	Banditen-Scharfschützen feuern von weit weg.	Des tireurs bandits tirent de loin.	Francotiradores disparan desde lejos.	Atiradores bandidos disparam de longe.	Снайперы стреляют издалека.	Cecchini banditi sparano da lontano.
+threat.Barricades.name	BARRICADES	BARİKATLAR	BARRIKADEN	BARRICADES	BARRICADAS	BARRICADAS	БАРРИКАДЫ	BARRICATE
+threat.Barricades.desc	Sandbag walls block the road.	Kum torbası duvarlar yolu kapatır.	Sandsackwälle blockieren die Straße.	Des murs de sacs de sable bloquent la route.	Muros de sacos de arena bloquean el camino.	Muros de sacos de areia bloqueiam a estrada.	Стены из мешков перекрывают дорогу.	Muri di sacchi di sabbia bloccano la strada.
+threat.Attrition.name	AMBUSH	PUSU	HINTERHALT	EMBUSCADE	EMBOSCADA	EMBOSCADA	ЗАСАДА	IMBOSCATA
+threat.Attrition.desc	A long road under constant fire.	Sürekli ateş altında uzun bir yol.	Ein langer Weg unter Dauerbeschuss.	Une longue route sous le feu.	Un largo camino bajo fuego constante.	Uma longa estrada sob fogo constante.	Долгий путь под постоянным огнём.	Una lunga strada sotto il fuoco.
+chapter.0.title	OUTSKIRTS	KASABA DIŞI	STADTRAND	PÉRIPHÉRIE	LAS AFUERAS	ARREDORES	ОКРАИНА	PERIFERIA
+chapter.0.subtitle	Gas station and water tower	Benzinlik ve su kulesi	Tankstelle und Wasserturm	Station-service et château d'eau	Gasolinera y torre de agua	Posto de gasolina e caixa d'água	Заправка и водонапорная башня	Benzinaio e torre dell'acqua
+chapter.0.boss	Lieutenant Rattler	Teğmen Rattler	Leutnant Rattler	Lieutenant Rattler	Teniente Rattler	Tenente Rattler	Лейтенант Раттлер	Tenente Rattler
+chapter.0.taunt	Rangers in MY town? The boys will fill you with holes!	BENİM kasabamda korucular mı? Çocuklar sizi delik deşik edecek!	Ranger in MEINER Stadt? Die Jungs durchlöchern euch!	Des Rangers dans MA ville ? Les gars vont vous trouer la peau !	¿Rangers en MI pueblo? ¡Los chicos os llenarán de agujeros!	Rangers na MINHA cidade? Os rapazes vão encher vocês de furos!	Рейнджеры в МОЁМ городе? Парни нашпигуют вас свинцом!	Ranger nella MIA città? I ragazzi vi riempiranno di buchi!
+chapter.0.intro.0	The Red Scorpions hold the road into Dustwater.	Kızıl Akrepler Dustwater'a giden yolu tutuyor.	Die Roten Skorpione halten die Straße nach Dustwater.	Les Scorpions Rouges tiennent la route de Dustwater.	Los Escorpiones Rojos controlan el camino a Dustwater.	Os Escorpiões Vermelhos dominam a estrada para Dustwater.	Красные Скорпионы держат дорогу в Дастуотер.	Gli Scorpioni Rossi controllano la strada per Dustwater.
+chapter.0.intro.1	Clear the outskirts, Commander!	Kasaba dışını temizle, Komutan!	Säubere den Stadtrand, Kommandant!	Nettoie la périphérie, Commandant !	¡Limpia las afueras, Comandante!	Limpe os arredores, Comandante!	Зачисти окраину, командир!	Ripulisci la periferia, Comandante!
+chapter.0.outro.0	Rattler is down! The outskirts are free.	Rattler düştü! Kasaba dışı özgür.	Rattler ist erledigt! Der Stadtrand ist frei.	Rattler est tombé ! La périphérie est libre.	¡Rattler ha caído! Las afueras son libres.	Rattler caiu! Os arredores estão livres.	Раттлер повержен! Окраина свободна.	Rattler è a terra! La periferia è libera.
+chapter.0.outro.1	Townsfolk are coming back. Time to rebuild!	Kasabalılar geri dönüyor. Yeniden inşa zamanı!	Die Bürger kehren zurück. Zeit zum Aufbauen!	Les habitants reviennent. Il faut reconstruire !	Los vecinos vuelven. ¡Hora de reconstruir!	Os moradores estão voltando. Hora de reconstruir!	Горожане возвращаются. Пора отстраиваться!	I cittadini tornano. È ora di ricostruire!
+chapter.1.title	MAIN STREET	ANA CADDE	HAUPTSTRASSE	GRAND-RUE	CALLE MAYOR	RUA PRINCIPAL	ГЛАВНАЯ УЛИЦА	VIA PRINCIPALE
+chapter.1.subtitle	Saloon and market	Salon ve pazar	Saloon und Markt	Saloon et marché	Salón y mercado	Saloon e mercado	Салун и рынок	Saloon e mercato
+chapter.1.boss	Big Jaws	Koca Çene	Big Jaws	Grosse Mâchoire	Gran Mandíbula	Bocão	Большая Челюсть	Mascellone
+chapter.1.taunt	Main Street is mine. Nobody walks past Big Jaws!	Ana Cadde benim. Kimse Koca Çene'yi geçemez!	Die Hauptstraße gehört mir. Keiner kommt an Big Jaws vorbei!	La Grand-Rue est à moi. Personne ne passe Grosse Mâchoire !	La Calle Mayor es mía. ¡Nadie pasa a Gran Mandíbula!	A Rua Principal é minha. Ninguém passa pelo Bocão!	Главная улица моя. Мимо Большой Челюсти никто не пройдёт!	La Via Principale è mia. Nessuno supera Mascellone!
+chapter.1.intro.0	Main Street is the heart of Dustwater.	Ana Cadde, Dustwater'ın kalbidir.	Die Hauptstraße ist das Herz von Dustwater.	La Grand-Rue est le cœur de Dustwater.	La Calle Mayor es el corazón de Dustwater.	A Rua Principal é o coração de Dustwater.	Главная улица — сердце Дастуотера.	La Via Principale è il cuore di Dustwater.
+chapter.1.intro.1	Big Jaws guards it with an iron grip.	Koca Çene onu demir yumrukla koruyor.	Big Jaws hält sie mit eiserner Faust.	Grosse Mâchoire la garde d'une main de fer.	Gran Mandíbula la vigila con mano de hierro.	Bocão a vigia com mão de ferro.	Большая Челюсть держит её железной хваткой.	Mascellone la sorveglia con pugno di ferro.
+chapter.1.outro.0	Big Jaws is finished!	Koca Çene'nin işi bitti!	Big Jaws ist erledigt!	Grosse Mâchoire est fini !	¡Gran Mandíbula está acabado!	O Bocão está acabado!	С Большой Челюстью покончено!	Mascellone è finito!
+chapter.1.outro.1	Only the Scorpion Fort remains.	Geriye sadece Akrep Kalesi kaldı.	Nur noch die Skorpionfestung bleibt.	Il ne reste que le Fort Scorpion.	Solo queda el Fuerte Escorpión.	Só resta o Forte Escorpião.	Осталась только Крепость Скорпионов.	Rimane solo il Forte Scorpione.
+chapter.2.title	SCORPION FORT	AKREP KALESİ	SKORPIONFESTUNG	FORT SCORPION	FUERTE ESCORPIÓN	FORTE ESCORPIÃO	КРЕПОСТЬ СКОРПИОНОВ	FORTE SCORPIONE
+chapter.2.subtitle	Vex's stronghold	Vex'in kalesi	Vex' Bollwerk	Le repaire de Vex	La fortaleza de Vex	A fortaleza de Vex	Логово Векса	La roccaforte di Vex
+chapter.2.boss	Boss Vex	Boss Vex	Boss Vex	Boss Vex	Jefe Vex	Chefão Vex	Босс Векс	Boss Vex
+chapter.2.taunt	You took my town, Commander. You will not take my fort!	Kasabamı aldın, Komutan. Kalemi alamayacaksın!	Du hast meine Stadt, Kommandant. Meine Festung kriegst du nicht!	Tu as pris ma ville, Commandant. Tu n'auras pas mon fort !	Me quitaste el pueblo, Comandante. ¡No tendrás mi fuerte!	Você tomou minha cidade, Comandante. Meu forte, não!	Ты забрал мой город, командир. Крепость тебе не взять!	Hai preso la mia città, Comandante. Il mio forte no!
+chapter.2.intro.0	Vex hides in his fort at the edge of town.	Vex kasabanın kıyısındaki kalesinde saklanıyor.	Vex versteckt sich in seiner Festung am Stadtrand.	Vex se cache dans son fort au bout de la ville.	Vex se esconde en su fuerte a las afueras.	Vex se esconde em seu forte na saída da cidade.	Векс прячется в крепости на краю города.	Vex si nasconde nel suo forte ai confini della città.
+chapter.2.intro.1	This is the final push, Commander!	Bu son hamle, Komutan!	Das ist der letzte Vorstoß, Kommandant!	C'est l'assaut final, Commandant !	¡Es el asalto final, Comandante!	É o ataque final, Comandante!	Это последний рывок, командир!	È l'assalto finale, Comandante!
+chapter.2.outro.0	Vex runs off into the desert. Dustwater is free!	Vex çöle kaçtı. Dustwater özgür!	Vex flieht in die Wüste. Dustwater ist frei!	Vex s'enfuit dans le désert. Dustwater est libre !	Vex huye al desierto. ¡Dustwater es libre!	Vex foge para o deserto. Dustwater está livre!	Векс сбежал в пустыню. Дастуотер свободен!	Vex fugge nel deserto. Dustwater è libera!
+chapter.2.outro.1	Keep patrolling the roads, Commander.	Yollarda devriyeye devam, Komutan.	Patrouilliere weiter die Straßen, Kommandant.	Continue de patrouiller, Commandant.	Sigue patrullando los caminos, Comandante.	Continue patrulhando as estradas, Comandante.	Продолжай патрулировать дороги, командир.	Continua a pattugliare le strade, Comandante.
+op.1	Dusty Crossroads	Tozlu Kavşak	Staubige Kreuzung	Carrefour poussiéreux	Cruce polvoriento	Encruzilhada empoeirada	Пыльный перекрёсток	Crocevia polveroso
+op.2	Tumbleweed Run	Çalı Koşusu	Steppenläufer	Course des virevoltants	Carrera rodadora	Corrida do mato	Бег перекати-поля	Corsa dei cespugli
+op.3	Sandbag Alley	Kum Torbası Sokağı	Sandsackgasse	Allée des sacs	Callejón de sacos	Beco dos sacos	Аллея мешков	Vicolo dei sacchi
+op.4	Iron Vests	Demir Yelekler	Eisenwesten	Gilets de fer	Chalecos de hierro	Coletes de ferro	Железные жилеты	Giubbotti di ferro
+op.5	Coyote Pack	Çakal Sürüsü	Kojotenrudel	Meute de coyotes	Manada de coyotes	Matilha de coiotes	Стая койотов	Branco di coyote
+op.6	Gas Station Rescue	Benzinlik Kurtarma	Tankstellen-Rettung	Sauvetage à la station	Rescate en la gasolinera	Resgate no posto	Спасение заправки	Salvataggio al benzinaio
+op.7	Old Mill Road	Eski Değirmen Yolu	Alte Mühlenstraße	Route du vieux moulin	Camino del molino	Estrada do moinho	Дорога к старой мельнице	Strada del vecchio mulino
+op.8	Water Tower Watch	Su Kulesi Nöbeti	Wasserturm-Wache	Garde du château d'eau	Guardia de la torre	Vigia da caixa d'água	Дозор у водокачки	Guardia della torre
+op.9	Rusty Rails	Paslı Raylar	Rostige Schienen	Rails rouillés	Rieles oxidados	Trilhos enferrujados	Ржавые рельсы	Binari arrugginiti
+op.10	Rattler's Roost	Rattler'ın Yuvası	Rattlers Nest	Le repaire de Rattler	La guarida de Rattler	O covil de Rattler	Логово Раттлера	Il covo di Rattler
+op.11	Main Street Entry	Ana Cadde Girişi	Einfahrt Hauptstraße	Entrée de la Grand-Rue	Entrada a la Calle Mayor	Entrada da Rua Principal	Въезд на Главную	Ingresso in Via Principale
+op.12	Saloon Doors	Salon Kapıları	Saloontüren	Portes du saloon	Puertas del salón	Portas do saloon	Двери салуна	Porte del saloon
+op.13	Rooftop Rifles	Çatı Tüfekleri	Dachschützen	Fusils sur les toits	Rifles en los tejados	Rifles nos telhados	Стрелки на крышах	Fucili sui tetti
+op.14	Sheriff's Office	Şerif Ofisi	Sheriffbüro	Bureau du shérif	Oficina del sheriff	Escritório do xerife	Офис шерифа	Ufficio dello sceriffo
+op.15	Market Mayhem	Pazar Kargaşası	Marktchaos	Chaos au marché	Caos en el mercado	Caos no mercado	Хаос на рынке	Caos al mercato
+op.16	Blacksmith Alley	Demirci Sokağı	Schmiedegasse	Allée du forgeron	Callejón del herrero	Beco do ferreiro	Переулок кузнеца	Vicolo del fabbro
+op.17	Church Bell	Kilise Çanı	Kirchenglocke	Cloche de l'église	Campana de la iglesia	Sino da igreja	Церковный колокол	Campana della chiesa
+op.18	Stagecoach Stop	Posta Arabası Durağı	Postkutschenhalt	Relais de diligence	Parada de diligencias	Parada da diligência	Станция дилижансов	Sosta della diligenza
+op.19	Hotel Balconies	Otel Balkonları	Hotelbalkone	Balcons de l'hôtel	Balcones del hotel	Sacadas do hotel	Балконы отеля	Balconi dell'hotel
+op.20	Jaws' Jailhouse	Koca Çene'nin Hapishanesi	Jaws' Knast	La prison de Mâchoire	La cárcel de Mandíbula	A cadeia do Bocão	Тюрьма Челюсти	La prigione di Mascellone
+op.21	Fort Outskirts	Kale Eteği	Festungsvorfeld	Abords du fort	Afueras del fuerte	Arredores do forte	Подступы к крепости	Dintorni del forte
+op.22	Scorpion Trenches	Akrep Siperleri	Skorpiongräben	Tranchées scorpion	Trincheras escorpión	Trincheiras escorpião	Окопы Скорпионов	Trincee scorpione
+op.23	Ammo Dump	Cephane Deposu	Munitionslager	Dépôt de munitions	Depósito de munición	Depósito de munição	Склад боеприпасов	Deposito munizioni
+op.24	Barbed Gate	Dikenli Kapı	Stacheltor	Porte barbelée	Puerta de espino	Portão farpado	Колючие ворота	Cancello spinato
+op.25	Watchtower Line	Gözetleme Hattı	Wachturmlinie	Ligne des tours	Línea de atalayas	Linha das torres	Линия вышек	Linea delle torri
+op.26	Supply Raid	Erzak Baskını	Vorratsüberfall	Raid de ravitaillement	Asalto a suministros	Ataque aos suprimentos	Налёт на припасы	Assalto alle provviste
+op.27	Inner Wall	İç Sur	Innere Mauer	Mur intérieur	Muro interior	Muralha interna	Внутренняя стена	Mura interne
+op.28	Vex's Garage	Vex'in Garajı	Vex' Garage	Le garage de Vex	El garaje de Vex	A garagem de Vex	Гараж Векса	Il garage di Vex
+op.29	Last Stand	Son Direniş	Letztes Gefecht	Dernier combat	Última resistencia	Última resistência	Последний бой	Ultima resistenza
+op.30	Scorpion Throne	Akrep Tahtı	Skorpionthron	Trône du Scorpion	Trono del Escorpión	Trono do Escorpião	Трон Скорпиона	Trono dello Scorpione

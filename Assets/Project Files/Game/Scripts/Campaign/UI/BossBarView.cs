@@ -51,8 +51,8 @@ namespace Watermelon
                 return;
             }
 
-            nameText.text = boss.BossName;
             ChapterData chapter = Campaign.IsInitialised ? Campaign.CurrentChapter : null;
+            nameText.text = chapter != null ? Loc.Upper(Loc.ChapterBoss(Campaign.CurrentChapterIndex, chapter)) : boss.BossName;
             portrait.sprite = chapter != null ? chapter.bossPortrait : null;
             portrait.gameObject.SetActive(portrait.sprite != null);
         }

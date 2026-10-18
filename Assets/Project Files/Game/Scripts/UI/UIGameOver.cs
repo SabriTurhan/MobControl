@@ -25,6 +25,8 @@ namespace Watermelon
 
         private TextMeshProUGUI continueLabel;
         private string continueDefaultText;
+        private Vector2? continueLabelPosition;
+        private Vector2? continueLabelPivot;
 
         public override void Init()
         {
@@ -43,7 +45,18 @@ namespace Watermelon
             {
                 if (continueDefaultText == null) continueDefaultText = continueLabel.text;
                 bool free = Campaign.IsInitialised && Campaign.FreeRevivesLeft > 0;
-                continueLabel.text = free ? "FREE REVIVE" : continueDefaultText;
+                continueLabel.text = free ? Loc.Get("ui.free_revive") : Loc.Get("ui.continue", continueDefaultText);
+
+                // a free revive needs no video: hide the ad icon and centre the label
+                Transform adIcon = continueButton.transform.Find("Ad Image");
+                if (adIcon != null) adIcon.gameObject.SetActive(!free);
+                RectTransform labelRect = continueLabel.rectTransform;
+                if (continueLabelPosition == null) continueLabelPosition = labelRect.anchoredPosition;
+                if (continueLabelPivot == null) continueLabelPivot = labelRect.pivot;
+                labelRect.anchorMin = labelRect.anchorMax = free ? new Vector2(0.5f, 0.5f) : new Vector2(1f, 0.5f);
+                labelRect.pivot = free ? new Vector2(0.5f, 0.5f) : continueLabelPivot.Value;
+                labelRect.anchoredPosition = free ? Vector2.zero : continueLabelPosition.Value;
+                continueLabel.alignment = free ? TextAlignmentOptions.Center : continueLabel.alignment;
             }
             continueButtonScalable.Hide(immediately: true);
             HideNoThanksButton();

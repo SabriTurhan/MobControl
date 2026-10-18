@@ -57,8 +57,9 @@ namespace Watermelon
             line = DWUI.Text(box, "Line", "", 48f, style.textDark, false, TextAlignmentOptions.TopLeft);
             line.rectTransform.Stretch(330, 40, 80, 70);
 
-            hint = DWUI.Text(box, "Hint", "TAP TO CONTINUE", 30f, new Color32(150, 146, 170, 255), false, TextAlignmentOptions.Right);
-            hint.rectTransform.Place(new Vector2(1f, 0f), new Vector2(-220f, 40f), new Vector2(400f, 40f));
+            hint = DWUI.Text(box, "Hint", Loc.Get("story.tap"), 30f, new Color32(150, 146, 170, 255), false, TextAlignmentOptions.Right);
+            hint.rectTransform.Place(new Vector2(1f, 0f), new Vector2(-370f, 40f), new Vector2(680f, 40f));
+            hint.textWrappingMode = TextWrappingModes.NoWrap;
 
             root.gameObject.SetActive(false);
         }

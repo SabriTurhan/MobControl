@@ -30,16 +30,20 @@ namespace Watermelon
             Image shine = DWUI.Icon(root, "Shine", style.shine, new Color(1f, 0.9f, 0.5f, 0.55f));
             shine.rectTransform.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, 120f), new Vector2(1100f, 1100f));
 
-            string titleText = result.isBoss ? "BOSS DEFEATED!" : "MISSION " + result.levelNumber + " CLEAR!";
-            TextMeshProUGUI title = DWUI.Text(root, "Title", titleText, 92f, style.gold);
+            RectTransform content = DWUI.Rect(root, "Content");
+            content.Place(new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(1000f, 1700f));
+            content.Fit(1700f, 1000f, 20f);
+
+            string titleText = result.isBoss ? Loc.Get("reward.boss") : Loc.Format("reward.clear", result.levelNumber);
+            TextMeshProUGUI title = DWUI.Text(content, "Title", titleText, 92f, style.gold);
             title.rectTransform.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, 760f), new Vector2(1000f, 120f));
             DWUI.Pop(title.transform);
 
-            Image chest = DWUI.Icon(root, "Chest", style.chest);
+            Image chest = DWUI.Icon(content, "Chest", style.chest);
             chest.rectTransform.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(520f, 520f));
             DWUI.Pop(chest.transform, 0.1f);
 
-            RectTransform rewards = DWUI.Rect(root, "Rewards");
+            RectTransform rewards = DWUI.Rect(content, "Rewards");
             rewards.Place(new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(1000f, 1400f));
             rewards.gameObject.SetActive(false);
 
@@ -49,13 +53,13 @@ namespace Watermelon
                 RectTransform card = CardWidget.Build(rewards, info, new Vector2(420f, 588f), true);
                 card.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(420f, 588f));
 
-                string tag = result.card.isNew ? "NEW!" : "+" + result.card.copies;
+                string tag = result.card.isNew ? Loc.Get("reward.new") : "+" + result.card.copies;
                 Image badge = DWUI.Image(card, "Tag", style.roundedBack, result.card.isNew ? style.red : style.green);
                 badge.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, 10f), new Vector2(230f, 84f));
                 TextMeshProUGUI badgeText = DWUI.Text(badge.rectTransform, "Label", tag, 54f);
                 badgeText.rectTransform.Stretch(0, 0, 0, 6);
 
-                TextMeshProUGUI rarity = DWUI.Text(rewards, "Rarity", result.card.rarity.ToString().ToUpper() + (result.card.isUnit ? " UNIT" : " WEAPON"), 46f, style.RarityColor(result.card.rarity));
+                TextMeshProUGUI rarity = DWUI.Text(rewards, "Rarity", Loc.Get("reward." + result.card.rarity.ToString().ToLowerInvariant() + (result.card.isUnit ? "_unit" : "_weapon")), 46f, style.RarityColor(result.card.rarity));
                 rarity.rectTransform.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, -195f), new Vector2(900f, 70f));
             }
 
@@ -65,11 +69,11 @@ namespace Watermelon
                 row.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, -300f), new Vector2(900f, 110f));
                 Image icon = DWUI.Icon(row, "Icon", style.supplies);
                 icon.rectTransform.sizeDelta = new Vector2(120f, 120f);
-                TextMeshProUGUI amount = DWUI.Text(row, "Amount", "+" + result.supplies + " SUPPLIES", 56f, Color.white, true, TextAlignmentOptions.Left);
+                TextMeshProUGUI amount = DWUI.Text(row, "Amount", Loc.Format("reward.supplies", result.supplies), 56f, Color.white, true, TextAlignmentOptions.Left);
                 amount.rectTransform.sizeDelta = new Vector2(520f, 90f);
             }
 
-            Button collect = DWUI.Button(rewards, "Collect", style.buttonGreen, "COLLECT", 76f, Close);
+            Button collect = DWUI.Button(rewards, "Collect", style.buttonGreen, Loc.Get("reward.collect"), 76f, Close);
             collect.GetComponent<RectTransform>().Place(new Vector2(0.5f, 0.5f), new Vector2(0f, -500f), new Vector2(560f, 170f));
 
             // chest wobble, then it bursts into the card

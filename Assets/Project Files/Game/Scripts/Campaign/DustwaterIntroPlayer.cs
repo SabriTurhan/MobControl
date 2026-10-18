@@ -78,7 +78,7 @@ namespace Watermelon
             // 1. the quiet town
             yield return Fade(1f, 0f, 0.8f);
             StartCoroutine(MoveCamera(root, new Vector3(0f, 40f, -58f), new Vector3(0f, 0f, 12f), new Vector3(0f, 25f, -30f), new Vector3(0f, 0f, 14f), 5.5f));
-            yield return Caption(null, null, "Dustwater. A quiet little town at the edge of the desert.", 4.6f);
+            yield return Caption(null, null, Loc.Get("intro.1"), 4.6f);
 
             // 2. the convoy rolls in
             List<Transform> bandits = new List<Transform>();
@@ -99,7 +99,7 @@ namespace Watermelon
                 Vector3 target = new Vector3(-6f + i * 2f, 0f, 2f + (i % 3) * 4f);
                 StartCoroutine(MoveObject(bandits[i], bandits[i].localPosition, target, 4.6f + i * 0.15f, () => { }));
             }
-            yield return Caption(null, null, "Until the Red Scorpions rolled in...", 5.2f);
+            yield return Caption(null, null, Loc.Get("intro.2"), 5.2f);
             foreach (Transform bandit in bandits) SetRunning(bandit, false);
 
             // 3. the town falls
@@ -109,7 +109,7 @@ namespace Watermelon
             foreach (Transform bandit in bandits) bandit.localRotation = Quaternion.Euler(0f, 180f, 0f);
             StartCoroutine(MoveCamera(root, new Vector3(0f, 31f, -40f), new Vector3(0f, 0f, 10f), new Vector3(0f, 27f, -33f), new Vector3(0f, 0f, 10f), 4.5f));
             yield return Fade(1f, 0f, 0.35f);
-            yield return Caption(null, null, "They took the town, the water and the saloon.", 3.8f);
+            yield return Caption(null, null, Loc.Get("intro.3"), 3.8f);
 
             // 4. Boss Vex
             Transform vex = Spawn(vexActor, root, new Vector3(0f, 0f, -4f), 180f).transform;
@@ -118,7 +118,7 @@ namespace Watermelon
             Spawn(banditActor, root, new Vector3(2.6f, 0f, -2.6f), 160f);
             StartCoroutine(MoveCamera(root, new Vector3(0.8f, 4.4f, -15.5f), new Vector3(0f, 3.0f, -4f), new Vector3(0.4f, 4.0f, -13f), new Vector3(0f, 3.1f, -4f), 4.5f));
             StartCoroutine(Laugh(vex));
-            yield return Caption(vexPortrait, "BOSS VEX", "Dustwater belongs to the Scorpions now! Ha-ha-ha!", 4.2f);
+            yield return Caption(vexPortrait, Loc.Get("story.vex"), Loc.Get("intro.4"), 4.2f);
 
             // 5. the Blue Rangers
             yield return Fade(0f, 1f, 0.35f);
@@ -126,7 +126,7 @@ namespace Watermelon
                 Spawn(rangerActors[i], root, new Vector3(-2.25f + i * 1.5f, 0f, -26f - (i % 2) * 0.8f), 0f);
             StartCoroutine(MoveCamera(root, new Vector3(1.2f, 4.8f, -37f), new Vector3(0f, 1.6f, 4f), new Vector3(0f, 5.4f, -40f), new Vector3(0f, 1.8f, 6f), 6f));
             yield return Fade(1f, 0f, 0.35f);
-            yield return Caption(sergeantPortrait, "SGT. MASON", "Commander, the Blue Rangers are ready. Let's take Dustwater back!", 4.8f);
+            yield return Caption(sergeantPortrait, Loc.Get("story.sergeant"), Loc.Get("intro.5"), 4.8f);
 
             // title
             captionGroup.alpha = 0f;
@@ -331,16 +331,16 @@ namespace Watermelon
             RectTransform title = DWUI.Rect(overlay, "Title").Stretch();
             titleGroup = DWUI.Group(title.gameObject);
             titleGroup.alpha = 0f;
-            TextMeshProUGUI name = DWUI.Text(title, "Name", "DUSTWATER", 150f, style.gold);
+            TextMeshProUGUI name = DWUI.Text(title, "Name", Loc.Get("intro.title"), 150f, style.gold);
             name.rectTransform.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, 120f), new Vector2(1060f, 200f));
-            TextMeshProUGUI subtitle = DWUI.Text(title, "Subtitle", "SQUAD COMMAND", 74f, Color.white);
+            TextMeshProUGUI subtitle = DWUI.Text(title, "Subtitle", Loc.Get("intro.subtitle"), 74f, Color.white);
             subtitle.rectTransform.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, -10f), new Vector2(1000f, 100f));
 
             fade = DWUI.Image(overlay, "Fade", style.square, Color.black);
             fade.rectTransform.Stretch();
             fade.raycastTarget = false;
 
-            Button skip = DWUI.Button(overlay, "Skip", style.buttonGray, "SKIP", 44f, Skip);
+            Button skip = DWUI.Button(overlay, "Skip", style.buttonGray, Loc.Get("intro.skip"), 44f, Skip);
             skip.GetComponent<RectTransform>().Place(new Vector2(1f, 1f), new Vector2(-150f, -110f), new Vector2(220f, 110f));
         }
 

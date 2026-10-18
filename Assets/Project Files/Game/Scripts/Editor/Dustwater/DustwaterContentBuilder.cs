@@ -222,8 +222,12 @@ namespace Watermelon.Dustwater
             const string CO = "Assets/Watermelon Core/Core Resources/Images/";
             const string FONTS = "Assets/Project Files/Game/Fonts/FredokaOne/FredokaOne 50/";
 
-            style.font = AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>(FONTS + "FredokaOne 50.asset");
-            style.fontOutline = AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>(FONTS + "FredokaOne 50 Outline.asset");
+            // the SDF version (localization builder) when present: outline presets also apply to fallback glyphs
+            TMPro.TMP_FontAsset sdf = AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>(DustwaterLocalizationBuilder.SDF_FONT);
+            style.font = sdf != null ? sdf : AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>(FONTS + "FredokaOne 50.asset");
+            style.fontOutline = sdf != null ? sdf : AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>(FONTS + "FredokaOne 50 Outline.asset");
+            style.fontMaterial = sdf != null ? AssetDatabase.LoadAssetAtPath<Material>(DustwaterLocalizationBuilder.MAT_PLAIN) : null;
+            style.fontOutlineMaterial = sdf != null ? AssetDatabase.LoadAssetAtPath<Material>(DustwaterLocalizationBuilder.MAT_OUTLINE) : null;
 
             style.panelWhite = S(ST + "item_background.png");
             style.panelBlue = S(GU + "panel_blue.png");

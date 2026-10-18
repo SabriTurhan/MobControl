@@ -10,6 +10,9 @@ namespace Watermelon
         [Header("Fonts")]
         public TMP_FontAsset font;
         public TMP_FontAsset fontOutline;
+        [Tooltip("SDF presets of the font (outline/plain); fallback glyphs (Cyrillic) inherit them")]
+        public Material fontMaterial;
+        public Material fontOutlineMaterial;
 
         [Header("Panels")]
         public Sprite panelWhite;

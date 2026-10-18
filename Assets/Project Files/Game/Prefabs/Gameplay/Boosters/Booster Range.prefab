@@ -83,6 +83,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2029327304305104583, guid: c8b02cca1f8747346815225ecdf70c9b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
+    - target: {fileID: 2029327304305104583, guid: c8b02cca1f8747346815225ecdf70c9b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7647790089311069945, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+        type: 2}
     - target: {fileID: 2342797133441403821, guid: c8b02cca1f8747346815225ecdf70c9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -177,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier:
     enabled: 0
-    newValue: 0
+    value: 0
   boosterCollider: {fileID: 104170913536727162}
   applyOnObstacleDestroyed: 1
   pickUpParticle: {fileID: 8920473615133790880}

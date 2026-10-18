@@ -22,13 +22,13 @@ namespace Watermelon
 
         public static Info Get(UnitCardData data) => new Info()
         {
-            isUnit = true, id = data.id, displayName = data.displayName, rarity = data.rarity, portrait = data.portrait,
+            isUnit = true, id = data.id, displayName = Loc.UnitName(data), rarity = data.rarity, portrait = data.portrait,
             unlockAfterLevel = data.unlockAfterLevel, save = Campaign.GetUnitSave(data.id),
         };
 
         public static Info Get(WeaponCardData data) => new Info()
         {
-            isUnit = false, id = data.id, displayName = data.displayName, rarity = data.rarity, portrait = data.portrait,
+            isUnit = false, id = data.id, displayName = Loc.WeaponName(data), rarity = data.rarity, portrait = data.portrait,
             unlockAfterLevel = data.unlockAfterLevel, save = Campaign.GetWeaponSave(data.id),
         };
 
@@ -80,7 +80,7 @@ namespace Watermelon
             strip.rectTransform.pivot = new Vector2(0.5f, 0f);
             strip.rectTransform.sizeDelta = new Vector2(-28 * s, size.y * 0.15f);
             strip.rectTransform.anchoredPosition = new Vector2(0f, 14 * s);
-            TextMeshProUGUI name = DWUI.Text(strip.rectTransform, "Name", info.displayName.ToUpper(), 34 * s);
+            TextMeshProUGUI name = DWUI.Text(strip.rectTransform, "Name", Loc.Upper(info.displayName), 34 * s);
             name.rectTransform.Stretch(4, 4, 0, 4);
             name.enableAutoSizing = true;
             name.fontSizeMin = 18 * s;
@@ -115,7 +115,7 @@ namespace Watermelon
                     fill.rectTransform.offsetMin = new Vector2(4, 4) * s;
                     fill.rectTransform.offsetMax = new Vector2(-4, -4) * s;
 
-                    TextMeshProUGUI copies = DWUI.Text(bar.rectTransform, "Copies", max ? "MAX" : info.save.copies + "/" + needed, 28 * s);
+                    TextMeshProUGUI copies = DWUI.Text(bar.rectTransform, "Copies", max ? Loc.Get("cards.max") : info.save.copies + "/" + needed, 28 * s);
                     copies.rectTransform.Stretch(0, 0, 0, 2 * s);
 
                     if (ready)
@@ -129,7 +129,7 @@ namespace Watermelon
             }
             else
             {
-                TextMeshProUGUI locked = DWUI.Text(rect, "Unlock", "MISSION " + info.unlockAfterLevel, 30 * s, new Color(1f, 1f, 1f, 0.9f));
+                TextMeshProUGUI locked = DWUI.Text(rect, "Unlock", Loc.Format("cards.locked", info.unlockAfterLevel), 30 * s, new Color(1f, 1f, 1f, 0.9f));
                 locked.rectTransform.anchorMin = new Vector2(0f, 0f);
                 locked.rectTransform.anchorMax = new Vector2(1f, 0f);
                 locked.rectTransform.sizeDelta = new Vector2(0f, 50 * s);

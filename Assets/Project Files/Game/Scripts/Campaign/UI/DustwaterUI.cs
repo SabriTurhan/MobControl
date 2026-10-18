@@ -11,7 +11,10 @@ namespace Watermelon
     {
         public static DustwaterUI Instance { get; private set; }
 
+        /// <summary>Modal layer (overlay): briefing, rewards, story, intro, pickers, boss bar.</summary>
         public RectTransform Root { get; private set; }
+        /// <summary>Hub layer (camera space, under the template menu so its popups stay on top).</summary>
+        public RectTransform HudRoot { get; private set; }
         public RectTransform SafeArea { get; private set; }
 
         public HubView Hub { get; private set; }
@@ -22,40 +25,79 @@ namespace Watermelon
         public StoryView Story { get; private set; }
         public BossBarView BossBar { get; private set; }
 
+        private DustwaterUIStyle style;
+        private GameObject hudObject;
+        private RectTransform languagePicker;
+
         public static DustwaterUI Create(DustwaterUIStyle style)
         {
             DWUI.Style = style;
 
-            GameObject go = new GameObject("Dustwater UI", typeof(RectTransform));
-            go.layer = LayerMask.NameToLayer("UI");
-            Canvas canvas = go.AddComponent<Canvas>();
+            GameObject go = NewCanvas("Dustwater UI");
+            Canvas canvas = go.GetComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             canvas.sortingOrder = 50;
 
+            DustwaterUI ui = go.AddComponent<DustwaterUI>();
+            ui.style = style;
+
+            // the hub sits in the template menu's camera space with a lower order: the menu's popups
+            // (no ads, settings) and side buttons draw above it and receive taps first
+            ui.hudObject = NewCanvas("Dustwater HUD");
+            Canvas hud = ui.hudObject.GetComponent<Canvas>();
+            Canvas menuCanvas = FindMenuCanvas();
+            if (menuCanvas != null && menuCanvas.worldCamera != null)
+            {
+                hud.renderMode = RenderMode.ScreenSpaceCamera;
+                hud.worldCamera = menuCanvas.worldCamera;
+                hud.planeDistance = menuCanvas.planeDistance + 0.5f;
+                hud.sortingLayerID = menuCanvas.sortingLayerID;
+                hud.sortingOrder = menuCanvas.sortingOrder - 5;
+            }
+            else
+            {
+                hud.renderMode = RenderMode.ScreenSpaceOverlay;
+                hud.sortingOrder = 40;
+            }
+
+            ui.Build();
+            return ui;
+        }
+
+        private static GameObject NewCanvas(string name)
+        {
+            GameObject go = new GameObject(name, typeof(RectTransform));
+            go.layer = LayerMask.NameToLayer("UI");
+            go.AddComponent<Canvas>();
             CanvasScaler scaler = go.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1080f, 1920f);
             scaler.matchWidthOrHeight = 0f;
             go.AddComponent<GraphicRaycaster>();
+            return go;
+        }
 
-            DustwaterUI ui = go.AddComponent<DustwaterUI>();
-            ui.Build();
-            return ui;
+        private static Canvas FindMenuCanvas()
+        {
+            UIMainMenu menu = FindFirstObjectByType<UIMainMenu>(FindObjectsInactive.Include);
+            return menu != null ? menu.GetComponentInParent<Canvas>().rootCanvas : null;
         }
 
         private void Build()
         {
             Instance = this;
             Root = (RectTransform)transform;
+            HudRoot = (RectTransform)hudObject.transform;
 
-            SafeArea = DWUI.Rect(Root, "Safe Area").Stretch();
+            SafeArea = DWUI.Rect(HudRoot, "Safe Area").Stretch();
             NotchSaveArea.RegisterRectTransform(SafeArea);
+            RectTransform modalSafeArea = DWUI.Rect(Root, "Safe Area").Stretch();
+            NotchSaveArea.RegisterRectTransform(modalSafeArea);
 
-            // order = draw order: views, then modals on top
-            Cards = new CardsView(SafeArea);
+            Cards = new CardsView(SafeArea, Root);
             Town = new TownView(SafeArea);
             Hub = new HubView(SafeArea, this);
-            BossBar = new BossBarView(SafeArea);
+            BossBar = new BossBarView(modalSafeArea);
             Briefing = new BriefingView(Root);
             Reward = new RewardView(Root);
             Story = new StoryView(Root);
@@ -63,19 +105,58 @@ namespace Watermelon
             UIMainMenu.Shown += OnMainMenuShown;
             UIMainMenu.Hidden += OnMainMenuHidden;
             Campaign.OnChanged += Refresh;
+            Loc.OnLanguageChanged += OnLanguageChanged;
         }
 
-        private float tickTimer;
-
-        private void Update()
+        // every view builds its labels once: rebuild the whole UI in the new language
+        private void OnLanguageChanged()
         {
-            BossBar.Tick();
+            bool hubVisible = Hub.IsVisible;
+            HubView.Tab tab = Hub.CurrentTab;
+            DustwaterUIStyle uiStyle = style;
 
-            tickTimer += Time.unscaledDeltaTime;
-            if (tickTimer < 1f) return;
-            tickTimer = 0f;
+            Destroy(hudObject);
+            Destroy(gameObject);
 
-            Hub.Tick();
+            DustwaterUI ui = Create(uiStyle);
+            if (hubVisible)
+            {
+                ui.Hub.Show();
+                ui.Hub.SelectTab(tab);
+            }
+        }
+
+        public void OpenLanguagePicker()
+        {
+            if (languagePicker != null) Destroy(languagePicker.gameObject);
+
+            languagePicker = DWUI.Rect(Root, "Language Picker").Stretch();
+            Image dim = DWUI.Blocker(languagePicker, "Dim", DWUI.Style.dim);
+            Button close = dim.gameObject.AddComponent<Button>();
+            close.transition = Selectable.Transition.None;
+            close.onClick.AddListener(() => Destroy(languagePicker.gameObject));
+
+            Image panel = DWUI.Image(languagePicker, "Panel", DWUI.Style.panelBlue);
+            panel.rectTransform.Place(new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(820f, 1340f));
+            panel.rectTransform.Fit(1340f, 820f);
+            panel.raycastTarget = true;
+
+            TMPro.TextMeshProUGUI title = DWUI.Text(panel.rectTransform, "Title", Loc.Get("ui.choose_language"), 60f);
+            title.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -80f), new Vector2(760f, 90f));
+
+            for (int i = 0; i < Loc.LANGUAGES.Length; i++)
+            {
+                int index = i;
+                bool current = i == Loc.LanguageIndex;
+                Button button = DWUI.Button(panel.rectTransform, Loc.LANGUAGES[i], current ? DWUI.Style.buttonGreen : DWUI.Style.buttonGray, Loc.NATIVE_NAMES[i], 54f, () =>
+                {
+                    Destroy(languagePicker.gameObject);
+                    Loc.SetLanguage(index);
+                });
+                button.GetComponent<RectTransform>().Place(new Vector2(0.5f, 1f), new Vector2(0f, -210f - i * 136f), new Vector2(620f, 120f));
+            }
+
+            DWUI.Pop(panel.transform);
         }
 
         private void OnDestroy()
@@ -83,6 +164,8 @@ namespace Watermelon
             UIMainMenu.Shown -= OnMainMenuShown;
             UIMainMenu.Hidden -= OnMainMenuHidden;
             Campaign.OnChanged -= Refresh;
+            Loc.OnLanguageChanged -= OnLanguageChanged;
+            if (hudObject != null) Destroy(hudObject);
             BossBar?.Dispose();
         }
 
@@ -110,7 +193,7 @@ namespace Watermelon
                 int beat = result.chapterCompleted * 10 + 1;
                 if (!Campaign.IsStoryBeatSeen(beat))
                 {
-                    Story.Show(DWUI.Style.commanderPortrait, DWUI.Style.commanderName, chapter.outroLines, () =>
+                    Story.Show(DWUI.Style.commanderPortrait, Loc.Get("story.sergeant"), Loc.ChapterLines(result.chapterCompleted, "outro", chapter.outroLines), () =>
                     {
                         Campaign.MarkStoryBeatSeen(beat);
                         if (DustwaterTown.Instance != null) Hub.SelectTab(HubView.Tab.Town);
@@ -142,11 +225,11 @@ namespace Watermelon
                 int beat = chapterIndex * 10;
                 if (!Campaign.IsStoryBeatSeen(beat))
                 {
-                    Story.Show(DWUI.Style.commanderPortrait, DWUI.Style.commanderName, chapter.introLines, () =>
+                    Story.Show(DWUI.Style.commanderPortrait, Loc.Get("story.sergeant"), Loc.ChapterLines(chapterIndex, "intro", chapter.introLines), () =>
                     {
                         Campaign.MarkStoryBeatSeen(beat);
                         Briefing.Show();
-                    }, "CHAPTER " + (chapterIndex + 1) + ": " + chapter.title);
+                    }, Loc.Format("hub.chapter", chapterIndex + 1, Loc.ChapterTitle(chapterIndex, chapter)));
                     return;
                 }
             }
@@ -161,9 +244,10 @@ namespace Watermelon
 
             LevelData level = LevelController.LevelData;
             ChapterData chapter = Campaign.CurrentChapter;
+            int chapterIndex = Campaign.CurrentChapterIndex;
             if (level != null && level.IsBossLevel && chapter != null && !string.IsNullOrEmpty(chapter.bossTaunt))
             {
-                Story.Show(chapter.bossPortrait, chapter.bossName.ToUpper(), new System.Collections.Generic.List<string>() { chapter.bossTaunt }, GameController.StartLevel);
+                Story.Show(chapter.bossPortrait, Loc.Upper(Loc.ChapterBoss(chapterIndex, chapter)), new System.Collections.Generic.List<string>() { Loc.ChapterTaunt(chapterIndex, chapter) }, GameController.StartLevel);
                 return;
             }
 
