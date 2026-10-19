@@ -42,7 +42,7 @@ namespace SquadCommand
         {
             if (instance == null) return;
 
-            if (visible)
+            if (visible && PurchasesOffered)
             {
                 instance.iapStoreButton.Show();
                 if (AdsManager.IsForcedAdEnabled()) instance.noAdsButton.Show();
@@ -54,6 +54,9 @@ namespace SquadCommand
             }
         }
         private TweenCase showHideStoreAdButtonDelayTweenCase;
+
+        /// <summary>Yandex Games: purchase UI only when the console has active products.</summary>
+        public static bool PurchasesOffered => !YandexGames.IsAvailable || YandexIAPWrapper.HasProducts;
 
         private void OnEnable()
         {
@@ -112,6 +115,8 @@ namespace SquadCommand
 
             showHideStoreAdButtonDelayTweenCase = Tween.DelayedCall(0.12f, delegate
             {
+                if (!PurchasesOffered) return;
+
                 ShowAdButton();
                 iapStoreButton.Show();
             });

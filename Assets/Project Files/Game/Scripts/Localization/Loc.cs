@@ -75,6 +75,15 @@ namespace SquadCommand
 
         public static int DetectDeviceLanguage()
         {
+            // Yandex Games: the portal language decides (required by the platform)
+            string portal = YandexGames.Language;
+            if (!string.IsNullOrEmpty(portal))
+            {
+                if (portal == "uk" || portal == "be" || portal == "kk" || portal == "uz") return 6;
+                int index = System.Array.IndexOf(LANGUAGES, portal);
+                return index >= 0 ? index : 0;
+            }
+
             switch (Application.systemLanguage)
             {
                 case SystemLanguage.Turkish: return 1;

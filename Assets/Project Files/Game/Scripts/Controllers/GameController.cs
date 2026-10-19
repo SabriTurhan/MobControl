@@ -98,11 +98,13 @@ namespace SquadCommand
             SavePresets.CreateSave("Level " + (save.LevelNumber + 1).ToString("000"), "Levels");
 
             IsGameplayActive = true;
+            YandexGames.SetGameplay(true);
         }
 
         public static void OnGameFail()
         {
             IsGameplayActive = false;
+            YandexGames.SetGameplay(false);
             UIController.HidePage<UIGame>(UIController.ShowPage<UIGameOver>);
 
             AudioController.PlaySound(AudioController.AudioClips.lose);
@@ -114,6 +116,7 @@ namespace SquadCommand
             UIController.ShowPage<UIGame>();
 
             IsGameplayActive = true;
+            YandexGames.SetGameplay(true);
 
             levelController.Revive();
         }
@@ -126,6 +129,7 @@ namespace SquadCommand
         public static void OnLevelComplete()
         {
             IsGameplayActive = false;
+            YandexGames.SetGameplay(false);
 
             UIController.HidePage<UIGame>();
             UIController.ShowPage<UIComplete>();
@@ -141,6 +145,7 @@ namespace SquadCommand
 
         public static void ReturnToMainMenu()
         {
+            YandexGames.SetGameplay(false);
             UIController.ShowPage<UIMainMenu>();
             levelController.UnloadLevel();
 

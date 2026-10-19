@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iapSettings: {fileID: 5912872678063958311}
   adsSettings: {fileID: 8776500053356020737}
-  isModuleActive: 0
+  isModuleActive: 1
   verboseLogging: 0
   debugMode: 0
   testDevices: []
@@ -67,9 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ddb41bf72d53a48a6bdc593d706f94, type: 3}
   m_Name: Ads Settings
   m_EditorClassIdentifier: 
-  bannerType: 1
-  interstitialType: 1
-  rewardedVideoType: 1
+  bannerType: 0
+  interstitialType: 5
+  rewardedVideoType: 5
   loadAdsOnStart: 1
   interstitialFirstStartDelay: 40
   interstitialStartDelay: 40
@@ -77,7 +77,7 @@ MonoBehaviour:
   autoShowInterstitial: 0
   loadingAdDuration: 0
   loadingMessage: Ad is loading..
-  isUMPEnabled: 1
+  isUMPEnabled: 0
   umpTagForUnderAgeOfConsent: 0
   umpDebugMode: 0
   umpDebugGeography: 0

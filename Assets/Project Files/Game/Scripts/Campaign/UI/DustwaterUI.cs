@@ -176,15 +176,32 @@ namespace SquadCommand
             BossBar?.Dispose();
         }
 
+        private bool pendingPurchasesChecked;
+
         private void OnMainMenuShown()
         {
             Hub.Show();
+
+            // Yandex Games: the player can interact from here on
+            YandexGames.GameReady();
 
             if (Campaign.PendingResult != null)
             {
                 Campaign.LevelResult result = Campaign.PendingResult;
                 Campaign.PendingResult = null;
-                Reward.Show(result, () => AfterReward(result));
+
+                // fullscreen ad at the logical pause after a mission (the platform limits the frequency),
+                // never in the first missions
+                if (result.levelNumber >= 3)
+                    AdsManager.ShowInterstitial(_ => Reward.Show(result, () => AfterReward(result)));
+                else
+                    Reward.Show(result, () => AfterReward(result));
+            }
+            else if (!pendingPurchasesChecked && YandexIAPWrapper.HasPending && UIMainMenu.PurchasesOffered)
+            {
+                // purchases paid in an earlier session but not granted: the store offers grant them
+                pendingPurchasesChecked = true;
+                UIController.ShowPage<IAPStore.UIStore>();
             }
             else if (!Campaign.IsIntroSeen && DustwaterIntro.Instance != null)
             {

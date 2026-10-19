@@ -61,6 +61,42 @@ namespace SquadCommand.Dustwater
             Debug.Log("[Dustwater] App icon rendered");
         }
 
+        /// <summary>Store cover background (square render, the store art script crops it to 800x470 and adds the title).</summary>
+        [MenuItem("Tools/Dustwater/Art/Render Store Cover Art", priority = 126)]
+        public static void RenderCover()
+        {
+            Texture2D shot;
+            using (ArtRenderer renderer = new ArtRenderer(new Color(0f, 0f, 0f, 0f), 1600))
+            {
+                GameObject ground = new GameObject("Ground");
+                ground.AddComponent<MeshFilter>().sharedMesh = new PaletteMesh().Box(new Vector3(80f, 0.2f, 80f), 0f, new Vector3(0f, -0.1f, 15f), Vector3.zero, Band.Sand, 0.3f, 0.55f).Build("Cover_Ground");
+                ground.AddComponent<MeshRenderer>().sharedMaterial = DustwaterPalette.Material;
+                renderer.Add(ground);
+
+                Place(renderer, TOWN + "Saloon.prefab", new Vector3(-5.2f, 0f, 9f), 205f);
+                Place(renderer, TOWN + "Store Blue.prefab", new Vector3(-10.5f, 0f, 11f), 215f);
+                Place(renderer, TOWN + "Watchtower.prefab", new Vector3(5.5f, 0f, 10f), 160f);
+                Place(renderer, TOWN + "Water Tower.prefab", new Vector3(11f, 0f, 13f), 150f);
+                Place(renderer, TOWN + "Flag Ranger.prefab", new Vector3(1.6f, 0f, 6.5f), 180f);
+                Place(renderer, TOWN + "Cactus B.prefab", new Vector3(8.5f, 0f, 5f), 0f);
+                Place(renderer, TOWN + "Mesa A.prefab", new Vector3(-16f, 0f, 30f), 10f);
+                Place(renderer, TOWN + "Mesa B.prefab", new Vector3(14f, 0f, 34f), -15f);
+
+                // the squad in a wide line, the Heavy in front
+                Place(renderer, ACTORS + "Scout Actor.prefab", new Vector3(-2.9f, 0f, 1.6f), 205f, true);
+                Place(renderer, ACTORS + "Sharpshooter Actor.prefab", new Vector3(-1.45f, 0f, 0.9f), 195f, true);
+                Place(renderer, ACTORS + "Heavy Actor.prefab", new Vector3(0f, 0f, 0f), 175f, true);
+                Place(renderer, ACTORS + "Pyro Actor.prefab", new Vector3(1.5f, 0f, 0.9f), 165f, true);
+                Place(renderer, ACTORS + "Guardian Actor.prefab", new Vector3(3.0f, 0f, 1.7f), 155f, true);
+
+                shot = renderer.RenderFrom(new Vector3(0f, 1.25f, -5.6f), new Vector3(0f, 1.7f, 2f), 52f);
+            }
+
+            File.WriteAllBytes(Path.Combine(Application.dataPath, "../Temp/cover_render.png"), shot.EncodeToPNG());
+            Object.DestroyImmediate(shot);
+            Debug.Log("[Dustwater] Cover art rendered to Temp/cover_render.png");
+        }
+
         private static void Place(ArtRenderer renderer, string path, Vector3 position, float yaw, bool pose = false)
         {
             GameObject instance = renderer.Spawn(AssetDatabase.LoadAssetAtPath<GameObject>(path));
