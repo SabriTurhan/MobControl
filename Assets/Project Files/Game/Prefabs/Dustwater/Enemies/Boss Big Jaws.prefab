@@ -338,56 +338,56 @@ PrefabInstance:
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
       propertyPath: weaponPlacementData.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].weaponId
+      propertyPath: weaponPlacementData.Array.data[5].weaponId
       value: boss_minigun
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localScale.x
+      propertyPath: weaponPlacementData.Array.data[5].localScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localScale.y
+      propertyPath: weaponPlacementData.Array.data[5].localScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localScale.z
+      propertyPath: weaponPlacementData.Array.data[5].localScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localOffset.x
+      propertyPath: weaponPlacementData.Array.data[5].localOffset.x
       value: -0.287
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localOffset.y
+      propertyPath: weaponPlacementData.Array.data[5].localOffset.y
       value: 0.224
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localOffset.z
+      propertyPath: weaponPlacementData.Array.data[5].localOffset.z
       value: -0.333
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localEulerAngles.x
+      propertyPath: weaponPlacementData.Array.data[5].localEulerAngles.x
       value: 298.7271
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localEulerAngles.y
+      propertyPath: weaponPlacementData.Array.data[5].localEulerAngles.y
       value: 278.29514
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: c7427ec862f6081418824ed7942aab09,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localEulerAngles.z
+      propertyPath: weaponPlacementData.Array.data[5].localEulerAngles.z
       value: 53.642426
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -313,32 +313,17 @@ PrefabInstance:
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
       propertyPath: weaponPlacementData.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
-        type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].weaponId
-      value: sniper
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
       propertyPath: weaponPlacementData.Array.data[5].weaponId
+      value: sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[6].weaponId
       value: bandit_sniper
-      objectReference: {fileID: 0}
-    - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
-        type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
-        type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
-        type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
@@ -357,18 +342,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localOffset.x
-      value: -0.053
+      propertyPath: weaponPlacementData.Array.data[6].localScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localOffset.y
-      value: -0.092
+      propertyPath: weaponPlacementData.Array.data[6].localScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localOffset.z
-      value: -0.162
+      propertyPath: weaponPlacementData.Array.data[6].localScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
@@ -387,18 +372,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localEulerAngles.x
-      value: 319.19238
+      propertyPath: weaponPlacementData.Array.data[6].localOffset.x
+      value: -0.053
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localEulerAngles.y
-      value: 5.795038
+      propertyPath: weaponPlacementData.Array.data[6].localOffset.y
+      value: -0.092
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
-      propertyPath: weaponPlacementData.Array.data[4].localEulerAngles.z
-      value: 18.13689
+      propertyPath: weaponPlacementData.Array.data[6].localOffset.z
+      value: -0.162
       objectReference: {fileID: 0}
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
@@ -413,6 +398,21 @@ PrefabInstance:
     - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
         type: 3}
       propertyPath: weaponPlacementData.Array.data[5].localEulerAngles.z
+      value: 18.13689
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[6].localEulerAngles.x
+      value: 319.19238
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[6].localEulerAngles.y
+      value: 5.795038
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637045333099881501, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
+        type: 3}
+      propertyPath: weaponPlacementData.Array.data[6].localEulerAngles.z
       value: 18.13689
       objectReference: {fileID: 0}
     - target: {fileID: 6864424185200941945, guid: a25e1cbd71e9c5043903b3fc1d303d9e,

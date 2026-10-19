@@ -32,6 +32,26 @@ namespace Watermelon.Dustwater
             ("boss_rattler", DustwaterUnitsBuilder.BOSS_RATTLER),
             ("boss_jaws", DustwaterUnitsBuilder.BOSS_JAWS),
             ("boss_vex", DustwaterUnitsBuilder.BOSS_VEX),
+            ("pyro", FrostUnitsBuilder.PYRO),
+            ("guardian", FrostUnitsBuilder.GUARDIAN),
+            ("scout", FrostUnitsBuilder.SCOUT),
+            ("wolf", FrostUnitsBuilder.WOLF),
+            ("wolf_heavy", FrostUnitsBuilder.WOLF_HEAVY),
+            ("wolf_sniper", FrostUnitsBuilder.WOLF_SNIPER),
+        };
+
+        // Frostpeak buildings: id -> town piece
+        public static readonly (string id, string piece)[] FROST_BUILDINGS =
+        {
+            ("Lodge", "Lodge"), ("LogBarracks", "Log Barracks"), ("Forge", "Forge"), ("Sawmill", "Sawmill"),
+            ("Infirmary", "Infirmary"), ("Tavern", "Tavern"), ("Lookout", "Lookout"),
+        };
+
+        // weapon cards without a template gate icon: gun prefab rendered side-on
+        public static readonly (string id, string prefab)[] WEAPON_SOURCES =
+        {
+            ("burst_rifle", FrostUnitsBuilder.BURST_RIFLE),
+            ("rocket_launcher", FrostUnitsBuilder.ROCKET_LAUNCHER),
         };
 
         [MenuItem("Tools/Dustwater/Art/Render Portraits + Icons", priority = 120)]
@@ -42,7 +62,9 @@ namespace Watermelon.Dustwater
 
             using (ArtRenderer renderer = new ArtRenderer(new Color(0f, 0f, 0f, 0f)))
             {
-                foreach (var source in PORTRAIT_SOURCES)
+                List<(string id, string prefab)> portraits = new List<(string, string)>(PORTRAIT_SOURCES);
+                foreach (var boss in FrostUnitsBuilder.BOSSES) portraits.Add((boss.id, boss.path));
+                foreach (var source in portraits)
                 {
                     GameObject instance = renderer.Spawn(AssetDatabase.LoadAssetAtPath<GameObject>(source.prefab));
                     Texture2D texture = RenderBust(renderer, instance);
@@ -64,6 +86,27 @@ namespace Watermelon.Dustwater
                     Save(renderer.Render(building, new Vector3(0.55f, -0.5f, 1f), 0.72f, true), ICONS + "/building_" + type + ".png");
                     Object.DestroyImmediate(building);
                 }
+
+                foreach (var building in FROST_BUILDINGS)
+                {
+                    GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(DustwaterUnitsBuilder.PREFABS + "/Town/" + building.piece + ".prefab");
+                    if (prefab == null) continue;
+                    GameObject instance = renderer.Spawn(prefab);
+                    Save(renderer.Render(instance, new Vector3(0.55f, -0.5f, 1f), 0.72f, true), ICONS + "/building_" + building.id + ".png");
+                    Object.DestroyImmediate(instance);
+                }
+
+                foreach (var weapon in WEAPON_SOURCES)
+                {
+                    GameObject gun = renderer.Spawn(AssetDatabase.LoadAssetAtPath<GameObject>(weapon.prefab));
+                    foreach (ParticleSystem particles in gun.GetComponentsInChildren<ParticleSystem>(true)) particles.gameObject.SetActive(false);
+                    Save(renderer.Render(gun, new Vector3(-1f, -0.25f, -0.15f), 0.85f, true), ICONS + "/weapon_" + weapon.id + ".png");
+                    Object.DestroyImmediate(gun);
+                }
+
+                GameObject iceWall = renderer.Spawn(AssetDatabase.LoadAssetAtPath<GameObject>(FrostUnitsBuilder.ICE_WALL));
+                Save(renderer.Render(iceWall, new Vector3(-0.35f, -0.5f, -1f), 0.8f, true), ICONS + "/threat_ice_wall.png");
+                Object.DestroyImmediate(iceWall);
 
                 GameObject chest = renderer.Spawn(AssetDatabase.LoadAssetAtPath<GameObject>(PREFABS + "Gameplay/Chest/Chest.prefab"));
                 Save(renderer.Render(chest, new Vector3(-0.55f, -0.45f, 1f), 0.75f, true), ICONS + "/chest.png");
@@ -87,6 +130,19 @@ namespace Watermelon.Dustwater
                 }
                 Save(renderer.RenderFrom(new Vector3(0f, 1.9f, -3.6f), new Vector3(0f, 1.05f, 0f), 30f), ICONS + "/threat_swarm.png");
                 Object.DestroyImmediate(group);
+
+                GameObject pack = new GameObject("Pack");
+                renderer.Add(pack);
+                foreach (Vector3 offset in offsets)
+                {
+                    GameObject wolf = renderer.Spawn(AssetDatabase.LoadAssetAtPath<GameObject>(FrostUnitsBuilder.WOLF));
+                    Pose(wolf);
+                    wolf.transform.SetParent(pack.transform, false);
+                    wolf.transform.localPosition = offset;
+                    wolf.transform.localRotation = Quaternion.Euler(0f, 180f + offset.x * 20f, 0f);
+                }
+                Save(renderer.RenderFrom(new Vector3(0f, 1.9f, -3.6f), new Vector3(0f, 1.05f, 0f), 30f), ICONS + "/threat_swarm_wolves.png");
+                Object.DestroyImmediate(pack);
             }
 
             AssetDatabase.Refresh();
@@ -156,10 +212,12 @@ namespace Watermelon.Dustwater
             {
                 if (weaponArt.TryGetValue(weapon.id, out string file))
                     weapon.portrait = AssetDatabase.LoadAssetAtPath<Sprite>(GATES + file + ".png");
+                else
+                    weapon.portrait = Icon("weapon_" + weapon.id);
             }
 
             foreach (BuildingData building in database.Buildings)
-                building.icon = Icon("building_" + building.type);
+                building.icon = building.act > 0 ? Icon("building_" + building.id) : Icon("building_" + building.type);
 
             foreach (ThreatInfo threat in database.Threats)
             {
@@ -170,6 +228,15 @@ namespace Watermelon.Dustwater
                     case ThreatType.Snipers: threat.icon = Portrait("bandit_sniper"); break;
                     case ThreatType.Barricades: threat.icon = Icon("threat_barricades"); break;
                     case ThreatType.Attrition: threat.icon = Portrait("bandit"); break;
+                }
+
+                switch (threat.type)
+                {
+                    case ThreatType.Armored: threat.frostIcon = Portrait("wolf_heavy"); break;
+                    case ThreatType.Swarm: threat.frostIcon = Icon("threat_swarm_wolves"); break;
+                    case ThreatType.Snipers: threat.frostIcon = Portrait("wolf_sniper"); break;
+                    case ThreatType.Barricades: threat.frostIcon = Icon("threat_ice_wall"); break;
+                    case ThreatType.Attrition: threat.frostIcon = Portrait("wolf"); break;
                 }
             }
         }

@@ -145,8 +145,9 @@ namespace Watermelon
 
             foreach (Plot plot in plots)
             {
-                int level = Campaign.GetBuildingLevel(plot.type);
-                bool unlocked = Campaign.IsBuildingUnlocked(plot.type);
+                BuildingData building = Campaign.Database.Buildings.Find(b => b.act == act && b.type == plot.type);
+                int level = Campaign.GetBuildingLevel(building);
+                bool unlocked = Campaign.IsBuildingUnlocked(building);
                 SetPlot(plot, level > 0 ? 2 : unlocked ? 1 : 0, level >= 3);
             }
 

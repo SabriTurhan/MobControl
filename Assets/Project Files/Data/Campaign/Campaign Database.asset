@@ -26,6 +26,7 @@ MonoBehaviour:
     fireRateMult: 1
     rangeMult: 1
     healPerSecond: 0
+    squadDamageReduction: 0
     counters: 
   - id: heavy
     displayName: Heavy Gunner
@@ -40,6 +41,7 @@ MonoBehaviour:
     fireRateMult: 1
     rangeMult: 1
     healPerSecond: 0
+    squadDamageReduction: 0
     counters: 0100000004000000
   - id: sharpshooter
     displayName: Sharpshooter
@@ -54,6 +56,7 @@ MonoBehaviour:
     fireRateMult: 1
     rangeMult: 1
     healPerSecond: 0
+    squadDamageReduction: 0
     counters: 0000000002000000
   - id: medic
     displayName: Medic
@@ -68,6 +71,7 @@ MonoBehaviour:
     fireRateMult: 1
     rangeMult: 1
     healPerSecond: 0.5
+    squadDamageReduction: 0
     counters: 04000000
   - id: grenadier
     displayName: Grenadier
@@ -82,7 +86,53 @@ MonoBehaviour:
     fireRateMult: 1
     rangeMult: 1
     healPerSecond: 0
+    squadDamageReduction: 0
     counters: 0300000001000000
+  - id: pyro
+    displayName: Pyro
+    description: Flamethrower. Burns through crowds and walls up close.
+    rarity: 1
+    characterId: pyro_character
+    portrait: {fileID: 21300000, guid: 16ef6052a3df2472ea8fbaa786918916, type: 3}
+    unlockAfterLevel: 32
+    isFiller: 0
+    healthMult: 1.3
+    damageMult: 1
+    fireRateMult: 1
+    rangeMult: 1
+    healPerSecond: 0
+    squadDamageReduction: 0
+    counters: 0100000003000000
+  - id: scout
+    displayName: Scout
+    description: 'Fast hands and sharp eyes: shoots faster and further.'
+    rarity: 1
+    characterId: scout_character
+    portrait: {fileID: 21300000, guid: da2b859ce9b2a43a8b04973e99315207, type: 3}
+    unlockAfterLevel: 38
+    isFiller: 0
+    healthMult: 0.8
+    damageMult: 1
+    fireRateMult: 1.4
+    rangeMult: 1.3
+    healPerSecond: 0
+    squadDamageReduction: 0
+    counters: 0200000000000000
+  - id: guardian
+    displayName: Guardian
+    description: Huge shield. The whole squad takes less damage while he stands.
+    rarity: 2
+    characterId: guardian_character
+    portrait: {fileID: 21300000, guid: 13834d85168cf4f3d95394f114a24549, type: 3}
+    unlockAfterLevel: 45
+    isFiller: 0
+    healthMult: 3
+    damageMult: 0.5
+    fireRateMult: 1
+    rangeMult: 1
+    healPerSecond: 0
+    squadDamageReduction: 0.25
+    counters: 0200000004000000
   weapons:
   - id: pistol
     displayName: Pistol
@@ -116,8 +166,26 @@ MonoBehaviour:
     portrait: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
     unlockAfterLevel: 12
     counters: 01000000
+  - id: burst_rifle
+    displayName: Burst Rifle
+    description: Two heavy rounds per shot. Great all-rounder.
+    rarity: 1
+    gunId: burst_rifle
+    portrait: {fileID: 21300000, guid: c51f2cd635c634f0bb0d36651af91167, type: 3}
+    unlockAfterLevel: 34
+    counters: 0000000002000000
+  - id: rocket_launcher
+    displayName: Rocket Launcher
+    description: Rockets explode on impact and hit everything around.
+    rarity: 2
+    gunId: rocket_launcher
+    portrait: {fileID: 21300000, guid: d6959c229adbb4a42a01de7f5846618a, type: 3}
+    unlockAfterLevel: 55
+    counters: 0300000000000000
   buildings:
-  - type: 0
+  - act: 0
+    id: CommandPost
+    type: 0
     displayName: Command Post
     description: Your headquarters. Every level adds a squad slot.
     valueFormat: '{0} squad slots'
@@ -136,7 +204,9 @@ MonoBehaviour:
     - money: 1200
       supplies: 80
       value: 5
-  - type: 1
+  - act: 0
+    id: Barracks
+    type: 1
     displayName: Barracks
     description: Bunks and training. Tougher soldiers.
     valueFormat: +{0}% squad health
@@ -158,7 +228,9 @@ MonoBehaviour:
     - money: 1000
       supplies: 90
       value: 70
-  - type: 2
+  - act: 0
+    id: Armory
+    type: 2
     displayName: Armory
     description: Better ammo for every gun.
     valueFormat: +{0}% damage
@@ -180,7 +252,9 @@ MonoBehaviour:
     - money: 1100
       supplies: 95
       value: 70
-  - type: 3
+  - act: 0
+    id: Workshop
+    type: 3
     displayName: Workshop
     description: Oiled and tuned weapons shoot faster.
     valueFormat: +{0}% fire rate
@@ -202,7 +276,9 @@ MonoBehaviour:
     - money: 1300
       supplies: 110
       value: 45
-  - type: 4
+  - act: 0
+    id: FieldHospital
+    type: 4
     displayName: Field Hospital
     description: Patches up the squad once it falls.
     valueFormat: '{0} free revive per mission'
@@ -215,7 +291,9 @@ MonoBehaviour:
     - money: 900
       supplies: 70
       value: 2
-  - type: 5
+  - act: 0
+    id: Saloon
+    type: 5
     displayName: Saloon
     description: Grateful townsfolk pay for protection.
     valueFormat: +{0} cash per hour
@@ -234,7 +312,9 @@ MonoBehaviour:
     - money: 2200
       supplies: 150
       value: 150
-  - type: 6
+  - act: 0
+    id: Watchtower
+    type: 6
     displayName: Watchtower
     description: Spot bandits early and shoot further.
     valueFormat: +{0}% range
@@ -250,8 +330,150 @@ MonoBehaviour:
     - money: 2600
       supplies: 200
       value: 30
+  - act: 1
+    id: Lodge
+    type: 0
+    displayName: Mountain Lodge
+    description: Rangers' winter HQ. Every level adds a squad slot.
+    valueFormat: '{0} squad slots'
+    icon: {fileID: 21300000, guid: 7d99f709ced58496d85913aa8ae71399, type: 3}
+    unlockAfterLevel: 30
+    levels:
+    - money: 700
+      supplies: 50
+      value: 5
+    - money: 2400
+      supplies: 160
+      value: 6
+    - money: 6000
+      supplies: 380
+      value: 7
+  - act: 1
+    id: LogBarracks
+    type: 1
+    displayName: Log Barracks
+    description: Warm bunks, tougher soldiers.
+    valueFormat: +{0}% squad health
+    icon: {fileID: 21300000, guid: 3785aea705eed46118cdd72b8a2ad857, type: 3}
+    unlockAfterLevel: 31
+    levels:
+    - money: 900
+      supplies: 60
+      value: 10
+    - money: 1800
+      supplies: 110
+      value: 20
+    - money: 3200
+      supplies: 180
+      value: 35
+    - money: 5200
+      supplies: 280
+      value: 50
+    - money: 8000
+      supplies: 400
+      value: 65
+  - act: 1
+    id: Forge
+    type: 2
+    displayName: Forge
+    description: Hot steel makes harder-hitting rounds.
+    valueFormat: +{0}% damage
+    icon: {fileID: 21300000, guid: 499f53d0fbe6042eeb94ac30f43b655a, type: 3}
+    unlockAfterLevel: 33
+    levels:
+    - money: 1000
+      supplies: 70
+      value: 10
+    - money: 2000
+      supplies: 120
+      value: 20
+    - money: 3500
+      supplies: 200
+      value: 35
+    - money: 5600
+      supplies: 300
+      value: 50
+    - money: 8600
+      supplies: 430
+      value: 65
+  - act: 1
+    id: Sawmill
+    type: 3
+    displayName: Sawmill
+    description: Its gears keep every gun running fast.
+    valueFormat: +{0}% fire rate
+    icon: {fileID: 21300000, guid: bd40b22491ec4424cbed0691f7ee6617, type: 3}
+    unlockAfterLevel: 36
+    levels:
+    - money: 1200
+      supplies: 80
+      value: 8
+    - money: 2400
+      supplies: 140
+      value: 16
+    - money: 4000
+      supplies: 220
+      value: 25
+    - money: 6200
+      supplies: 330
+      value: 35
+    - money: 9200
+      supplies: 460
+      value: 45
+  - act: 1
+    id: Infirmary
+    type: 4
+    displayName: Infirmary
+    description: A warm bed for one more comeback.
+    valueFormat: '{0} free revive per mission'
+    icon: {fileID: 21300000, guid: edbfc2daff6aa4c9b959d6a1f7f0483a, type: 3}
+    unlockAfterLevel: 44
+    levels:
+    - money: 3000
+      supplies: 180
+      value: 1
+  - act: 1
+    id: Tavern
+    type: 5
+    displayName: Tavern
+    description: Hot cocoa and grateful miners pay well.
+    valueFormat: +{0} cash per hour
+    icon: {fileID: 21300000, guid: b60fb77116067421a8b8fa9936e160b3, type: 3}
+    unlockAfterLevel: 52
+    levels:
+    - money: 2500
+      supplies: 150
+      value: 150
+    - money: 4500
+      supplies: 250
+      value: 250
+    - money: 7000
+      supplies: 380
+      value: 400
+    - money: 10000
+      supplies: 520
+      value: 600
+  - act: 1
+    id: Lookout
+    type: 6
+    displayName: Lookout
+    description: 'A beacon on the peak: spot wolves from afar.'
+    valueFormat: +{0}% range
+    icon: {fileID: 21300000, guid: 4f0a9f01be1cd4b4496794ea30e3aad5, type: 3}
+    unlockAfterLevel: 64
+    levels:
+    - money: 5000
+      supplies: 300
+      value: 10
+    - money: 8000
+      supplies: 450
+      value: 20
+    - money: 12000
+      supplies: 650
+      value: 30
   chapters:
-  - title: OUTSKIRTS
+  - act: 0
+    title: OUTSKIRTS
     subtitle: Gas station and water tower
     firstLevel: 1
     lastLevel: 10
@@ -264,7 +486,8 @@ MonoBehaviour:
     outroLines:
     - Rattler is down! The outskirts are free.
     - Townsfolk are coming back. Time to rebuild!
-  - title: MAIN STREET
+  - act: 0
+    title: MAIN STREET
     subtitle: Saloon and market
     firstLevel: 11
     lastLevel: 20
@@ -277,7 +500,8 @@ MonoBehaviour:
     outroLines:
     - Big Jaws is finished!
     - Only the Scorpion Fort remains.
-  - title: SCORPION FORT
+  - act: 0
+    title: SCORPION FORT
     subtitle: Vex's stronghold
     firstLevel: 21
     lastLevel: 30
@@ -290,34 +514,137 @@ MonoBehaviour:
     outroLines:
     - Vex runs off into the desert. Dustwater is free!
     - Keep patrolling the roads, Commander.
+  - act: 1
+    title: PINE PASS
+    subtitle: The snowy road north
+    firstLevel: 31
+    lastLevel: 40
+    bossName: Sergeant Frostbite
+    bossPortrait: {fileID: 21300000, guid: 5fa325c68ce4949ceaf379931285e022, type: 3}
+    bossTaunt: Turn back, Rangers. Up here the cold kills before I do!
+    introLines:
+    - The White Wolves guard the pass to Frostpeak.
+    - Bundle up and push through, Commander!
+    outroLines:
+    - Frostbite is down. The pass is open!
+    - Frostpeak lies beyond the frozen lake.
+  - act: 1
+    title: FROZEN LAKE
+    subtitle: Thin ice, thick armor
+    firstLevel: 41
+    lastLevel: 50
+    bossName: Ice Hammer Olaf
+    bossPortrait: {fileID: 21300000, guid: 9cc238d2ece194d368aa5b001fbede7c, type: 3}
+    bossTaunt: My hammer cracks ice. And Rangers!
+    introLines:
+    - The road crosses the frozen lake.
+    - Olaf's hammer squad waits on the ice.
+    outroLines:
+    - Olaf sinks into the snow. The lake is ours!
+    - 'Next stop: the lumber camp.'
+  - act: 1
+    title: LUMBER CAMP
+    subtitle: Sawmills and log walls
+    firstLevel: 51
+    lastLevel: 60
+    bossName: Big Timber
+    bossPortrait: {fileID: 21300000, guid: 8699e28550ac54b4793ef854711a6a01, type: 3}
+    bossTaunt: I chop trees bigger than you every morning!
+    introLines:
+    - The Wolves turned the lumber camp into a fortress.
+    - Big Timber runs the sawmills.
+    outroLines:
+    - Timber! The camp is free.
+    - The lumberjacks are joining Frostpeak.
+  - act: 1
+    title: FROSTPEAK TOWN
+    subtitle: Cabins under the snow
+    firstLevel: 61
+    lastLevel: 70
+    bossName: Mayor Snowjaw
+    bossPortrait: {fileID: 21300000, guid: 0787ab45055944b0c83d846135d3bae4, type: 3}
+    bossTaunt: I am the mayor now. Elections are cancelled!
+    introLines:
+    - Frostpeak's streets are full of Wolves.
+    - Their fake mayor, Snowjaw, rules the town.
+    outroLines:
+    - Snowjaw is out of office!
+    - The town is free, but the mine is still taken.
+  - act: 1
+    title: CRYSTAL MINE
+    subtitle: Tunnels and ice crystals
+    firstLevel: 71
+    lastLevel: 80
+    bossName: Foreman Crag
+    bossPortrait: {fileID: 21300000, guid: f9d2fde3da0dd4e77b2f2e678eaa5eda, type: 3}
+    bossTaunt: Every crystal in this mountain belongs to the Wolves!
+    introLines:
+    - The Wolves are digging up Frostpeak's crystals.
+    - Shut down Foreman Crag's mine!
+    outroLines:
+    - Crag is buried in his own rubble.
+    - Grimfang's fortress is next.
+  - act: 1
+    title: WOLF FORTRESS
+    subtitle: Stone walls of the pack
+    firstLevel: 81
+    lastLevel: 90
+    bossName: Warlord Grimfang
+    bossPortrait: {fileID: 21300000, guid: 70b238afdc20c4e728fd5bfa2fb8afa0, type: 3}
+    bossTaunt: The pack never loses. Howl, my wolves!
+    introLines:
+    - Grimfang leads the White Wolves from his fortress.
+    - Break through the stone walls!
+    outroLines:
+    - Grimfang falls. The pack scatters!
+    - Vex is hiding on the summit.
+  - act: 1
+    title: THE SUMMIT
+    subtitle: Vex's last hideout
+    firstLevel: 91
+    lastLevel: 100
+    bossName: Boss Vex
+    bossPortrait: {fileID: 21300000, guid: c5d2065082a0846de979beb495b36f2b, type: 3}
+    bossTaunt: You followed me to the top of the world? Then you fall from here!
+    introLines:
+    - Vex has fled to the summit of Frostpeak.
+    - End this for good, Commander!
+    outroLines:
+    - Vex is captured at last!
+    - Frostpeak is free. The Rangers are heroes of the north!
   threats:
   - type: 0
     displayName: ARMORED
     description: Heavy bandits with thick vests.
     icon: {fileID: 21300000, guid: f9c9e424755ec41e198f2fae100c0f62, type: 3}
+    frostIcon: {fileID: 21300000, guid: c2c7635601c2a45b08d14b44232aca98, type: 3}
     color: {r: 0.47058824, g: 0.5019608, b: 0.5882353, a: 1}
   - type: 1
     displayName: SWARM
     description: Lots of bandits at once.
     icon: {fileID: 21300000, guid: a0e9b032398d047a1b895a8887a558e8, type: 3}
+    frostIcon: {fileID: 21300000, guid: 9d69d7095c9144d178f3893f21a30dde, type: 3}
     color: {r: 1, g: 0.54901963, b: 0.19607843, a: 1}
   - type: 2
     displayName: SNIPERS
     description: Bandit snipers fire from far away.
     icon: {fileID: 21300000, guid: c28034a332bff4abe82b3f3e6c5a42f4, type: 3}
+    frostIcon: {fileID: 21300000, guid: bbfd0a746b0bc486bb5e8262b2cc9e8c, type: 3}
     color: {r: 0.627451, g: 0.27450982, b: 0.54901963, a: 1}
   - type: 3
     displayName: BARRICADES
     description: Sandbag walls block the road.
     icon: {fileID: 21300000, guid: 0079db5c6f14540be91fb2595233e916, type: 3}
+    frostIcon: {fileID: 21300000, guid: 5105240d1a445411d93d791ae24436ec, type: 3}
     color: {r: 0.78431374, g: 0.627451, b: 0.3529412, a: 1}
   - type: 4
     displayName: AMBUSH
     description: A long road under constant fire.
     icon: {fileID: 21300000, guid: 2a23ecea512b84d5b862fbbe4073e95a, type: 3}
+    frostIcon: {fileID: 21300000, guid: 44c50997870a2428190fa0487ffe0d8d, type: 3}
     color: {r: 0.9019608, g: 0.27450982, b: 0.27450982, a: 1}
-  copiesPerLevel: 02000000030000000400000006000000080000000a0000000e0000001200000018000000
-  moneyPerLevel: 1e0000003c0000006400000096000000dc0000002c010000900100000802000094020000
+  copiesPerLevel: 02000000030000000400000006000000080000000a0000000e00000012000000180000001e000000240000002c000000340000003c000000
+  moneyPerLevel: 1e0000003c0000006400000096000000dc0000002c01000090010000080200009402000034030000e8030000b0040000aa050000a4060000
   statPerLevel: 0.12
   chestRarityWeights:
   - 70

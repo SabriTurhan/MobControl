@@ -24,7 +24,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -7647790089311069945, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+      objectReference: {fileID: -4413860828406313496, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
         type: 2}
     - target: {fileID: 3079907337811125957, guid: 44e754adb3ca00f45bd5ec79f5f4ff5b,
         type: 3}
@@ -86,7 +86,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -7647790089311069945, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+      objectReference: {fileID: -4413860828406313496, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
         type: 2}
     - target: {fileID: 7539136760086385806, guid: 44e754adb3ca00f45bd5ec79f5f4ff5b,
         type: 3}

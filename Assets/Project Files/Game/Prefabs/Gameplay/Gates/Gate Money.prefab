@@ -73,7 +73,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -7647790089311069945, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
+      objectReference: {fileID: -4413860828406313496, guid: a4fa7bc025f894f06a8b422c2f3aa08c,
         type: 2}
     - target: {fileID: 5364058566808164281, guid: c9adf783699d1d4469312c3770b13f48,
         type: 3}

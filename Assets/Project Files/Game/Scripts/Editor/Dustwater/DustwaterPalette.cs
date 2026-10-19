@@ -48,6 +48,22 @@ namespace Watermelon.Dustwater
             new Color32(44, 64, 124, 255),   // Navy
             new Color32(238, 228, 204, 255), // Bone
             new Color32(255, 94, 34, 255),   // Fire
+            new Color32(244, 248, 252, 255), // Snow
+            new Color32(150, 212, 242, 255), // IceBlue
+            new Color32(86, 146, 200, 255),  // DeepIce
+            new Color32(46, 118, 86, 255),   // Pine
+            new Color32(30, 80, 64, 255),    // PineDark
+            new Color32(214, 200, 176, 255), // Fur
+            new Color32(126, 102, 82, 255),  // FurDark
+            new Color32(132, 138, 156, 255), // WolfGrey
+            new Color32(120, 226, 255, 255), // Crystal
+            new Color32(214, 232, 246, 255), // Frost
+            new Color32(148, 96, 58, 255),   // Log
+            new Color32(255, 196, 96, 255),  // Lantern
+            new Color32(44, 56, 96, 255),    // NightBlue
+            new Color32(62, 62, 68, 255),    // Charcoal
+            new Color32(255, 124, 44, 255),  // Ember
+            new Color32(112, 132, 74, 255),  // Moss
         };
 
         public static Color GetColor(int band) => COLORS[band];
@@ -59,8 +75,9 @@ namespace Watermelon.Dustwater
             Directory.CreateDirectory(MATERIAL_FOLDER);
 
             int size = Band.ATLAS_SIZE;
-            Texture2D texture = new Texture2D(size, size, TextureFormat.RGBA32, false);
-            Color[] pixels = new Color[size * size];
+            int height = Band.ATLAS_HEIGHT;
+            Texture2D texture = new Texture2D(size, height, TextureFormat.RGBA32, false);
+            Color[] pixels = new Color[size * height];
 
             for (int band = 0; band < Band.COUNT; band++)
             {
@@ -71,7 +88,7 @@ namespace Watermelon.Dustwater
 
                 for (int row = 0; row < Band.BAND_HEIGHT; row++)
                 {
-                    int y = size - 1 - (band * Band.BAND_HEIGHT + row);
+                    int y = height - 1 - (band * Band.BAND_HEIGHT + row);
                     for (int x = 0; x < size; x++)
                     {
                         float t = x / (float)(size - 1);

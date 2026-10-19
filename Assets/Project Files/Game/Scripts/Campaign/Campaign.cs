@@ -11,6 +11,7 @@ namespace Watermelon
         public float fireRateMult = 1f;
         public float rangeMult = 1f;
         public float healPerSecond = 0f;
+        public float squadDamageReduction = 0f;
 
         public static readonly UnitStats Default = new UnitStats();
     }
@@ -46,7 +47,8 @@ namespace Watermelon
             save = SaveController.GetSaveObject<CampaignSave>(SAVE_NAME);
             levelSave = SaveController.GetSaveObject<LevelNumberSave>(LEVEL_NUMBER_SAVE_NAME);
 
-            int buildingsCount = Enum.GetValues(typeof(BuildingType)).Length;
+            // one save slot per building (act 1 buildings keep slots 0-6 from older saves)
+            int buildingsCount = Mathf.Max(database.Buildings.Count, Enum.GetValues(typeof(BuildingType)).Length);
             if (save.buildings == null || save.buildings.Length < buildingsCount)
             {
                 int[] buildings = new int[buildingsCount];
@@ -55,9 +57,10 @@ namespace Watermelon
                 save.buildings = buildings;
             }
 
-            // Command Post is the starting building
-            if (save.buildings[(int)BuildingType.CommandPost] < 1)
-                save.buildings[(int)BuildingType.CommandPost] = 1;
+            // the Command Post of the first town is there from the start
+            BuildingData firstPost = database.Buildings.Find(b => b.type == BuildingType.CommandPost && b.act == 0);
+            if (firstPost != null && GetBuildingLevel(firstPost) < 1)
+                save.buildings[database.Buildings.IndexOf(firstPost)] = 1;
 
             if (GetUnitSave(database.StarterUnitId) == null)
                 save.units.Add(new CardSave() { id = database.StarterUnitId, level = 1, copies = 0 });
@@ -95,6 +98,17 @@ namespace Watermelon
             {
                 int index = CurrentChapterIndex;
                 return index >= 0 ? Database.Chapters[index] : null;
+            }
+        }
+
+        /// <summary>Story act of the next mission (0 = Dustwater, 1 = Frostpeak); patrols stay in the last act.</summary>
+        public static int CurrentAct
+        {
+            get
+            {
+                ChapterData chapter = CurrentChapter;
+                if (chapter != null) return chapter.act;
+                return Database.Chapters.Count > 0 ? Database.Chapters[Database.Chapters.Count - 1].act : 0;
             }
         }
 
@@ -195,6 +209,7 @@ namespace Watermelon
                 fireRateMult = data.fireRateMult * (1f + (factor - 1f) * 0.5f),
                 rangeMult = data.rangeMult,
                 healPerSecond = data.healPerSecond * factor,
+                squadDamageReduction = Mathf.Min(0.6f, data.squadDamageReduction * (1f + (factor - 1f) * 0.5f)),
             };
         }
 
@@ -284,62 +299,79 @@ namespace Watermelon
 
         #region Buildings
 
-        public static int GetBuildingLevel(BuildingType type) => save.buildings[(int)type];
-
-        public static bool IsBuildingUnlocked(BuildingType type)
+        public static int GetBuildingLevel(BuildingData building)
         {
-            BuildingData data = Database.GetBuilding(type);
-            return data != null && LevelsCompleted >= data.unlockAfterLevel;
+            int index = Database.Buildings.IndexOf(building);
+            return index >= 0 && index < save.buildings.Length ? save.buildings[index] : 0;
         }
 
-        public static BuildingLevelData GetNextBuildingLevel(BuildingType type)
-        {
-            BuildingData data = Database.GetBuilding(type);
-            if (data == null) return null;
+        public static bool IsBuildingUnlocked(BuildingData building) => building != null && LevelsCompleted >= building.unlockAfterLevel;
 
-            int level = GetBuildingLevel(type);
-            return level < data.levels.Count ? data.levels[level] : null;
+        public static BuildingLevelData GetNextBuildingLevel(BuildingData building)
+        {
+            if (building == null) return null;
+
+            int level = GetBuildingLevel(building);
+            return level < building.levels.Count ? building.levels[level] : null;
         }
 
-        public static bool CanBuild(BuildingType type)
+        public static bool CanBuild(BuildingData building)
         {
-            if (!IsBuildingUnlocked(type)) return false;
+            if (!IsBuildingUnlocked(building)) return false;
 
-            BuildingLevelData next = GetNextBuildingLevel(type);
+            BuildingLevelData next = GetNextBuildingLevel(building);
             if (next == null) return false;
 
             return CurrencyController.HasAmount(CurrencyType.Money, next.money) && CurrencyController.HasAmount(CurrencyType.Supplies, next.supplies);
         }
 
-        public static bool Build(BuildingType type)
+        public static bool Build(BuildingData building)
         {
-            if (!CanBuild(type)) return false;
+            if (!CanBuild(building)) return false;
 
-            if (type == BuildingType.Saloon)
+            if (building.type == BuildingType.Saloon)
                 CollectIncome();
 
-            BuildingLevelData next = GetNextBuildingLevel(type);
+            BuildingLevelData next = GetNextBuildingLevel(building);
             CurrencyController.Substract(CurrencyType.Money, next.money);
             CurrencyController.Substract(CurrencyType.Supplies, next.supplies);
-            save.buildings[(int)type]++;
+            save.buildings[Database.Buildings.IndexOf(building)]++;
 
-            if (type == BuildingType.CommandPost)
+            if (building.type == BuildingType.CommandPost)
                 ValidateSquad();
 
             MarkChanged();
             return true;
         }
 
+        public static float GetBuildingValue(BuildingData building)
+        {
+            int level = GetBuildingLevel(building);
+            if (building == null || level <= 0 || building.levels.Count == 0) return 0f;
+
+            return building.levels[Mathf.Min(level, building.levels.Count) - 1].value;
+        }
+
+        /// <summary>Effect of a building type over every town: bonuses stack, slots take the best Command Post.</summary>
         public static float GetBuildingValue(BuildingType type, float defaultValue = 0f)
         {
-            if (Database == null) return defaultValue;
+            if (Database == null || save == null) return defaultValue;
 
-            BuildingData data = Database.GetBuilding(type);
-            int level = GetBuildingLevel(type);
-            if (data == null || level <= 0 || data.levels.Count == 0) return defaultValue;
+            bool any = false;
+            float total = 0f;
+            foreach (BuildingData building in Database.Buildings)
+            {
+                if (building.type != type || GetBuildingLevel(building) <= 0) continue;
 
-            return data.levels[Mathf.Min(level, data.levels.Count) - 1].value;
+                float value = GetBuildingValue(building);
+                total = type == BuildingType.CommandPost ? Mathf.Max(total, value) : total + value;
+                any = true;
+            }
+
+            return any ? total : defaultValue;
         }
+
+        public static List<BuildingData> BuildingsOfAct(int act) => Database.Buildings.FindAll(b => b.act == act);
 
         public static float HealthMultiplier => 1f + GetBuildingValue(BuildingType.Barracks) / 100f;
         public static float DamageMultiplier => 1f + GetBuildingValue(BuildingType.Armory) / 100f;

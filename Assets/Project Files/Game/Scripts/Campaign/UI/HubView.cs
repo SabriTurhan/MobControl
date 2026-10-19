@@ -179,7 +179,7 @@ namespace Watermelon
                 foreach (ThreatType type in level.Threats)
                 {
                     ThreatInfo info = Campaign.Database.GetThreat(type);
-                    if (info != null) ThreatChip(threatsRow, info.icon, Loc.ThreatName(info), info.color);
+                    if (info != null) ThreatChip(threatsRow, info.IconFor(Campaign.CurrentAct), Loc.ThreatName(info), info.color);
                 }
             }
 
@@ -223,8 +223,8 @@ namespace Watermelon
             squadBadge.gameObject.SetActive(cardReady);
 
             bool canBuild = false;
-            foreach (BuildingData building in Campaign.Database.Buildings)
-                canBuild |= Campaign.CanBuild(building.type);
+            foreach (BuildingData building in Campaign.BuildingsOfAct(Campaign.CurrentAct))
+                canBuild |= Campaign.CanBuild(building);
             townBadge.gameObject.SetActive(canBuild);
         }
 

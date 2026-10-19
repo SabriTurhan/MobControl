@@ -61,25 +61,22 @@ namespace Watermelon
             int completed = mission - 1;
             CampaignDatabase db = Campaign.Database;
 
-            int[] buildings = new int[System.Enum.GetValues(typeof(BuildingType)).Length];
-            buildings[(int)BuildingType.CommandPost] = 1 + (completed >= 3 ? 1 : 0) + (completed >= 8 ? 1 : 0) + (completed >= 16 ? 1 : 0);
-            buildings[(int)BuildingType.Barracks] = completed >= 2 ? Mathf.Min(5, 1 + (completed - 2) / 5) : 0;
-            buildings[(int)BuildingType.Armory] = completed >= 4 ? Mathf.Min(5, 1 + (completed - 4) / 5) : 0;
-            buildings[(int)BuildingType.Workshop] = completed >= 7 ? Mathf.Min(5, 1 + (completed - 7) / 5) : 0;
-            buildings[(int)BuildingType.Watchtower] = completed >= 20 ? Mathf.Min(3, 1 + (completed - 20) / 4) : 0;
+            int[] buildings = new int[db.Buildings.Count];
+            for (int i = 0; i < db.Buildings.Count; i++)
+                buildings[i] = BotBuildingLevel(db.Buildings[i], completed);
 
             Dictionary<string, int> units = new Dictionary<string, int>();
             foreach (UnitCardData unit in db.Units)
             {
                 if (unit.unlockAfterLevel > completed) continue;
-                units[unit.id] = unit.isFiller ? Mathf.Min(10, 1 + completed / 4) : Mathf.Min(10, 1 + (completed - unit.unlockAfterLevel) / 5);
+                units[unit.id] = unit.isFiller ? Mathf.Min(15, 1 + completed / 4) : Mathf.Min(15, 1 + (completed - unit.unlockAfterLevel) / 5);
             }
 
             Dictionary<string, int> weapons = new Dictionary<string, int>();
             foreach (WeaponCardData weapon in db.Weapons)
             {
                 if (weapon.unlockAfterLevel > completed) continue;
-                weapons[weapon.id] = Mathf.Min(10, 1 + (completed - weapon.unlockAfterLevel) / 4);
+                weapons[weapon.id] = Mathf.Min(15, 1 + (completed - weapon.unlockAfterLevel) / 4);
             }
 
             Campaign.DevSetProgress(completed, buildings, units, weapons);
@@ -96,20 +93,41 @@ namespace Watermelon
                         break;
                     }
 
-            foreach (string preferred in new[] { "heavy", "medic", "sharpshooter", "grenadier" })
+            foreach (string preferred in new[] { "guardian", "heavy", "medic", "pyro", "scout", "sharpshooter", "grenadier" })
                 if (units.ContainsKey(preferred) && !squad.Contains(preferred) && squad.Count < Campaign.SquadSlots - 1) squad.Add(preferred);
 
             while (squad.Count < Campaign.SquadSlots) squad.Add(db.StarterUnitId);
             Campaign.SetSquad(squad);
 
             string weaponId = "pistol";
-            foreach (string candidate in new[] { "shotgun", "rifle", "minigun" })
+            foreach (string candidate in new[] { "shotgun", "rifle", "minigun", "burst_rifle" })
                 if (weapons.ContainsKey(candidate)) weaponId = candidate;
             foreach (ThreatType threat in threats)
                 foreach (WeaponCardData weapon in db.Weapons)
                     if (weapons.ContainsKey(weapon.id) && weapon.counters.Contains(threat)) { weaponId = weapon.id; goto picked; }
             picked:
             Campaign.SetWeapon(weaponId);
+        }
+
+        // a player who spends on the town as soon as plots open (no hospital or saloon/tavern)
+        private static int BotBuildingLevel(BuildingData building, int completed)
+        {
+            if (building.act == 0)
+            {
+                switch (building.type)
+                {
+                    case BuildingType.CommandPost: return 1 + (completed >= 3 ? 1 : 0) + (completed >= 8 ? 1 : 0) + (completed >= 16 ? 1 : 0);
+                    case BuildingType.Barracks: return completed >= 2 ? Mathf.Min(5, 1 + (completed - 2) / 5) : 0;
+                    case BuildingType.Armory: return completed >= 4 ? Mathf.Min(5, 1 + (completed - 4) / 5) : 0;
+                    case BuildingType.Workshop: return completed >= 7 ? Mathf.Min(5, 1 + (completed - 7) / 5) : 0;
+                    case BuildingType.Watchtower: return completed >= 20 ? Mathf.Min(3, 1 + (completed - 20) / 4) : 0;
+                    default: return 0;
+                }
+            }
+
+            if (completed < building.unlockAfterLevel || building.type == BuildingType.FieldHospital || building.type == BuildingType.Saloon) return 0;
+            int step = building.type == BuildingType.CommandPost ? 14 : 8;
+            return Mathf.Min(building.levels.Count, 1 + (completed - building.unlockAfterLevel) / step);
         }
 
         private static LevelData GetLevel(int mission)

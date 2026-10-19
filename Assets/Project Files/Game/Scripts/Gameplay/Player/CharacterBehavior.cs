@@ -281,6 +281,18 @@ namespace Watermelon
         /// <summary>QA hook: every hit a squad member takes (character, damage, hit point).</summary>
         public static event System.Action<CharacterBehavior, float, Vector3> Damaged;
 
+        // Guardian aura: strongest living guardian in the squad
+        private float SquadDamageReduction()
+        {
+            if (Player == null) return UnitStats.squadDamageReduction;
+
+            float reduction = 0f;
+            var squad = Player.Characters;
+            for (int i = 0; i < squad.Count; i++)
+                if (squad[i] != null && !squad[i].IsDead) reduction = Mathf.Max(reduction, squad[i].UnitStats.squadDamageReduction);
+            return reduction;
+        }
+
         public void TakeDamage(float damage, Vector3 hitPoint)
         {
             Damaged?.Invoke(this, damage, hitPoint);
@@ -291,7 +303,7 @@ namespace Watermelon
             if (hitParticle != null)
                 hitParticle.Play();
 
-            Health.Subtract(damage);
+            Health.Subtract(damage * (1f - SquadDamageReduction()));
 
             Haptic.Play(Haptic.HAPTIC_LIGHT);
 

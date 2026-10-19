@@ -10,6 +10,7 @@ namespace Watermelon
         private readonly RectTransform root;
         private readonly RectTransform content;
         private readonly TextMeshProUGUI subtitle;
+        private readonly TextMeshProUGUI title;
         private readonly RawImage townImage;
 
         public bool IsVisible => root.gameObject.activeSelf;
@@ -38,7 +39,7 @@ namespace Watermelon
 
             Image header = DWUI.Image(root, "Header", style.roundedBack, new Color(0f, 0f, 0f, 0.4f));
             header.rectTransform.Place(new Vector2(0.5f, 1f), new Vector2(0f, -340f), new Vector2(700f, 140f));
-            TextMeshProUGUI title = DWUI.Text(header.rectTransform, "Title", Loc.Get("town.title"), 72f);
+            title = DWUI.Text(header.rectTransform, "Title", Loc.Get("town.title"), 72f);
             title.rectTransform.Stretch(10, 10, 6, 60);
             subtitle = DWUI.Text(header.rectTransform, "Subtitle", "", 36f, new Color(1f, 0.92f, 0.7f, 1f));
             subtitle.rectTransform.Stretch(10, 10, 86, 6);
@@ -77,13 +78,20 @@ namespace Watermelon
 
         public void Refresh()
         {
-            int liberated = 0;
+            // the town of the current act: its districts are the act's chapters
+            int act = Campaign.CurrentAct;
+            int liberated = 0, districts = 0;
             foreach (ChapterData chapter in Campaign.Database.Chapters)
+            {
+                if (chapter.act != act) continue;
+                districts++;
                 if (Campaign.LevelsCompleted >= chapter.lastLevel) liberated++;
-            subtitle.text = liberated == 0 ? Loc.Get("town.occupied") : liberated >= Campaign.Database.Chapters.Count ? Loc.Get("town.free") : Loc.Format("town.districts", liberated, Campaign.Database.Chapters.Count);
+            }
+            title.text = Loc.TownName(act);
+            subtitle.text = liberated == 0 ? Loc.Get(act == 0 ? "town.occupied" : "town.occupied.1") : liberated >= districts ? Loc.Get("town.free") : Loc.Format("town.districts", liberated, districts);
 
             DWUI.Clear(content);
-            foreach (BuildingData building in Campaign.Database.Buildings)
+            foreach (BuildingData building in Campaign.BuildingsOfAct(act))
                 Row(building);
 
             if (DustwaterTown.Instance != null) DustwaterTown.Instance.Refresh();
@@ -92,10 +100,10 @@ namespace Watermelon
         private void Row(BuildingData building)
         {
             DustwaterUIStyle style = DWUI.Style;
-            int level = Campaign.GetBuildingLevel(building.type);
+            int level = Campaign.GetBuildingLevel(building);
             int max = building.levels.Count;
-            bool unlocked = Campaign.IsBuildingUnlocked(building.type);
-            BuildingLevelData next = Campaign.GetNextBuildingLevel(building.type);
+            bool unlocked = Campaign.IsBuildingUnlocked(building);
+            BuildingLevelData next = Campaign.GetNextBuildingLevel(building);
 
             Image row = DWUI.Image(content, building.type.ToString(), style.panelWhite, unlocked ? Color.white : new Color(0.75f, 0.75f, 0.8f, 1f));
             row.Height(250f);
@@ -139,10 +147,10 @@ namespace Watermelon
                 return;
             }
 
-            bool canBuild = Campaign.CanBuild(building.type);
+            bool canBuild = Campaign.CanBuild(building);
             Button button = DWUI.Button(row.rectTransform, "Build", canBuild ? style.buttonGreen : style.buttonGray, null, 0f, () =>
             {
-                if (Campaign.Build(building.type))
+                if (Campaign.Build(building))
                 {
                     if (DustwaterTown.Instance != null) DustwaterTown.Instance.PlayBuilt(building.type);
                     Refresh();

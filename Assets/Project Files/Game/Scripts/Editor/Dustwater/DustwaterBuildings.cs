@@ -39,38 +39,38 @@ namespace Watermelon.Dustwater
             return new List<Vector3[]>() { new[] { a, b, top }, new[] { b, c, top }, new[] { c, e, top }, new[] { e, a, top }, new[] { a, e, c, b } };
         }
 
-        private static PaletteMesh Plank(PaletteMesh m, Vector3 size, Vector3 position, int band = Band.Wood, Vector3? euler = null)
+        internal static PaletteMesh Plank(PaletteMesh m, Vector3 size, Vector3 position, int band = Band.Wood, Vector3? euler = null)
         {
             return m.Box(size, Mathf.Min(0.04f, Mathf.Min(size.x, Mathf.Min(size.y, size.z)) * 0.3f), position, euler ?? Vector3.zero, band, 0.1f, 0.55f);
         }
 
-        private static void Window(PaletteMesh m, Vector3 position, float width = 0.7f, float height = 0.8f, int frame = Band.DarkWood)
+        internal static void Window(PaletteMesh m, Vector3 position, float width = 0.7f, float height = 0.8f, int frame = Band.DarkWood)
         {
             m.Box(new Vector3(width + 0.16f, height + 0.16f, 0.08f), 0.03f, position, Vector3.zero, frame, 0.2f, 0.5f);
             m.Box(new Vector3(width, height, 0.1f), 0.02f, position + new Vector3(0f, 0f, -0.02f), Vector3.zero, Band.Glass, 0f, 0.4f);
             m.Box(new Vector3(0.06f, height, 0.12f), 0.01f, position + new Vector3(0f, 0f, -0.03f), Vector3.zero, frame, 0.2f, 0.5f);
         }
 
-        private static void Door(PaletteMesh m, Vector3 position, float width = 0.9f, float height = 1.6f, int band = Band.DarkWood)
+        internal static void Door(PaletteMesh m, Vector3 position, float width = 0.9f, float height = 1.6f, int band = Band.DarkWood)
         {
             m.Box(new Vector3(width + 0.18f, height + 0.1f, 0.08f), 0.03f, position + new Vector3(0f, 0.05f, 0f), Vector3.zero, Band.Wood, 0.2f, 0.5f);
             m.Box(new Vector3(width, height, 0.12f), 0.03f, position + new Vector3(0f, 0f, -0.02f), Vector3.zero, band, 0.1f, 0.6f);
         }
 
-        private static void Crate(PaletteMesh m, Vector3 position, float size, float yaw = 0f)
+        internal static void Crate(PaletteMesh m, Vector3 position, float size, float yaw = 0f)
         {
             m.Box(Vector3.one * size, size * 0.06f, position + Vector3.up * size * 0.5f, new Vector3(0f, yaw, 0f), Band.Wood, 0.05f, 0.5f);
             m.Box(new Vector3(size * 1.02f, size * 0.12f, size * 1.02f), 0.01f, position + Vector3.up * size * 0.5f, new Vector3(0f, yaw, 0f), Band.DarkWood, 0.1f, 0.5f);
         }
 
-        private static void Barrel(PaletteMesh m, Vector3 position, int band = Band.Rust)
+        internal static void Barrel(PaletteMesh m, Vector3 position, int band = Band.Rust)
         {
             m.Cylinder(0.32f, 0.32f, 0.9f, 10, position + Vector3.up * 0.45f, Vector3.zero, band, 0.1f, 0.55f);
             m.Cylinder(0.335f, 0.335f, 0.08f, 10, position + Vector3.up * 0.25f, Vector3.zero, Band.Iron, 0.2f, 0.5f);
             m.Cylinder(0.335f, 0.335f, 0.08f, 10, position + Vector3.up * 0.65f, Vector3.zero, Band.Iron, 0.2f, 0.5f);
         }
 
-        private static void Sandbags(PaletteMesh m, Vector3 position, int count, float yaw = 0f)
+        internal static void Sandbags(PaletteMesh m, Vector3 position, int count, float yaw = 0f)
         {
             Quaternion rotation = Quaternion.Euler(0f, yaw, 0f);
             for (int i = 0; i < count; i++)

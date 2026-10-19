@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Watermelon.Dustwater
 {
-    // Writes the 30 campaign missions (Level 001-030) from a design table. Every mission is a sequence of
+    // Writes the 100 campaign missions (Level 001-100) from a design table: Dustwater 1-30, Frostpeak 31-100. Every mission is a sequence of
     // rows (template spacing: first row at z 19.3, one row every 11.27, lanes at x -1.5 / 1.5, wide rows at
     // -2..2). Row patterns follow the mission's threats so the briefing intel matches the road:
     //   Armored -> heavy bandits, Swarm -> 5-wide crowds, Snipers -> bandit sniper nests behind sandbags,
@@ -61,6 +61,84 @@ namespace Watermelon.Dustwater
             M(28, "Vex's Garage", ThreatType.Armored, ThreatType.Swarm),
             M(29, "Last Stand", ThreatType.Barricades, ThreatType.Snipers, ThreatType.Attrition),
             new Mission() { number = 30, operation = "Scorpion Throne", threats = new[] { ThreatType.Swarm, ThreatType.Snipers }, boss = true },
+
+            // Act 2: Frostpeak (White Wolves)
+            M(31, "First Snow"),
+            M(32, "Frosty Trail", ThreatType.Swarm),
+            M(33, "Pinecone Ridge", ThreatType.Barricades),
+            M(34, "Frozen Boots", ThreatType.Armored),
+            M(35, "Avalanche Road", ThreatType.Attrition),
+            M(36, "Snowy Sights", ThreatType.Snipers),
+            M(37, "Icicle Gate", ThreatType.Barricades, ThreatType.Swarm),
+            M(38, "Howling Woods", ThreatType.Swarm, ThreatType.Attrition),
+            M(39, "Ridge Runners", ThreatType.Armored, ThreatType.Snipers),
+            new Mission() { number = 40, operation = "Frostbite's Pass", threats = new[] { ThreatType.Armored, ThreatType.Swarm }, boss = true },
+
+            M(41, "Thin Ice", ThreatType.Swarm),
+            M(42, "Ice Fishers", ThreatType.Snipers),
+            M(43, "Cracked Crossing", ThreatType.Barricades, ThreatType.Armored),
+            M(44, "Blizzard Run", ThreatType.Attrition, ThreatType.Swarm),
+            M(45, "Hammer Squad", ThreatType.Armored),
+            M(46, "Snowball Fight", ThreatType.Swarm, ThreatType.Barricades),
+            M(47, "Frozen Pier", ThreatType.Snipers, ThreatType.Attrition),
+            M(48, "Ice Hole Ambush", ThreatType.Attrition, ThreatType.Armored),
+            M(49, "Lakeshore Siege", ThreatType.Barricades, ThreatType.Snipers),
+            new Mission() { number = 50, operation = "Olaf's Glacier", threats = new[] { ThreatType.Armored, ThreatType.Attrition }, boss = true },
+
+            M(51, "Log Jam", ThreatType.Barricades),
+            M(52, "Axe Gang", ThreatType.Swarm, ThreatType.Armored),
+            M(53, "Sawdust Storm", ThreatType.Attrition),
+            M(54, "Treetop Snipers", ThreatType.Snipers, ThreatType.Swarm),
+            M(55, "Timber Wall", ThreatType.Barricades, ThreatType.Armored),
+            M(56, "Woodpile Raid", ThreatType.Swarm, ThreatType.Attrition),
+            M(57, "Mill Wheel", ThreatType.Armored, ThreatType.Snipers),
+            M(58, "Chainsaw Alley", ThreatType.Swarm, ThreatType.Barricades),
+            M(59, "Lumberjack Pride", ThreatType.Attrition, ThreatType.Snipers, ThreatType.Armored),
+            new Mission() { number = 60, operation = "Timber's Yard", threats = new[] { ThreatType.Swarm, ThreatType.Barricades }, boss = true },
+
+            M(61, "Town Gates", ThreatType.Barricades, ThreatType.Attrition),
+            M(62, "Snowy Plaza", ThreatType.Swarm),
+            M(63, "Bell Tower", ThreatType.Snipers),
+            M(64, "Hot Cocoa Hall", ThreatType.Armored, ThreatType.Swarm),
+            M(65, "Chimney Tops", ThreatType.Snipers, ThreatType.Attrition),
+            M(66, "Market Freeze", ThreatType.Barricades, ThreatType.Swarm),
+            M(67, "Town Hall Steps", ThreatType.Armored, ThreatType.Attrition),
+            M(68, "Lantern Street", ThreatType.Swarm, ThreatType.Snipers),
+            M(69, "Mayor's Mansion", ThreatType.Barricades, ThreatType.Armored, ThreatType.Snipers),
+            new Mission() { number = 70, operation = "Snowjaw's Office", threats = new[] { ThreatType.Armored, ThreatType.Snipers }, boss = true },
+
+            M(71, "Mine Shaft", ThreatType.Barricades, ThreatType.Armored),
+            M(72, "Crystal Glow", ThreatType.Swarm, ThreatType.Snipers),
+            M(73, "Cart Tracks", ThreatType.Attrition, ThreatType.Barricades),
+            M(74, "Deep Tunnels", ThreatType.Armored, ThreatType.Swarm),
+            M(75, "Glittering Cave", ThreatType.Snipers, ThreatType.Attrition),
+            M(76, "Dynamite Dock", ThreatType.Barricades, ThreatType.Swarm),
+            M(77, "Echo Chamber", ThreatType.Armored, ThreatType.Snipers),
+            M(78, "Ore Elevator", ThreatType.Swarm, ThreatType.Attrition),
+            M(79, "Cave-In", ThreatType.Barricades, ThreatType.Snipers, ThreatType.Attrition),
+            new Mission() { number = 80, operation = "Crag's Quarry", threats = new[] { ThreatType.Swarm, ThreatType.Barricades }, boss = true },
+
+            M(81, "Moat of Ice", ThreatType.Barricades, ThreatType.Snipers),
+            M(82, "Outer Wall", ThreatType.Armored, ThreatType.Barricades),
+            M(83, "Pack Barracks", ThreatType.Swarm, ThreatType.Attrition),
+            M(84, "Howling Towers", ThreatType.Snipers, ThreatType.Armored),
+            M(85, "War Kennels", ThreatType.Swarm, ThreatType.Barricades),
+            M(86, "Iron Gate", ThreatType.Armored, ThreatType.Attrition),
+            M(87, "Banner Hall", ThreatType.Snipers, ThreatType.Swarm),
+            M(88, "Inner Keep", ThreatType.Barricades, ThreatType.Attrition),
+            M(89, "Pack Leader's Guard", ThreatType.Armored, ThreatType.Swarm, ThreatType.Snipers),
+            new Mission() { number = 90, operation = "Grimfang's Den", threats = new[] { ThreatType.Armored, ThreatType.Attrition }, boss = true },
+
+            M(91, "Cloud Path", ThreatType.Swarm, ThreatType.Snipers),
+            M(92, "Frozen Stairs", ThreatType.Barricades, ThreatType.Armored),
+            M(93, "Thin Air", ThreatType.Attrition, ThreatType.Swarm),
+            M(94, "Eagle's Nest", ThreatType.Snipers, ThreatType.Barricades),
+            M(95, "Ice Bridge", ThreatType.Armored, ThreatType.Attrition),
+            M(96, "Storm Front", ThreatType.Swarm, ThreatType.Barricades),
+            M(97, "Crystal Peak", ThreatType.Snipers, ThreatType.Armored),
+            M(98, "Last Camp", ThreatType.Attrition, ThreatType.Barricades, ThreatType.Swarm),
+            M(99, "Top of the World", ThreatType.Armored, ThreatType.Snipers, ThreatType.Attrition),
+            new Mission() { number = 100, operation = "Vex's Last Stand", threats = new[] { ThreatType.Swarm, ThreatType.Snipers, ThreatType.Armored }, boss = true },
         };
 
         private static readonly Dictionary<int, (string id, float health, float damage, float fireRate)> BOSSES = new Dictionary<int, (string, float, float, float)>()
@@ -68,7 +146,29 @@ namespace Watermelon.Dustwater
             { 10, ("boss_rattler", 380f, 1.5f, 2.2f) },
             { 20, ("boss_jaws", 520f, 1.5f, 2.0f) },
             { 30, ("boss_vex", 6000f, 3f, 2.6f) },
+            { 40, ("boss_frostbite", 2600f, 3f, 2.2f) },
+            { 50, ("boss_olaf", 2600f, 3.5f, 2.2f) },
+            { 60, ("boss_timber", 6500f, 4f, 2.3f) },
+            { 70, ("boss_snowjaw", 6200f, 4.5f, 2.4f) },
+            { 80, ("boss_crag", 7800f, 5f, 2.5f) },
+            { 90, ("boss_grimfang", 8000f, 5.5f, 2.6f) },
+            { 100, ("boss_vex_frost", 14000f, 6f, 2.8f) },
         };
+
+        // Frostpeak swaps the Red Scorpions for the White Wolves and sandbags for ice
+        private static string Id(string id, int n)
+        {
+            if (n <= 30) return id;
+            switch (id)
+            {
+                case "enemy": return "wolf";
+                case "enemy_heavy": return "wolf_heavy";
+                case "bandit_sniper": return "wolf_sniper";
+                case "sandbags": return "ice_wall";
+                case "small_obstacle": return "snow_barrel";
+                default: return id;
+            }
+        }
 
         #region Item lists
 
@@ -79,6 +179,9 @@ namespace Watermelon.Dustwater
             public readonly List<System.Action<SerializedProperty>> obstacles = new List<System.Action<SerializedProperty>>();
             public readonly List<System.Action<SerializedProperty>> enemies = new List<System.Action<SerializedProperty>>();
         }
+
+        // mission being written (picks the act's enemy and obstacle ids)
+        private static int currentMission;
 
         private static void Base(SerializedProperty p, string id, Vector3 position)
         {
@@ -145,6 +248,7 @@ namespace Watermelon.Dustwater
 
         private static void Obstacle(Content c, string id, Vector3 position, int health, DropableItemType drop, CurrencyType currency, int count, float value, float boosterHeight = 1f)
         {
+            id = Id(id, currentMission);
             c.obstacles.Add(p =>
             {
                 Base(p, id, position);
@@ -156,6 +260,7 @@ namespace Watermelon.Dustwater
 
         private static void Enemy(Content c, string id, Vector3 position, float health, float damage, float fireRate, string gun, DropableItemType drop = DropableItemType.Money, int count = 1, float value = 1)
         {
+            id = Id(id, currentMission);
             c.enemies.Add(p =>
             {
                 Base(p, id, position);
@@ -174,7 +279,24 @@ namespace Watermelon.Dustwater
         // Expected squad damage per second at mission n with a normal progression (slots, buildings, card
         // levels, a counter pick). The squad's bullets converge on its lane and every row is in range for ~3s
         // at 4 m/s, so one object in the chosen lane should die in about Power(n) * 1-2.5 hp.
-        private static float Power(int n) => 4f + 2.6f * (n - 1);
+        // Frostpeak climbs much faster: the second town's buildings, 7 squad slots and card levels up to 15
+        // multiply the squad's strength (bot probes: ~1.8x the old curve at M45, ~2.4x at M75)
+        private static float Power(int n) => n <= 30 ? 4f + 2.6f * (n - 1) : 79.4f * (1f + 0.13f * (n - 30)) * FrostScale;
+
+        /// <summary>Balance probe knob for the Frostpeak missions (enemy/obstacle health and damage).</summary>
+        public static float FrostScale = 1f;
+        public static float FrostDamageScale = 1f;
+
+        /// <summary>Rewrites only the given missions (balance probes).</summary>
+        public static void BuildMissions(params int[] numbers)
+        {
+            foreach (Mission mission in MISSIONS)
+            {
+                if (System.Array.IndexOf(numbers, mission.number) < 0) continue;
+                Write(AssetDatabase.LoadAssetAtPath<LevelData>($"{LEVELS_FOLDER}/Level {mission.number:000}.asset"), mission);
+            }
+            AssetDatabase.SaveAssets();
+        }
 
         private static float Bandit(int n) => Mathf.Max(2f, Power(n) * 0.65f);
         private static float Heavy(int n) => Power(n) * 1.25f + 5f;
@@ -182,11 +304,11 @@ namespace Watermelon.Dustwater
         private static int Barrel(int n, System.Random r) => Mathf.Max(2, Mathf.RoundToInt(Power(n) * (0.8f + (float)r.NextDouble() * 0.5f)));
         private static int Sandbags(int n) => Mathf.RoundToInt(Power(n) * 2.2f + 6f);
         private static int Crate(int n) => Mathf.RoundToInt(Power(n) * 0.9f + 2f);
-        private static float EnemyDamage(int n) => 1f + Mathf.Floor((n - 1) / 8f) * 0.5f;
+        private static float EnemyDamage(int n) => n <= 30 ? 1f + Mathf.Floor((n - 1) / 8f) * 0.5f : (3f + 0.2f * (n - 30)) * FrostDamageScale;
 
         #endregion
 
-        [MenuItem("Tools/Dustwater/Content/Build 30 Missions", priority = 210)]
+        [MenuItem("Tools/Dustwater/Content/Build 100 Missions", priority = 210)]
         public static void BuildAll()
         {
             LevelsDatabase database = AssetDatabase.LoadAssetAtPath<LevelsDatabase>(DustwaterContentBuilder.LEVELS_DATABASE);
@@ -219,6 +341,7 @@ namespace Watermelon.Dustwater
         private static void Write(LevelData level, Mission mission)
         {
             int n = mission.number;
+            currentMission = n;
             System.Random random = new System.Random(n * 7919 + 17);
             Content content = new Content();
 
@@ -437,8 +560,10 @@ namespace Watermelon.Dustwater
                 {
                     var boss = BOSSES[mission.number];
                     Enemy(c, boss.id, new Vector3(0f, 0f, z + 4f), boss.health, boss.damage, boss.fireRate, "boss_minigun", DropableItemType.Money, 10, 3);
-                    Enemy(c, "enemy_heavy", new Vector3(-2f, 0f, z), Heavy(n) * 0.8f, damage, 0.6f, "none", DropableItemType.Money, 2, 2);
-                    Enemy(c, "enemy_heavy", new Vector3(2f, 0f, z), Heavy(n) * 0.8f, damage, 0.6f, "none", DropableItemType.Money, 2, 2);
+                    // escorts: lighter in Frostpeak, where the curve is steeper
+                    float escort = n <= 30 ? 0.8f : 0.6f;
+                    Enemy(c, "enemy_heavy", new Vector3(-2f, 0f, z), Heavy(n) * escort, damage, 0.6f, "none", DropableItemType.Money, 2, 2);
+                    Enemy(c, "enemy_heavy", new Vector3(2f, 0f, z), Heavy(n) * escort, damage, 0.6f, "none", DropableItemType.Money, 2, 2);
                     break;
                 }
             }
@@ -485,6 +610,15 @@ namespace Watermelon.Dustwater
 
         private static string CounterWeapon(Mission mission, System.Random r)
         {
+            if (mission.number > 30)
+            {
+                foreach (ThreatType threat in mission.threats)
+                {
+                    if (threat == ThreatType.Barricades && mission.number >= 55) return "rocket_launcher";
+                    if (threat == ThreatType.Armored || threat == ThreatType.Snipers) return "burst_rifle";
+                }
+            }
+
             foreach (ThreatType threat in mission.threats)
             {
                 if (threat == ThreatType.Barricades) return "shotgun";

@@ -101,7 +101,7 @@ namespace Watermelon
             {
                 ThreatInfo info = Campaign.Database.GetThreat(type);
                 if (info == null) continue;
-                IntelRow(info.icon, Loc.ThreatName(info), Loc.ThreatDescription(info), info.color, type, y);
+                IntelRow(info.IconFor(Campaign.CurrentAct), Loc.ThreatName(info), Loc.ThreatDescription(info), info.color, type, y);
                 y -= 150f;
             }
 

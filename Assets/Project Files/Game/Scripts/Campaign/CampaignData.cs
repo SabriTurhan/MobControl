@@ -52,6 +52,8 @@ namespace Watermelon
         public float rangeMult = 1f;
         [Tooltip("Medic: hp restored to every squad member per second (level 1)")]
         public float healPerSecond = 0f;
+        [Tooltip("Guardian: fraction of incoming damage the whole squad ignores while he is alive (level 1)")]
+        public float squadDamageReduction = 0f;
 
         public List<ThreatType> counters = new List<ThreatType>();
     }
@@ -84,6 +86,10 @@ namespace Watermelon
     [System.Serializable]
     public class BuildingData
     {
+        [Tooltip("Story act whose town holds this building (0 Dustwater, 1 Frostpeak)")]
+        public int act;
+        [Tooltip("Localization id (building.<id>.name); defaults to the type")]
+        public string id;
         public BuildingType type;
         public string displayName;
         [TextArea] public string description;
@@ -99,6 +105,7 @@ namespace Watermelon
     [System.Serializable]
     public class ChapterData
     {
+        public int act;
         public string title;
         public string subtitle;
         [Tooltip("1-based, inclusive")]
@@ -118,6 +125,10 @@ namespace Watermelon
         public string displayName;
         [TextArea] public string description;
         public Sprite icon;
+        [Tooltip("Icon in the Frostpeak act (White Wolves)")]
+        public Sprite frostIcon;
         public Color color = Color.white;
+
+        public Sprite IconFor(int act) => act > 0 && frostIcon != null ? frostIcon : icon;
     }
 }

@@ -19,10 +19,11 @@ namespace Watermelon.Dustwater
         public const string ENV_TOWN = "environment_town";
         public const string ENV_FORT = "environment_fort";
 
-        public static string RoadIdForMission(int mission) => "road_desert";
+        public static string RoadIdForMission(int mission) => mission > 30 ? FrostTownBuilder.ROAD_SNOW : "road_desert";
 
         public static string EnvironmentIdForMission(int mission)
         {
+            if (mission > 30) return FrostTownBuilder.EnvironmentForMission(mission);
             if (mission <= 10) return ENV_OUTSKIRTS;
             if (mission <= 20) return ENV_TOWN;
             return ENV_FORT;
@@ -47,6 +48,8 @@ namespace Watermelon.Dustwater
         }
 
         #region Pieces
+
+        public static void BuildPiecesForReuse() => BuildPieces();
 
         private static void BuildPieces()
         {
@@ -84,7 +87,7 @@ namespace Watermelon.Dustwater
             Piece("Store Gold", DustwaterBuildings.FalseFront(4.2f, 4f, 3.3f, Band.Teal, Band.Gold, 6));
         }
 
-        private static void Piece(string name, Mesh mesh)
+        internal static void Piece(string name, Mesh mesh)
         {
             Mesh saved = DustwaterUnitsBuilder.SaveMesh(mesh, "Town/" + name.Replace(" ", "_"));
 
@@ -97,7 +100,7 @@ namespace Watermelon.Dustwater
             Object.DestroyImmediate(go);
         }
 
-        private static GameObject Place(Transform parent, string piece, Vector3 position, float yaw = 0f, float scale = 1f, string name = null)
+        internal static GameObject Place(Transform parent, string piece, Vector3 position, float yaw = 0f, float scale = 1f, string name = null)
         {
             GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(pieces[piece], parent);
             instance.name = name ?? piece;
@@ -188,7 +191,7 @@ namespace Watermelon.Dustwater
             EditorUtility.SetDirty(database);
         }
 
-        private static void Register(SerializedProperty list, string id, string prefabPath)
+        internal static void Register(SerializedProperty list, string id, string prefabPath)
         {
             SerializedProperty element = null;
             for (int i = 0; i < list.arraySize; i++)
@@ -347,7 +350,7 @@ namespace Watermelon.Dustwater
             EditorSceneManager.SaveScene(scene);
         }
 
-        private static GameObject AddMesh(Transform parent, string name, Mesh mesh, Material material)
+        internal static GameObject AddMesh(Transform parent, string name, Mesh mesh, Material material)
         {
             Mesh saved = DustwaterUnitsBuilder.SaveMesh(mesh, "Town/" + name);
             GameObject go = new GameObject(name);

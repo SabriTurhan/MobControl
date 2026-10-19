@@ -15,6 +15,11 @@ namespace Watermelon
     {
         public static bool IsRunning { get; private set; }
 
+        // sample content for the detail/story screens (act 2 QA: "guardian", 3)
+        public static string DetailCard = "heavy";
+        public static int StoryChapter = 1;
+        public static int IntroAct = 0;
+
         private string shotTag;
         private string folder;
 
@@ -53,7 +58,7 @@ namespace Watermelon
 
             ui.Hub.SelectTab(HubView.Tab.Squad);
             yield return Shot("02_squad");
-            Call(ui.Cards, "ShowDetail", CardWidget.Get(true, "heavy"));
+            Call(ui.Cards, "ShowDetail", CardWidget.Get(true, DetailCard));
             yield return Shot("03_card_detail");
             ui.Cards.Hide();
 
@@ -76,16 +81,29 @@ namespace Watermelon
             yield return Shot("07_reward", 1.6f);
             Call(ui.Reward, "Close");
 
-            ChapterData chapter = Campaign.Database.Chapters[1];
-            ui.Story.Show(DWUI.Style.commanderPortrait, Loc.Get("story.sergeant"), Loc.ChapterLines(1, "intro", chapter.introLines), null, Loc.Format("hub.chapter", 2, Loc.ChapterTitle(1, chapter)));
+            ChapterData chapter = Campaign.Database.Chapters[StoryChapter];
+            ui.Story.Show(DWUI.Style.commanderPortrait, Loc.Get("story.sergeant"), Loc.ChapterLines(StoryChapter, "intro", chapter.introLines), null, Loc.Format("hub.chapter", StoryChapter + 1, Loc.ChapterTitle(StoryChapter, chapter)));
             yield return Shot("08_story", 2.5f);
             for (int i = 0; i < 6 && ui.Story.IsVisible; i++) Call(ui.Story, "Next");
 
             DustwaterIntroPlayer intro = FindFirstObjectByType<DustwaterIntroPlayer>();
             if (intro != null)
             {
-                intro.Play(null);
+                if (IntroAct > 0) intro.PlayAct(IntroAct, null);
+                else intro.Play(null);
                 yield return Shot("08b_intro", 3.2f);
+
+                // the title card at the end of the cinematic
+                CanvasGroup title = null;
+                for (float t = 0f; t < 60f; t += 0.1f)
+                {
+                    GameObject overlay = GameObject.Find("Intro");
+                    Transform titleRoot = overlay != null ? overlay.transform.Find("Title") : null;
+                    title = titleRoot != null ? titleRoot.GetComponent<CanvasGroup>() : null;
+                    if (title == null || title.alpha > 0.98f) break;
+                    yield return new WaitForSecondsRealtime(0.1f);
+                }
+                if (title != null) yield return Shot("08c_title", 0.1f);
                 Call(intro, "Skip");
                 yield return new WaitForSecondsRealtime(0.4f);
             }

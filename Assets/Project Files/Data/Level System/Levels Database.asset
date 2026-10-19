@@ -43,6 +43,76 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c25f198fe306d44bfab3e22821d4a635, type: 2}
   - {fileID: 11400000, guid: e33c3f248c651415a9c1c732cd88ccbf, type: 2}
   - {fileID: 11400000, guid: 62bfd8c97b9a44b009dfae43f89cb443, type: 2}
+  - {fileID: 11400000, guid: c2fc9ae83564a4638b9a09fcceb8df50, type: 2}
+  - {fileID: 11400000, guid: ea42fdde31b274528a8e3d88f042a675, type: 2}
+  - {fileID: 11400000, guid: 98d2e7a40008b42bb81416f1b8d11b0c, type: 2}
+  - {fileID: 11400000, guid: 2ac018373a9544655a06fd8aa6e7bd6c, type: 2}
+  - {fileID: 11400000, guid: 0f20d76051b684db29a090f825833147, type: 2}
+  - {fileID: 11400000, guid: 30397cb2ac90548c2aeb1af4d6a2f0c0, type: 2}
+  - {fileID: 11400000, guid: 1a000937c32b94d60a567c4c885a1475, type: 2}
+  - {fileID: 11400000, guid: f8602f007f8b546718053fe934e66d7d, type: 2}
+  - {fileID: 11400000, guid: f8a668d1f07c74fa388fd575a597b964, type: 2}
+  - {fileID: 11400000, guid: dad4725e827914b8b9ca1a5d688a2ca5, type: 2}
+  - {fileID: 11400000, guid: 08ed9bc69a29a4b5db95dc4527cb49bf, type: 2}
+  - {fileID: 11400000, guid: baf057c5da4154e73b26d5a7faebba24, type: 2}
+  - {fileID: 11400000, guid: 07c97e6c0c91d46168dc838fedda5a6a, type: 2}
+  - {fileID: 11400000, guid: db6a2cacff1e940ec87f2585398381bd, type: 2}
+  - {fileID: 11400000, guid: 6660d147f220d4eeeb7f96245f799213, type: 2}
+  - {fileID: 11400000, guid: 4c732abbfe26d46ddb11fafe7847297f, type: 2}
+  - {fileID: 11400000, guid: f91c95a25dea74340811e7380c7c562c, type: 2}
+  - {fileID: 11400000, guid: e3261d49dc3994a2d8ba7521bf682655, type: 2}
+  - {fileID: 11400000, guid: 533c7487a404c4cbe9847023e29c3e38, type: 2}
+  - {fileID: 11400000, guid: 640dfe74b73714bd0a0f82ce89ad9691, type: 2}
+  - {fileID: 11400000, guid: 51944d420d953473b8626b751be12755, type: 2}
+  - {fileID: 11400000, guid: 2f36fdceea4b64077b1bf8a5581716eb, type: 2}
+  - {fileID: 11400000, guid: a5d24aeeca447442399cbf5af6e31580, type: 2}
+  - {fileID: 11400000, guid: aeaa304436ef94a6c95f637c231cc215, type: 2}
+  - {fileID: 11400000, guid: 934742e1449464e4f8b946a415251422, type: 2}
+  - {fileID: 11400000, guid: 8b6c25afa9d7e4426819dd2428d7c546, type: 2}
+  - {fileID: 11400000, guid: 1beff215e02364c3ab46e05caddeb43e, type: 2}
+  - {fileID: 11400000, guid: 9c5b7f6163a6f48e89d875bc3db89748, type: 2}
+  - {fileID: 11400000, guid: 7973daf66373747e7a5f36ef19e1d79c, type: 2}
+  - {fileID: 11400000, guid: fa00da251203149efaecc8c03369395d, type: 2}
+  - {fileID: 11400000, guid: 3d990b4cd5c404c8ab9347cfa8160642, type: 2}
+  - {fileID: 11400000, guid: b3bc49fefb7b343e68b4c3bb4f7bf641, type: 2}
+  - {fileID: 11400000, guid: 306b7e96728994e0faff05e1bd32cd52, type: 2}
+  - {fileID: 11400000, guid: 029878762fd464855a547a8405bb5dd5, type: 2}
+  - {fileID: 11400000, guid: 226cdc80b6761462189c9947f8859677, type: 2}
+  - {fileID: 11400000, guid: 84937736ac1a445d1a4cd83ac9fd5dd0, type: 2}
+  - {fileID: 11400000, guid: a55a4e8e846e54d73b8aaf2ea0b7cf56, type: 2}
+  - {fileID: 11400000, guid: b6ea03eaf4854469c9a49e74d7ff22af, type: 2}
+  - {fileID: 11400000, guid: b47019aa4af244b98ba8f7648d089d29, type: 2}
+  - {fileID: 11400000, guid: 9416ccc9aa23a4632aff65b867948c39, type: 2}
+  - {fileID: 11400000, guid: a1064fb109ccd401c99321189e86e740, type: 2}
+  - {fileID: 11400000, guid: 09f98cee06a4a45629b554fa21691e4a, type: 2}
+  - {fileID: 11400000, guid: 75239c3de4cb3488baff2b3b71265fc8, type: 2}
+  - {fileID: 11400000, guid: bfc058dac809a445e803181e0d438ccc, type: 2}
+  - {fileID: 11400000, guid: 7d55ed8a6f17f438e8e332e3fb42f5f4, type: 2}
+  - {fileID: 11400000, guid: 05028c6dce5a042b0b05287dc4769c2c, type: 2}
+  - {fileID: 11400000, guid: dbc1f3bcac14c4d65bc7bb8b618f84d3, type: 2}
+  - {fileID: 11400000, guid: d64044416b3d946fe837b9b32cd5a665, type: 2}
+  - {fileID: 11400000, guid: 840f6be6ae3364e4096f183a011a036c, type: 2}
+  - {fileID: 11400000, guid: 5a23041fc7240460ab7b9fc9fa50b205, type: 2}
+  - {fileID: 11400000, guid: cab539e59b318455ea1b4164abf63075, type: 2}
+  - {fileID: 11400000, guid: 869142c527dab4c97b10fa332f6d3b17, type: 2}
+  - {fileID: 11400000, guid: d48c0948785174770b061379ecebfdd8, type: 2}
+  - {fileID: 11400000, guid: 650156591fbd142d7b6dea600274a4e3, type: 2}
+  - {fileID: 11400000, guid: dfdb6df9570604667b71b79526a2da1e, type: 2}
+  - {fileID: 11400000, guid: e0b1b42222b2b40369a1fa0c23812096, type: 2}
+  - {fileID: 11400000, guid: a0059138ff1314baaa01aec68e9d1394, type: 2}
+  - {fileID: 11400000, guid: b335d3e1bdc17404ea0a4cf5f107e6b5, type: 2}
+  - {fileID: 11400000, guid: 2c2d0f10149b64c4384d642c465a442b, type: 2}
+  - {fileID: 11400000, guid: 363ac379c6025449eb7270ced572d2fd, type: 2}
+  - {fileID: 11400000, guid: cc6997eec72104a17824f64c43493dbc, type: 2}
+  - {fileID: 11400000, guid: d8fd56062884e447f8f9fd02a26bcd89, type: 2}
+  - {fileID: 11400000, guid: 57c3adb8070434eb3b59efb05dcd0d08, type: 2}
+  - {fileID: 11400000, guid: 7f5805c89edd246da99ebf147d2a3ffb, type: 2}
+  - {fileID: 11400000, guid: 4a8a3fa9d6b244d29afc1da1fa943ebb, type: 2}
+  - {fileID: 11400000, guid: c71d06a96d22b495f99c7e94f103a6df, type: 2}
+  - {fileID: 11400000, guid: 88849ecf765354e9eba8dc05ab07d703, type: 2}
+  - {fileID: 11400000, guid: 00297f7b690f64a8e82fd030c544a0d6, type: 2}
+  - {fileID: 11400000, guid: d2d2cbe3ea97646848f0de44634accca, type: 2}
+  - {fileID: 11400000, guid: f1764c3be79a348109d79c8b82258d89, type: 2}
   cameraData:
   - id: desert_camera
     followOffset: {x: 0, y: 20, z: -12}
@@ -109,6 +179,17 @@ MonoBehaviour:
     defaultHealth: 5
     defaultBoosterHeight: 1
     obstacleLengthAlongZ: 1.5
+  - id: ice_wall
+    prefab: {fileID: 2421649125246784791, guid: 2926076f3372d40fda982110ba5d2332,
+      type: 3}
+    defaultHealth: 5
+    defaultBoosterHeight: 1
+    obstacleLengthAlongZ: 1.5
+  - id: snow_barrel
+    prefab: {fileID: 876307789762018902, guid: 3e31f13e61c1d44528627c8d0f581666, type: 3}
+    defaultHealth: 5
+    defaultBoosterHeight: 1
+    obstacleLengthAlongZ: 1.5
   enemiesData:
   - id: enemy
     prefab: {fileID: 6343580571744271787, guid: a25e1cbd71e9c5043903b3fc1d303d9e,
@@ -127,6 +208,34 @@ MonoBehaviour:
       type: 3}
   - id: boss_vex
     prefab: {fileID: 550840437071400852, guid: b6c6a659bbb274e3b872649305917f12, type: 3}
+  - id: wolf
+    prefab: {fileID: 6261243516342576466, guid: 3ac8c8fdcde784784b14a645c5d28e7f,
+      type: 3}
+  - id: wolf_heavy
+    prefab: {fileID: 3023992528396323316, guid: 8ffde8c1c0e4b4b60b0bdcafa0a1932c,
+      type: 3}
+  - id: wolf_sniper
+    prefab: {fileID: 4547327196700885432, guid: 0b7d3266da19243ffb942b33098c5809,
+      type: 3}
+  - id: boss_frostbite
+    prefab: {fileID: 808905917056468901, guid: 9c2cd2fba385c4bbfa954b4b43e7142e, type: 3}
+  - id: boss_olaf
+    prefab: {fileID: 3259014182053214926, guid: 56f6e566c0b8e4727b10b1d3d47d5896,
+      type: 3}
+  - id: boss_timber
+    prefab: {fileID: 2357951283005891038, guid: 6f61b54d164094074a257a682a243e89,
+      type: 3}
+  - id: boss_snowjaw
+    prefab: {fileID: 800149103818475364, guid: 055916adf723249b395f94595d7b3087, type: 3}
+  - id: boss_crag
+    prefab: {fileID: 1937025426492785005, guid: 2309322f7744842e29bbea4742f381b6,
+      type: 3}
+  - id: boss_grimfang
+    prefab: {fileID: 8904159635995885745, guid: 15f7b2c977bd447b4b241e215214f598,
+      type: 3}
+  - id: boss_vex_frost
+    prefab: {fileID: 4833451905052625073, guid: 3f10a44463dfd4638bfb13438c19c25e,
+      type: 3}
   finishData:
   - id: finish
     prefab: {fileID: 2390828919641220376, guid: 09077e6ed2eb19542b72e312eb67330c,
@@ -140,6 +249,10 @@ MonoBehaviour:
   - id: road_desert
     prefab: {fileID: 2883039255544672129, guid: 4b625b2dd42843c4d9718324c194e2b6,
       type: 3}
+    lengthAlongZ: 10
+    roadWidth: 6
+  - id: road_snow
+    prefab: {fileID: 220063196919411124, guid: e3281772e662a4d55bcf49aff948e96d, type: 3}
     lengthAlongZ: 10
     roadWidth: 6
   environmentData:
@@ -160,6 +273,33 @@ MonoBehaviour:
     lengthAlongZ: 40
   - id: environment_fort
     prefab: {fileID: 1771223617021620206, guid: bf0beb386167b459d800c9f56d77b24e,
+      type: 3}
+    lengthAlongZ: 40
+  - id: environment_pine_pass
+    prefab: {fileID: 4531494615090620744, guid: 626da877804304b1993b566006995118,
+      type: 3}
+    lengthAlongZ: 40
+  - id: environment_frozen_lake
+    prefab: {fileID: 5702964609681881314, guid: 4a81a49bdc6aa4b22b3462e3034b7c95,
+      type: 3}
+    lengthAlongZ: 40
+  - id: environment_lumber_camp
+    prefab: {fileID: 2783889804722770000, guid: 15041048d5f9645ed9a8e7bf7006ecf1,
+      type: 3}
+    lengthAlongZ: 40
+  - id: environment_frostpeak
+    prefab: {fileID: 3809637490362043141, guid: 18b58ff42263944bc9da1c68b4499efa,
+      type: 3}
+    lengthAlongZ: 40
+  - id: environment_crystal_mine
+    prefab: {fileID: 8844321587782304934, guid: cf33ed6213cc143c19d8e85e847daab6,
+      type: 3}
+    lengthAlongZ: 40
+  - id: environment_wolf_fortress
+    prefab: {fileID: 473683408232600860, guid: b55136a6564e84b0a9a665cd8514a007, type: 3}
+    lengthAlongZ: 40
+  - id: environment_summit
+    prefab: {fileID: 2727796808719363805, guid: 27e6fd297fa4f427c95a98f7ec5fe9e9,
       type: 3}
     lengthAlongZ: 40
   gatesData:
@@ -266,6 +406,36 @@ MonoBehaviour:
     previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
     shootingImpactType: 2
     displayName: Grenadier
+  - id: pyro_character
+    prefab: {fileID: 8445316903600060276, guid: b9fa352aa554648dba307e23d8bee2bd,
+      type: 3}
+    characterType: 0
+    isDefault: 0
+    isGunLocked: 1
+    lockedGunId: flamethrower
+    previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
+    shootingImpactType: 2
+    displayName: Pyro
+  - id: guardian_character
+    prefab: {fileID: 5390913089097593222, guid: e0b2d03373fcc4629b82ff57b8a62940,
+      type: 3}
+    characterType: 0
+    isDefault: 0
+    isGunLocked: 0
+    lockedGunId: 
+    previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
+    shootingImpactType: 2
+    displayName: Guardian
+  - id: scout_character
+    prefab: {fileID: 8266269805711810596, guid: 7aac0d86d5a3b40b9a6e1f728735759b,
+      type: 3}
+    characterType: 0
+    isDefault: 0
+    isGunLocked: 0
+    lockedGunId: 
+    previewSprite: {fileID: 21300000, guid: 160af81c0dfd39f469bc452794fcd7c9, type: 3}
+    shootingImpactType: 2
+    displayName: Scout
   gunsData:
   - id: none
     prefab: {fileID: 0}
@@ -795,6 +965,165 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     displayName: Bandit Rifle
+  - id: flamethrower
+    prefab: {fileID: 3002591737033621811, guid: 40178a6c5cf844f2193eec7648ab7dda,
+      type: 3}
+    isDefault: 0
+    fireRateMultiplier: 2.2
+    damageMultiplier: 0.6
+    bulletRangeMultiplier: 2.6
+    bulletSpeed: 14
+    bulletsCount: 3
+    spread: 22
+    pierce: 1
+    splashRadius: 0
+    aimAtSquad: 0
+    unblockable: 0
+    previewSprite: {fileID: 21300000, guid: f90a0d785a933a648b712e2a87fafd76, type: 3}
+    poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
+      type: 3}
+    shootingImpactDistance: 0.1
+    shootingImpactDuration: 0.1
+    shootingImpactCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 3.3387942
+        outSlope: 3.3387942
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.030174445
+      - serializedVersion: 3
+        time: 0.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1.1376632
+        outSlope: -1.1376632
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.037718058
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    displayName: Flamethrower
+  - id: burst_rifle
+    prefab: {fileID: 4352604495198686689, guid: edba2b8d3ef0f4d7c9ed96b0ab81fc74,
+      type: 3}
+    isDefault: 0
+    fireRateMultiplier: 1.2
+    damageMultiplier: 1.25
+    bulletRangeMultiplier: 5.5
+    bulletSpeed: 28
+    bulletsCount: 2
+    spread: 4
+    pierce: 0
+    splashRadius: 0
+    aimAtSquad: 0
+    unblockable: 0
+    previewSprite: {fileID: 21300000, guid: c51f2cd635c634f0bb0d36651af91167, type: 3}
+    poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
+      type: 3}
+    shootingImpactDistance: 0.1
+    shootingImpactDuration: 0.1
+    shootingImpactCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 3.3387942
+        outSlope: 3.3387942
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.030174445
+      - serializedVersion: 3
+        time: 0.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1.1376632
+        outSlope: -1.1376632
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.037718058
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    displayName: Burst Rifle
+  - id: rocket_launcher
+    prefab: {fileID: 6378244953115221168, guid: 74cd82a58ad4f4c749ebf02225e613a4,
+      type: 3}
+    isDefault: 0
+    fireRateMultiplier: 0.55
+    damageMultiplier: 4
+    bulletRangeMultiplier: 6
+    bulletSpeed: 16
+    bulletsCount: 1
+    spread: 0
+    pierce: 0
+    splashRadius: 2.4
+    aimAtSquad: 0
+    unblockable: 0
+    previewSprite: {fileID: 21300000, guid: d6959c229adbb4a42a01de7f5846618a, type: 3}
+    poseAnimation: {fileID: -4343789905003869318, guid: 8225051a8e38b304fbe358751b7f8de8,
+      type: 3}
+    shootingImpactDistance: 0.1
+    shootingImpactDuration: 0.1
+    shootingImpactCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 3.3387942
+        outSlope: 3.3387942
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.030174445
+      - serializedVersion: 3
+        time: 0.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1.1376632
+        outSlope: -1.1376632
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.037718058
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    displayName: Rocket Launcher
   bonusStages:
   - id: first bonus stage
     prefab: {fileID: 8558497136857710916, guid: 415e9f3e84e4b294892b78669f4ac1ec,

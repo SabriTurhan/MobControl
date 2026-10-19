@@ -155,6 +155,7 @@ namespace Watermelon
                 UnitStats now = Campaign.GetUnitStats(unit);
                 stats = Loc.Format("cards.stats_unit", now.healthMult.ToString("0.##", Loc.Culture), now.damageMult.ToString("0.##", Loc.Culture));
                 if (now.healPerSecond > 0) stats += "\n" + Loc.Format("cards.stats_heal", now.healPerSecond.ToString("0.#", Loc.Culture));
+                if (now.squadDamageReduction > 0) stats += "\n" + Loc.Format("cards.stats_shield", Mathf.RoundToInt(now.squadDamageReduction * 100f));
             }
             else
             {

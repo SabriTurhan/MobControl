@@ -83,11 +83,14 @@ Liberated districts swap scorpion flags for blue flags and ruined props for repa
   intro, boss, sniper sight, medic, runtime UI in `UI/`), dev bot in `Campaign/Dev/DustwaterPlayBot.cs`.
 - Builders (menu **Tools/Dustwater**, all re-runnable, run in this order after art changes):
   1. Art/Build Units, Weapons, Props (also paints soldier dyes + palette)
-  2. Art/Build Town (pieces, road environments, diorama in Game scene)
-  3. Art/Render Portraits + Icons
-  4. Content/Register Content + Campaign Database (guns, characters, enemies, obstacles, Supplies, UI style)
-  5. Content/Build 30 Missions
-  6. Content/Build Intro Cinematic
+  2. Art/Build Frostpeak Units, Weapons, Props
+  3. Art/Build Town (pieces, road environments, diorama in Game scene)
+  4. Art/Build Frostpeak (pieces, snow road, winter environments, second diorama)
+  5. Art/Render Portraits + Icons
+  6. Content/Register Content + Campaign Database (guns, characters, enemies, obstacles, Supplies, UI style)
+  7. Content/Build 100 Missions
+  8. Content/Build Intro Cinematic (Dustwater intro + Act 2 transition actors)
+  9. Content/Localization (fonts, labels, settings) after adding strings
 - Template changes: gun pierce/splash/aim/unblockable, AdvanceMultiplier (boss standoff), stats from buildings,
   squad spawn from cards, Supplies currency, free revive, "MISSION N" label, upgrades panel/Play hidden by the hub.
 - Balance (bot, expected progression): 30/30 missions won by the bot after tuning; bosses: Rattler 380 hp,
@@ -100,3 +103,25 @@ Liberated districts swap scorpion flags for blue flags and ruined props for repa
 3. UI: briefing/squad screen, card collection, town screen with buildings.
 4. Levels 1–30 with intel tags, bosses, story beats; balance pass with a play bot.
 5. Intro cinematic.
+
+## Act 2: Frostpeak (missions 31-100, built 2026-10-19)
+
+- Story: Vex flees north after mission 30 and hires the **White Wolves**, who take the mountain town of
+  **Frostpeak**. A one-time cinematic (story beat 1001) plays after the M30 outro or on the first hub visit in
+  act 2: Dustwater celebrates, Vex runs north, the Wolves' convoy rolls into Frostpeak, Grimfang and Vex gloat,
+  the Rangers march through the snow.
+- 7 chapters (act = 1): Pine Pass (Sgt. Frostbite, M40), Frozen Lake (Ice Hammer Olaf, M50), Lumber Camp
+  (Big Timber, M60), Frostpeak Town (Mayor Snowjaw, M70), Crystal Mine (Foreman Crag, M80), Wolf Fortress
+  (Warlord Grimfang, M90), The Summit (Boss Vex, M100). Each chapter has its own winter road environment on a
+  snow ground and the snow road.
+- New cards: Pyro (flamethrower, short range, 3 flames, pierce), Scout (fire rate x1.4, range x1.3, hp x0.8),
+  Guardian (hp x3, dmg x0.5, the squad takes 25%+ less damage while he lives; `squadDamageReduction`).
+  Weapons: Burst Rifle (2 rounds), Rocket Launcher (splash). Card levels go up to 15.
+- Enemies: wolf / wolf_heavy / wolf_sniper (level ids swap automatically for n > 30), ice walls and snow
+  barrels instead of sandbags and barrels. Briefing threat icons and texts switch to the Wolves in act 2.
+- Town: a second diorama (Frostpeak, x = -800) with 7 new buildings (Mountain Lodge, Log Barracks, Forge,
+  Sawmill, Infirmary, Tavern, Lookout). Bonuses stack with Dustwater's; squad slots take the best command post.
+  The Town tab shows the current act's town.
+- Scaling for n > 30: Power(n) = 79.4 (1 + 0.13 (n - 30)), enemy damage 3 + 0.2 (n - 30). The bot squad
+  outgrows a linear curve (two towns, 7 slots, card level 15); probes put the act 1 "feel" at ~1.8x the
+  linear curve at M45 and ~2.4x at M75.

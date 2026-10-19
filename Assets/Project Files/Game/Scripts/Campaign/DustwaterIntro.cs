@@ -18,5 +18,11 @@ namespace Watermelon
         {
             onFinished?.Invoke();
         }
+
+        /// <summary>Story transition into a new act (1 = Frostpeak).</summary>
+        public virtual void PlayAct(int act, System.Action onFinished)
+        {
+            onFinished?.Invoke();
+        }
     }
 }

@@ -10,24 +10,28 @@ namespace Watermelon.Dustwater
         public const int Adobe = 0, Terracotta = 1, Wood = 2, DarkWood = 3, Sand = 4, Rust = 5, ScorpionRed = 6, RangerBlue = 7,
             Steel = 8, Iron = 9, Canvas = 10, Olive = 11, Cactus = 12, Water = 13, Gold = 14, White = 15,
             Black = 16, Slate = 17, RoadPurple = 18, Glass = 19, Cream = 20, Brick = 21, Khaki = 22, Skin = 23,
-            Lime = 24, Maroon = 25, Orange = 26, Teal = 27, Pink = 28, Navy = 29, Bone = 30, Fire = 31;
+            Lime = 24, Maroon = 25, Orange = 26, Teal = 27, Pink = 28, Navy = 29, Bone = 30, Fire = 31,
+            // Frostpeak (act 2)
+            Snow = 32, IceBlue = 33, DeepIce = 34, Pine = 35, PineDark = 36, Fur = 37, FurDark = 38, WolfGrey = 39,
+            Crystal = 40, Frost = 41, Log = 42, Lantern = 43, NightBlue = 44, Charcoal = 45, Ember = 46, Moss = 47;
 
-        public const int COUNT = 32;
+        public const int COUNT = 48;
         public const int ATLAS_SIZE = 512;
+        public const int ATLAS_HEIGHT = 1024;
         public const int BAND_HEIGHT = 16;
 
         // shade: 0 = lightest, 1 = darkest
         public static Vector2 UV(int band, float shade)
         {
             float x = Mathf.Lerp(8f, ATLAS_SIZE - 8f, Mathf.Clamp01(shade)) / ATLAS_SIZE;
-            float y = 1f - (band * BAND_HEIGHT + BAND_HEIGHT * 0.5f) / ATLAS_SIZE;
+            float y = 1f - (band * BAND_HEIGHT + BAND_HEIGHT * 0.5f) / ATLAS_HEIGHT;
 
             return new Vector2(x, y);
         }
 
         public static int FromUV(Vector2 uv)
         {
-            return Mathf.FloorToInt((1f - uv.y) * ATLAS_SIZE / BAND_HEIGHT);
+            return Mathf.FloorToInt((1f - uv.y) * ATLAS_HEIGHT / BAND_HEIGHT);
         }
     }
 

@@ -183,6 +183,25 @@ namespace Watermelon
             {
                 DustwaterIntro.Instance.Play(() => Campaign.IsIntroSeen = true);
             }
+            else
+            {
+                TryPlayActIntro(null);
+            }
+        }
+
+        // first visit of a new act: its cinematic plays once (story beat 1000 + act)
+        private bool TryPlayActIntro(System.Action onFinished)
+        {
+            int act = Campaign.CurrentAct;
+            int beat = 1000 + act;
+            if (act <= 0 || Campaign.IsStoryBeatSeen(beat) || DustwaterIntro.Instance == null) return false;
+
+            DustwaterIntro.Instance.PlayAct(act, () =>
+            {
+                Campaign.MarkStoryBeatSeen(beat);
+                onFinished?.Invoke();
+            });
+            return true;
         }
 
         private void AfterReward(Campaign.LevelResult result)
@@ -196,7 +215,8 @@ namespace Watermelon
                     Story.Show(DWUI.Style.commanderPortrait, Loc.Get("story.sergeant"), Loc.ChapterLines(result.chapterCompleted, "outro", chapter.outroLines), () =>
                     {
                         Campaign.MarkStoryBeatSeen(beat);
-                        if (DustwaterTown.Instance != null) Hub.SelectTab(HubView.Tab.Town);
+                        System.Action showTown = () => { if (DustwaterTown.Instance != null) Hub.SelectTab(HubView.Tab.Town); };
+                        if (!TryPlayActIntro(showTown)) showTown();
                     });
                 }
             }

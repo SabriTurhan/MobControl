@@ -221,7 +221,7 @@ namespace Watermelon.Dustwater
         // the heavy model's helmet sits lower inside the head ball than the soldier's
         private static readonly Vector3 HEAVY_HAT_OFFSET = new Vector3(0f, -0.07f, 0f);
 
-        private static void MakeBoss(GameObject root, string bossName, float scale, float sightLength)
+        internal static void MakeBoss(GameObject root, string bossName, float scale, float sightLength)
         {
             root.transform.localScale = Vector3.one * scale;
 
@@ -237,7 +237,7 @@ namespace Watermelon.Dustwater
             AddSight(root, sightLength / scale);
         }
 
-        private static void AddSight(GameObject root, float length)
+        internal static void AddSight(GameObject root, float length)
         {
             GameObject sight = new GameObject("Sight");
             sight.layer = LayerMask.NameToLayer("Pickable");
@@ -295,7 +295,7 @@ namespace Watermelon.Dustwater
             });
         }
 
-        private static void SetObstacleMesh(GameObject root, Mesh mesh, Vector3 position)
+        internal static void SetObstacleMesh(GameObject root, Mesh mesh, Vector3 position)
         {
             Transform model = root.transform.Find("Visuals/obstacle_barrel");
             model.name = "model";
@@ -368,13 +368,13 @@ namespace Watermelon.Dustwater
             return child;
         }
 
-        private static void SetBody(GameObject root, Mesh mesh)
+        internal static void SetBody(GameObject root, Mesh mesh)
         {
             SkinnedMeshRenderer body = root.GetComponentInChildren<SkinnedMeshRenderer>(true);
             body.sharedMesh = mesh;
         }
 
-        private static void AttachToBone(GameObject root, string boneName, string name, Mesh mesh, Vector3? offset = null)
+        internal static void AttachToBone(GameObject root, string boneName, string name, Mesh mesh, Vector3? offset = null)
         {
             SkinnedMeshRenderer body = root.GetComponentInChildren<SkinnedMeshRenderer>(true);
             Transform bone = Array.Find(body.bones, b => b.name == boneName);

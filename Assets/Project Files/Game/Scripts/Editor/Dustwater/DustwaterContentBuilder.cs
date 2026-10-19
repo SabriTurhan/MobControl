@@ -46,20 +46,38 @@ namespace Watermelon.Dustwater
             SetGun(guns, "bandit_sniper", "Bandit Sniper Rifle", DustwaterUnitsBuilder.SNIPER_GUN, riflePose, fireRate: 1f, damage: 1f, range: 26f, speed: 32f, count: 1, spread: 0f, pierce: 0, splash: 0f, aim: true, unblockable: true);
             SetGun(guns, "bandit_rifle", "Bandit Rifle", "Assets/Project Files/Game/Prefabs/Guns/Rifle.prefab", riflePose, fireRate: 1f, damage: 1f, range: 14f, speed: 20f, count: 1, spread: 0f, pierce: 0, splash: 0f, aim: true, unblockable: false);
 
+            // Frostpeak
+            SetGun(guns, "flamethrower", "Flamethrower", FrostUnitsBuilder.FLAMETHROWER, riflePose, fireRate: 2.2f, damage: 0.6f, range: 2.6f, speed: 14f, count: 3, spread: 22f, pierce: 1, splash: 0f);
+            SetGun(guns, "burst_rifle", "Burst Rifle", FrostUnitsBuilder.BURST_RIFLE, riflePose, fireRate: 1.2f, damage: 1.25f, range: 5.5f, speed: 28f, count: 2, spread: 4f, pierce: 0, splash: 0f);
+            SetGun(guns, "rocket_launcher", "Rocket Launcher", FrostUnitsBuilder.ROCKET_LAUNCHER, riflePose, fireRate: 0.55f, damage: 4f, range: 6f, speed: 16f, count: 1, spread: 0f, pierce: 0, splash: 2.4f);
+            // weapon gates show the gun's preview sprite (rendered by DustwaterIcons)
+            foreach (string id in new[] { "burst_rifle", "rocket_launcher" })
+                FindGun(guns, id).FindPropertyRelative("previewSprite").objectReferenceValue = DustwaterIcons.Icon("weapon_" + id);
+
             SerializedProperty characters = so.FindProperty("charactersData");
             SetCharacter(characters, "sharpshooter_character", "Sharpshooter", DustwaterUnitsBuilder.SHARPSHOOTER, "sniper");
             SetCharacter(characters, "medic_character", "Medic", DustwaterUnitsBuilder.MEDIC, "default_gun");
             SetCharacter(characters, "grenadier_character", "Grenadier", DustwaterUnitsBuilder.GRENADIER, "grenade_launcher");
+            SetCharacter(characters, "pyro_character", "Pyro", FrostUnitsBuilder.PYRO, "flamethrower");
+            SetCharacter(characters, "guardian_character", "Guardian", FrostUnitsBuilder.GUARDIAN, null);
+            SetCharacter(characters, "scout_character", "Scout", FrostUnitsBuilder.SCOUT, null);
 
             SerializedProperty enemies = so.FindProperty("enemiesData");
             SetSimple(enemies, "bandit_sniper", DustwaterUnitsBuilder.BANDIT_SNIPER);
             SetSimple(enemies, "boss_rattler", DustwaterUnitsBuilder.BOSS_RATTLER);
             SetSimple(enemies, "boss_jaws", DustwaterUnitsBuilder.BOSS_JAWS);
             SetSimple(enemies, "boss_vex", DustwaterUnitsBuilder.BOSS_VEX);
+            SetSimple(enemies, "wolf", FrostUnitsBuilder.WOLF);
+            SetSimple(enemies, "wolf_heavy", FrostUnitsBuilder.WOLF_HEAVY);
+            SetSimple(enemies, "wolf_sniper", FrostUnitsBuilder.WOLF_SNIPER);
+            foreach (var boss in FrostUnitsBuilder.BOSSES)
+                SetSimple(enemies, boss.id, boss.path);
 
             SerializedProperty obstacles = so.FindProperty("obstaclesData");
             SetSimple(obstacles, "sandbags", DustwaterUnitsBuilder.SANDBAGS);
             SetSimple(obstacles, "supply_crate", DustwaterUnitsBuilder.SUPPLY_CRATE);
+            SetSimple(obstacles, "ice_wall", FrostUnitsBuilder.ICE_WALL);
+            SetSimple(obstacles, "snow_barrel", FrostUnitsBuilder.SNOW_BARREL);
 
             so.ApplyModifiedPropertiesWithoutUndo();
             EditorUtility.SetDirty(database);
@@ -118,7 +136,7 @@ namespace Watermelon.Dustwater
             character.FindPropertyRelative("characterType").enumValueIndex = (int)CharacterType.Humanoid;
             character.FindPropertyRelative("isDefault").boolValue = false;
             character.FindPropertyRelative("isGunLocked").boolValue = !string.IsNullOrEmpty(lockedGun);
-            character.FindPropertyRelative("lockedGunId").stringValue = lockedGun;
+            character.FindPropertyRelative("lockedGunId").stringValue = lockedGun ?? "";
             character.FindPropertyRelative("displayName").stringValue = displayName;
             character.FindPropertyRelative("shootingImpactType").enumValueIndex = (int)ShootingImpactType.Animation;
         }
@@ -293,12 +311,20 @@ namespace Watermelon.Dustwater
             database.Units.Add(Unit("sharpshooter", "Sharpshooter", CardRarity.Rare, "sharpshooter_character", 5, false, "Long range shots that pierce through 3 bandits.", 0.9f, 1f, 1f, 1f, 0f, ThreatType.Armored, ThreatType.Snipers));
             database.Units.Add(Unit("medic", "Medic", CardRarity.Rare, "medic_character", 7, false, "Heals the whole squad over time.", 1f, 0.6f, 1f, 1f, 0.5f, ThreatType.Attrition));
             database.Units.Add(Unit("grenadier", "Grenadier", CardRarity.Epic, "grenadier_character", 15, false, "Lobs grenades that blast everything nearby.", 1.1f, 1f, 1f, 1f, 0f, ThreatType.Barricades, ThreatType.Swarm));
+            // Frostpeak
+            database.Units.Add(Unit("pyro", "Pyro", CardRarity.Rare, "pyro_character", 32, false, "Flamethrower. Burns through crowds and walls up close.", 1.3f, 1f, 1f, 1f, 0f, ThreatType.Swarm, ThreatType.Barricades));
+            database.Units.Add(Unit("scout", "Scout", CardRarity.Rare, "scout_character", 38, false, "Fast hands and sharp eyes: shoots faster and further.", 0.8f, 1f, 1.4f, 1.3f, 0f, ThreatType.Snipers, ThreatType.Armored));
+            UnitCardData guardian = Unit("guardian", "Guardian", CardRarity.Epic, "guardian_character", 45, false, "Huge shield. The whole squad takes less damage while he stands.", 3f, 0.5f, 1f, 1f, 0f, ThreatType.Snipers, ThreatType.Attrition);
+            guardian.squadDamageReduction = 0.25f;
+            database.Units.Add(guardian);
 
             database.Weapons.Clear();
             database.Weapons.Add(Weapon("pistol", "Pistol", CardRarity.Common, "default_gun", 0, "Basic sidearm. Better than nothing."));
             database.Weapons.Add(Weapon("shotgun", "Shotgun", CardRarity.Common, "shotgun", 2, "Three pellets per shot. Wrecks barricades.", ThreatType.Barricades));
             database.Weapons.Add(Weapon("rifle", "Rifle", CardRarity.Rare, "rifle", 7, "Double damage per bullet. Cuts through armor.", ThreatType.Armored));
             database.Weapons.Add(Weapon("minigun", "Minigun", CardRarity.Epic, "minigun", 12, "Triple fire rate. Mows down crowds.", ThreatType.Swarm));
+            database.Weapons.Add(Weapon("burst_rifle", "Burst Rifle", CardRarity.Rare, "burst_rifle", 34, "Two heavy rounds per shot. Great all-rounder.", ThreatType.Armored, ThreatType.Snipers));
+            database.Weapons.Add(Weapon("rocket_launcher", "Rocket Launcher", CardRarity.Epic, "rocket_launcher", 55, "Rockets explode on impact and hit everything around.", ThreatType.Barricades, ThreatType.Armored));
 
             database.Buildings.Clear();
             database.Buildings.Add(Building(BuildingType.CommandPost, "Command Post", "Your headquarters. Every level adds a squad slot.", "{0} squad slots", 0,
@@ -315,6 +341,23 @@ namespace Watermelon.Dustwater
                 L(400, 30, 30), L(800, 60, 60), L(1400, 100, 100), L(2200, 150, 150)));
             database.Buildings.Add(Building(BuildingType.Watchtower, "Watchtower", "Spot bandits early and shoot further.", "+{0}% range", 20,
                 L(900, 80, 10), L(1600, 130, 20), L(2600, 200, 30)));
+            foreach (BuildingData building in database.Buildings) { building.act = 0; building.id = building.type.ToString(); }
+
+            // Frostpeak: a second town, its buildings stack on top of Dustwater's (command posts take the best)
+            database.Buildings.Add(Building(BuildingType.CommandPost, "Mountain Lodge", "Rangers' winter HQ. Every level adds a squad slot.", "{0} squad slots", 30,
+                L(700, 50, 5), L(2400, 160, 6), L(6000, 380, 7)).In(1, "Lodge"));
+            database.Buildings.Add(Building(BuildingType.Barracks, "Log Barracks", "Warm bunks, tougher soldiers.", "+{0}% squad health", 31,
+                L(900, 60, 10), L(1800, 110, 20), L(3200, 180, 35), L(5200, 280, 50), L(8000, 400, 65)).In(1, "LogBarracks"));
+            database.Buildings.Add(Building(BuildingType.Armory, "Forge", "Hot steel makes harder-hitting rounds.", "+{0}% damage", 33,
+                L(1000, 70, 10), L(2000, 120, 20), L(3500, 200, 35), L(5600, 300, 50), L(8600, 430, 65)).In(1, "Forge"));
+            database.Buildings.Add(Building(BuildingType.Workshop, "Sawmill", "Its gears keep every gun running fast.", "+{0}% fire rate", 36,
+                L(1200, 80, 8), L(2400, 140, 16), L(4000, 220, 25), L(6200, 330, 35), L(9200, 460, 45)).In(1, "Sawmill"));
+            database.Buildings.Add(Building(BuildingType.FieldHospital, "Infirmary", "A warm bed for one more comeback.", "{0} free revive per mission", 44,
+                L(3000, 180, 1)).In(1, "Infirmary"));
+            database.Buildings.Add(Building(BuildingType.Saloon, "Tavern", "Hot cocoa and grateful miners pay well.", "+{0} cash per hour", 52,
+                L(2500, 150, 150), L(4500, 250, 250), L(7000, 380, 400), L(10000, 520, 600)).In(1, "Tavern"));
+            database.Buildings.Add(Building(BuildingType.Watchtower, "Lookout", "A beacon on the peak: spot wolves from afar.", "+{0}% range", 64,
+                L(5000, 300, 10), L(8000, 450, 20), L(12000, 650, 30)).In(1, "Lookout"));
 
             database.Chapters.Clear();
             database.Chapters.Add(Chapter("OUTSKIRTS", "Gas station and water tower", 1, 10, "Lieutenant Rattler", "boss_rattler", "Rangers in MY town? The boys will fill you with holes!",
@@ -325,7 +368,30 @@ namespace Watermelon.Dustwater
                 new[] { "Big Jaws is finished!", "Only the Scorpion Fort remains." }));
             database.Chapters.Add(Chapter("SCORPION FORT", "Vex's stronghold", 21, 30, "Boss Vex", "boss_vex", "You took my town, Commander. You will not take my fort!",
                 new[] { "Vex hides in his fort at the edge of town.", "This is the final push, Commander!" },
-                new[] { "Vex runs off into the desert. Dustwater is free!", "Keep patrolling the roads, Commander." }));
+                new[] { "Vex runs off into the desert. Dustwater is free!", "Scouts say he fled north, into the mountains..." }));
+
+            // Act 2: Frostpeak
+            database.Chapters.Add(Chapter("PINE PASS", "The snowy road north", 31, 40, "Sergeant Frostbite", "boss_frostbite", "Turn back, Rangers. Up here the cold kills before I do!",
+                new[] { "The White Wolves guard the pass to Frostpeak.", "Bundle up and push through, Commander!" },
+                new[] { "Frostbite is down. The pass is open!", "Frostpeak lies beyond the frozen lake." }).In(1));
+            database.Chapters.Add(Chapter("FROZEN LAKE", "Thin ice, thick armor", 41, 50, "Ice Hammer Olaf", "boss_olaf", "My hammer cracks ice. And Rangers!",
+                new[] { "The road crosses the frozen lake.", "Olaf's hammer squad waits on the ice." },
+                new[] { "Olaf sinks into the snow. The lake is ours!", "Next stop: the lumber camp." }).In(1));
+            database.Chapters.Add(Chapter("LUMBER CAMP", "Sawmills and log walls", 51, 60, "Big Timber", "boss_timber", "I chop trees bigger than you every morning!",
+                new[] { "The Wolves turned the lumber camp into a fortress.", "Big Timber runs the sawmills." },
+                new[] { "Timber! The camp is free.", "The lumberjacks are joining Frostpeak." }).In(1));
+            database.Chapters.Add(Chapter("FROSTPEAK TOWN", "Cabins under the snow", 61, 70, "Mayor Snowjaw", "boss_snowjaw", "I am the mayor now. Elections are cancelled!",
+                new[] { "Frostpeak's streets are full of Wolves.", "Their fake mayor, Snowjaw, rules the town." },
+                new[] { "Snowjaw is out of office!", "The town is free, but the mine is still taken." }).In(1));
+            database.Chapters.Add(Chapter("CRYSTAL MINE", "Tunnels and ice crystals", 71, 80, "Foreman Crag", "boss_crag", "Every crystal in this mountain belongs to the Wolves!",
+                new[] { "The Wolves are digging up Frostpeak's crystals.", "Shut down Foreman Crag's mine!" },
+                new[] { "Crag is buried in his own rubble.", "Grimfang's fortress is next." }).In(1));
+            database.Chapters.Add(Chapter("WOLF FORTRESS", "Stone walls of the pack", 81, 90, "Warlord Grimfang", "boss_grimfang", "The pack never loses. Howl, my wolves!",
+                new[] { "Grimfang leads the White Wolves from his fortress.", "Break through the stone walls!" },
+                new[] { "Grimfang falls. The pack scatters!", "Vex is hiding on the summit." }).In(1));
+            database.Chapters.Add(Chapter("THE SUMMIT", "Vex's last hideout", 91, 100, "Boss Vex", "boss_vex_frost", "You followed me to the top of the world? Then you fall from here!",
+                new[] { "Vex has fled to the summit of Frostpeak.", "End this for good, Commander!" },
+                new[] { "Vex is captured at last!", "Frostpeak is free. The Rangers are heroes of the north!" }).In(1));
 
             database.Threats.Clear();
             database.Threats.Add(Threat(ThreatType.Armored, "ARMORED", "Heavy bandits with thick vests.", new Color32(120, 128, 150, 255)));
@@ -333,6 +399,12 @@ namespace Watermelon.Dustwater
             database.Threats.Add(Threat(ThreatType.Snipers, "SNIPERS", "Bandit snipers fire from far away.", new Color32(160, 70, 140, 255)));
             database.Threats.Add(Threat(ThreatType.Barricades, "BARRICADES", "Sandbag walls block the road.", new Color32(200, 160, 90, 255)));
             database.Threats.Add(Threat(ThreatType.Attrition, "AMBUSH", "A long road under constant fire.", new Color32(230, 70, 70, 255)));
+
+            // card upgrades go up to level 15 for the long Frostpeak act
+            SerializedObject databaseSo = new SerializedObject(database);
+            SetInts(databaseSo.FindProperty("copiesPerLevel"), 2, 3, 4, 6, 8, 10, 14, 18, 24, 30, 36, 44, 52, 60);
+            SetInts(databaseSo.FindProperty("moneyPerLevel"), 30, 60, 100, 150, 220, 300, 400, 520, 660, 820, 1000, 1200, 1450, 1700);
+            databaseSo.ApplyModifiedPropertiesWithoutUndo();
 
             DustwaterIcons.AssignIcons(database);
 
@@ -368,6 +440,25 @@ namespace Watermelon.Dustwater
                 title = title, subtitle = subtitle, firstLevel = first, lastLevel = last, bossName = boss, bossPortrait = DustwaterIcons.Portrait(bossPortrait), bossTaunt = taunt,
                 introLines = new List<string>(intro), outroLines = new List<string>(outro),
             };
+        }
+
+        private static void SetInts(SerializedProperty array, params int[] values)
+        {
+            array.arraySize = values.Length;
+            for (int i = 0; i < values.Length; i++) array.GetArrayElementAtIndex(i).intValue = values[i];
+        }
+
+        private static BuildingData In(this BuildingData building, int act, string id)
+        {
+            building.act = act;
+            building.id = id;
+            return building;
+        }
+
+        private static ChapterData In(this ChapterData chapter, int act)
+        {
+            chapter.act = act;
+            return chapter;
         }
 
         private static ThreatInfo Threat(ThreatType type, string name, string description, Color color)

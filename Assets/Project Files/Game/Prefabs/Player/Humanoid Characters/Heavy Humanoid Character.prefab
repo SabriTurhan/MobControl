@@ -105,6 +105,14 @@ MonoBehaviour:
     localOffset: {x: -0.287, y: 0.224, z: -0.333}
     localEulerAngles: {x: 298.7271, y: 278.29514, z: 53.642426}
     localScale: {x: 1, y: 1, z: 1}
+  - weaponId: burst_rifle
+    localOffset: {x: -0.068, y: -0.118, z: -0.074}
+    localEulerAngles: {x: 315.42368, y: -0.0000023971756, z: 25.373117}
+    localScale: {x: 1, y: 1, z: 1}
+  - weaponId: rocket_launcher
+    localOffset: {x: -0.068, y: -0.118, z: -0.074}
+    localEulerAngles: {x: 315.42368, y: -0.0000023971756, z: 25.373117}
+    localScale: {x: 1, y: 1, z: 1}
   characterGraphicsBehavior: {fileID: 4110661093369385421}
 --- !u!54 &8953117253220748055
 Rigidbody:
@@ -113,10 +121,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3116716204771541216}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

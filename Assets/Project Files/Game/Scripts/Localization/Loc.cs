@@ -135,11 +135,20 @@ namespace Watermelon
         public static string UnitDescription(UnitCardData unit) => Get("unit." + unit.id + ".desc", unit.description);
         public static string WeaponName(WeaponCardData weapon) => Get("weapon." + weapon.id + ".name", weapon.displayName);
         public static string WeaponDescription(WeaponCardData weapon) => Get("weapon." + weapon.id + ".desc", weapon.description);
-        public static string BuildingName(BuildingData building) => Get("building." + building.type + ".name", building.displayName);
-        public static string BuildingDescription(BuildingData building) => Get("building." + building.type + ".desc", building.description);
+        private static string BuildingKey(BuildingData building) => "building." + (string.IsNullOrEmpty(building.id) ? building.type.ToString() : building.id);
+        public static string BuildingName(BuildingData building) => Get(BuildingKey(building) + ".name", building.displayName);
+        public static string BuildingDescription(BuildingData building) => Get(BuildingKey(building) + ".desc", building.description);
+        // the effect text is shared by every building of the same type
         public static string BuildingValue(BuildingData building, float value) => string.Format(Culture, Get("building." + building.type + ".format", building.valueFormat), value);
+        public static string TownName(int act) => Get("town.title." + act, act == 0 ? "DUSTWATER" : "FROSTPEAK");
         public static string ThreatName(ThreatInfo threat) => Get("threat." + threat.type + ".name", threat.displayName);
-        public static string ThreatDescription(ThreatInfo threat) => Get("threat." + threat.type + ".desc", threat.description);
+        public static string ThreatDescription(ThreatInfo threat)
+        {
+            // Frostpeak: same threats, White Wolves wording
+            string key = "threat." + threat.type + ".desc";
+            if (Campaign.IsInitialised && Campaign.CurrentAct > 0 && Has(key + "." + Campaign.CurrentAct)) key += "." + Campaign.CurrentAct;
+            return Get(key, threat.description);
+        }
         public static string CharacterName(string characterId, string fallback) => Get("char." + characterId, fallback);
         public static string GunName(string gunId, string fallback) => Get("gun." + gunId, fallback);
         public static string OperationName(int missionNumber, string fallback) => Get("op." + missionNumber, fallback);

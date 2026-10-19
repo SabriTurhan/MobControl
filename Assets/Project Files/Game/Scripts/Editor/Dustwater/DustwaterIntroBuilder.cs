@@ -28,6 +28,16 @@ namespace Watermelon.Dustwater
                 Actor(DustwaterUnitsBuilder.MEDIC, "Medic Actor", TEMPLATE + "Guns/Pistol.prefab", "default_gun"),
             };
 
+            GameObject wolf = Actor(FrostUnitsBuilder.WOLF, "Wolf Actor", TEMPLATE + "Guns/Rifle.prefab", "rifle");
+            GameObject grimfang = Actor(FrostUnitsBuilder.BossPath("boss_grimfang"), "Grimfang Actor", TEMPLATE + "Guns/Minigun.prefab", "minigun");
+            List<GameObject> frostRangers = new List<GameObject>()
+            {
+                Actor(FrostUnitsBuilder.SCOUT, "Scout Actor", FrostUnitsBuilder.BURST_RIFLE, "burst_rifle"),
+                Actor(FrostUnitsBuilder.PYRO, "Pyro Actor", FrostUnitsBuilder.FLAMETHROWER, "flamethrower"),
+                Actor(FrostUnitsBuilder.GUARDIAN, "Guardian Actor", FrostUnitsBuilder.BURST_RIFLE, "burst_rifle"),
+                Actor(TEMPLATE + "Player/Humanoid Characters/Default Humanoid Character.prefab", "Ranger Actor", TEMPLATE + "Guns/Rifle.prefab", "rifle"),
+            };
+
             var scene = EditorSceneManager.OpenScene(DustwaterContentBuilder.GAME_SCENE, OpenSceneMode.Single);
             GameObject old = GameObject.Find("Dustwater Intro");
             if (old != null) Object.DestroyImmediate(old);
@@ -35,7 +45,16 @@ namespace Watermelon.Dustwater
             GameObject intro = new GameObject("Dustwater Intro");
             DustwaterIntroPlayer player = intro.AddComponent<DustwaterIntroPlayer>();
             SerializedObject so = new SerializedObject(player);
-            so.FindProperty("town").objectReferenceValue = Object.FindFirstObjectByType<DustwaterTownView>(FindObjectsInactive.Include);
+            DustwaterTownView[] towns = Object.FindObjectsByType<DustwaterTownView>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            so.FindProperty("town").objectReferenceValue = System.Array.Find(towns, t => t.Act == 0);
+            so.FindProperty("frostTown").objectReferenceValue = System.Array.Find(towns, t => t.Act == 1);
+            so.FindProperty("wolfActor").objectReferenceValue = wolf;
+            so.FindProperty("grimfangActor").objectReferenceValue = grimfang;
+            so.FindProperty("wolfTruckPrefab").objectReferenceValue = AssetDatabase.LoadAssetAtPath<GameObject>(DustwaterUnitsBuilder.PREFABS + "/Town/Wolf Truck.prefab");
+            SerializedProperty frostList = so.FindProperty("frostRangerActors");
+            frostList.arraySize = frostRangers.Count;
+            for (int i = 0; i < frostRangers.Count; i++) frostList.GetArrayElementAtIndex(i).objectReferenceValue = frostRangers[i];
+            so.FindProperty("grimfangPortrait").objectReferenceValue = DustwaterIcons.Portrait("boss_grimfang");
             so.FindProperty("banditActor").objectReferenceValue = bandit;
             so.FindProperty("vexActor").objectReferenceValue = vex;
             so.FindProperty("truckPrefab").objectReferenceValue = AssetDatabase.LoadAssetAtPath<GameObject>(DustwaterUnitsBuilder.PREFABS + "/Town/Bandit Truck.prefab");

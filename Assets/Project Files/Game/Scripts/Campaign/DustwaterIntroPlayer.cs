@@ -25,6 +25,14 @@ namespace Watermelon
         [SerializeField] Sprite vexPortrait;
         [SerializeField] Sprite sergeantPortrait;
 
+        [Header("Act 2: Frostpeak")]
+        [SerializeField] DustwaterTownView frostTown;
+        [SerializeField] GameObject wolfActor;
+        [SerializeField] GameObject grimfangActor;
+        [SerializeField] GameObject wolfTruckPrefab;
+        [SerializeField] List<GameObject> frostRangerActors = new List<GameObject>();
+        [SerializeField] Sprite grimfangPortrait;
+
         private static readonly int MOVEMENT_SPEED = Animator.StringToHash("Movement Speed");
 
         private readonly List<GameObject> spawned = new List<GameObject>();
@@ -42,8 +50,10 @@ namespace Watermelon
         private Image fade;
 
         private Transform cameraTransform;
-        private Vector3 cameraLocalPosition;
-        private Quaternion cameraLocalRotation;
+        private DustwaterTownView activeTown;
+        private readonly List<(DustwaterTownView town, Vector3 position, Quaternion rotation)> usedTowns = new List<(DustwaterTownView, Vector3, Quaternion)>();
+        private string titleKey = "intro.title";
+        private string subtitleKey = "intro.subtitle";
 
         public bool IsPlaying { get; private set; }
 
@@ -57,8 +67,37 @@ namespace Watermelon
 
             this.onFinished = onFinished;
             IsPlaying = true;
+            titleKey = "intro.title";
+            subtitleKey = "intro.subtitle";
             BuildOverlay();
             routine = StartCoroutine(Run());
+        }
+
+        public override void PlayAct(int act, System.Action onFinished)
+        {
+            if (act != 1 || town == null || frostTown == null || DustwaterUI.Instance == null)
+            {
+                onFinished?.Invoke();
+                return;
+            }
+
+            this.onFinished = onFinished;
+            IsPlaying = true;
+            titleKey = "act2.title";
+            subtitleKey = "act2.subtitle";
+            BuildOverlay();
+            routine = StartCoroutine(RunFrostpeak());
+        }
+
+        // switches the cinematic to a town diorama (its camera renders full screen)
+        private void UseTown(DustwaterTownView view)
+        {
+            if (activeTown != null && activeTown != view) activeTown.EndCinematic();
+
+            activeTown = view;
+            cameraTransform = view.TownCamera.transform;
+            if (!usedTowns.Exists(u => u.town == view))
+                usedTowns.Add((view, cameraTransform.localPosition, cameraTransform.localRotation));
         }
 
         #region Shots
@@ -67,9 +106,7 @@ namespace Watermelon
         {
             DustwaterUI.Instance.Hub.Hide();
 
-            cameraTransform = town.TownCamera.transform;
-            cameraLocalPosition = cameraTransform.localPosition;
-            cameraLocalRotation = cameraTransform.localRotation;
+            UseTown(town);
 
             Transform root = town.transform;
             town.SetCinematicState(true);
@@ -145,9 +182,104 @@ namespace Watermelon
             Finish();
         }
 
+        /// <summary>
+        /// Act 2: Dustwater celebrates, Vex flees north, the White Wolves take Frostpeak (Grimfang and Vex),
+        /// the Rangers march into the snow.
+        /// </summary>
+        private IEnumerator RunFrostpeak()
+        {
+            DustwaterUI.Instance.Hub.Hide();
+
+            // 1. Dustwater is free: rangers in the street under blue flags
+            UseTown(town);
+            Transform root = town.transform;
+            town.SetCinematicState(true);
+            SetDistrictFlags(false, true);
+            for (int i = 0; i < rangerActors.Count; i++)
+                Spawn(rangerActors[i], root, new Vector3(-2.25f + i * 1.5f, 0f, 2f - (i % 2) * 0.8f), 180f);
+            yield return Fade(1f, 0f, 0.8f);
+            StartCoroutine(MoveCamera(root, new Vector3(0f, 6f, -12f), new Vector3(0f, 1.2f, 2f), new Vector3(0f, 9f, -18f), new Vector3(0f, 1f, 6f), 5f));
+            yield return Caption(sergeantPortrait, Loc.Get("story.sergeant"), Loc.Get("act2.1"), 4.4f);
+
+            // 2. Vex runs off up the road, north
+            Transform vex = Spawn(vexActor, root, new Vector3(0f, 0f, 16f), 180f).transform;
+            StartCoroutine(Walk(vex, new List<Vector3>() { new Vector3(0f, 0f, 40f) }, 3.2f, true, 1.6f));
+            StartCoroutine(MoveCamera(root, new Vector3(1.5f, 4.5f, 6f), new Vector3(0f, 2.2f, 16f), new Vector3(0.5f, 6f, 4f), new Vector3(0f, 1.5f, 30f), 5f));
+            yield return Caption(vexPortrait, Loc.Get("story.vex"), Loc.Get("act2.2"), 4.6f);
+
+            // 3. far to the north: the Wolves' convoy rolls into Frostpeak
+            yield return Fade(0f, 1f, 0.45f);
+            ClearActors();
+            UseTown(frostTown);
+            root = frostTown.transform;
+            frostTown.SetCinematicState(true);
+            SetDistrictFlags(false, false);
+
+            List<Transform> wolves = new List<Transform>();
+            Transform truckA = Spawn(wolfTruckPrefab, root, new Vector3(-1.2f, 0f, -34f), 0f).transform;
+            Transform truckB = Spawn(wolfTruckPrefab, root, new Vector3(1.15f, 0f, -44f), 0f).transform;
+            StartCoroutine(Drive(truckA, new Vector3(-1.2f, 0f, 8f), 10f));
+            StartCoroutine(Drive(truckB, new Vector3(1.15f, 0f, 16f), 10f));
+            Vector3[] targets =
+            {
+                new Vector3(-2.0f, 0f, 0.2f), new Vector3(0f, 0f, 2.0f), new Vector3(2.0f, 0f, 0.5f), new Vector3(1.6f, 0f, 9.0f),
+                new Vector3(-1.9f, 0f, 12.5f), new Vector3(0.4f, 0f, 11.8f), new Vector3(-0.9f, 0f, 3.8f),
+            };
+            for (int i = 0; i < targets.Length; i++)
+            {
+                Vector3 start = new Vector3(-1.5f + (i % 3) * 1.5f, 0f, -14f - i * 1.0f);
+                Transform wolf = Spawn(wolfActor, root, start, 0f).transform;
+                wolves.Add(wolf);
+                StartCoroutine(Walk(wolf, new List<Vector3>() { new Vector3(start.x, 0f, -1.5f), targets[i] }, 7.5f, true, 0.3f + i * 0.1f));
+            }
+            StartCoroutine(MoveCamera(root, new Vector3(0f, 4.8f, -17f), new Vector3(0f, 1.0f, 14f), new Vector3(0f, 4.2f, -12.5f), new Vector3(0f, 1.0f, 12f), 6f));
+            yield return Fade(1f, 0f, 0.45f);
+            yield return Caption(null, null, Loc.Get("act2.3"), 5.2f);
+
+            // 4. Frostpeak falls: wolf camps and flags, Grimfang with Vex at his side
+            yield return Fade(0f, 1f, 0.35f);
+            frostTown.SetCinematicState(false);
+            SetDistrictFlags(true, false);
+            foreach (Transform wolf in wolves) wolf.gameObject.SetActive(false);
+            Transform grimfang = Spawn(grimfangActor, root, new Vector3(-0.9f, 0f, -4f), 180f).transform;
+            Spawn(vexActor, root, new Vector3(1.6f, 0f, -3.2f), 200f);
+            Spawn(wolfActor, root, new Vector3(-3.2f, 0f, -2.4f), 160f);
+            Spawn(wolfActor, root, new Vector3(3.6f, 0f, -2f), 200f);
+            StartCoroutine(MoveCamera(root, new Vector3(0.8f, 4.6f, -16f), new Vector3(0f, 3.0f, -4f), new Vector3(0.4f, 4.2f, -13.5f), new Vector3(0f, 3.1f, -4f), 4.5f));
+            yield return Fade(1f, 0f, 0.35f);
+            StartCoroutine(Laugh(grimfang));
+            yield return Caption(grimfangPortrait, Loc.Get("story.grimfang"), Loc.Get("act2.4"), 4.6f);
+
+            // 5. the Rangers march through the snow
+            yield return Fade(0f, 1f, 0.35f);
+            for (int i = 0; i < frostRangerActors.Count; i++)
+            {
+                Vector3 start = new Vector3(-2.25f + i * 1.5f, 0f, -29f - (i % 2) * 0.8f);
+                Transform ranger = Spawn(frostRangerActors[i], root, start, 0f).transform;
+                StartCoroutine(Walk(ranger, new List<Vector3>() { start + new Vector3(0f, 0f, 7.5f) }, 1.45f, false, 0.2f));
+            }
+            StartCoroutine(MoveCamera(root, new Vector3(1.2f, 4.8f, -37f), new Vector3(0f, 1.6f, 4f), new Vector3(0f, 5.4f, -40f), new Vector3(0f, 1.8f, 6f), 6f));
+            yield return Fade(1f, 0f, 0.35f);
+            yield return Caption(sergeantPortrait, Loc.Get("story.sergeant"), Loc.Get("act2.5"), 4.8f);
+
+            captionGroup.alpha = 0f;
+            yield return FadeGroup(titleGroup, 0f, 1f, 0.5f);
+            yield return WaitUnscaled(2.2f);
+            yield return Fade(0f, 1f, 0.5f);
+
+            Finish();
+        }
+
         #endregion
 
         #region Helpers
+
+        private void ClearActors()
+        {
+            foreach (GameObject instance in spawned)
+                if (instance != null) Destroy(instance);
+            spawned.Clear();
+        }
 
         private GameObject Spawn(GameObject prefab, Transform parent, Vector3 localPosition, float yaw)
         {
@@ -207,7 +339,7 @@ namespace Watermelon
 
         private void SetDistrictFlags(bool red, bool blue)
         {
-            foreach (Transform child in town.transform)
+            foreach (Transform child in activeTown.transform)
             {
                 if (child.name.EndsWith("Flag Red")) child.gameObject.SetActive(red);
                 else if (child.name.EndsWith("Flag Blue")) child.gameObject.SetActive(blue);
@@ -313,13 +445,16 @@ namespace Watermelon
         {
             IsPlaying = false;
 
-            foreach (GameObject instance in spawned)
-                if (instance != null) Destroy(instance);
-            spawned.Clear();
+            ClearActors();
 
-            cameraTransform.localPosition = cameraLocalPosition;
-            cameraTransform.localRotation = cameraLocalRotation;
-            town.EndCinematic();
+            foreach (var used in usedTowns)
+            {
+                used.town.TownCamera.transform.localPosition = used.position;
+                used.town.TownCamera.transform.localRotation = used.rotation;
+                used.town.EndCinematic();
+            }
+            usedTowns.Clear();
+            activeTown = null;
 
             if (overlay != null) Destroy(overlay.gameObject);
 
@@ -367,10 +502,18 @@ namespace Watermelon
             RectTransform title = DWUI.Rect(overlay, "Title").Stretch();
             titleGroup = DWUI.Group(title.gameObject);
             titleGroup.alpha = 0f;
-            TextMeshProUGUI name = DWUI.Text(title, "Name", Loc.Get("intro.title"), 150f, style.gold);
+            TextMeshProUGUI name = DWUI.Text(title, "Name", Loc.Get(titleKey), 150f, style.gold);
             name.rectTransform.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, 120f), new Vector2(1060f, 200f));
-            TextMeshProUGUI subtitle = DWUI.Text(title, "Subtitle", Loc.Get("intro.subtitle"), 74f, Color.white);
+            TextMeshProUGUI subtitle = DWUI.Text(title, "Subtitle", Loc.Get(subtitleKey), 74f, Color.white);
             subtitle.rectTransform.Place(new Vector2(0.5f, 0.5f), new Vector2(0f, -10f), new Vector2(1000f, 100f));
+            // long act subtitles in some languages: shrink to the safe width instead of spilling off screen
+            foreach (TextMeshProUGUI text in new[] { name, subtitle })
+            {
+                text.enableAutoSizing = true;
+                text.fontSizeMax = text.fontSize;
+                text.fontSizeMin = text.fontSize * 0.45f;
+                text.enableWordWrapping = false;
+            }
 
             fade = DWUI.Image(overlay, "Fade", style.square, Color.black);
             fade.rectTransform.Stretch();
