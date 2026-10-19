@@ -80,27 +80,30 @@ namespace Watermelon
             StartCoroutine(MoveCamera(root, new Vector3(0f, 40f, -58f), new Vector3(0f, 0f, 12f), new Vector3(0f, 25f, -30f), new Vector3(0f, 0f, 14f), 5.5f));
             yield return Caption(null, null, Loc.Get("intro.1"), 4.6f);
 
-            // 2. the convoy rolls in
+            // 2. the convoy rolls in through the town entrance (behind the camera), stops in front of the watchtower
             List<Transform> bandits = new List<Transform>();
-            Transform truckA = Spawn(truckPrefab, root, new Vector3(-1.2f, 0f, 52f), 180f).transform;
-            Transform truckB = Spawn(truckPrefab, root, new Vector3(1.4f, 0f, 62f), 180f).transform;
-            for (int i = 0; i < 7; i++)
+            Transform truckA = Spawn(truckPrefab, root, new Vector3(-1.2f, 0f, -34f), 0f).transform;
+            Transform truckB = Spawn(truckPrefab, root, new Vector3(1.15f, 0f, -44f), 0f).transform;
+            StartCoroutine(Drive(truckA, new Vector3(-1.2f, 0f, 8f), 10f));
+            StartCoroutine(Drive(truckB, new Vector3(1.15f, 0f, 16f), 10f));
+
+            // bandits run up the road behind the trucks, then spread out between them
+            Vector3[] targets =
             {
-                Transform bandit = Spawn(banditActor, root, new Vector3(-3f + i, 0f, 48f + (i % 3) * 3f), 180f).transform;
-                SetRunning(bandit, true);
+                new Vector3(-2.0f, 0f, 0.2f), new Vector3(0f, 0f, 2.0f), new Vector3(2.0f, 0f, 0.5f), new Vector3(1.6f, 0f, 9.0f),
+                new Vector3(-1.9f, 0f, 12.5f), new Vector3(0.4f, 0f, 11.8f), new Vector3(-0.9f, 0f, 3.8f),
+            };
+            for (int i = 0; i < targets.Length; i++)
+            {
+                Vector3 start = new Vector3(-1.5f + (i % 3) * 1.5f, 0f, -14f - i * 1.0f);
+                Transform bandit = Spawn(banditActor, root, start, 0f).transform;
                 bandits.Add(bandit);
+                StartCoroutine(Walk(bandit, new List<Vector3>() { new Vector3(start.x, 0f, -1.5f), targets[i] }, 7.5f, true, 0.3f + i * 0.1f));
             }
 
-            StartCoroutine(MoveCamera(root, new Vector3(0f, 2.6f, -17f), new Vector3(0f, 1.6f, 22f), new Vector3(0f, 2.2f, -11f), new Vector3(0f, 1.4f, 18f), 6f));
-            StartCoroutine(MoveObject(truckA, truckA.localPosition, new Vector3(-1.2f, 0f, 10f), 4.2f));
-            StartCoroutine(MoveObject(truckB, truckB.localPosition, new Vector3(1.6f, 0f, 19f), 5f));
-            for (int i = 0; i < bandits.Count; i++)
-            {
-                Vector3 target = new Vector3(-6f + i * 2f, 0f, 2f + (i % 3) * 4f);
-                StartCoroutine(MoveObject(bandits[i], bandits[i].localPosition, target, 4.6f + i * 0.15f, () => { }));
-            }
+            // high over the road: trucks and bandits pass under the camera into town, no buildings in the way
+            StartCoroutine(MoveCamera(root, new Vector3(0f, 4.8f, -17f), new Vector3(0f, 1.0f, 14f), new Vector3(0f, 4.2f, -12.5f), new Vector3(0f, 1.0f, 12f), 6f));
             yield return Caption(null, null, Loc.Get("intro.2"), 5.2f);
-            foreach (Transform bandit in bandits) SetRunning(bandit, false);
 
             // 3. the town falls
             yield return Fade(0f, 1f, 0.35f);
@@ -122,8 +125,13 @@ namespace Watermelon
 
             // 5. the Blue Rangers
             yield return Fade(0f, 1f, 0.35f);
+            // the Rangers march towards the town while Vex waits at the far end of the street
             for (int i = 0; i < rangerActors.Count; i++)
-                Spawn(rangerActors[i], root, new Vector3(-2.25f + i * 1.5f, 0f, -26f - (i % 2) * 0.8f), 0f);
+            {
+                Vector3 start = new Vector3(-2.25f + i * 1.5f, 0f, -29f - (i % 2) * 0.8f);
+                Transform ranger = Spawn(rangerActors[i], root, start, 0f).transform;
+                StartCoroutine(Walk(ranger, new List<Vector3>() { start + new Vector3(0f, 0f, 7.5f) }, 1.45f, false, 0.2f));
+            }
             StartCoroutine(MoveCamera(root, new Vector3(1.2f, 4.8f, -37f), new Vector3(0f, 1.6f, 4f), new Vector3(0f, 5.4f, -40f), new Vector3(0f, 1.8f, 6f), 6f));
             yield return Fade(1f, 0f, 0.35f);
             yield return Caption(sergeantPortrait, Loc.Get("story.sergeant"), Loc.Get("intro.5"), 4.8f);
@@ -147,13 +155,54 @@ namespace Watermelon
             instance.transform.localPosition = localPosition;
             instance.transform.localRotation = Quaternion.Euler(0f, yaw, 0f);
             spawned.Add(instance);
+            // the soldier animator starts in the run blend: actors stand still until they move
+            SetSpeed(instance.transform, 0f);
             return instance;
         }
 
-        private static void SetRunning(Transform actor, bool running)
+        // blend tree: 0 idle, 0.5 walk, 1 run
+        private static void SetSpeed(Transform actor, float blend)
         {
             Animator animator = actor.GetComponentInChildren<Animator>();
-            if (animator != null) animator.SetFloat(MOVEMENT_SPEED, running ? 1f : 0f);
+            if (animator != null) animator.SetFloat(MOVEMENT_SPEED, blend);
+        }
+
+        /// <summary>Walks/runs along waypoints facing the way it goes, then stands idle.</summary>
+        private IEnumerator Walk(Transform actor, List<Vector3> points, float speed, bool run, float delay)
+        {
+            yield return WaitUnscaled(delay);
+
+            foreach (Vector3 point in points)
+            {
+                Vector3 direction = point - actor.localPosition;
+                direction.y = 0f;
+                if (direction.sqrMagnitude < 0.0001f) continue;
+                actor.localRotation = Quaternion.LookRotation(direction);
+                SetSpeed(actor, run ? 1f : 0.5f);
+
+                while (actor != null && (point - actor.localPosition).sqrMagnitude > 0.0004f)
+                {
+                    actor.localPosition = Vector3.MoveTowards(actor.localPosition, point, speed * Time.unscaledDeltaTime);
+                    yield return null;
+                }
+            }
+
+            if (actor != null) SetSpeed(actor, 0f);
+        }
+
+        /// <summary>Vehicle drive with a short brake at the end.</summary>
+        private IEnumerator Drive(Transform vehicle, Vector3 target, float speed)
+        {
+            Vector3 start = vehicle.localPosition;
+            float duration = Vector3.Distance(start, target) / speed;
+            float t = 0f;
+            while (vehicle != null && t < 1f)
+            {
+                t += Time.unscaledDeltaTime / duration;
+                float eased = 1f - (1f - Mathf.Clamp01(t)) * (1f - Mathf.Clamp01(t));
+                vehicle.localPosition = Vector3.Lerp(start, target, Mathf.Lerp(Mathf.Clamp01(t), eased, Mathf.Clamp01(t)));
+                yield return null;
+            }
         }
 
         private void SetDistrictFlags(bool red, bool blue)
@@ -180,19 +229,6 @@ namespace Watermelon
         }
 
         private int cameraToken;
-
-        private IEnumerator MoveObject(Transform target, Vector3 from, Vector3 to, float duration, System.Action done = null)
-        {
-            float t = 0f;
-            while (t < 1f && target != null)
-            {
-                t += Time.unscaledDeltaTime / duration;
-                target.localPosition = Vector3.Lerp(from, to, Mathf.Clamp01(t));
-                yield return null;
-            }
-
-            done?.Invoke();
-        }
 
         private IEnumerator Laugh(Transform target)
         {
