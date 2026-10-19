@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Writes the 100 campaign missions (Level 001-100) from a design table: Dustwater 1-30, Frostpeak 31-100. Every mission is a sequence of
     // rows (template spacing: first row at z 19.3, one row every 11.27, lanes at x -1.5 / 1.5, wide rows at

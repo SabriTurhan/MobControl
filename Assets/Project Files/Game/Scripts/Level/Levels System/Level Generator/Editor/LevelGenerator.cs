@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 using Preset = UnityEditor.Presets.Preset;
 using Random = UnityEngine.Random;
 
-namespace Watermelon.LevelEditor
+namespace SquadCommand.LevelEditor
 {
     public class LevelGenerator
     {

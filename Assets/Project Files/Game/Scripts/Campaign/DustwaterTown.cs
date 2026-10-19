@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     /// <summary>
     /// The 3D town of Dustwater shown behind the Town tab.

@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.level_failed
 --- !u!1 &5409101142719958149
 GameObject:
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.no_thanks
 --- !u!1 &5409101143213349392
 GameObject:
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.continue
 --- !u!1 &5409101143383711275
 GameObject:
@@ -680,7 +680,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4286580776912710847}
-        m_TargetAssemblyTypeName: Watermelon.UIGameOver, Assembly-CSharp
+        m_TargetAssemblyTypeName: SquadCommand.UIGameOver, Assembly-CSharp
         m_MethodName: ContinueButton
         m_Mode: 1
         m_Arguments:
@@ -917,7 +917,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4286580776912710847}
-        m_TargetAssemblyTypeName: Watermelon.UIGameOver, Assembly-CSharp
+        m_TargetAssemblyTypeName: SquadCommand.UIGameOver, Assembly-CSharp
         m_MethodName: NoThanksButton
         m_Mode: 1
         m_Arguments:

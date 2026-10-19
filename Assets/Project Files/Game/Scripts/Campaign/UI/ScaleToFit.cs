@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     /// <summary>
     /// Shrinks a fixed-size panel uniformly when its parent is shorter (tablets, 3:4) than the panel needs.

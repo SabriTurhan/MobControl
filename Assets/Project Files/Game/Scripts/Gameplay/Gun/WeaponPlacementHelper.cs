@@ -9,7 +9,7 @@ using UnityEngine;
 using System;
 using System.Runtime.CompilerServices;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [ExecuteInEditMode]
     public class WeaponPlacementHelper : MonoBehaviour

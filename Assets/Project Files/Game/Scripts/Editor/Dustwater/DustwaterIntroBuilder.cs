@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Visual-only actors for the intro (gameplay prefabs with every script, collider, health bar and
     // particle removed, holding their gun model) and the intro object in the Game scene.

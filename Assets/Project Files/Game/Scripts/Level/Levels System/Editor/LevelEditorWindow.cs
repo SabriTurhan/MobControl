@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using System;
-using Watermelon;
+using SquadCommand;
 using System.Text;
 using System.Collections.Generic;
 using UnityEditorInternal;
 
-namespace Watermelon.LevelEditor
+namespace SquadCommand.LevelEditor
 {
     public class LevelEditorWindow : LevelEditorBase
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class GateBehavior : OppositeMover, ITargetable, IClearable, ILevelInitable, IPickableGameplayElement
     {

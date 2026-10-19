@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [CustomEditor(typeof(StartPointHandles))]
     public class StartPointHandlesEditor : Editor

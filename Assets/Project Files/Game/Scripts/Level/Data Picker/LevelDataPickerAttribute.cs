@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [AttributeUsage(AttributeTargets.Field, Inherited = true, AllowMultiple = false)]
     public class LevelDataPickerAttribute : PropertyAttribute

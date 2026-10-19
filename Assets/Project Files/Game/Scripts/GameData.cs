@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [CreateAssetMenu(fileName = "Game Data", menuName = "Data/Game Data")]
     public class GameData : ScriptableObject

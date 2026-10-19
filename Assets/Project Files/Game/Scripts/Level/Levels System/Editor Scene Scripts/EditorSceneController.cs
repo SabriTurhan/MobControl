@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using static UnityEngine.CullingGroup;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class EditorSceneController : MonoBehaviour
     {

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // Main menu hub: bottom tabs (Town / Squad / Battle), the next mission card, Supplies counter, Saloon income
     public class HubView
@@ -156,6 +156,9 @@ namespace Watermelon
             Refresh();
         }
 
+        /// <summary>Level the mission card was filled from (the level can finish loading after the hub shows).</summary>
+        public LevelData ShownLevel { get; private set; }
+
         public void Refresh()
         {
             if (!Campaign.IsInitialised) return;
@@ -168,6 +171,7 @@ namespace Watermelon
             missionText.text = Loc.Format("ui.mission_n", Campaign.CurrentLevelNumber);
 
             LevelData level = LevelController.LevelData;
+            ShownLevel = level;
             operationText.text = level != null && !string.IsNullOrEmpty(level.OperationName) ? Loc.Format("hub.operation", Loc.OperationName(Campaign.CurrentLevelNumber, level.OperationName)) : "";
 
             DWUI.Clear(threatsRow);

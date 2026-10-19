@@ -7,9 +7,9 @@ using UnityEditorInternal;
 using System.IO;
 using System.Text;
 using System;
-using Watermelon.List;
+using SquadCommand.List;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class LevelsHandler
     {

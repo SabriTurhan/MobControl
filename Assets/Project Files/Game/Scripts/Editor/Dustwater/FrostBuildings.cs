@@ -1,7 +1,7 @@
 using UnityEngine;
-using static Watermelon.Dustwater.DustwaterBuildings;
+using static SquadCommand.Dustwater.DustwaterBuildings;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Act 2 (Frostpeak) town pieces and scenery: log cabins under snow, pines, icy rocks, mountains,
     // the White Wolves' camps and fortress walls. Same conventions as DustwaterBuildings (front faces -z).

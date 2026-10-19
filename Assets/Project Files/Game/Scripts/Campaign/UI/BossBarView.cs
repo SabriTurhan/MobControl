@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // Big boss health bar at the top of the screen while a boss is alive in the level
     public class BossBarView

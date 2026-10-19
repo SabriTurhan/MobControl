@@ -65,7 +65,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c64a1d5db1cd14f068c79bc5d821fb37, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.EnemySight
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.EnemySight
   enemy: {fileID: 4253703197310556174}
 --- !u!1 &8199917266700766233
 GameObject:

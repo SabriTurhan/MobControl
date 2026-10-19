@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // Sprites, fonts and colours of the template UI used by the Dustwater screens
     [CreateAssetMenu(fileName = "Dustwater UI Style", menuName = "Data/Campaign/UI Style")]

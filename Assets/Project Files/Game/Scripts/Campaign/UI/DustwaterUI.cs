@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     /// <summary>
     /// Root of the Dustwater campaign screens: hub tabs (Town / Squad / Battle), operation briefing,
@@ -106,6 +106,13 @@ namespace Watermelon
             UIMainMenu.Hidden += OnMainMenuHidden;
             Campaign.OnChanged += Refresh;
             Loc.OnLanguageChanged += OnLanguageChanged;
+        }
+
+        // the first level can finish loading after the hub is shown: refill the mission card once it is there
+        private void Update()
+        {
+            if (Hub != null && Hub.IsVisible && LevelController.LevelData != null && Hub.ShownLevel != LevelController.LevelData)
+                Hub.Refresh();
         }
 
         // every view builds its labels once: rebuild the whole UI in the new language

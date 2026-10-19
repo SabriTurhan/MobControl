@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class SettingsPrivacyButton : SettingsButtonBase
     {

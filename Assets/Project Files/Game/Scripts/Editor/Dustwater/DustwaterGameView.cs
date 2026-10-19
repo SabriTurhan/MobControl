@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // QA helper: switches the Game view to a fixed resolution (adds it to the current platform's size list)
     public static class DustwaterGameView

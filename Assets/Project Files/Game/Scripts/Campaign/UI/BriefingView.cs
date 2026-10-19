@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // Operation briefing: mission intel (threats, boss), squad slots and weapon card, then DEPLOY
     public class BriefingView

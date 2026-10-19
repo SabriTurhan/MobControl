@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // Squad tab: every unit and weapon card, copies progress, level-up, and a detail popup
     public class CardsView

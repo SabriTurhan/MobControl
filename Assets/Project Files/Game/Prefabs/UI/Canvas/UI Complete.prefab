@@ -384,7 +384,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.no_thanks
 --- !u!1 &3755890054171580157
 GameObject:
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.get_x3
 --- !u!1 &3896966790417259653
 GameObject:
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.complete_top
 --- !u!1 &3896966790664334456
 GameObject:
@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.complete_bottom
 --- !u!1001 &2404065116754490644
 PrefabInstance:

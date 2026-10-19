@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using Watermelon;
+using SquadCommand;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [System.Serializable]
     public class CustomDropItem : IDropItem

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
-namespace Watermelon.LevelEditor
+namespace SquadCommand.LevelEditor
 {
     [CreateAssetMenu(fileName = "Levels Generator Database", menuName = "Data/Level System/Levels Generator Database")]
     public class LevelGeneratorDatabase : ScriptableObject

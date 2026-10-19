@@ -2,9 +2,9 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using static Watermelon.Dustwater.DustwaterTownBuilder;
+using static SquadCommand.Dustwater.DustwaterTownBuilder;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Act 2 art: Frostpeak pieces, the snow road, seven winter road environments (one per chapter) on a
     // snow ground, and the Frostpeak diorama for the Town tab (DustwaterTownView with act = 1).

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     /// <summary>
     /// Marks a chapter boss: shows the big health bar while the boss is alive in the level.

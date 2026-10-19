@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // Town tab: the 3D town of Dustwater on top, the building list below
     public class TownView

@@ -2,7 +2,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // New uniform colours for soldier_atlas.png. The template soldiers use 64px wide columns (0 = red team,
     // 1 = blue team) with a vertical gradient over the top 512px; the area x 384-767 is empty, so new team

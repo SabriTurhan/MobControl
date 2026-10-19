@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class UILevelNumberText : MonoBehaviour

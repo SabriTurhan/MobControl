@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Low-poly props and weapons for the new units, built in the local space of the bone/gun they attach to.
     // Head props: origin = Head bone, head (with helmet) is a ~0.46m ball centred at y 0.22, face looks +z.

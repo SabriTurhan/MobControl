@@ -5,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     /// <summary>
     /// QA: walks through every screen and saves screenshots to Temp/QA/{tag}_{screen}.png.

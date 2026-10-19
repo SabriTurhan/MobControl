@@ -1,6 +1,6 @@
 ﻿using UnityEngine.EventSystems;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class SettingsRestoreButton : SettingsButtonBase
     {

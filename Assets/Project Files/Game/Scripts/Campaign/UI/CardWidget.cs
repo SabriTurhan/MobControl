@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // Commander card: rarity-coloured frame, portrait, level badge, copies bar and name strip
     public static class CardWidget

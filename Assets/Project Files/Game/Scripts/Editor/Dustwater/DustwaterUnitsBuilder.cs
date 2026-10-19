@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Builds the new units, weapons, enemies, bosses and level props as prefab variants of the template prefabs,
     // so they keep the template behaviours, animators, particles and health bars.

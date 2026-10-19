@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [ExecuteInEditMode]
     public class SavableGate : AbstractSavable, IEquatable<SavableGate>

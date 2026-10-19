@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.store
 --- !u!1 &8572323383115531981
 GameObject:
@@ -1372,7 +1372,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.starter_pack
 --- !u!224 &8303433819623793566 stripped
 RectTransform:
@@ -2225,5 +2225,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.no_ads

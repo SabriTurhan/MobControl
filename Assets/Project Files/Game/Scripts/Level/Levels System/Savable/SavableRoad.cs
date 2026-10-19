@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class SavableRoad : AbstractSavable, IEquatable<SavableRoad>
     {

@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class ObstacleBehavior : OppositeMover, ITargetable, ILevelInitable, IClearable
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     /// <summary>
     /// Medic card: restores health to every squad member over time.

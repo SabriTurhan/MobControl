@@ -1,4 +1,4 @@
-﻿namespace Watermelon
+﻿namespace SquadCommand
 {
     public enum DropFallingStyle
     {

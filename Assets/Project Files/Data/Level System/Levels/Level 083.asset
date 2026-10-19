@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c615044c00c70fd4487244b98279f25e, type: 3}
   m_Name: Level 083
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LevelData
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LevelData
   note: 'Mission 83: Pack Barracks'
   movementMode: 1
   cameraDataId: desert_camera

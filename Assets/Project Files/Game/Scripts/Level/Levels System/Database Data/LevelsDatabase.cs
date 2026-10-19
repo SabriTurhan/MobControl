@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [CreateAssetMenu(fileName = "Levels Database", menuName = "Data/Level System/Levels Database")]
     public class LevelsDatabase : ScriptableObject

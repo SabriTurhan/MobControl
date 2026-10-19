@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [ExecuteInEditMode]
     public class SavableBooster : AbstractSavable, IEquatable<SavableBooster>

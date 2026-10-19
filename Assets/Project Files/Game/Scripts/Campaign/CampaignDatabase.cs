@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [CreateAssetMenu(fileName = "Campaign Database", menuName = "Data/Campaign/Campaign Database")]
     public class CampaignDatabase : ScriptableObject

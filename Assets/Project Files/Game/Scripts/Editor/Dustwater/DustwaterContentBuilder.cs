@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Registers the Dustwater content in the template databases (guns, characters, enemies, obstacles,
     // Supplies currency, particles) and writes the Campaign Database (cards, buildings, chapters, threats).
@@ -237,7 +237,7 @@ namespace Watermelon.Dustwater
 
             const string GU = "Assets/Project Files/Game/Images/Base/General UI/";
             const string ST = "Assets/Project Files/Game/Images/Base/Store/";
-            const string CO = "Assets/Watermelon Core/Core Resources/Images/";
+            const string CO = "Assets/Game Core/Core Resources/Images/";
             const string FONTS = "Assets/Project Files/Game/Fonts/FredokaOne/FredokaOne 50/";
 
             // the SDF version (localization builder) when present: outline presets also apply to fallback glyphs

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     /// <summary>
     /// Long trigger in front of an enemy (bandit snipers, bosses): starts shooting as soon as a squad member

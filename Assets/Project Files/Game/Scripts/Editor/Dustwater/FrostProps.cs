@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Act 2 (Frostpeak) props and weapons. Same conventions as DustwaterProps: head props around the Head
     // bone (head ball ~0.46m at y 0.22, face +z), back props on Spine2, guns +z forward.

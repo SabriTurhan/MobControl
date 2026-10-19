@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Town art: building prefabs, the three road environments (Outskirts / Main Street / Scorpion Fort)
     // and the 3D town diorama shown in the Town tab and the intro cinematic.

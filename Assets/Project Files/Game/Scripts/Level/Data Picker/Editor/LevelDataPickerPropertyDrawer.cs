@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [CustomPropertyDrawer(typeof(LevelDataPickerAttribute))]
     public class LevelDataPickerPropertyDrawer : PropertyDrawer

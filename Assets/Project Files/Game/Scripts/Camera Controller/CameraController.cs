@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [DefaultExecutionOrder(100)]
     public sealed class CameraController : MonoBehaviour, ISceneSavingCallback

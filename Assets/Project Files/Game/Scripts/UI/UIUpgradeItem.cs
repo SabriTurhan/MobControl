@@ -4,9 +4,9 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using Watermelon.Upgrades;
+using SquadCommand.Upgrades;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class UIUpgradeItem : MonoBehaviour
     {

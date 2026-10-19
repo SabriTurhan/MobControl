@@ -363,7 +363,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7392a4c850ff347969bae3d26d9e08ae, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LanguageSettingsButton
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LanguageSettingsButton
   label: {fileID: 692905615986027802}
 --- !u!1 &1396025945474950115
 GameObject:
@@ -592,7 +592,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.vibration
 --- !u!1 &2253245938677513238
 GameObject:
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.music
 --- !u!1 &2310266358082018896
 GameObject:
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.privacy
 --- !u!1 &3469591908370148368
 GameObject:
@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.restore
 --- !u!1 &4676375652299475404
 GameObject:
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.terms
 --- !u!1 &5735380326141273878
 GameObject:
@@ -2297,7 +2297,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.sound
 --- !u!1 &7260974888688621052
 GameObject:
@@ -2660,7 +2660,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: ui.settings
 --- !u!1 &8337078317367463567
 GameObject:

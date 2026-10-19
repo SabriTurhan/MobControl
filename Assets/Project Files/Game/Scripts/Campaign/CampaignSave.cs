@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [System.Serializable]
     public class CardSave

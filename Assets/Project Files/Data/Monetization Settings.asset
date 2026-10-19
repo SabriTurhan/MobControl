@@ -35,24 +35,24 @@ MonoBehaviour:
   useFakeStore: 0
   fakeStoreMode: 0
   storeItems:
-  - androidID: com.example.game.pack
-    iOSID: com.example.game.pack
+  - androidID: com.valoniasstudio.squadcommand.pack
+    iOSID: com.valoniasstudio.squadcommand.pack
     productKeyType: 1
     productType: 1
-  - androidID: com.example.game.noads
-    iOSID: com.example.game.noads
+  - androidID: com.valoniasstudio.squadcommand.noads
+    iOSID: com.valoniasstudio.squadcommand.noads
     productKeyType: 0
     productType: 1
-  - androidID: com.example.game.gold.big
-    iOSID: com.example.game.gold.big
+  - androidID: com.valoniasstudio.squadcommand.gold.big
+    iOSID: com.valoniasstudio.squadcommand.gold.big
     productKeyType: 4
     productType: 0
-  - androidID: com.example.game.gold.medium
-    iOSID: com.example.game.gold.medium
+  - androidID: com.valoniasstudio.squadcommand.gold.medium
+    iOSID: com.valoniasstudio.squadcommand.gold.medium
     productKeyType: 3
     productType: 0
-  - androidID: com.example.game.gold.small
-    iOSID: com.example.game.gold.small
+  - androidID: com.valoniasstudio.squadcommand.gold.small
+    iOSID: com.valoniasstudio.squadcommand.gold.small
     productKeyType: 2
     productType: 0
 --- !u!114 &8776500053356020737

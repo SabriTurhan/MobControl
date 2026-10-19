@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Renders card portraits and UI icons in the style of the template's gate icons (Images/Base/Gates):
     // front-facing bust, blank face, soft toon light, thick dark outline, transparent background.
@@ -163,7 +163,7 @@ namespace Watermelon.Dustwater
         }
 
         // Idle frame instead of the bind T-pose
-        private static void Pose(GameObject instance)
+        internal static void Pose(GameObject instance)
         {
             Animator animator = instance.GetComponentInChildren<Animator>();
             if (animator == null || animator.runtimeAnimatorController == null) return;

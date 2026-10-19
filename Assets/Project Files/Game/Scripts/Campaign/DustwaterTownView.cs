@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Watermelon
+namespace SquadCommand
 {
     /// <summary>
     /// The 3D town of Dustwater behind the Town tab. Each plot shows a bandit camp while its district is

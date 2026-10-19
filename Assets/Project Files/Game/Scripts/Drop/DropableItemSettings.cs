@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [CreateAssetMenu(fileName = "Dropable Item Settings", menuName = "Data/Dropable Item Settings")]
     public class DropableItemSettings : ScriptableObject

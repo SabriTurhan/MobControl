@@ -1,4 +1,4 @@
-﻿namespace Watermelon
+﻿namespace SquadCommand
 {
     // note add here only reusable items
     // to drop a custom item please use DropableItemSettings.Drop(IDropableItem item...)

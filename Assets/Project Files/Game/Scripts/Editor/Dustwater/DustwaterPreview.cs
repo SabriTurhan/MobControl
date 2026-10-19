@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Review helper: renders prefabs/objects into one contact sheet PNG (used while building art, not by the game)
     public static class DustwaterPreview

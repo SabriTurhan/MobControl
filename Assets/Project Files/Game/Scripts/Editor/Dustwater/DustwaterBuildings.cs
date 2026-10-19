@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Low-poly western town pieces in the toy style of the template (chunky bevels, flat palette colours).
     // Units: metres, y up, the front of every building faces -z (towards the town camera / the road).

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 630b4fdeef09b4e60816057d141ce6c3, type: 3}
   m_Name: Dustwater UI Style
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.DustwaterUIStyle
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.DustwaterUIStyle
   font: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
   fontOutline: {fileID: 11400000, guid: a4fa7bc025f894f06a8b422c2f3aa08c, type: 2}
   fontMaterial: {fileID: 2100000, guid: f53ad44e6d80d4eaa86b7135bd52c7e9, type: 2}

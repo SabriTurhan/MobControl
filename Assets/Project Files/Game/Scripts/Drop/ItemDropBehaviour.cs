@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // basic drop item without any special behaviour
     // override this class to add extra data fields

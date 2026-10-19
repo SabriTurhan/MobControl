@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c64a1d5db1cd14f068c79bc5d821fb37, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.EnemySight
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.EnemySight
   enemy: {fileID: 267844394562360866}
 --- !u!1001 &6893909997817508415
 PrefabInstance:
@@ -628,7 +628,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e99de3805f7a046aea031afa1d2e3d41, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.BossBehavior
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.BossBehavior
   bossName: BOSS VEX
   enemy: {fileID: 267844394562360866}
   engageDistance: 12

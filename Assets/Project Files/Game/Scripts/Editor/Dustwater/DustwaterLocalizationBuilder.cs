@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.TextCore.LowLevel;
 using UnityEngine.UI;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Localization setup:
     // 1. Fonts: Fredoka One's static atlases only hold ASCII. Two dynamic fallbacks are added to every Fredoka
@@ -239,7 +239,7 @@ namespace Watermelon.Dustwater
                 }
             };
 
-            foreach (string guid in AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/Project Files", "Assets/Watermelon Core" }))
+            foreach (string guid in AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/Project Files", "Assets/Game Core" }))
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
                 GameObject asset = AssetDatabase.LoadAssetAtPath<GameObject>(path);

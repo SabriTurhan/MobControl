@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [System.Serializable]
     public class EnvironmentData : AbstractData

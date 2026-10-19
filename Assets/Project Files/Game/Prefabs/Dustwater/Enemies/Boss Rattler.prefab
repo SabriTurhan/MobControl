@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c64a1d5db1cd14f068c79bc5d821fb37, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.EnemySight
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.EnemySight
   enemy: {fileID: 4805779244710959030}
 --- !u!1001 &2209591014268875691
 PrefabInstance:
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e99de3805f7a046aea031afa1d2e3d41, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.BossBehavior
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.BossBehavior
   bossName: LIEUTENANT RATTLER
   enemy: {fileID: 4805779244710959030}
   engageDistance: 12

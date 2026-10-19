@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // After a mission: the chest opens and reveals the commander card, plus the Supplies collected on the road
     public class RewardView

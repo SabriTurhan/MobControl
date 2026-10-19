@@ -1,4 +1,4 @@
-﻿namespace Watermelon
+﻿namespace SquadCommand
 {
     [System.Serializable]
     public class CameraBlendData

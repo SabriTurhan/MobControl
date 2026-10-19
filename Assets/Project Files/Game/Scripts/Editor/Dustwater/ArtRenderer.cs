@@ -5,7 +5,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Renders menu art (weapon card icons, character portraits, world previews) in the style of the template:
     // icons get a dark rim plus a thick white outline, portraits fade out at the bottom, locked portraits are
@@ -17,9 +17,11 @@ namespace Watermelon.Dustwater
         private readonly Scene scene;
         private readonly Camera camera;
         private readonly RenderTexture target;
+        private readonly int size;
 
-        public ArtRenderer(Color background)
+        public ArtRenderer(Color background, int size = SIZE)
         {
+            this.size = size;
             scene = EditorSceneManager.NewPreviewScene();
 
             GameObject lightObject = new GameObject("Light");
@@ -40,7 +42,7 @@ namespace Watermelon.Dustwater
             SceneManager.MoveGameObjectToScene(cameraObject, scene);
 
             // rendered at twice the size and filtered down instead of MSAA (MSAA breaks preview-scene renders in URP)
-            target = new RenderTexture(SIZE * 2, SIZE * 2, 24, RenderTextureFormat.ARGB32);
+            target = new RenderTexture(size * 2, size * 2, 24, RenderTextureFormat.ARGB32);
         }
 
         public GameObject Spawn(GameObject prefab)
@@ -88,13 +90,13 @@ namespace Watermelon.Dustwater
             camera.Render();
             camera.targetTexture = null;
 
-            RenderTexture small = RenderTexture.GetTemporary(SIZE, SIZE, 0, RenderTextureFormat.ARGB32);
+            RenderTexture small = RenderTexture.GetTemporary(size, size, 0, RenderTextureFormat.ARGB32);
             target.filterMode = FilterMode.Bilinear;
             Graphics.Blit(target, small);
 
             RenderTexture.active = small;
-            Texture2D texture = new Texture2D(SIZE, SIZE, TextureFormat.RGBA32, false);
-            texture.ReadPixels(new Rect(0, 0, SIZE, SIZE), 0, 0);
+            Texture2D texture = new Texture2D(size, size, TextureFormat.RGBA32, false);
+            texture.ReadPixels(new Rect(0, 0, size, size), 0, 0);
             texture.Apply();
             RenderTexture.active = null;
             RenderTexture.ReleaseTemporary(small);

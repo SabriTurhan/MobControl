@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using System.Linq;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public static class EditorLevelDataPicker
     {

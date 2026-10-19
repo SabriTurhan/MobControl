@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     /// <summary>
     /// Shows the translation of <see cref="key"/> on the TMP text of this object and follows language changes.

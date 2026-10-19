@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Watermelon.IAPStore;
+using SquadCommand.IAPStore;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class UIMainMenu : UIPage
     {

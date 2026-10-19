@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class HealthBehavior : MonoBehaviour, IHealth
     {

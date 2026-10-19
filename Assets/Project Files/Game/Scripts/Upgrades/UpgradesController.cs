@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace Watermelon
+namespace SquadCommand
 {
     using Upgrades;
 

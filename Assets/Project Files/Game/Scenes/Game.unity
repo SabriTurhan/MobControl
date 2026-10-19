@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e20459e624ba64a7aa368a800f5f7b94, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.DustwaterTownView
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.DustwaterTownView
   act: 0
   townCamera: {fileID: 1809409860}
   cameraPivot: {fileID: 1908533159}
@@ -5138,7 +5138,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9fd7b75fa68f45ffb3b5891cc63796b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.DustwaterIntroPlayer
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.DustwaterIntroPlayer
   town: {fileID: 266939406}
   banditActor: {fileID: 5778954552914761454, guid: b11c9be28745945f2984084a25d18d37,
     type: 3}
@@ -7372,7 +7372,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 935f077515285469ca7c3152c59047b2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.CampaignController
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.CampaignController
   database: {fileID: 11400000, guid: e3b68857d66a4475c8391c0becfd70b2, type: 2}
   uiStyle: {fileID: 11400000, guid: 0c2d0f6190800467e88839ccc284940c, type: 2}
 --- !u!1001 &1080790593
@@ -13724,7 +13724,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e20459e624ba64a7aa368a800f5f7b94, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.DustwaterTownView
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.DustwaterTownView
   act: 1
   townCamera: {fileID: 1840873072}
   cameraPivot: {fileID: 113935054}

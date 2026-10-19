@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     [CreateAssetMenu(fileName = "Movement Mode Database", menuName = "Data/Movement/Database")]
     public class MovementModeDatabase : ScriptableObject

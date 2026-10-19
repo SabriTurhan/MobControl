@@ -1,10 +1,10 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Watermelon;
+using SquadCommand;
 using System.Collections.Generic;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class HealthbarBehaviour : MonoBehaviour
     {

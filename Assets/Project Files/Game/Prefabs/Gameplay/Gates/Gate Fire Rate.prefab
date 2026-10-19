@@ -138,5 +138,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7746e2029ef342b887dc3e98240b580, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.LocalizedText
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.LocalizedText
   key: gate.fire_rate

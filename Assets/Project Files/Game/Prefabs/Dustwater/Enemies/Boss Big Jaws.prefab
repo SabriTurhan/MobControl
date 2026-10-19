@@ -65,7 +65,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c64a1d5db1cd14f068c79bc5d821fb37, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.EnemySight
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.EnemySight
   enemy: {fileID: 3041382100371347083}
 --- !u!1 &1345325187392095030
 GameObject:
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e99de3805f7a046aea031afa1d2e3d41, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Watermelon.BossBehavior
+  m_EditorClassIdentifier: Assembly-CSharp::SquadCommand.BossBehavior
   bossName: BIG JAWS
   enemy: {fileID: 3041382100371347083}
   engageDistance: 12

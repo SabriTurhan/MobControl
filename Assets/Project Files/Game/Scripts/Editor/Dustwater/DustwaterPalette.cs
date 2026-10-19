@@ -2,7 +2,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Generates the palette atlas used by every new Dustwater mesh and the two materials that read it
     // (copies of the template's Environment/Soldiers URP materials, so lighting, toon ramp and rim match).

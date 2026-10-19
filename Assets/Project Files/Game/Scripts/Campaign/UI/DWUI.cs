@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // Small runtime UI kit for the Dustwater screens (template sprites + Fredoka fonts, 1080x1920 reference)
     public static class DWUI

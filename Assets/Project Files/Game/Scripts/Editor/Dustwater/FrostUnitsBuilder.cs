@@ -1,9 +1,9 @@
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using static Watermelon.Dustwater.DustwaterUnitsBuilder;
+using static SquadCommand.Dustwater.DustwaterUnitsBuilder;
 
-namespace Watermelon.Dustwater
+namespace SquadCommand.Dustwater
 {
     // Act 2 (Frostpeak) units: Pyro / Guardian / Scout cards, the Burst Rifle and Rocket Launcher weapon
     // cards, the White Wolves (wolf, wolf heavy, wolf sniper), seven bosses and the icy obstacles.

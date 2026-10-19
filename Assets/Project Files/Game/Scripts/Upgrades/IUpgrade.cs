@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon.Upgrades
+namespace SquadCommand.Upgrades
 {
     public interface IUpgrade
     {

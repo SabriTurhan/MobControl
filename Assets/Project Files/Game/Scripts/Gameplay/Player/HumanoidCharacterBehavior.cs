@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class HumanoidCharacterBehavior : CharacterBehavior
     {

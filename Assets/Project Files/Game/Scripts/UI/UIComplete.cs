@@ -4,9 +4,9 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Watermelon.IAPStore;
+using SquadCommand.IAPStore;
 
-namespace Watermelon
+namespace SquadCommand
 {
     public class UIComplete : UIPage
     {

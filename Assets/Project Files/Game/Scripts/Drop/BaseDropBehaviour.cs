@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Watermelon
+namespace SquadCommand
 {
     // use ItemDropBehaviour if you DON'T NEED any special behaviour for the item
     // inherit this class to implement a unique behaviour 

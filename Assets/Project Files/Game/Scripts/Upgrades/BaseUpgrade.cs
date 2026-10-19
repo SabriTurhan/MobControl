@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Watermelon.Upgrades
+namespace SquadCommand.Upgrades
 {
     public abstract class BaseUpgrade : ScriptableObject, IUpgrade
     {
